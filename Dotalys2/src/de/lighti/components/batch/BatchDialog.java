@@ -16,6 +16,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
@@ -44,336 +46,344 @@ import de.lighti.model.AppState;
 import de.lighti.model.game.Player;
 
 public class BatchDialog extends JDialog {
-	public static void main(String[] args) {
-		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		} catch (final Exception e) {
-			// Don't care
-		}
-		final BatchDialog d = new BatchDialog(null);
-		d.addWindowListener(new WindowAdapter() {
+    public static void main( String[] args ) {
+        try {
+            UIManager.setLookAndFeel( UIManager.getSystemLookAndFeelClassName() );
+        }
+        catch (final Exception e) {
+            // Don't care
+        }
+        final BatchDialog d = new BatchDialog( null );
+        d.addWindowListener( new WindowAdapter() {
 
-			@Override
-			public void windowClosed(WindowEvent e) {
+            @Override
+            public void windowClosed( WindowEvent e ) {
 
-				super.windowClosed(e);
+                super.windowClosed( e );
 
-				System.exit(0);
-			}
+                System.exit( 0 );
+            }
 
-		});
-		d.setVisible(true);
-	}
+        } );
+        d.setVisible( true );
+    }
 
-	private JList<File> fileList;
+    private JList<File> fileList;
 
-	private CheckBoxList propertyList;
+    private CheckBoxList propertyList;
 
-	private JButton okButton;
+    private JButton okButton;
 
-	private JTextField savePathField;
+    private JTextField savePathField;
 
-	/**
+    /**
      * 
      */
-	private static final long serialVersionUID = 7655122816807766787L;
+    private static final long serialVersionUID = 7655122816807766787L;
 
-	public BatchDialog(JFrame parent) {
-		super(parent, "Batch export");
-		setPreferredSize(new Dimension(800, 600));
-		setResizable(false);
-		setLayout(new GridLayout(1, 1, 10, 10));
-		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		setModal(true);
-		getContentPane().add(createFilePanel());
-		getContentPane().add(createPropertyOkButtonPanel());
+    private static final Pattern PATTERN = Pattern.compile( "[^A-Za-z0-9_]" );
 
-		pack();
-	}
+    private static final int MAX_LENGTH = 127;
 
-	private Component createFilePanel() {
+    private static String escapeUrlAsFilename( String url ) {
 
-		final JButton plusButton = new JButton("+");
-		plusButton.addActionListener(new ActionListener() {
+        final StringBuffer sb = new StringBuffer();
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				final JFileChooser chooser = new JFileChooser(new File("."));
-				chooser.setMultiSelectionEnabled(true);
-				chooser.setFileFilter(DataImporter.FILE_FILTER);
-				final int returnVal = chooser.showOpenDialog(BatchDialog.this);
-				if (returnVal == JFileChooser.APPROVE_OPTION) {
-					final DefaultListModel<File> model = (DefaultListModel<File>) getFileList()
-							.getModel();
-					for (final File f : chooser.getSelectedFiles()) {
+        // Apply the regex.
+        final Matcher m = PATTERN.matcher( url );
 
-						model.addElement(f);
-					}
-					validateInput();
-				}
-			}
-		});
-		final JButton minusButton = new JButton("-");
-		minusButton.addActionListener(new ActionListener() {
+        while (m.find()) {
+            m.appendReplacement( sb,
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				final DefaultListModel<File> model = (DefaultListModel<File>) getFileList()
-						.getModel();
+            // Convert matched character to percent-encoded.
+                            "%" + Integer.toHexString( m.group().charAt( 0 ) ).toUpperCase() );
+        }
+        m.appendTail( sb );
 
-				for (final File f : getFileList().getSelectedValuesList()) {
-					model.removeElement(f);
-				}
+        final String encoded = sb.toString();
 
-			}
-		});
+        // Truncate the string.
+        final int end = Math.min( encoded.length(), MAX_LENGTH );
+        return encoded.substring( 0, end );
+    }
 
-		final JPanel filePanel = new JPanel();
+    public BatchDialog( JFrame parent ) {
+        super( parent, "Batch export" );
+        setPreferredSize( new Dimension( 800, 600 ) );
+        setResizable( false );
+        setLayout( new GridLayout( 1, 1, 10, 10 ) );
+        setDefaultCloseOperation( DISPOSE_ON_CLOSE );
+        setModal( true );
+        getContentPane().add( createFilePanel() );
+        getContentPane().add( createPropertyOkButtonPanel() );
 
-		filePanel.setLayout(new GridBagLayout());
-		GridBagConstraints c = new GridBagConstraints();
+        pack();
+    }
 
-		c.fill = GridBagConstraints.BOTH;
-		c.gridx = 0;
-		c.gridy = 0;
-		c.weighty = 1.0;
-		c.weightx = 1.0;
-		c.gridwidth = 2;
-		c.insets = new Insets(10, 10, 10, 10);
-		filePanel.add(getFileList(), c);
+    private Component createFilePanel() {
 
-		c = new GridBagConstraints();
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_END;
-		c.gridx = 0;
-		c.gridy = 1;
-		c.weightx = 0.5;
-		filePanel.add(plusButton, c);
-		c = new GridBagConstraints();
-		c.fill = GridBagConstraints.NONE;
-		c.anchor = GridBagConstraints.LINE_START;
-		c.gridx = 1;
-		c.gridy = 1;
-		c.weightx = 0.5;
-		filePanel.add(minusButton, c);
+        final JButton plusButton = new JButton( "+" );
+        plusButton.addActionListener( new ActionListener() {
 
-		return filePanel;
-	}
+            @Override
+            public void actionPerformed( ActionEvent e ) {
+                final JFileChooser chooser = new JFileChooser( new File( "." ) );
+                chooser.setMultiSelectionEnabled( true );
+                chooser.setFileFilter( DataImporter.FILE_FILTER );
+                final int returnVal = chooser.showOpenDialog( BatchDialog.this );
+                if (returnVal == JFileChooser.APPROVE_OPTION) {
+                    final DefaultListModel<File> model = (DefaultListModel<File>) getFileList().getModel();
+                    for (final File f : chooser.getSelectedFiles()) {
 
-	private JPanel createPropertyOkButtonPanel() {
-		final JPanel propertyOkButtonPanel = new JPanel();
-		propertyOkButtonPanel.setLayout(new GridBagLayout());
-		GridBagConstraints c = new GridBagConstraints();
+                        model.addElement( f );
+                    }
+                    validateInput();
+                }
+            }
+        } );
+        final JButton minusButton = new JButton( "-" );
+        minusButton.addActionListener( new ActionListener() {
 
-		c.fill = GridBagConstraints.BOTH;
-		c.gridx = 0;
-		c.gridy = 0;
-		c.weighty = 1.0;
-		c.weightx = 1.0;
-		c.gridwidth = 1;
-		c.insets = new Insets(10, 10, 10, 10);
-		propertyOkButtonPanel.add(getPropertyList(), c);
+            @Override
+            public void actionPerformed( ActionEvent e ) {
+                final DefaultListModel<File> model = (DefaultListModel<File>) getFileList().getModel();
 
-		c = new GridBagConstraints();
-		c.fill = GridBagConstraints.BOTH;
-		c.gridx = 0;
-		c.gridy = 1;
-		c.weighty = 0.0;
-		c.weightx = 0.0;
-		c.gridwidth = 1;
-		c.insets = new Insets(10, 10, 10, 10);
-		propertyOkButtonPanel.add(createSavePathPanel(), c);
+                for (final File f : getFileList().getSelectedValuesList()) {
+                    model.removeElement( f );
+                }
 
-		c = new GridBagConstraints();
-		c.fill = GridBagConstraints.VERTICAL;
-		c.gridx = 0;
-		c.gridy = 2;
-		c.weighty = 0.0;
-		c.weightx = 0.0;
-		c.gridwidth = 1;
-		c.insets = new Insets(10, 10, 10, 10);
-		propertyOkButtonPanel.add(getOkButton(), c);
-		return propertyOkButtonPanel;
-	}
+            }
+        } );
 
-	private JPanel createSavePathPanel() {
-		final JPanel savePathPanel = new JPanel();
-		final JLabel label = new JLabel("Save to");
-		final JTextField savePathField = getSavePathField();
-		final JButton button = new JButton("Browse...");
+        final JPanel filePanel = new JPanel();
 
-		button.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent evt) {
-				final JFileChooser chooser = new JFileChooser();
-				chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-				final int retVal = chooser.showSaveDialog(BatchDialog.this);
-				if (retVal == JFileChooser.APPROVE_OPTION) {
-					savePathField.setText(chooser.getSelectedFile()
-							.getAbsolutePath());
-				}
-			}
-		});
-		savePathPanel.add(label);
-		savePathPanel.add(savePathField);
-		savePathPanel.add(button);
-		return savePathPanel;
-	}
+        filePanel.setLayout( new GridBagLayout() );
+        GridBagConstraints c = new GridBagConstraints();
 
-	private void export() {
-		final File dir = new File(getSavePathField().getText());
-		if (!dir.exists() || !dir.isDirectory()) {
-			handleError(dir.getAbsolutePath() + " is not a writable directory");
-			return;
-		}
+        c.fill = GridBagConstraints.BOTH;
+        c.gridx = 0;
+        c.gridy = 0;
+        c.weighty = 1.0;
+        c.weightx = 1.0;
+        c.gridwidth = 2;
+        c.insets = new Insets( 10, 10, 10, 10 );
+        filePanel.add( getFileList(), c );
 
-		final Enumeration<File> fileList = ((DefaultListModel<File>) getFileList()
-				.getModel()).elements();
-		final List<CheckBoxListEntry> properties = getPropertyList()
-				.getSelectedValuesList();
+        c = new GridBagConstraints();
+        c.fill = GridBagConstraints.NONE;
+        c.anchor = GridBagConstraints.LINE_END;
+        c.gridx = 0;
+        c.gridy = 1;
+        c.weightx = 0.5;
+        filePanel.add( plusButton, c );
+        c = new GridBagConstraints();
+        c.fill = GridBagConstraints.NONE;
+        c.anchor = GridBagConstraints.LINE_START;
+        c.gridx = 1;
+        c.gridy = 1;
+        c.weightx = 0.5;
+        filePanel.add( minusButton, c );
 
-		final ProgressDialog pd = new ProgressDialog(BatchDialog.this);
-		pd.setMaximum(10 * properties.size()
-				* ((DefaultListModel<File>) getFileList().getModel()).getSize());
+        return filePanel;
+    }
 
-		final Thread t = new Thread(new Runnable() {
+    private JPanel createPropertyOkButtonPanel() {
+        final JPanel propertyOkButtonPanel = new JPanel();
+        propertyOkButtonPanel.setLayout( new GridBagLayout() );
+        GridBagConstraints c = new GridBagConstraints();
 
-			@Override
-			public void run() {
-				int progress = 0;
-				while (fileList.hasMoreElements()) {
-					final File f = fileList.nextElement();
-					final AppState state = new AppState();
-					DataImporter.parseFile(state, f);
-					for (final CheckBoxListEntry entry : properties) {
-						switch (entry.getValue()) {
-						case MapComponent.CAT_MOVEMENT:
-							try {
-								final String header = "#tickms, x , y";
-								for (final Player p : state.getPlayers()
-										.values()) {
-									if (p.getHero() == null) {
-										Logger.getLogger(BatchDialog.class)
-												.warning(
-														"Skipping player "
-																+ p.getName()
-																+ " because no hero was selected. Most likely a spectator");
-										continue;
-									}
-									final String[][] data = ChartCreator
-											.createMoveLog(p.getName(), state);
-									final File file = new File(dir
-											.getAbsolutePath()
-											+ "/"
-											+ f.getName().replace(".dem", "")
-											+ "_"
-											+ MapComponent.CAT_MOVEMENT
-											+ "_" + p.getName() + ".csv");
-									try {
-										DataExporter.exportCSV(file, header,
-												data);
-									} catch (final IOException e) {
-										handleError(e.getLocalizedMessage());
-									}
-								}
-							} catch (final Exception e) {
-								Main.displayException(e);
-							}
-							break;
-						default:
-							handleError("Unknown property " + entry.getName());
-							break;
-						}
-						progress++;
-						pd.setValue(progress);
-						pd.setVisible(false);
-					}
-				}
-			}
-		});
-		t.start();
-		pd.setVisible(true);
-	}
+        c.fill = GridBagConstraints.BOTH;
+        c.gridx = 0;
+        c.gridy = 0;
+        c.weighty = 1.0;
+        c.weightx = 1.0;
+        c.gridwidth = 1;
+        c.insets = new Insets( 10, 10, 10, 10 );
+        propertyOkButtonPanel.add( getPropertyList(), c );
 
-	private JList<File> getFileList() {
-		if (fileList == null) {
-			fileList = new JList<File>(new DefaultListModel<File>());
-			fileList.setBorder(BorderFactory.createLoweredBevelBorder());
-		}
+        c = new GridBagConstraints();
+        c.fill = GridBagConstraints.BOTH;
+        c.gridx = 0;
+        c.gridy = 1;
+        c.weighty = 0.0;
+        c.weightx = 0.0;
+        c.gridwidth = 1;
+        c.insets = new Insets( 10, 10, 10, 10 );
+        propertyOkButtonPanel.add( createSavePathPanel(), c );
 
-		return fileList;
-	}
+        c = new GridBagConstraints();
+        c.fill = GridBagConstraints.VERTICAL;
+        c.gridx = 0;
+        c.gridy = 2;
+        c.weighty = 0.0;
+        c.weightx = 0.0;
+        c.gridwidth = 1;
+        c.insets = new Insets( 10, 10, 10, 10 );
+        propertyOkButtonPanel.add( getOkButton(), c );
+        return propertyOkButtonPanel;
+    }
 
-	private JButton getOkButton() {
-		if (okButton == null) {
-			okButton = new JButton("Ok");
-			okButton.setEnabled(false);
-			okButton.addActionListener(new ActionListener() {
+    private JPanel createSavePathPanel() {
+        final JPanel savePathPanel = new JPanel();
+        final JLabel label = new JLabel( "Save to" );
+        final JTextField savePathField = getSavePathField();
+        final JButton button = new JButton( "Browse..." );
 
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					export();
+        button.addActionListener( new ActionListener() {
+            @Override
+            public void actionPerformed( ActionEvent evt ) {
+                final JFileChooser chooser = new JFileChooser();
+                chooser.setFileSelectionMode( JFileChooser.DIRECTORIES_ONLY );
+                final int retVal = chooser.showSaveDialog( BatchDialog.this );
+                if (retVal == JFileChooser.APPROVE_OPTION) {
+                    savePathField.setText( chooser.getSelectedFile().getAbsolutePath() );
+                }
+            }
+        } );
+        savePathPanel.add( label );
+        savePathPanel.add( savePathField );
+        savePathPanel.add( button );
+        return savePathPanel;
+    }
 
-				}
-			});
-		}
+    private void export() {
+        final File dir = new File( getSavePathField().getText() );
+        if (!dir.exists() || !dir.isDirectory()) {
+            handleError( dir.getAbsolutePath() + " is not a writable directory" );
+            return;
+        }
 
-		return okButton;
-	}
+        final Enumeration<File> fileList = ((DefaultListModel<File>) getFileList().getModel()).elements();
+        final List<CheckBoxListEntry> properties = getPropertyList().getSelectedValuesList();
 
-	private CheckBoxList getPropertyList() {
-		if (propertyList == null) {
-			propertyList = new CheckBoxList();
-			propertyList.setBorder(BorderFactory.createLoweredBevelBorder());
-			((DefaultListModel<CheckBoxListEntry>) propertyList.getModel())
-					.addElement(new CheckBoxListEntry(
-							MapComponent.CAT_MOVEMENT, false));
-			propertyList
-					.addPropertyChangeListener(new PropertyChangeListener() {
+        final ProgressDialog pd = new ProgressDialog( BatchDialog.this );
+        pd.setMaximum( 10 * properties.size() * ((DefaultListModel<File>) getFileList().getModel()).getSize() );
 
-						@Override
-						public void propertyChange(PropertyChangeEvent arg0) {
-							validateInput();
+        final Thread t = new Thread( new Runnable() {
 
-						}
-					});
-		}
-		return propertyList;
-	}
+            @Override
+            public void run() {
+                int progress = 0;
+                while (fileList.hasMoreElements()) {
+                    final File f = fileList.nextElement();
+                    final AppState state = new AppState();
+                    DataImporter.parseFile( state, f );
+                    for (final CheckBoxListEntry entry : properties) {
+                        switch (entry.getValue()) {
+                            case MapComponent.CAT_MOVEMENT:
+                                try {
+                                    final String header = "#tickms, x , y";
+                                    for (final Player p : state.getPlayers().values()) {
+                                        if (p.getHero() == null) {
+                                            Logger.getLogger( BatchDialog.class ).warning(
+                                                            "Skipping player " + p.getName() + " because no hero was selected. Most likely a spectator" );
+                                            continue;
+                                        }
+                                        final String[][] data = ChartCreator.createMoveLog( p.getName(), state );
+                                        final File file = new File( dir.getAbsolutePath() + "/" + f.getName().replace( ".dem", "" ) + "_"
+                                                        + MapComponent.CAT_MOVEMENT + "_" + escapeUrlAsFilename( p.getName() ) + ".csv" );
 
-	private JTextField getSavePathField() {
-		if (savePathField == null) {
-			savePathField = new JTextField(new File(".").getAbsolutePath(), 20);
-			savePathField.getDocument().addDocumentListener(
-					new DocumentListener() {
+                                        try {
+                                            DataExporter.exportCSV( file, header, data );
+                                        }
+                                        catch (final IOException e) {
+                                            handleError( e.getLocalizedMessage() );
+                                        }
+                                    }
+                                }
+                                catch (final Exception e) {
+                                    Main.displayException( e );
+                                }
+                                break;
+                            default:
+                                handleError( "Unknown property " + entry.getName() );
+                                break;
+                        }
+                        progress++;
+                        pd.setValue( progress );
+                        pd.setVisible( false );
+                    }
+                }
+            }
+        } );
+        t.start();
+        pd.setVisible( true );
+    }
 
-						@Override
-						public void changedUpdate(DocumentEvent e) {
-							validateInput();
-						}
+    private JList<File> getFileList() {
+        if (fileList == null) {
+            fileList = new JList<File>( new DefaultListModel<File>() );
+            fileList.setBorder( BorderFactory.createLoweredBevelBorder() );
+        }
 
-						@Override
-						public void insertUpdate(DocumentEvent e) {
-						}
+        return fileList;
+    }
 
-						@Override
-						public void removeUpdate(DocumentEvent e) {
-						}
-					});
-		}
-		return savePathField;
-	}
+    private JButton getOkButton() {
+        if (okButton == null) {
+            okButton = new JButton( "Ok" );
+            okButton.setEnabled( false );
+            okButton.addActionListener( new ActionListener() {
 
-	private void handleError(String error) {
-		JOptionPane.showMessageDialog(BatchDialog.this, error,
-				"An error has occured", JOptionPane.ERROR_MESSAGE);
-	}
+                @Override
+                public void actionPerformed( ActionEvent e ) {
+                    export();
 
-	private void validateInput() {
-		boolean ret = true;
-		ret &= getFileList().getModel().getSize() > 0;
-		ret &= !getPropertyList().getCheckedItems().isEmpty();
-		ret &= !getSavePathField().getText().isEmpty();
-		getOkButton().setEnabled(ret);
-	}
+                }
+            } );
+        }
+
+        return okButton;
+    }
+
+    private CheckBoxList getPropertyList() {
+        if (propertyList == null) {
+            propertyList = new CheckBoxList();
+            propertyList.setBorder( BorderFactory.createLoweredBevelBorder() );
+            ((DefaultListModel<CheckBoxListEntry>) propertyList.getModel()).addElement( new CheckBoxListEntry( MapComponent.CAT_MOVEMENT, false ) );
+            propertyList.addPropertyChangeListener( new PropertyChangeListener() {
+
+                @Override
+                public void propertyChange( PropertyChangeEvent arg0 ) {
+                    validateInput();
+
+                }
+            } );
+        }
+        return propertyList;
+    }
+
+    private JTextField getSavePathField() {
+        if (savePathField == null) {
+            savePathField = new JTextField( new File( "." ).getAbsolutePath(), 20 );
+            savePathField.getDocument().addDocumentListener( new DocumentListener() {
+
+                @Override
+                public void changedUpdate( DocumentEvent e ) {
+                    validateInput();
+                }
+
+                @Override
+                public void insertUpdate( DocumentEvent e ) {
+                }
+
+                @Override
+                public void removeUpdate( DocumentEvent e ) {
+                }
+            } );
+        }
+        return savePathField;
+    }
+
+    private void handleError( String error ) {
+        JOptionPane.showMessageDialog( BatchDialog.this, error, "An error has occured", JOptionPane.ERROR_MESSAGE );
+    }
+
+    private void validateInput() {
+        boolean ret = true;
+        ret &= getFileList().getModel().getSize() > 0;
+        ret &= !getPropertyList().getCheckedItems().isEmpty();
+        ret &= !getSavePathField().getText().isEmpty();
+        getOkButton().setEnabled( ret );
+    }
 }
