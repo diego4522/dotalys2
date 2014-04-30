@@ -82,7 +82,7 @@ public class Property<T> {
             final float value = stream.readBitsAsInt( prop.getNumBits() );
             float a = value;
 
-            float b = ((1 << prop.getNumBits()) - 1);
+            float b = (1 << prop.getNumBits()) - 1;
 
             a /= b;
 
@@ -101,7 +101,7 @@ public class Property<T> {
     private static float readFloatCellCoord( BitInputBuffer stream, FloatType type, int bits ) {
         final int value = stream.readBitsAsInt( bits );
 
-        if ((type == FloatType.FT_None) || (type == FloatType.FT_LowPrecision)) {
+        if (type == FloatType.FT_None || type == FloatType.FT_LowPrecision) {
             final boolean lp = type == FloatType.FT_LowPrecision;
 
             int second;
@@ -135,7 +135,7 @@ public class Property<T> {
 
             float f = value;
 
-            if ((value >>> 31) > 0) {
+            if (value >>> 31 > 0) {
                 f += 4.2949673e9f;
             }
 
@@ -153,7 +153,7 @@ public class Property<T> {
         float a = 0;
         float b = 0;
 
-        if ((first > 0) || (second > 0)) {
+        if (first > 0 || second > 0) {
             final int third = stream.readBitsAsInt( 1 );
 
             if (first > 0) {
@@ -188,13 +188,13 @@ public class Property<T> {
     private static float readFloatCoordMp( BitInputBuffer stream, FloatType type ) {
         int value;
 
-        if ((type == FloatType.FT_LowPrecision) || (type == FloatType.FT_None)) {
+        if (type == FloatType.FT_LowPrecision || type == FloatType.FT_None) {
             throw new UnsupportedOperationException();
         }
         else if (type == FloatType.FT_Integral) {
             int a = stream.readBitsAsInt( 1 );
             final int b = stream.readBitsAsInt( 1 );
-            a = a + (2 * b);
+            a = a + 2 * b;
 
             if (b == 0) {
                 return 0;
@@ -229,7 +229,7 @@ public class Property<T> {
 
         float f = second;
 
-        if ((second >>> 31) > 0) {
+        if (second >>> 31 > 0) {
             f += 4.2949673e9f;
         }
 
@@ -251,12 +251,12 @@ public class Property<T> {
             }
             else {
                 final int value = stream.readVar35();
-                return (-(value & 1)) ^ (value >> 1);
+                return -(value & 1) ^ value >> 1;
             }
         }
         else {
             int value = stream.readBitsAsInt( prop.getNumBits() );
-            final int signer = (0x80000000 >> (32 - prop.getNumBits())) & ((prop.getFlags() & SP_Flags.SP_Unsigned.getId()) - 1);
+            final int signer = 0x80000000 >> 32 - prop.getNumBits() & (prop.getFlags() & SP_Flags.SP_Unsigned.getId()) - 1;
 
             value = value ^ signer;
             return value - signer;
@@ -266,7 +266,13 @@ public class Property<T> {
 
     private static long readLong( BitInputBuffer stream, SendProp prop ) {
         if ((SP_Flags.SP_EncodedAgainstTickcount.getId() & prop.getFlags()) > 0) {
-            throw new UnsupportedOperationException();
+            if ((prop.getFlags() & SP_Flags.SP_Unsigned.getId()) > 0) {
+                return stream.readVar35();
+            }
+            else {
+                final long value = stream.readVar35();
+                return -(value & 1) ^ value >> 1;
+            }
         }
         else {
             boolean negate = false;
@@ -286,7 +292,7 @@ public class Property<T> {
 
             final long a = stream.readBitsAsInt( 32 );
             final long b = stream.readBitsAsInt( second_bits );
-            long value = (a << 32) | b;
+            long value = a << 32 | b;
 
             if (negate) {
                 value *= -1;
@@ -363,7 +369,7 @@ public class Property<T> {
 
             b = 0x3D000000;
 
-            if ((a <= b)) {
+            if (a <= b) {
                 a = 0f;
             }
             else {
