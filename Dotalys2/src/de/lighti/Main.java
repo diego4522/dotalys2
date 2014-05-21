@@ -7,8 +7,6 @@ import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
-import de.lighti.model.Dotalys2App;
-
 public class Main {
 	public static void displayException(Exception e) {
 
