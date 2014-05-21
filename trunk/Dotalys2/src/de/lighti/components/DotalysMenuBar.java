@@ -1,5 +1,6 @@
 package de.lighti.components;
 
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -8,99 +9,140 @@ import javax.swing.JFileChooser;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import de.lighti.DotaPlay.ProgressListener;
+import de.lighti.Dotalys2App;
 import de.lighti.components.batch.BatchDialog;
 import de.lighti.io.DataImporter;
 import de.lighti.model.AppState;
-import de.lighti.model.Dotalys2App;
 
 public class DotalysMenuBar extends JMenuBar {
-    private final Dotalys2App owner;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -152856153942387447L;
 
-    private JMenu fileMenu;
-    private JMenuItem fileOpenMenuItem;
+	private final Dotalys2App owner;
 
-    private JMenuItem batchExportMenuItem;
+	private JMenu fileMenu;
+	private JMenuItem fileOpenMenuItem;
 
-    public DotalysMenuBar( Dotalys2App o ) {
-        super();
+	private JMenuItem batchExportMenuItem;
 
-        owner = o;
+	private JMenuItem aboutMenuItem;
 
-        add( getFileMenu() );
-        add( getBatchExportItem() );
-    }
+	public DotalysMenuBar(Dotalys2App o) {
+		super();
+		setLayout(new FlowLayout(FlowLayout.LEFT));
+		owner = o;
 
-    private JMenuItem getBatchExportItem() {
-        if (batchExportMenuItem == null) {
-            batchExportMenuItem = new JMenuItem( "Batch Export" );
-            batchExportMenuItem.addActionListener( new ActionListener() {
+		add(getFileMenu());
+		add(getBatchExportItem());
+		add(getAboutMenuItem());
+	}
 
-                @Override
-                public void actionPerformed( ActionEvent arg0 ) {
-                    new BatchDialog( owner ).setVisible( true );
+	private JMenuItem getAboutMenuItem() {
+		if (aboutMenuItem == null) {
+			aboutMenuItem = new JMenuItem();
 
-                }
-            } );
-        }
+			aboutMenuItem.setAction(new AbstractAction() {
 
-        return batchExportMenuItem;
-    }
+				/**
+				 * 
+				 */
+				private static final long serialVersionUID = -7625044491823967L;
 
-    public JMenu getFileMenu() {
-        if (fileMenu == null) {
-            fileMenu = new JMenu( "File" );
-            fileMenu.add( getFileOpenMenuItem() );
-        }
-        return fileMenu;
-    }
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					final String message = "<html>Dotalys2 is a replay parser and analysis tool for Valve's popular Dota2 MOBA game.<br/>It has been written by me, Tobias Mahlmann, in 2013-2014.<br/>I am in no way affiliated with Valve. The software is provided \"as is\" as a research project and I assume no liability.<br/>If you'd like to contact me, mail me at <a href='mailto:t.mahlmann@gmail.com'>t.mahlmann@gmail.com</a> or surf to <a href='http://www.lighti.de'>www.lighti.de</a></html>";
+					JOptionPane.showMessageDialog(owner, message, "About",
+							JOptionPane.INFORMATION_MESSAGE);
 
-    public JMenuItem getFileOpenMenuItem() {
-        if (fileOpenMenuItem == null) {
-            fileOpenMenuItem = new JMenuItem();
-            fileOpenMenuItem.setAction( new AbstractAction() {
+				}
+			});
+			aboutMenuItem.setText("About");
+		}
+		return aboutMenuItem;
+	}
 
-                @Override
-                public void actionPerformed( ActionEvent e ) {
+	private JMenuItem getBatchExportItem() {
+		if (batchExportMenuItem == null) {
+			batchExportMenuItem = new JMenuItem("Batch Export");
+			batchExportMenuItem.addActionListener(new ActionListener() {
 
-                    //Create a file chooser
-                    final JFileChooser fc = new JFileChooser( "." );
-                    fc.setFileFilter( DataImporter.FILE_FILTER );
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					new BatchDialog(owner).setVisible(true);
 
-                    //In response to a button click:
-                    final int returnVal = fc.showOpenDialog( owner );
-                    if (returnVal == JFileChooser.APPROVE_OPTION) {
-                        final AppState appState = owner.getAppState();
-                        appState.clear();
-                        final ProgressDialog pd = new ProgressDialog( owner );
-                        final long fs = fc.getSelectedFile().length();
-                        pd.setMaximum( fs );
-                        final Thread t = new Thread( new Runnable() {
+				}
+			});
+		}
 
-                            @Override
-                            public void run() {
+		return batchExportMenuItem;
+	}
 
-                                DataImporter.parseFile( appState, fc.getSelectedFile(), new ProgressListener() {
+	public JMenu getFileMenu() {
+		if (fileMenu == null) {
+			fileMenu = new JMenu("File");
+			fileMenu.add(getFileOpenMenuItem());
+		}
+		return fileMenu;
+	}
 
-                                    @Override
-                                    public void bytesRemaining( int position ) {
-                                        pd.setValue( fs - position );
+	public JMenuItem getFileOpenMenuItem() {
+		if (fileOpenMenuItem == null) {
+			fileOpenMenuItem = new JMenuItem();
+			fileOpenMenuItem.setAction(new AbstractAction() {
 
-                                    }
-                                } );
-                                pd.setVisible( false );
-                            }
-                        } );
-                        t.start();
-                        pd.setVisible( true );
+				/**
+				 * 
+				 */
+				private static final long serialVersionUID = 437644308981178302L;
 
-                    }
-                }
-            } );
-            fileOpenMenuItem.setText( "Open" );
-        }
+				@Override
+				public void actionPerformed(ActionEvent e) {
 
-        return fileOpenMenuItem;
-    }
+					// Create a file chooser
+					final JFileChooser fc = new JFileChooser(".");
+					fc.setFileFilter(DataImporter.FILE_FILTER);
+
+					// In response to a button click:
+					final int returnVal = fc.showOpenDialog(owner);
+					if (returnVal == JFileChooser.APPROVE_OPTION) {
+						final AppState appState = owner.getAppState();
+						appState.clear();
+						final ProgressDialog pd = new ProgressDialog(owner);
+						final long fs = fc.getSelectedFile().length();
+						pd.setMaximum(fs);
+						final Thread t = new Thread(new Runnable() {
+
+							@Override
+							public void run() {
+
+								DataImporter.parseFile(appState,
+										fc.getSelectedFile(),
+										new ProgressListener() {
+
+											@Override
+											public void bytesRemaining(
+													int position) {
+												pd.setValue(fs - position);
+
+											}
+										});
+								pd.setVisible(false);
+							}
+						});
+						t.start();
+						pd.setVisible(true);
+
+					}
+				}
+			});
+			fileOpenMenuItem.setText("Open");
+		}
+
+		return fileOpenMenuItem;
+	}
 }
