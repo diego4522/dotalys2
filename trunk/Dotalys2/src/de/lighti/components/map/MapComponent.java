@@ -1,32 +1,20 @@
 package de.lighti.components.map;
 
-import java.awt.Component;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
 
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JComponent;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JSlider;
 import javax.swing.JSplitPane;
 import javax.swing.JTree;
 import javax.swing.event.ListDataEvent;
 import javax.swing.event.ListDataListener;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
-import javax.swing.filechooser.FileFilter;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
 import de.lighti.io.ChartCreator;
-import de.lighti.io.DataExporter;
 import de.lighti.model.AppState;
 import de.lighti.model.game.Player;
 
@@ -44,9 +32,11 @@ public class MapComponent extends JSplitPane {
     public final static String CAT_DEATHS = "Deaths";
     private MapCanvasComponent mapCanvas;
 
-    private JComponent optionContainer;
+    private OptionContainer optionContainer;
 
-    private JComponent mapCanvasContainer;
+    private JPanel mapCanvasContainer;
+
+    private int[] markers;
 
     public MapComponent( AppState state ) throws IOException {
         appState = state;
@@ -107,69 +97,7 @@ public class MapComponent extends JSplitPane {
         model.reload( root );
     }
 
-    private ActionListener createExportButtonActionListener() {
-        return new ActionListener() {
-            @Override
-            public void actionPerformed( ActionEvent e ) {
-                final DefaultMutableTreeNode node = (DefaultMutableTreeNode) getAttributeTree().getLastSelectedPathComponent();
-                if ((node != null) && node.isLeaf()) {
-                    final String selection = (String) node.getUserObject();
-                    final Player p = appState.getPlayerByName( selection );
-                    if (p != null) {
-                        final DefaultMutableTreeNode category = (DefaultMutableTreeNode) node.getParent();
-                        final String catName = (String) category.getUserObject();
-                        switch (catName) {
-                            case CAT_MOVEMENT:
-                                final String[][] log = ChartCreator.createMoveLog( p.getName(), appState );
-                                MapComponent.this.doSaveDialog( catName, log );
-                                break;
-                            default:
-                                JOptionPane.showMessageDialog( getMapCanvas(), "Exporting " + catName + " is not implemented", "We're terribly sorry",
-                                                JOptionPane.ERROR_MESSAGE );
-                        }
-                    }
-                }
-
-            }
-        };
-    }
-
-    private void doSaveDialog( String category, String[][] data ) {
-        //Create a file chooser
-        final JFileChooser fc = new JFileChooser( "." );
-        fc.setFileFilter( new FileFilter() {
-
-            @Override
-            public boolean accept( File f ) {
-                return f.isDirectory() || f.getName().endsWith( ".csv" );
-            }
-
-            @Override
-            public String getDescription() {
-                return "comma-separated values (*.csv)";
-            }
-        } );
-
-        final int returnVal = fc.showSaveDialog( this );
-        if (returnVal == JFileChooser.APPROVE_OPTION) {
-            try {
-                String header = "# <unknown data>";
-                switch (category) {
-                    case CAT_MOVEMENT:
-                        header = "#tickms, x , y";
-                        break;
-                    default:
-                        break;
-                }
-                DataExporter.exportCSV( fc.getSelectedFile(), header, data );
-            }
-            catch (final IOException e) {
-                JOptionPane.showMessageDialog( getMapCanvas(), e.getLocalizedMessage(), "We're terribly sorry", JOptionPane.ERROR_MESSAGE );
-            }
-        }
-    }
-
-    private JTree getAttributeTree() {
+    public JTree getAttributeTree() {
         if (attributeTree == null) {
             attributeTree = new JTree( new DefaultMutableTreeNode( "Attributes" ) );
             attributeTree.addTreeSelectionListener( new TreeSelectionListener() {
@@ -178,27 +106,28 @@ public class MapComponent extends JSplitPane {
                 public void valueChanged( TreeSelectionEvent e ) {
 
                     final DefaultMutableTreeNode node = (DefaultMutableTreeNode) attributeTree.getLastSelectedPathComponent();
-                    if ((node != null) && node.isLeaf()) {
+                    if (node != null && node.isLeaf()) {
                         final String selection = (String) node.getUserObject();
                         final Player p = appState.getPlayerByName( selection );
                         if (p != null) {
                             final DefaultMutableTreeNode category = (DefaultMutableTreeNode) node.getParent();
                             final String catName = (String) category.getUserObject();
-                            getOptionContainer().setEnabled( true );
+
                             switch (catName) {
                                 case CAT_MOVEMENT:
-                                    final int[] mmarkers = ChartCreator.createMoveMap( p.getName(), appState );
-                                    getMapCanvas().setMarkers( mmarkers );
+                                    markers = ChartCreator.createMoveMap( p.getName(), appState );
+                                    getMapCanvas().setMarkers( markers );
                                     break;
                                 case CAT_DEATHS:
-                                    final int[] dmarkers = ChartCreator.createDeathMap( p.getName(), appState );
-                                    getMapCanvas().setMarkers( dmarkers );
+                                    final int[] mmarkers = ChartCreator.createDeathMap( p.getName(), appState );
+                                    getMapCanvas().setMarkers( mmarkers );
                                     break;
                                 default:
                                     getOptionContainer().setEnabled( false );
                                     System.err.println( "Unknown category in tree" );
                                     break;
                             }
+                            getOptionContainer().setEnabled( true );
                         }
                     }
 
@@ -218,46 +147,20 @@ public class MapComponent extends JSplitPane {
         return mapCanvasContainer;
     }
 
-    private MapCanvasComponent getMapCanvas() {
+    public MapCanvasComponent getMapCanvas() {
         if (mapCanvas == null) {
             mapCanvas = new MapCanvasComponent();
         }
         return mapCanvas;
     }
 
-    private Component getOptionContainer() {
+    public int[] getMarkers() {
+        return markers;
+    }
+
+    private OptionContainer getOptionContainer() {
         if (optionContainer == null) {
-            final JButton button = new JButton( "Export" );
-            button.addActionListener( createExportButtonActionListener() );
-            button.setEnabled( false );
-
-            final JCheckBox all = new JCheckBox( "All" );
-            all.setEnabled( false );
-
-            final JSlider slider = new JSlider();
-            slider.setEnabled( false );
-
-            optionContainer = new JPanel( new FlowLayout() ) {
-
-                /**
-                 * 
-                 */
-                private static final long serialVersionUID = 1098640225534974782L;
-
-                @Override
-                public void setEnabled( boolean enabled ) {
-                    super.setEnabled( enabled );
-
-                    button.setEnabled( enabled );
-                    slider.setEnabled( enabled );
-                    all.setEnabled( enabled );
-                }
-
-            };
-            optionContainer.add( all );
-            optionContainer.add( button );
-            optionContainer.add( slider );
-
+            optionContainer = new OptionContainer( this, appState );
         }
         return optionContainer;
     }
