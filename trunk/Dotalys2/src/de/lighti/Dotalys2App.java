@@ -1,5 +1,6 @@
 package de.lighti;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -53,7 +54,7 @@ public class Dotalys2App extends JFrame {
 		final JComponent com = createMainView();
 		com.setPreferredSize(getContentPane().getPreferredSize());
 
-		// getContentPane().add( com, BorderLayout.CENTER );
+		getContentPane().add(com, BorderLayout.CENTER);
 		// pack();
 		setJMenuBar(new DotalysMenuBar(this));
 	}
