@@ -54,6 +54,7 @@ public class OptionContainer extends JComponent {
         add( getStepSlider() );
         add( getPlayButton() );
         add( getStopButton() );
+
     }
 
     private ActionListener createExportButtonActionListener() {

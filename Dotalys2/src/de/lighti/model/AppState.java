@@ -18,7 +18,7 @@ import de.lighti.model.game.Player;
 
 public class AppState {
     public TreeMap<Long, Map<String, Object>> gameEventsPerMs = new TreeMap<Long, Map<String, Object>>();
-    private final Map<String, Player> players = new HashMap<String, Player>();
+    private final Map<String, Player> players = new TreeMap<String, Player>();
 
     private final DefaultListModel<String> playerListModel;
 
@@ -32,7 +32,7 @@ public class AppState {
     public AppState() {
         playerListModel = new DefaultListModel<String>();
         attributeBoxModel = new DefaultComboBoxModel<String>();
-        playerComboModel = new DefaultComboBoxModel<>();
+        playerComboModel = new DefaultComboBoxModel<String>();
         playerVariables = new HashSet<String>();
         heroes = new HashMap<Integer, Hero>();
         items = new HashMap<Integer, Dota2Item>();
@@ -51,8 +51,32 @@ public class AppState {
 
     public void addPlayer( String id, Player p ) {
         players.put( id, p );
-        playerListModel.addElement( p.getName() );
-        playerComboModel.addElement( p.getName() );
+        boolean inserted = false;
+        for (int i = 0; i < playerListModel.getSize(); i++) {
+            final String element = playerListModel.getElementAt( i );
+            if (id.compareTo( element ) < 0) {
+                playerListModel.insertElementAt( id, i );
+                inserted = true;
+                break;
+            }
+        }
+        if (!inserted) {
+            playerListModel.addElement( id );
+        }
+
+        inserted = false;
+        for (int i = 0; i < playerComboModel.getSize(); i++) {
+            final String element = playerComboModel.getElementAt( i );
+            if (id.compareTo( element ) < 0) {
+                playerComboModel.insertElementAt( id, i );
+                inserted = true;
+                break;
+            }
+        }
+        if (!inserted) {
+            playerComboModel.addElement( id );
+        }
+
     }
 
     public void addPlayerVariable( String n ) {

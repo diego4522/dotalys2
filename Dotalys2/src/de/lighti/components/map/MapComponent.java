@@ -13,6 +13,7 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeModel;
 
 import de.lighti.io.ChartCreator;
 import de.lighti.model.AppState;
@@ -47,6 +48,8 @@ public class MapComponent extends JSplitPane {
         setLeftComponent( getAttributeTree() );
         setResizeWeight( 1.0 );
         setOneTouchExpandable( false );
+        setDividerSize( 0 );
+        setBorder( null );
 
         appState.getPlayerComboModel().addListDataListener( new ListDataListener() {
 
@@ -89,8 +92,14 @@ public class MapComponent extends JSplitPane {
         }
 
         final DefaultTreeModel model = (DefaultTreeModel) attributeTree.getModel();
-        final DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
-        root.removeAllChildren();
+        DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
+        if (root != null) {
+            root.removeAllChildren();
+        }
+        else {
+            root = new DefaultMutableTreeNode();
+            model.setRoot( root );
+        }
         root.add( movement );
         root.add( deaths );
 
@@ -99,7 +108,9 @@ public class MapComponent extends JSplitPane {
 
     public JTree getAttributeTree() {
         if (attributeTree == null) {
-            attributeTree = new JTree( new DefaultMutableTreeNode( "Attributes" ) );
+            final TreeModel model = new DefaultTreeModel( null );
+            attributeTree = new JTree( model );
+
             attributeTree.addTreeSelectionListener( new TreeSelectionListener() {
 
                 @Override
