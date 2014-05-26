@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.io.IOException;
 
+import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -31,6 +32,7 @@ public class Dotalys2App extends JFrame {
             UIManager.setLookAndFeel( UIManager.getSystemLookAndFeelClassName() );
             UIManager.put( "Panel.background", Color.WHITE );
             UIManager.put( "Slider.background", Color.WHITE );
+            UIManager.put( "SplitPane.background", Color.WHITE );
         }
         catch (final Exception e) {
             // Don't care
@@ -98,6 +100,7 @@ public class Dotalys2App extends JFrame {
 
             } );
         }
+        mainView.setBorder( BorderFactory.createEmptyBorder( 5, 5, 5, 5 ) );
         return mainView;
     }
 }

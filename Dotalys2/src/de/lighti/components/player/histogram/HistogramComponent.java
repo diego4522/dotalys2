@@ -41,6 +41,8 @@ public class HistogramComponent extends JSplitPane {
         setOrientation( JSplitPane.HORIZONTAL_SPLIT );
         setOneTouchExpandable( false );
         setDividerLocation( 150 );
+        setDividerSize( 0 );
+        setBorder( BorderFactory.createEmptyBorder( 5, 5, 5, 5 ) );
         setLeftComponent( getSelectionPanel() );
         setRightComponent( getChartPanel() );
     }
