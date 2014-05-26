@@ -40,11 +40,7 @@ public class Player {
     }
 
     public void setName( String value ) {
-        if (!value.equalsIgnoreCase( name )) {
-            System.out.println( value );
-        }
         name = value;
-
     }
 
     public void setTotalEarnedGold( int totalEarnedGold ) {
