@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.logging.Logger;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -23,6 +24,8 @@ import de.lighti.model.game.Player;
 import de.lighti.model.game.Unit;
 
 public final class ChartCreator {
+    private final static Logger LOGGER = Logger.getLogger( ChartCreator.class.getName() );
+
     public static int[] createDeathMap( String name, AppState appState ) {
         final Player p = appState.getPlayerByName( name );
 
@@ -65,8 +68,8 @@ public final class ChartCreator {
         int offset = 0;
 
         for (final Map.Entry<Long, Integer> e : x.entrySet()) {
-            ret[offset++] = (e.getValue());
-            ret[offset++] = (y.get( e.getKey() ));
+            ret[offset++] = e.getValue();
+            ret[offset++] = y.get( e.getKey() );
         }
         return ret;
     }
@@ -74,20 +77,24 @@ public final class ChartCreator {
     private static XYDataset createPlayerDataSet( String attribute, List<String> players, AppState appState ) {
         final XYSeriesCollection series = new XYSeriesCollection();
 
-        for (final String player : players) {
-            final String id = appState.getPlayerByName( player ).getId();
-            final XYSeries series1 = new XYSeries( player );
-            for (final Entry<Long, Map<String, Object>> e : appState.gameEventsPerMs.entrySet()) {
-//                System.out.println( attribute + "." + id );
-                if (e.getValue().containsKey( attribute + id )) {
-                    final Number v = (Number) e.getValue().get( attribute + id );
-//                System.out.println( v );
-                    series1.add( e.getKey(), v );
-                }
-            }
-            series.addSeries( series1 );
-        }
+        try {
+            for (final String player : players) {
+                final String id = appState.getPlayerByName( player ).getId();
+                final XYSeries series1 = new XYSeries( player );
 
+                for (final Entry<Long, Map<String, Object>> e : appState.gameEventsPerMs.entrySet()) {
+                    if (e.getValue().containsKey( attribute + id )) {
+                        final Number v = (Number) e.getValue().get( attribute + id );
+                        series1.add( e.getKey(), v );
+                    }
+                }
+                series.addSeries( series1 );
+
+            }
+        }
+        catch (final ClassCastException e) {
+            LOGGER.warning( "Selected attribute contained alpha-numeric data" );
+        }
         return series;
     }
 

@@ -1,4 +1,4 @@
-package de.lighti.components.player;
+package de.lighti.components.player.statistics;
 
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
