@@ -29,6 +29,8 @@ public class AppState {
     private final Map<Integer, Dota2Item> items;
     private final Map<Integer, Ability> abilities;
 
+    private final Map<String, String> heroNames;
+
     public AppState() {
         playerListModel = new DefaultListModel<String>();
         attributeBoxModel = new DefaultComboBoxModel<String>();
@@ -37,6 +39,7 @@ public class AppState {
         heroes = new HashMap<Integer, Hero>();
         items = new HashMap<Integer, Dota2Item>();
         abilities = new HashMap<Integer, Ability>();
+        heroNames = new HashMap<>();
     }
 
     public void addAbility( int id, Ability ability ) {
@@ -118,6 +121,22 @@ public class AppState {
         return p.getHero();
     }
 
+    public String getHeroName( String className ) {
+        if (className != null) {
+            String actualClassName = className.toUpperCase();
+            actualClassName = actualClassName.replace( "CDOTA_UNIT", "NPC_DOTA" );
+            if (heroNames.containsKey( actualClassName )) {
+                return heroNames.get( actualClassName );
+            }
+            else {
+                return className;
+            }
+        }
+        else {
+            return className;
+        }
+    }
+
     public Dota2Item getItem( int value ) {
         if (items.containsKey( value )) {
             return items.get( value );
@@ -178,6 +197,12 @@ public class AppState {
 
     public void setHero( int id, Hero hero ) {
         heroes.put( id, hero );
+    }
+
+    public void setHeroName( String className, String localisedName ) {
+        if (className != null && localisedName != null) {
+            heroNames.put( className.toUpperCase(), localisedName );
+        }
     }
 
 }

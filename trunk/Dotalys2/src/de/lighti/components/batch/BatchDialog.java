@@ -267,7 +267,7 @@ public class BatchDialog extends JDialog {
                 while (fileList.hasMoreElements()) {
                     final File f = fileList.nextElement();
                     final AppState state = new AppState();
-                    DataImporter.parseFile( state, f );
+                    DataImporter.parseReplayFile( state, f );
                     for (final CheckBoxListEntry entry : properties) {
                         switch (entry.getValue()) {
                             case MapComponent.CAT_MOVEMENT:
