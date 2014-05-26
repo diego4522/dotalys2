@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 
+import javax.swing.BorderFactory;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -26,40 +28,41 @@ import de.lighti.model.game.Hero;
 import de.lighti.model.game.Player;
 
 public class PlayerComponent extends JSplitPane {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     private final AppState appState;
+    private JComboBox<String> playerBox;
 
     public PlayerComponent( AppState appState ) {
-        super();
+        super( JSplitPane.HORIZONTAL_SPLIT, null, null );
+
         this.appState = appState;
-
-        final JComboBox<String> playerBox = new JComboBox<String>( appState.getPlayerComboModel() );
-
-        playerBox.setAlignmentX( Component.CENTER_ALIGNMENT );
-        final JPanel leftPane = new JPanel();
-        leftPane.setLayout( new BoxLayout( leftPane, BoxLayout.Y_AXIS ) );
-        leftPane.add( playerBox );
-
-        final JTabbedPane rightPane = new JTabbedPane();
-        rightPane.addTab( "Statistics", createPlayerStatisticsTab( playerBox ) );
-        rightPane.addTab( "Build Order", createPlayerBuildOrderTab( playerBox ) );
-        rightPane.addTab( "Skill Tree", createPlayerSkillTreeTab( playerBox ) );
-
-        setOrientation( JSplitPane.HORIZONTAL_SPLIT );
 
         setOneTouchExpandable( false );
         setDividerLocation( 150 );
-
-        //Provide minimum sizes for the two components in the split pane
-        final Dimension minimumSize = new Dimension( 100, 100 );
-        leftPane.setMinimumSize( minimumSize );
-        rightPane.setMinimumSize( minimumSize );
-        setLeftComponent( leftPane );
-        setRightComponent( rightPane );
+        setDividerSize( 0 );
+        setBorder( BorderFactory.createEmptyBorder( 5, 5, 5, 5 ) );
+        setLeftComponent( createLeftComponent() );
+        setRightComponent( createRightComponent() );
     }
 
-    private JComponent createPlayerBuildOrderTab( final JComboBox<String> playerBox ) {
+    private Component createLeftComponent() {
+
+        final JPanel leftPane = new JPanel();
+        leftPane.setLayout( new BoxLayout( leftPane, BoxLayout.Y_AXIS ) );
+
+        leftPane.add( getPlayerBox() );
+        leftPane.add( Box.createVerticalGlue() );
+
+        leftPane.setBorder( BorderFactory.createTitledBorder( BorderFactory.createEmptyBorder( 5, 5, 5, 5 ), "Player" ) );
+        return leftPane;
+    }
+
+    private JComponent createPlayerBuildOrderTab() {
         final BuildOrderComponent bc = new BuildOrderComponent();
-        playerBox.addItemListener( new java.awt.event.ItemListener() {
+        getPlayerBox().addItemListener( new java.awt.event.ItemListener() {
 
             @Override
             public void itemStateChanged( ItemEvent e ) {
@@ -88,9 +91,9 @@ public class PlayerComponent extends JSplitPane {
         return bc;
     }
 
-    private JComponent createPlayerSkillTreeTab( final JComboBox<String> playerBox ) {
+    private JComponent createPlayerSkillTreeTab() {
         final SkillTreecomponent c = new SkillTreecomponent();
-        playerBox.addItemListener( new java.awt.event.ItemListener() {
+        getPlayerBox().addItemListener( new java.awt.event.ItemListener() {
 
             @Override
             public void itemStateChanged( ItemEvent e ) {
@@ -114,7 +117,7 @@ public class PlayerComponent extends JSplitPane {
         return c;
     }
 
-    private JComponent createPlayerStatisticsTab( final JComboBox<String> playerBox ) {
+    private JComponent createPlayerStatisticsTab() {
 
         final JPanel rightPane = new JPanel( new GridLayout( 10, 4 ) );
         final JLabel nameLabel = new JLabel( "Name:" );
@@ -142,11 +145,11 @@ public class PlayerComponent extends JSplitPane {
         rightPane.add( xpmLabel );
         rightPane.add( xpmValue );
 
-        playerBox.addActionListener( new ActionListener() {
+        getPlayerBox().addActionListener( new ActionListener() {
 
             @Override
             public void actionPerformed( ActionEvent e ) {
-                final String id = (String) playerBox.getSelectedItem();
+                final String id = (String) getPlayerBox().getSelectedItem();
                 final Player p = appState.getPlayerByName( id );
                 if (p != null) {
                     final long ms = appState.getGameLength();
@@ -170,6 +173,41 @@ public class PlayerComponent extends JSplitPane {
             }
         } );
         return rightPane;
+    }
+
+    private Component createRightComponent() {
+        final JTabbedPane rightPane = new JTabbedPane();
+        rightPane.addTab( "Statistics", createPlayerStatisticsTab() );
+        rightPane.addTab( "Build Order", createPlayerBuildOrderTab() );
+        rightPane.addTab( "Skill Tree", createPlayerSkillTreeTab() );
+        rightPane.setBorder( BorderFactory.createEmptyBorder( 5, 5, 5, 5 ) );
+        return rightPane;
+    }
+
+    public JComboBox<String> getPlayerBox() {
+        if (playerBox == null) {
+            playerBox = new JComboBox<String>( appState.getPlayerComboModel() ) {
+
+                /**
+                 * 
+                 */
+                private static final long serialVersionUID = 1L;
+
+                /** 
+                 * @inherited <p>
+                 */
+                @Override
+                public Dimension getMaximumSize() {
+                    final Dimension max = super.getMaximumSize();
+                    max.height = getPreferredSize().height;
+                    return max;
+                }
+
+            };
+
+            playerBox.setAlignmentX( Component.CENTER_ALIGNMENT );
+        }
+        return playerBox;
     }
 
 }
