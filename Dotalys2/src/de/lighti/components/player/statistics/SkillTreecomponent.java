@@ -1,4 +1,4 @@
-package de.lighti.components.player;
+package de.lighti.components.player.statistics;
 
 import java.awt.Color;
 import java.awt.Graphics;
