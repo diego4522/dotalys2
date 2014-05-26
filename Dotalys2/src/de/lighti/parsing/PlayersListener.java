@@ -71,39 +71,28 @@ public class PlayersListener extends DefaultGameEventListener {
 
             final String id = name.substring( name.lastIndexOf( "." ) );
             Player p = playerBuffer.get( id );
-            boolean handled = p == null;
-            if (name.contains( "m_iszPlayerNames" )) {
-
-                playerBuffer.put( id, new Player( id, (String) value ) );
+            if (p == null) {
+                playerBuffer.put( id, new Player( id, "<unknown>" ) );
                 p = playerBuffer.get( id );
+            }
 
+            boolean handled = false;
+
+            if (name.contains( "m_iszPlayerNames" )) {
+                p.setName( (String) value );
                 handled = true;
             }
 
             if (name.contains( "m_iTotalEarnedGold" )) {
-                if (p != null) {
-                    p.setTotalEarnedGold( (Integer) value );
-                }
-                else {
-                    throw new IllegalStateException( "player variable for an unknown player" );
-                }
+                p.setTotalEarnedGold( (Integer) value );
+
             }
             else if (name.contains( "m_iTotalEarnedXP" )) {
-                if (p != null) {
-                    p.setTotalXP( (Integer) value );
-                }
-                else {
-                    throw new IllegalStateException( "player variable for an unknown player" );
-                }
+                p.setTotalXP( (Integer) value );
             }
 
             else if (name.contains( "m_hSelectedHero" )) {
-                if (p != null) {
-                    p.setHero( state.getHero( (Integer) value & 0x7FF ) );
-                }
-                else {
-                    throw new IllegalStateException( "player variable for an unknown player" );
-                }
+                p.setHero( state.getHero( (Integer) value & 0x7FF ) );
                 handled = true;
             }
             if (!handled) {
