@@ -21,7 +21,7 @@ public class HeroTracker extends DefaultGameEventListener {
         if (e.getEntityClass().getName().contains( "CDOTA_Unit_Hero_" )) {
 
             if (state.getHero( e.getId() ) == null) {
-                state.setHero( e.getId(), new Hero( e.getEntityClass().getName() ) );
+                state.setHero( e.getId(), new Hero( state.getHeroName( e.getEntityClass().getName() ) ) );
             }
             for (final Property p : e.getProperties()) {
                 final String name = p.getName();
