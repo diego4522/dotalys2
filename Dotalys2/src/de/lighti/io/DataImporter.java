@@ -2,7 +2,7 @@ package de.lighti.io;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
+import java.io.InputStream;
 
 import javax.swing.filechooser.FileFilter;
 import javax.xml.parsers.DocumentBuilder;
@@ -48,7 +48,7 @@ public final class DataImporter {
         DotaPlay.loadFile( file.getAbsolutePath() );
     }
 
-    public static void readLocalisedHeroNames( URL resource, AppState appState ) {
+    public static void readLocalisedHeroNames( InputStream inputStream, AppState appState ) {
         try {
             //Get the DOM Builder Factory
             final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -58,7 +58,7 @@ public final class DataImporter {
 
             //Load and Parse the XML document
             //document contains the complete XML as a Tree.
-            final Document document = builder.parse( resource.getFile() );
+            final Document document = builder.parse( inputStream );
 
             //Iterating through the nodes and extracting the data.
             final NodeList nodeList = document.getDocumentElement().getChildNodes();
