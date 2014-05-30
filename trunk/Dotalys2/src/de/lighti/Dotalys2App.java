@@ -107,7 +107,7 @@ public class Dotalys2App extends JFrame {
     }
 
     private void parseLocalisedHeroNames() {
-        DataImporter.readLocalisedHeroNames( getClass().getResource( "heroes.xml" ), appState );
+        DataImporter.readLocalisedHeroNames( getClass().getResourceAsStream( "heroes.xml" ), appState );
 
     }
 }
