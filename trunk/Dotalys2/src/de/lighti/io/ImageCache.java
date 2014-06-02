@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import javax.imageio.ImageIO;
 
@@ -18,18 +19,20 @@ public final class ImageCache {
     private static Map<String, BufferedImage> memoryCache;
 
     static {
-        memoryCache = new HashMap();
+        memoryCache = new HashMap<String, BufferedImage>();
     }
+
+    private final static Logger LOGGER = Logger.getLogger( ImageCache.class.getName() );
 
     private static BufferedImage fetchImage( String baseURL, String name ) {
 
         try {
             final URL url = new URL( baseURL.replace( "<name>", name ) );
-            System.out.println( "Trying to fetch " + url );
+            LOGGER.info( "Trying to fetch " + url );
             return ImageIO.read( url );
         }
         catch (final IOException e) {
-            System.err.println( "Could not fetch image for " + name + ": " + e.getLocalizedMessage() );
+            LOGGER.warning( "Could not fetch image for " + name + ": " + e.getLocalizedMessage() );
             return null;
         }
     }
@@ -44,20 +47,29 @@ public final class ImageCache {
             return memoryCache.get( id );
         }
         else {
-            final String filename = CACHE_DIR + "/" + id + FILE_SUFFIX;
-            final File f = new File( filename );
-            if (f.exists()) {
-                //Read image from disc
-                final BufferedImage image = ImageIO.read( f );
-                memoryCache.put( id, image );
-                return image;
+            if (System.getSecurityManager() == null) {
+                final String filename = CACHE_DIR + "/" + id + FILE_SUFFIX;
+                final File f = new File( filename );
+                if (f.exists()) {
+                    //Read image from disc
+                    final BufferedImage image = ImageIO.read( f );
+                    memoryCache.put( id, image );
+                    return image;
+                }
+                else {
+                    //Try to fetch image from web
+                    final BufferedImage image = fetchImage( baseURL, id );
+                    if (image != null) {
+                        ImageIO.write( image, "png", f );
+                    }
+                    memoryCache.put( id, image );
+                    return image;
+                }
             }
             else {
+                //This is most likely an applet context. Try just to load it
                 //Try to fetch image from web
                 final BufferedImage image = fetchImage( baseURL, id );
-                if (image != null) {
-                    ImageIO.write( image, "png", f );
-                }
                 memoryCache.put( id, image );
                 return image;
             }
