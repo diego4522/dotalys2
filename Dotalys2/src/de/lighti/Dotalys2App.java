@@ -16,6 +16,7 @@ import javax.swing.event.ListDataListener;
 
 import de.lighti.components.DotalysMenuBar;
 import de.lighti.components.map.MapComponent;
+import de.lighti.components.match.GameStatisticsComponent;
 import de.lighti.components.player.histogram.HistogramComponent;
 import de.lighti.components.player.statistics.PlayerComponent;
 import de.lighti.io.DataImporter;
@@ -102,8 +103,13 @@ public class Dotalys2App extends JFrame {
                 }
 
             } );
+
+            final GameStatisticsComponent gsc = new GameStatisticsComponent( getAppState() );
+            mainView.addTab( "Match Analysis", gsc );
+
+            mainView.setBorder( BorderFactory.createEmptyBorder( 5, 5, 5, 5 ) );
         }
-        mainView.setBorder( BorderFactory.createEmptyBorder( 5, 5, 5, 5 ) );
+
         return mainView;
     }
 

@@ -20,6 +20,7 @@ import de.lighti.DotaPlay.ProgressListener;
 import de.lighti.model.AppState;
 import de.lighti.parsing.AbilityTracker;
 import de.lighti.parsing.CreepHandler;
+import de.lighti.parsing.GeneralGameStateTracker;
 import de.lighti.parsing.HeroTracker;
 import de.lighti.parsing.ItemListener;
 import de.lighti.parsing.PlayersListener;
@@ -45,7 +46,12 @@ public final class DataImporter {
         DotaPlay.addListener( new AbilityTracker( appState ) );
         DotaPlay.addListener( new HeroTracker( appState ) );
         DotaPlay.addListener( new CreepHandler( appState ) );
+        DotaPlay.addListener( new GeneralGameStateTracker( appState ) );
+
         DotaPlay.loadFile( file.getAbsolutePath() );
+
+        //Note really necessary, but move away whatever data has been cached in the listeners
+        DotaPlay.getListeners().clear();
     }
 
     public static void readLocalisedHeroNames( InputStream inputStream, AppState appState ) {

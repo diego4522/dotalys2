@@ -10,6 +10,8 @@ public class Player {
 
     private Hero hero;
 
+    private boolean isRadiant;
+
     public Player( String id, String name ) {
         this.name = name;
         this.id = id;
@@ -35,12 +37,20 @@ public class Player {
         return totalXpEarned;
     }
 
+    public boolean isRadiant() {
+        return isRadiant;
+    }
+
     public void setHero( Hero hero ) {
         this.hero = hero;
     }
 
     public void setName( String value ) {
         name = value;
+    }
+
+    public void setRadiant( boolean isRadiant ) {
+        this.isRadiant = isRadiant;
     }
 
     public void setTotalEarnedGold( int totalEarnedGold ) {

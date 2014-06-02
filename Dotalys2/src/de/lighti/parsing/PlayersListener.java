@@ -24,7 +24,7 @@ public class PlayersListener extends DefaultGameEventListener {
         super();
         this.state = state;
         playerPattern = Pattern.compile( "\\.[0-9][0-9][0-9][0-9]$" );
-        playerBuffer = new HashMap();
+        playerBuffer = new HashMap<String, Player>();
     }
 
     @Override
@@ -93,6 +93,10 @@ public class PlayersListener extends DefaultGameEventListener {
 
             else if (name.contains( "m_hSelectedHero" )) {
                 p.setHero( state.getHero( (Integer) value & 0x7FF ) );
+                handled = true;
+            }
+            else if (name.contains( "m_iPlayerTeams" )) {
+                p.setRadiant( (Integer) value == 2 ); //2 = Radiant, 3 = Dire, 5 = Spectator
                 handled = true;
             }
             if (!handled) {
