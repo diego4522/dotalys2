@@ -1,5 +1,6 @@
 package de.lighti.components.player.histogram;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -105,8 +106,9 @@ public class HistogramComponent extends JSplitPane {
     public ChartPanel getChartPanel() {
         if (chartPanel == null) {
             chartPanel = new ChartPanel( null );
-            // default size
-            chartPanel.setPreferredSize( new java.awt.Dimension( 500, 270 ) );
+            chartPanel.setBackground( Color.WHITE );
+            chartPanel.setBorder( BorderFactory.createEtchedBorder() );
+
         }
         return chartPanel;
     }
@@ -151,7 +153,7 @@ public class HistogramComponent extends JSplitPane {
 
             selectionPanel.add( getAttributeBox() );
             selectionPanel.add( Box.createVerticalGlue() );
-            selectionPanel.setBorder( BorderFactory.createEmptyBorder( 5, 5, 5, 5 ) );
+            selectionPanel.setBorder( BorderFactory.createEmptyBorder( 0, 5, 5, 5 ) );
         }
         return selectionPanel;
     }
