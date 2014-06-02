@@ -38,7 +38,25 @@ public class Unit {
         return x;
     }
 
+    public int getX( long ms ) {
+        if (!x.containsKey( ms )) {
+            return x.floorEntry( ms ).getValue();
+        }
+        else {
+            return x.get( ms );
+        }
+    }
+
     public Map<Long, Integer> getY() {
         return y;
+    }
+
+    public int getY( long ms ) {
+        if (!y.containsKey( ms )) {
+            return y.floorEntry( ms ).getValue();
+        }
+        else {
+            return y.get( ms );
+        }
     }
 }

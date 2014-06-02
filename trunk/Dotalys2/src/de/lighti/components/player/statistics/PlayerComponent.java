@@ -22,6 +22,7 @@ import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 
 import de.lighti.model.AppState;
+import de.lighti.model.Statics;
 import de.lighti.model.game.Ability;
 import de.lighti.model.game.Dota2Item;
 import de.lighti.model.game.Hero;
@@ -119,11 +120,16 @@ public class PlayerComponent extends JSplitPane {
 
     private JComponent createPlayerStatisticsTab() {
 
-        final JPanel rightPane = new JPanel( new GridLayout( 10, 4 ) );
+        final JPanel rightPane = new JPanel( new GridLayout( 7, 4 ) );
+
         final JLabel nameLabel = new JLabel( "Name:" );
         final JLabel nameValue = new JLabel();
         rightPane.add( nameLabel );
         rightPane.add( nameValue );
+        final JLabel teamLabel = new JLabel( "Team:" );
+        final JLabel teamValue = new JLabel();
+        rightPane.add( teamLabel );
+        rightPane.add( teamValue );
         final JLabel heroNameLabel = new JLabel( "Hero:" );
         final JLabel heroNameValue = new JLabel();
         rightPane.add( heroNameLabel );
@@ -158,6 +164,8 @@ public class PlayerComponent extends JSplitPane {
                     nameValue.setText( p.getName() );
 //                final int heroId = appState.getSelectedHero( p.getId() );
 //                final Hero hero = appState.getHero( heroId );
+                    final String team = p.isRadiant() ? Statics.RADIANT : Statics.DIRE;
+                    teamLabel.setText( team );
                     final Hero hero = p.getHero();
                     final String name = hero != null ? hero.getName() : "<unknown>";
                     heroNameValue.setText( name );

@@ -21,6 +21,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
 
 import de.lighti.io.ChartCreator;
 import de.lighti.model.AppState;
@@ -94,8 +95,9 @@ public class HistogramComponent extends JSplitPane {
 
                 @Override
                 public void actionPerformed( ActionEvent e ) {
-                    ChartCreator.createPlayerHistogram( getChartPanel(), (String) attributeBox.getSelectedItem(), playerBox.getSelectedValuesList(), appState );
-
+                    final JFreeChart data = ChartCreator.createPlayerHistogram( (String) attributeBox.getSelectedItem(), playerBox.getSelectedValuesList(),
+                                    appState );
+                    ChartCreator.assignChart( getChartPanel(), data );
                 }
             } );
 
@@ -125,8 +127,9 @@ public class HistogramComponent extends JSplitPane {
 
                 @Override
                 public void valueChanged( ListSelectionEvent e ) {
-                    ChartCreator.createPlayerHistogram( getChartPanel(), (String) attributeBox.getSelectedItem(), playerBox.getSelectedValuesList(), appState );
-
+                    final JFreeChart chart = ChartCreator.createPlayerHistogram( (String) attributeBox.getSelectedItem(), playerBox.getSelectedValuesList(),
+                                    appState );
+                    ChartCreator.assignChart( getChartPanel(), chart );
                 }
             } );
         }

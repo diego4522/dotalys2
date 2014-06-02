@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.TreeMap;
 
 import javax.swing.ComboBoxModel;
@@ -18,7 +19,7 @@ import de.lighti.model.game.Player;
 
 public class AppState {
     public TreeMap<Long, Map<String, Object>> gameEventsPerMs = new TreeMap<Long, Map<String, Object>>();
-    private final Map<String, Player> players = new TreeMap<String, Player>();
+    private final SortedMap<String, Player> players = new TreeMap<String, Player>();
 
     private final DefaultListModel<String> playerListModel;
 
@@ -30,6 +31,8 @@ public class AppState {
     private final Map<Integer, Ability> abilities;
 
     private final Map<String, String> heroNames;
+
+    private int msPerTick;
 
     public AppState() {
         playerListModel = new DefaultListModel<String>();
@@ -108,6 +111,13 @@ public class AppState {
         return attributeBoxModel;
     }
 
+    /**
+     * Returns the replay's length in miliseconds. Please
+     * be aware that the this is the timestamp when the replay ended,
+     * not when the game was decided, i.e. the throne was hit.
+     * 
+     * @return the game's length in miliseconds
+     */
     public long getGameLength() {
         return gameEventsPerMs.lastKey();
     }
@@ -170,6 +180,10 @@ public class AppState {
         return null;
     }
 
+    public int getMsPerTick() {
+        return msPerTick;
+    }
+
     public Player getPlayer( String id ) {
         return players.get( id );
     }
@@ -191,7 +205,7 @@ public class AppState {
         return playerListModel;
     }
 
-    public Map<String, Player> getPlayers() {
+    public SortedMap<String, Player> getPlayers() {
         return players;
     }
 
@@ -203,6 +217,10 @@ public class AppState {
         if (className != null && localisedName != null) {
             heroNames.put( className.toUpperCase(), localisedName );
         }
+    }
+
+    public void setMsPerTick( int msPerTick ) {
+        this.msPerTick = msPerTick;
     }
 
 }
