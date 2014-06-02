@@ -51,6 +51,7 @@ public class Dotalys2App extends JFrame {
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 
         setSize( new Dimension( 900, 700 ) );
+        setResizable( false );
 
         final JComponent com = getMainView();
         com.setPreferredSize( getContentPane().getPreferredSize() );
