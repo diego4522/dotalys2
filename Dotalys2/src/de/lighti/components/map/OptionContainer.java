@@ -25,6 +25,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import de.lighti.io.ChartCreator;
 import de.lighti.io.DataExporter;
 import de.lighti.model.AppState;
+import de.lighti.model.Statics;
 import de.lighti.model.game.Player;
 
 public class OptionContainer extends JComponent {
@@ -55,7 +56,7 @@ public class OptionContainer extends JComponent {
         add( getPlayButton() );
         add( getStopButton() );
 
-        final JButton toggleButton = new JButton( "Map/Zones" );
+        final JButton toggleButton = new JButton( Statics.MAP_ZONES );
         toggleButton.addActionListener( new ActionListener() {
 
             @Override
@@ -132,7 +133,7 @@ public class OptionContainer extends JComponent {
 
     public JCheckBox getAllButton() {
         if (allButton == null) {
-            allButton = new JCheckBox( "All" );
+            allButton = new JCheckBox( Statics.ALL );
             allButton.setEnabled( false );
             allButton.addChangeListener( new ChangeListener() {
 
@@ -158,7 +159,7 @@ public class OptionContainer extends JComponent {
 
     public JButton getExportButton() {
         if (exportButton == null) {
-            exportButton = new JButton( "Export" );
+            exportButton = new JButton( Statics.EXPORT );
             exportButton.addActionListener( createExportButtonActionListener() );
             exportButton.setEnabled( false );
         }
@@ -178,7 +179,7 @@ public class OptionContainer extends JComponent {
                 playButton.setBorder( null );
             }
             catch (final IOException e1) {
-                playButton = new JButton( "Play" );
+                playButton = new JButton( Statics.PLAY );
             }
 
             playButton.setEnabled( false );
@@ -245,7 +246,7 @@ public class OptionContainer extends JComponent {
                 stopButton.setBorder( null );
             }
             catch (final IOException e1) {
-                stopButton = new JButton( "Stop" );
+                stopButton = new JButton( Statics.STOP );
             }
             stopButton.setEnabled( false );
             stopButton.addActionListener( new ActionListener() {

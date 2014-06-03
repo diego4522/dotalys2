@@ -4,13 +4,21 @@ import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Queue;
+import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
 import de.lighti.model.game.Dota2Item;
 
 public class BuildOrderComponent extends JPanel {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 6036192244830446704L;
+
     private Queue<Dota2Item> items;
+
+    private final static Logger LOGGER = Logger.getLogger( BuildOrderComponent.class.getName() );
 
     @Override
     protected void paintComponent( Graphics g ) {
@@ -32,12 +40,12 @@ public class BuildOrderComponent extends JPanel {
                     }
                 }
                 catch (final IOException e) {
-                    System.err.println( "Error loading image: " + e.getLocalizedMessage() );
+                    LOGGER.warning( "Error loading image: " + e.getLocalizedMessage() );
                     g.drawString( i.getName(), x, y );
                     x += i.getName().length() * 20;
                 }
 
-                if (x >= (getWidth() - 100)) {
+                if (x >= getWidth() - 100) {
                     y += 100;
                     x = 20;
                 }
