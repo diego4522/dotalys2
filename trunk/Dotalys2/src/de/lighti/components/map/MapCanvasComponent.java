@@ -18,8 +18,13 @@ public class MapCanvasComponent extends JPanel {
     private static final long serialVersionUID = 2077175805479363567L;
     private static final int DEFAULT_DOT_SIZE = 3;
     private BufferedImage minimap;
+    private BufferedImage minimapModel;
     private int[] markers = new int[0];
     private int dotSize = DEFAULT_DOT_SIZE;
+    private final String MINIMAP_FILE = "Minimap.jpg";
+    private final String MINIMAP_MODEL_FILE = "Mapmodel.png";
+
+    private boolean paintMapModel;
 
     public MapCanvasComponent() {
         final Dimension size = new Dimension( 512, 512 );
@@ -27,9 +32,13 @@ public class MapCanvasComponent extends JPanel {
         setMaximumSize( size );
         setPreferredSize( size );
 
-        final URL url = MapCanvasComponent.class.getResource( "Minimap.jpg" );
+        paintMapModel = false;
+
         try {
+            URL url = MapCanvasComponent.class.getResource( MINIMAP_FILE );
             minimap = ImageIO.read( url );
+            url = MapCanvasComponent.class.getResource( MINIMAP_MODEL_FILE );
+            minimapModel = ImageIO.read( url );
         }
         catch (final IOException e) {
             JOptionPane.showMessageDialog( this, e.getLocalizedMessage(), "Error loading minimap", JOptionPane.ERROR_MESSAGE );
@@ -40,11 +49,19 @@ public class MapCanvasComponent extends JPanel {
         return dotSize;
     }
 
+    public boolean isPaintMapModel() {
+        return paintMapModel;
+    }
+
     @Override
     protected void paintComponent( Graphics g ) {
         super.paintComponent( g );
-
-        g.drawImage( minimap, 0, 0, getWidth(), getHeight(), null );
+        if (paintMapModel) {
+            g.drawImage( minimapModel, 0, 0, getWidth(), getHeight(), null );
+        }
+        else {
+            g.drawImage( minimap, 0, 0, getWidth(), getHeight(), null );
+        }
         final double xScale = getWidth() / 128.0;
         final double yScale = getHeight() / 128.0;
         for (int offset = 0; offset < markers.length; offset += 2) {
@@ -76,6 +93,10 @@ public class MapCanvasComponent extends JPanel {
     public void setMarkers( int[] markers ) {
         this.markers = markers;
         this.repaint();
+    }
+
+    public void setPaintMapModel( boolean paintMapModel ) {
+        this.paintMapModel = paintMapModel;
     }
 
 }
