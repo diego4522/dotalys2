@@ -3,6 +3,7 @@ package de.lighti.components.map;
 import java.io.IOException;
 import java.util.Collection;
 
+import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
@@ -49,7 +50,8 @@ public class MapComponent extends JSplitPane {
         setResizeWeight( 1.0 );
         setOneTouchExpandable( false );
         setDividerSize( 0 );
-        setBorder( null );
+        setDividerLocation( 150 );
+        setBorder( BorderFactory.createEmptyBorder( 5, 5, 5, 5 ) );
 
         appState.getPlayerComboModel().addListDataListener( new ListDataListener() {
 
@@ -153,6 +155,7 @@ public class MapComponent extends JSplitPane {
             mapCanvasContainer = new JPanel();
             mapCanvasContainer.add( getMapCanvas() );
             mapCanvasContainer.add( getOptionContainer() );
+
         }
 
         return mapCanvasContainer;

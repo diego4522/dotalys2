@@ -42,7 +42,7 @@ public class OptionContainer extends JComponent {
     private JButton stopButton;
     private TimerTask animation;
 
-    public OptionContainer( MapComponent mapComponent, AppState appState ) {
+    public OptionContainer( final MapComponent mapComponent, AppState appState ) {
         super();
         this.mapComponent = mapComponent;
         this.appState = appState;
@@ -54,6 +54,17 @@ public class OptionContainer extends JComponent {
         add( getStepSlider() );
         add( getPlayButton() );
         add( getStopButton() );
+
+        final JButton toggleButton = new JButton( "Map/Zones" );
+        toggleButton.addActionListener( new ActionListener() {
+
+            @Override
+            public void actionPerformed( ActionEvent e ) {
+                mapComponent.getMapCanvas().setPaintMapModel( !mapComponent.getMapCanvas().isPaintMapModel() );
+                mapComponent.getMapCanvas().repaint();
+            }
+        } );
+        add( toggleButton );
 
     }
 
