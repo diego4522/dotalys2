@@ -2,10 +2,11 @@ package de.lighti.components.player.statistics;
 
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
@@ -16,10 +17,12 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 import de.lighti.model.AppState;
 import de.lighti.model.Statics;
@@ -35,6 +38,7 @@ public class PlayerComponent extends JSplitPane {
     private static final long serialVersionUID = 1L;
     private final AppState appState;
     private JComboBox<String> playerBox;
+    private final static NumberFormat TWO_DIGITS = new DecimalFormat( "#####.##" );
 
     public PlayerComponent( AppState appState ) {
         super( JSplitPane.HORIZONTAL_SPLIT, null, null );
@@ -57,7 +61,7 @@ public class PlayerComponent extends JSplitPane {
         leftPane.add( getPlayerBox() );
         leftPane.add( Box.createVerticalGlue() );
 
-        leftPane.setBorder( BorderFactory.createTitledBorder( BorderFactory.createEmptyBorder( 5, 5, 5, 5 ), "Player" ) );
+        leftPane.setBorder( BorderFactory.createTitledBorder( BorderFactory.createEmptyBorder( 5, 5, 5, 5 ), Statics.PLAYER ) );
         return leftPane;
     }
 
@@ -120,36 +124,29 @@ public class PlayerComponent extends JSplitPane {
 
     private JComponent createPlayerStatisticsTab() {
 
-        final JPanel rightPane = new JPanel( new GridLayout( 7, 4 ) );
+        final JTable table = new JTable();
+        final TableModel model = new DefaultTableModel( 7, 2 ) {
 
-        final JLabel nameLabel = new JLabel( "Name:" );
-        final JLabel nameValue = new JLabel();
-        rightPane.add( nameLabel );
-        rightPane.add( nameValue );
-        final JLabel teamLabel = new JLabel( "Team:" );
-        final JLabel teamValue = new JLabel();
-        rightPane.add( teamLabel );
-        rightPane.add( teamValue );
-        final JLabel heroNameLabel = new JLabel( "Hero:" );
-        final JLabel heroNameValue = new JLabel();
-        rightPane.add( heroNameLabel );
-        rightPane.add( heroNameValue );
-        final JLabel goldLabel = new JLabel( "Total gold:" );
-        final JLabel goldValue = new JLabel();
-        rightPane.add( goldLabel );
-        rightPane.add( goldValue );
-        final JLabel gpmLabel = new JLabel( "Gold per min:" );
-        final JLabel gpmValue = new JLabel();
-        rightPane.add( gpmLabel );
-        rightPane.add( gpmValue );
-        final JLabel xpLabel = new JLabel( "Total XP:" );
-        final JLabel xpValue = new JLabel();
-        rightPane.add( xpLabel );
-        rightPane.add( xpValue );
-        final JLabel xpmLabel = new JLabel( "XP per min:" );
-        final JLabel xpmValue = new JLabel();
-        rightPane.add( xpmLabel );
-        rightPane.add( xpmValue );
+            /**
+             * 
+             */
+            private static final long serialVersionUID = -5417710077260844257L;
+
+            @Override
+            public boolean isCellEditable( int row, int column ) {
+                //all cells false
+                return false;
+            }
+        };
+        table.setModel( model );
+
+        model.setValueAt( Statics.NAME, 0, 0 );
+        model.setValueAt( Statics.TEAM, 1, 0 );
+        model.setValueAt( Statics.HERO, 2, 0 );
+        model.setValueAt( Statics.TOTAL_GOLD, 3, 0 );
+        model.setValueAt( Statics.GOLD_PER_MINUTE, 4, 0 );
+        model.setValueAt( Statics.TOTAL_XP, 5, 0 );
+        model.setValueAt( Statics.XP_PER_MINUTE, 6, 0 );
 
         getPlayerBox().addActionListener( new ActionListener() {
 
@@ -161,26 +158,29 @@ public class PlayerComponent extends JSplitPane {
                     final long ms = appState.getGameLength();
 
                     final double minutes = ms / 60000.0;
-                    nameValue.setText( p.getName() );
-//                final int heroId = appState.getSelectedHero( p.getId() );
-//                final Hero hero = appState.getHero( heroId );
+
                     final String team = p.isRadiant() ? Statics.RADIANT : Statics.DIRE;
-                    teamLabel.setText( team );
                     final Hero hero = p.getHero();
-                    final String name = hero != null ? hero.getName() : "<unknown>";
-                    heroNameValue.setText( name );
+                    final String name = hero != null ? hero.getName() : Statics.UNKNOWN_HERO;
                     final int gold = p.getTotalEarnedGold();
-                    goldValue.setText( "" + gold );
                     final double gpm = gold / minutes;
-                    gpmValue.setText( "" + gpm );
                     final int toalXp = p.getTotalXP();
                     final double xpm = toalXp / minutes;
-                    xpValue.setText( "" + toalXp );
-                    xpmValue.setText( "" + xpm );
+
+                    model.setValueAt( p.getName(), 0, 1 );
+                    model.setValueAt( team, 1, 1 );
+                    model.setValueAt( name, 2, 1 );
+                    model.setValueAt( TWO_DIGITS.format( gold ), 3, 1 );
+
+                    model.setValueAt( TWO_DIGITS.format( gpm ), 4, 1 );
+                    model.setValueAt( TWO_DIGITS.format( toalXp ), 5, 1 );
+                    model.setValueAt( TWO_DIGITS.format( xpm ), 6, 1 );
                 }
             }
         } );
-        return rightPane;
+
+        table.setBorder( BorderFactory.createEmptyBorder( 5, 5, 5, 5 ) );
+        return table;
     }
 
     private Component createRightComponent() {
