@@ -78,8 +78,7 @@ public class PlayerComponent extends JSplitPane {
 
                 final Player p = appState.getPlayerByName( id );
                 final Queue<Dota2Item> buildOrder = new LinkedBlockingQueue<Dota2Item>();
-//                final int heroId = appState.getSelectedHero( p.getId() );
-//                final Hero hero = appState.getHero( heroId );
+
                 final Hero hero = p.getHero();
                 if (hero != null) {
                     final Queue<String> completeLog = hero.getItemLog();

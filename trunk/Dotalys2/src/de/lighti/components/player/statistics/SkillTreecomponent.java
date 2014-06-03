@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.logging.Logger;
 
 import javax.swing.JPanel;
 
@@ -16,14 +17,19 @@ import de.lighti.io.ImageCache;
 import de.lighti.model.game.Ability;
 
 public class SkillTreecomponent extends JPanel {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -5620172809015835852L;
     private List<Ability> abilities;
     private TreeMap<Long, String> abilityLog;
+    private final static Logger LOGGER = Logger.getLogger( SkillTreecomponent.class.getName() );
 
     @Override
     protected void paintComponent( Graphics g ) {
         super.paintComponent( g );
 
-        if ((abilities != null) && !abilities.isEmpty()) {
+        if (abilities != null && !abilities.isEmpty()) {
             final Map<String, Point> rows = new HashMap<String, Point>();
             int x = 20;
             int y = 20;
@@ -33,7 +39,7 @@ public class SkillTreecomponent extends JPanel {
                     final BufferedImage image = ImageCache.getAbilityImage( a.getName() );
                     if (image == null) {
                         g.drawString( a.getName(), x, y );
-                        x += (a.getName().length() * 6) + 5;
+                        x += a.getName().length() * 6 + 5;
                     }
                     else {
                         g.drawImage( image, x, y, 64, 64, this );
@@ -42,9 +48,9 @@ public class SkillTreecomponent extends JPanel {
                 }
 
                 catch (final IOException e) {
-                    System.err.println( "Error loading image: " + e.getLocalizedMessage() );
+                    LOGGER.warning( "Error loading image: " + e.getLocalizedMessage() );
                     g.drawString( a.getName(), x, y );
-                    x += (a.getName().length() * 6) + 5;
+                    x += a.getName().length() * 6 + 5;
                 }
             }
 

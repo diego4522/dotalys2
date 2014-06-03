@@ -2,6 +2,7 @@ package de.lighti.components.map;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
@@ -18,6 +19,7 @@ import javax.swing.tree.TreeModel;
 
 import de.lighti.io.ChartCreator;
 import de.lighti.model.AppState;
+import de.lighti.model.Statics;
 import de.lighti.model.game.Player;
 
 public class MapComponent extends JSplitPane {
@@ -30,8 +32,8 @@ public class MapComponent extends JSplitPane {
 
     private JTree attributeTree;
 
-    public final static String CAT_MOVEMENT = "Movement";
-    public final static String CAT_DEATHS = "Deaths";
+    public final static String CAT_MOVEMENT = Statics.MOVEMENT;
+    public final static String CAT_DEATHS = Statics.DEATHS;
     private MapCanvasComponent mapCanvas;
 
     private OptionContainer optionContainer;
@@ -39,6 +41,8 @@ public class MapComponent extends JSplitPane {
     private JPanel mapCanvasContainer;
 
     private int[] markers;
+
+    private final static Logger LOGGER = Logger.getLogger( MapCanvasComponent.class.getName() );
 
     public MapComponent( AppState state ) throws IOException {
         appState = state;
@@ -137,7 +141,7 @@ public class MapComponent extends JSplitPane {
                                     break;
                                 default:
                                     getOptionContainer().setEnabled( false );
-                                    System.err.println( "Unknown category in tree" );
+                                    LOGGER.warning( "Unknown category in tree" );
                                     break;
                             }
                             getOptionContainer().setEnabled( true );

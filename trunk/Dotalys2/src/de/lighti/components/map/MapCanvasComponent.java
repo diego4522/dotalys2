@@ -11,6 +11,13 @@ import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/**
+ * The MapCanvasComponent renders different variations of the Dota2 minimap
+ * along with a series of markers. The component has a fixed size of 512x512.
+ * 
+ * @author TobiasMahlmann
+ *
+ */
 public class MapCanvasComponent extends JPanel {
     /**
      * 
@@ -26,6 +33,9 @@ public class MapCanvasComponent extends JPanel {
 
     private boolean paintMapModel;
 
+    /**
+     * Default constructor.
+     */
     public MapCanvasComponent() {
         final Dimension size = new Dimension( 512, 512 );
         setMinimumSize( size );
@@ -45,10 +55,16 @@ public class MapCanvasComponent extends JPanel {
         }
     }
 
+    /**
+     * @return the pencil size for painting the markers
+     */
     public int getDotSize() {
         return dotSize;
     }
 
+    /**
+     * @return true if the zone map is currently displayed
+     */
     public boolean isPaintMapModel() {
         return paintMapModel;
     }
@@ -82,10 +98,19 @@ public class MapCanvasComponent extends JPanel {
         }
     }
 
+    /**
+     * Sets the marker size to the default value
+     */
     public void resetDotSize() {
         dotSize = DEFAULT_DOT_SIZE;
     }
 
+    /**
+     * Sets the pencil size for each marker. If set to a value > 1,
+     * the MapCanvasComponent will colour more pixels around the the actual
+     * marker, depending on the pencil size, to highlight the marker.
+     * @param dotSize
+     */
     public void setDotSize( int dotSize ) {
         this.dotSize = dotSize;
     }
@@ -95,6 +120,11 @@ public class MapCanvasComponent extends JPanel {
         this.repaint();
     }
 
+    /**
+     * Set this to true if the component should render the annotated zone map
+     * instead of the schematic representation of the game map.
+     * @param paintMapModel
+     */
     public void setPaintMapModel( boolean paintMapModel ) {
         this.paintMapModel = paintMapModel;
     }
