@@ -17,6 +17,8 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
 
+import org.jfree.data.xy.XYSeriesCollection;
+
 import de.lighti.io.ChartCreator;
 import de.lighti.model.AppState;
 import de.lighti.model.Statics;
@@ -40,7 +42,7 @@ public class MapComponent extends JSplitPane {
 
     private JPanel mapCanvasContainer;
 
-    private int[] markers;
+//    private int[] markers;
 
     private final static Logger LOGGER = Logger.getLogger( MapCanvasComponent.class.getName() );
 
@@ -131,13 +133,19 @@ public class MapComponent extends JSplitPane {
                             final String catName = (String) category.getUserObject();
 
                             switch (catName) {
-                                case CAT_MOVEMENT:
-                                    markers = ChartCreator.createMoveMap( p.getName(), appState );
+                                case CAT_MOVEMENT: {
+                                    final XYSeriesCollection markers = new XYSeriesCollection();
+                                    markers.addSeries( ChartCreator.createMoveMap( p.getName(), appState ) );
                                     getMapCanvas().setMarkers( markers );
+                                    getOptionContainer().getStepSlider().setMaximum( markers.getItemCount( 0 ) );
+                                }
                                     break;
-                                case CAT_DEATHS:
-                                    final int[] mmarkers = ChartCreator.createDeathMap( p.getName(), appState );
-                                    getMapCanvas().setMarkers( mmarkers );
+                                case CAT_DEATHS: {
+                                    final XYSeriesCollection markers = new XYSeriesCollection();
+                                    markers.addSeries( ChartCreator.createDeathMap( p.getName(), appState ) );
+                                    getMapCanvas().setMarkers( markers );
+                                    getOptionContainer().getStepSlider().setMaximum( markers.getItemCount( 0 ) );
+                                }
                                     break;
                                 default:
                                     getOptionContainer().setEnabled( false );
@@ -170,10 +178,6 @@ public class MapComponent extends JSplitPane {
             mapCanvas = new MapCanvasComponent();
         }
         return mapCanvas;
-    }
-
-    public int[] getMarkers() {
-        return markers;
     }
 
     private OptionContainer getOptionContainer() {

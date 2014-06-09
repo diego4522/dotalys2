@@ -143,7 +143,8 @@ public class OptionContainer extends JComponent {
                     getStepSlider().setEnabled( !allValue );
                     if (allValue) {
                         mapComponent.getMapCanvas().resetDotSize();
-                        mapComponent.getMapCanvas().setMarkers( mapComponent.getMarkers() );
+
+                        mapComponent.getMapCanvas().resetTimeMarker();
                         getStopButton().setEnabled( false );
                         if (animation != null) {
                             animation.cancel();
@@ -222,11 +223,9 @@ public class OptionContainer extends JComponent {
 
                 @Override
                 public void stateChanged( ChangeEvent e ) {
-                    final int[] mmarkers = mapComponent.getMarkers();
-                    final int x = mmarkers[stepSlider.getValue() * 2];
-                    final int y = mmarkers[stepSlider.getValue() * 2 + 1];
+
                     mapComponent.getMapCanvas().setDotSize( 5 );
-                    mapComponent.getMapCanvas().setMarkers( new int[] { x, y } );
+                    mapComponent.getMapCanvas().setTimeMarker( stepSlider.getValue() );
 
                 }
             } );
@@ -269,8 +268,7 @@ public class OptionContainer extends JComponent {
 
         getExportButton().setEnabled( enabled );
         getStepSlider().setEnabled( enabled );
-        final int[] mmarkers = mapComponent.getMarkers();
-        getStepSlider().setMaximum( mmarkers != null ? mmarkers.length / 2 - 1 : 0 );
+        mapComponent.getMapCanvas().resetTimeMarker();
         getStepSlider().setValue( 0 );
         getAllButton().setEnabled( enabled );
         getAllButton().setSelected( enabled );
