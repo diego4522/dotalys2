@@ -1,5 +1,7 @@
 package de.lighti.model;
 
+import java.awt.Color;
+
 public interface Statics {
     String DIRE = "Dire";
     String GOLD_PER_MINUTE = "Gold per Minute";
@@ -21,4 +23,10 @@ public interface Statics {
     String PLAY = "Play";
     String STOP = "Stop";
     String ALL = "All";
+
+    Color[] PLAYER_COLOURS = { Color.BLUE, new Color( 0, 128, 128 ), // Teal 
+                    new Color( 128, 0, 128 ), //Purple
+                    Color.YELLOW, Color.ORANGE, Color.PINK, Color.GRAY, new Color( 173, 216, 230 ), //Light blue
+                    Color.GREEN, new Color( 165, 42, 42 ) //Brown                                                        
+    };
 }

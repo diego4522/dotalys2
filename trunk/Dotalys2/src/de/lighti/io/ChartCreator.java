@@ -127,17 +127,19 @@ public final class ChartCreator {
                         );
     }
 
-    public static int[] createDeathMap( String name, AppState appState ) {
+    public static XYSeries createDeathMap( String name, AppState appState ) {
         final Player p = appState.getPlayerByName( name );
 
         final Hero hero = p.getHero();
         final Collection<int[]> coords = hero.getDeaths().values();
-        final int[] ret = new int[coords.size() * 2];
-        int offset = 0;
-
+//        final float[][] ret = new float[2][coords.size()];
+//        int offset = 0;
+        final XYSeries ret = new XYSeries( name, false, true  );
         for (final int[] e : coords) {
-            ret[offset++] = e[0];
-            ret[offset++] = e[1];
+//            ret[0][offset] = e[0];
+//            ret[1][offset] = e[1];
+            ret.add( e[0], e[1] );
+
         }
         return ret;
     }
@@ -158,19 +160,20 @@ public final class ChartCreator {
         return ret;
     }
 
-    public static int[] createMoveMap( String string, AppState appState ) {
+    public static XYSeries createMoveMap( String string, AppState appState ) {
 
         final Player p = appState.getPlayerByName( string );
 
         final Unit hero = p.getHero();
         final Map<Long, Integer> x = hero.getX();
         final Map<Long, Integer> y = hero.getY();
-        final int[] ret = new int[x.size() * 2];
-        int offset = 0;
+        final XYSeries ret = new XYSeries( string, false, true  );
 
         for (final Map.Entry<Long, Integer> e : x.entrySet()) {
-            ret[offset++] = e.getValue();
-            ret[offset++] = y.get( e.getKey() );
+//            ret[0][offset] = e.getValue();
+//            ret[1][offset] = y.get( e.getKey() );
+            ret.add( e.getValue(), y.get( e.getKey() ) );
+
         }
         return ret;
     }

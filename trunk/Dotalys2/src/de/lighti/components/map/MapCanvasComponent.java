@@ -1,15 +1,26 @@
 package de.lighti.components.map;
 
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.axis.ValueAxis;
+import org.jfree.chart.plot.CrosshairState;
+import org.jfree.chart.plot.PlotRenderingInfo;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYDotRenderer;
+import org.jfree.chart.renderer.xy.XYItemRendererState;
+import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeriesCollection;
 
 /**
  * The MapCanvasComponent renders different variations of the Dota2 minimap
@@ -18,17 +29,30 @@ import javax.swing.JPanel;
  * @author TobiasMahlmann
  *
  */
-public class MapCanvasComponent extends JPanel {
+public class MapCanvasComponent extends ChartPanel {
+    private static class CustomXYDotRenderer extends XYDotRenderer {
+        private Integer itemIndex = null;
+
+        @Override
+        public void drawItem( Graphics2D arg0, XYItemRendererState arg1, Rectangle2D arg2, PlotRenderingInfo arg3, XYPlot arg4, ValueAxis arg5, ValueAxis arg6,
+                        XYDataset arg7, int arg8, int arg9, CrosshairState arg10, int arg11 ) {
+            if (itemIndex == null || itemIndex == arg9) {
+                super.drawItem( arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, arg10, arg11 );
+            }
+        }
+
+    }
+
     /**
      * 
      */
     private static final long serialVersionUID = 2077175805479363567L;
     private static final int DEFAULT_DOT_SIZE = 3;
     private BufferedImage minimap;
+
     private BufferedImage minimapModel;
-    private int[] markers = new int[0];
-    private int dotSize = DEFAULT_DOT_SIZE;
     private final String MINIMAP_FILE = "Minimap.jpg";
+
     private final String MINIMAP_MODEL_FILE = "Mapmodel.png";
 
     private boolean paintMapModel;
@@ -37,16 +61,33 @@ public class MapCanvasComponent extends JPanel {
      * Default constructor.
      */
     public MapCanvasComponent() {
+        super( new JFreeChart( new XYPlot( new XYSeriesCollection(), new NumberAxis( "X" ), new NumberAxis( "Y" ), new CustomXYDotRenderer() ) ) );
+
         final Dimension size = new Dimension( 512, 512 );
         setMinimumSize( size );
         setMaximumSize( size );
         setPreferredSize( size );
+
+        final XYPlot plot = (XYPlot) getChart().getPlot();
+        resetDotSize();
+        plot.getRangeAxis().setVisible( false );
+        plot.getDomainAxis().setVisible( false );
+        getChart().getLegend().setVisible( false );
+        plot.setDomainGridlinesVisible( false );
+        plot.setRangeGridlinesVisible( false );
+        plot.setDomainPannable( false );
+        plot.setRangePannable( false );
+        plot.setBackgroundImageAlpha( 1f );
+        ((NumberAxis) plot.getDomainAxis()).setRange( 64, 64 + 128 );
+        ((NumberAxis) plot.getRangeAxis()).setRange( 64, 64 + 128 );
 
         paintMapModel = false;
 
         try {
             URL url = MapCanvasComponent.class.getResource( MINIMAP_FILE );
             minimap = ImageIO.read( url );
+            getChart().getPlot().setBackgroundImage( minimap );
+
             url = MapCanvasComponent.class.getResource( MINIMAP_MODEL_FILE );
             minimapModel = ImageIO.read( url );
         }
@@ -59,7 +100,7 @@ public class MapCanvasComponent extends JPanel {
      * @return the pencil size for painting the markers
      */
     public int getDotSize() {
-        return dotSize;
+        return ((XYDotRenderer) ((XYPlot) getChart().getPlot()).getRenderer()).getDotHeight();
     }
 
     /**
@@ -69,40 +110,15 @@ public class MapCanvasComponent extends JPanel {
         return paintMapModel;
     }
 
-    @Override
-    protected void paintComponent( Graphics g ) {
-        super.paintComponent( g );
-        if (paintMapModel) {
-            g.drawImage( minimapModel, 0, 0, getWidth(), getHeight(), null );
-        }
-        else {
-            g.drawImage( minimap, 0, 0, getWidth(), getHeight(), null );
-        }
-        final double xScale = getWidth() / 128.0;
-        final double yScale = getHeight() / 128.0;
-        for (int offset = 0; offset < markers.length; offset += 2) {
-
-            g.setColor( Color.red );
-            int x = markers[offset];
-            x *= xScale;
-            // x = getWidth() - x;
-            x -= 256;
-            int y = markers[offset + 1];
-            y *= yScale;
-            y = getWidth() - y;
-            y += 256;
-            // System.out.println( getWidth() + ", " + getHeight() );
-            // System.out.println( xScale + ", " + yScale );
-            // System.out.println( x + "," + y );
-            g.fillRect( x - dotSize / 2, y - dotSize / 2, dotSize, dotSize );
-        }
-    }
-
     /**
      * Sets the marker size to the default value
      */
     public void resetDotSize() {
-        dotSize = DEFAULT_DOT_SIZE;
+        setDotSize( DEFAULT_DOT_SIZE );
+    }
+
+    public void resetTimeMarker() {
+        setTimeMarker( -1 );
     }
 
     /**
@@ -112,12 +128,12 @@ public class MapCanvasComponent extends JPanel {
      * @param dotSize
      */
     public void setDotSize( int dotSize ) {
-        this.dotSize = dotSize;
+        ((XYDotRenderer) ((XYPlot) getChart().getPlot()).getRenderer()).setDotHeight( dotSize );
+        ((XYDotRenderer) ((XYPlot) getChart().getPlot()).getRenderer()).setDotWidth( dotSize );
     }
 
-    public void setMarkers( int[] markers ) {
-        this.markers = markers;
-        this.repaint();
+    public void setMarkers( XYSeriesCollection markers ) {
+        ((XYPlot) getChart().getPlot()).setDataset( markers );
     }
 
     /**
@@ -127,6 +143,22 @@ public class MapCanvasComponent extends JPanel {
      */
     public void setPaintMapModel( boolean paintMapModel ) {
         this.paintMapModel = paintMapModel;
+        if (paintMapModel) {
+            getChart().getPlot().setBackgroundImage( minimapModel );
+        }
+        else {
+            getChart().getPlot().setBackgroundImage( minimap );
+        }
+    }
+
+    public void setTimeMarker( int x ) {
+        if (x >= 0) {
+            ((CustomXYDotRenderer) ((XYPlot) getChart().getPlot()).getRenderer()).itemIndex = x;
+        }
+        else {
+            ((CustomXYDotRenderer) ((XYPlot) getChart().getPlot()).getRenderer()).itemIndex = null;
+        }
+        repaint();
     }
 
 }
