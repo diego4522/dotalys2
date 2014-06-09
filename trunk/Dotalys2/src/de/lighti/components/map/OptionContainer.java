@@ -223,9 +223,10 @@ public class OptionContainer extends JComponent {
 
                 @Override
                 public void stateChanged( ChangeEvent e ) {
-
-                    mapComponent.getMapCanvas().setDotSize( 5 );
-                    mapComponent.getMapCanvas().setTimeMarker( stepSlider.getValue() );
+                    if (!getAllButton().isSelected()) {
+                        mapComponent.getMapCanvas().setDotSize( 5 );
+                        mapComponent.getMapCanvas().setTimeMarker( stepSlider.getValue() );
+                    }
 
                 }
             } );

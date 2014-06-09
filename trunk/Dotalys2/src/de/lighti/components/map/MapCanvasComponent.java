@@ -103,6 +103,10 @@ public class MapCanvasComponent extends ChartPanel {
         return ((XYDotRenderer) ((XYPlot) getChart().getPlot()).getRenderer()).getDotHeight();
     }
 
+    public XYSeriesCollection getMarkers() {
+        return (XYSeriesCollection) ((XYPlot) getChart().getPlot()).getDataset();
+    }
+
     /**
      * @return true if the zone map is currently displayed
      */
@@ -130,10 +134,6 @@ public class MapCanvasComponent extends ChartPanel {
     public void setDotSize( int dotSize ) {
         ((XYDotRenderer) ((XYPlot) getChart().getPlot()).getRenderer()).setDotHeight( dotSize );
         ((XYDotRenderer) ((XYPlot) getChart().getPlot()).getRenderer()).setDotWidth( dotSize );
-    }
-
-    public void setMarkers( XYSeriesCollection markers ) {
-        ((XYPlot) getChart().getPlot()).setDataset( markers );
     }
 
     /**

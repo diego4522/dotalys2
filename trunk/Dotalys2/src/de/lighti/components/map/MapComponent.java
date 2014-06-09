@@ -16,7 +16,10 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeModel;
+import javax.swing.tree.TreePath;
+import javax.swing.tree.TreeSelectionModel;
 
+import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
 import de.lighti.io.ChartCreator;
@@ -41,8 +44,6 @@ public class MapComponent extends JSplitPane {
     private OptionContainer optionContainer;
 
     private JPanel mapCanvasContainer;
-
-//    private int[] markers;
 
     private final static Logger LOGGER = Logger.getLogger( MapCanvasComponent.class.getName() );
 
@@ -118,44 +119,50 @@ public class MapComponent extends JSplitPane {
         if (attributeTree == null) {
             final TreeModel model = new DefaultTreeModel( null );
             attributeTree = new JTree( model );
-
+            final TreeSelectionModel selectionModel = attributeTree.getSelectionModel();
+            selectionModel.setSelectionMode( TreeSelectionModel.DISCONTIGUOUS_TREE_SELECTION );
             attributeTree.addTreeSelectionListener( new TreeSelectionListener() {
 
                 @Override
                 public void valueChanged( TreeSelectionEvent e ) {
+                    final XYSeriesCollection series = getMapCanvas().getMarkers();
+                    final TreePath[] paths = e.getPaths();
+                    for (int i = 0; i < paths.length; i++) {
+                        final TreePath p = paths[i];
+                        final DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) p.getLastPathComponent();
+                        final String selectionName = (String) selectedNode.getUserObject();
+                        final DefaultMutableTreeNode category = (DefaultMutableTreeNode) selectedNode.getParent();
+                        final String catName = (String) category.getUserObject();
+                        if (selectedNode.isLeaf()) {
+                            if (e.isAddedPath( i )) {
+                                final Player player = appState.getPlayerByName( selectionName );
 
-                    final DefaultMutableTreeNode node = (DefaultMutableTreeNode) attributeTree.getLastSelectedPathComponent();
-                    if (node != null && node.isLeaf()) {
-                        final String selection = (String) node.getUserObject();
-                        final Player p = appState.getPlayerByName( selection );
-                        if (p != null) {
-                            final DefaultMutableTreeNode category = (DefaultMutableTreeNode) node.getParent();
-                            final String catName = (String) category.getUserObject();
-
-                            switch (catName) {
-                                case CAT_MOVEMENT: {
-                                    final XYSeriesCollection markers = new XYSeriesCollection();
-                                    markers.addSeries( ChartCreator.createMoveMap( p.getName(), appState ) );
-                                    getMapCanvas().setMarkers( markers );
-                                    getOptionContainer().getStepSlider().setMaximum( markers.getItemCount( 0 ) );
+                                switch (catName) {
+                                    case CAT_MOVEMENT: {
+                                        final XYSeries s = ChartCreator.createMoveMap( player.getName(), appState );
+                                        s.setKey( player.getName() + catName );
+                                        series.addSeries( s );
+                                    }
+                                        break;
+                                    case CAT_DEATHS: {
+                                        final XYSeries s = ChartCreator.createDeathMap( player.getName(), appState );
+                                        s.setKey( player.getName() + catName );
+                                        series.addSeries( s );
+                                    }
+                                        break;
+                                    default:
+                                        LOGGER.warning( "Unknown category in tree" );
+                                        break;
                                 }
-                                    break;
-                                case CAT_DEATHS: {
-                                    final XYSeriesCollection markers = new XYSeriesCollection();
-                                    markers.addSeries( ChartCreator.createDeathMap( p.getName(), appState ) );
-                                    getMapCanvas().setMarkers( markers );
-                                    getOptionContainer().getStepSlider().setMaximum( markers.getItemCount( 0 ) );
-                                }
-                                    break;
-                                default:
-                                    getOptionContainer().setEnabled( false );
-                                    LOGGER.warning( "Unknown category in tree" );
-                                    break;
+                                getOptionContainer().setEnabled( true );
+                                getOptionContainer().getStepSlider().setMaximum( series.getItemCount( 0 ) );
                             }
-                            getOptionContainer().setEnabled( true );
+                            else {
+                                series.removeSeries( series.getSeries( selectionName + catName ) );
+                            }
                         }
                     }
-
+                    getMapCanvas().repaint();
                 }
             } );
         }
