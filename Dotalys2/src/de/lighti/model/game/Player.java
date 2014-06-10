@@ -2,7 +2,7 @@ package de.lighti.model.game;
 
 public class Player {
     private String name;
-    private final String id;
+    private final int id;
 
     private int totalEarnedGold;
 
@@ -12,8 +12,8 @@ public class Player {
 
     private boolean isRadiant;
 
-    public Player( String id, String name ) {
-        this.name = name;
+    public Player( int id ) {
+
         this.id = id;
     }
 
@@ -21,7 +21,7 @@ public class Player {
         return hero;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 

@@ -108,14 +108,13 @@ public class PlayerComponent extends JSplitPane {
                 final Player p = appState.getPlayerByName( id );
                 final Hero hero = p.getHero();
 
-                if (hero != null) {
-                    final List<Ability> abilities = new ArrayList<Ability>();
-                    for (final Integer i : hero.getAbilities()) {
-                        abilities.add( appState.getAbility( i ) );
-                    }
-                    c.setAbilities( abilities );
-                    c.repaint();
+                final List<Ability> abilities = new ArrayList<Ability>();
+                for (final Integer i : hero.getAbilities()) {
+                    abilities.add( appState.getAbility( i ) );
                 }
+                c.setAbilities( abilities );
+                c.repaint();
+
             }
         } );
         return c;
@@ -193,7 +192,7 @@ public class PlayerComponent extends JSplitPane {
 
     public JComboBox<String> getPlayerBox() {
         if (playerBox == null) {
-            playerBox = new JComboBox<String>( appState.getPlayerComboModel() ) {
+            playerBox = new JComboBox<String>() {
 
                 /**
                  * 

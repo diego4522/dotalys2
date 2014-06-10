@@ -69,39 +69,36 @@ public class PlayersListener extends DefaultGameEventListener {
         final Matcher m = playerPattern.matcher( name );
         if (m.find()) {
 
-            final String id = name.substring( name.lastIndexOf( "." ) );
+            final String id = name.substring( name.lastIndexOf( "." ) + 1 );
+            final String valueName = name.substring( 0, name.lastIndexOf( "." ) );
             Player p = playerBuffer.get( id );
             if (p == null) {
-                playerBuffer.put( id, new Player( id, "<unknown>" ) );
+                playerBuffer.put( id, new Player( Integer.valueOf( id ) ) );
                 p = playerBuffer.get( id );
             }
 
-            boolean handled = false;
+            switch (valueName) {
+                case "m_iszPlayerNames":
+                    p.setName( (String) value );
+                    break;
+                case "m_iTotalEarnedGold":
+                    p.setTotalEarnedGold( (Integer) value );
+                    break;
+                case "m_iTotalEarnedXP":
+                    p.setTotalXP( (Integer) value );
+                    break;
+                case "m_hSelectedHero":
+                    p.setHero( state.getHero( (Integer) value & 0x7FF ) );
+                    break;
+                case "m_iPlayerTeams":
+                    p.setRadiant( (Integer) value == 2 ); //2 = Radiant, 3 = Dire, 5 = Spectator
+                    break;
+                default:
+                    state.addPlayerVariable( valueName );
+                    break;
 
-            if (name.contains( "m_iszPlayerNames" )) {
-                p.setName( (String) value );
-                handled = true;
             }
 
-            if (name.contains( "m_iTotalEarnedGold" )) {
-                p.setTotalEarnedGold( (Integer) value );
-
-            }
-            else if (name.contains( "m_iTotalEarnedXP" )) {
-                p.setTotalXP( (Integer) value );
-            }
-
-            else if (name.contains( "m_hSelectedHero" )) {
-                p.setHero( state.getHero( (Integer) value & 0x7FF ) );
-                handled = true;
-            }
-            else if (name.contains( "m_iPlayerTeams" )) {
-                p.setRadiant( (Integer) value == 2 ); //2 = Radiant, 3 = Dire, 5 = Spectator
-                handled = true;
-            }
-            if (!handled) {
-                state.addPlayerVariable( name.substring( 0, name.lastIndexOf( "." ) ) );
-            }
         }
 
     }
@@ -110,7 +107,7 @@ public class PlayersListener extends DefaultGameEventListener {
     public void parseComplete( long tickMs, ParseState state ) {
         for (final Player p : playerBuffer.values()) {
             if (p.getHero() != null) {
-                this.state.addPlayer( p.getName(), p );
+                this.state.addPlayer( p );
             }
         }
     }

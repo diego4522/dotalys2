@@ -267,13 +267,13 @@ public class BatchDialog extends JDialog {
                 while (fileList.hasMoreElements()) {
                     final File f = fileList.nextElement();
                     final AppState state = new AppState();
-                    DataImporter.parseReplayFile( state, f );
+                    DataImporter.parseReplayFile( state, null, f );
                     for (final CheckBoxListEntry entry : properties) {
                         switch (entry.getValue()) {
                             case MapComponent.CAT_MOVEMENT:
                                 try {
                                     final String header = "#tickms, x , y";
-                                    for (final Player p : state.getPlayers().values()) {
+                                    for (final Player p : state.getPlayers()) {
                                         if (p.getHero() == null) {
                                             Logger.getLogger( BatchDialog.class ).warning(
                                                             "Skipping player " + p.getName() + " because no hero was selected. Most likely a spectator" );

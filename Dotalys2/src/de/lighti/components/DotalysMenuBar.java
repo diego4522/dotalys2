@@ -119,7 +119,7 @@ public class DotalysMenuBar extends JMenuBar {
                             @Override
                             public void run() {
 
-                                DataImporter.parseReplayFile( appState, fc.getSelectedFile(), new ProgressListener() {
+                                DataImporter.parseReplayFile( appState, owner, fc.getSelectedFile(), new ProgressListener() {
 
                                     @Override
                                     public void bytesRemaining( int position ) {

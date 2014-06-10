@@ -1,6 +1,7 @@
 package de.lighti.io;
 
 import java.awt.Color;
+import java.text.DecimalFormat;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +28,13 @@ import de.lighti.model.game.Unit;
 
 public final class ChartCreator {
     private final static Logger LOGGER = Logger.getLogger( ChartCreator.class.getName() );
+
+    /**
+     * TODO
+     * We store player id as a real int, but unhandled game events are stored as name.XXXX.
+     * We temporaily solve this by expanding the real id to four digits.
+     */
+    private final static DecimalFormat ID_TO_GAMEEVENT_FORMAT = new DecimalFormat( "0000" );
 
     /**
      * Helper method that assigns a chart to a chart panel and sets up the layout.
@@ -78,8 +86,8 @@ public final class ChartCreator {
             long baddyDistance = 0l;
             long goodDistance = 0l;
 
-            rowLoop: for (final Player p : appState.getPlayers().values()) {
-                for (final Player q : appState.getPlayers().values()) {
+            rowLoop: for (final Player p : appState.getPlayers()) {
+                for (final Player q : appState.getPlayers()) {
                     if (p == q) {
                         continue rowLoop;
                     }
@@ -132,14 +140,10 @@ public final class ChartCreator {
 
         final Hero hero = p.getHero();
         final Collection<int[]> coords = hero.getDeaths().values();
-//        final float[][] ret = new float[2][coords.size()];
-//        int offset = 0;
-        final XYSeries ret = new XYSeries( name, false, true  );
-        for (final int[] e : coords) {
-//            ret[0][offset] = e[0];
-//            ret[1][offset] = e[1];
-            ret.add( e[0], e[1] );
 
+        final XYSeries ret = new XYSeries( name, false, true );
+        for (final int[] e : coords) {
+            ret.add( e[0], e[1] );
         }
         return ret;
     }
@@ -167,11 +171,9 @@ public final class ChartCreator {
         final Unit hero = p.getHero();
         final Map<Long, Integer> x = hero.getX();
         final Map<Long, Integer> y = hero.getY();
-        final XYSeries ret = new XYSeries( string, false, true  );
+        final XYSeries ret = new XYSeries( string, false, true );
 
         for (final Map.Entry<Long, Integer> e : x.entrySet()) {
-//            ret[0][offset] = e.getValue();
-//            ret[1][offset] = y.get( e.getKey() );
             ret.add( e.getValue(), y.get( e.getKey() ) );
 
         }
@@ -183,12 +185,12 @@ public final class ChartCreator {
 
         try {
             for (final String player : players) {
-                final String id = appState.getPlayerByName( player ).getId();
+                final int id = appState.getPlayerByName( player ).getId();
                 final XYSeries series1 = new XYSeries( player );
 
                 for (final Entry<Long, Map<String, Object>> e : appState.gameEventsPerMs.entrySet()) {
-                    if (e.getValue().containsKey( attribute + id )) {
-                        final Number v = (Number) e.getValue().get( attribute + id );
+                    if (e.getValue().containsKey( attribute + "." + ID_TO_GAMEEVENT_FORMAT.format( id ) )) {
+                        final Number v = (Number) e.getValue().get( attribute + "." + ID_TO_GAMEEVENT_FORMAT.format( id ) );
                         series1.add( e.getKey(), v );
                     }
                 }
