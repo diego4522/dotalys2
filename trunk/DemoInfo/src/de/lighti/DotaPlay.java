@@ -217,14 +217,14 @@ public class DotaPlay {
     }
 
     public static void loadFile( String path ) {
-        loadFile( path, null );
+        loadFile( path, (ProgressListener[]) null );
     }
 
-    public static void loadFile( String path, ProgressListener pl ) {
+    public static void loadFile( String path, ProgressListener... pl ) {
         setState( null );
         final DemoFile file = new DemoFile();
         try {
-            file.open( path );// "194301532.dem" );
+            file.open( path );
             while (!file.isDone()) {
                 final int[] pTick = new int[1];
                 final boolean[] compressed = new boolean[1];
@@ -235,7 +235,9 @@ public class DotaPlay {
                 final byte[] message = file.readMessage( compressed[0] );
                 handleDemoCommand( type, message, pTick[0] );
                 if (pl != null) {
-                    pl.bytesRemaining( file.bytesRemaining() );
+                    for (final ProgressListener p : pl) {
+                        p.bytesRemaining( file.bytesRemaining() );
+                    }
                 }
             }
 

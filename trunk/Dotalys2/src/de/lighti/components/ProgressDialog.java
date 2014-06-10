@@ -19,12 +19,12 @@ public class ProgressDialog extends JDialog {
         super( owner );
 
         setModalityType( ModalityType.APPLICATION_MODAL );
-//        setUndecorated( true );
+        setUndecorated( true );
         setDefaultCloseOperation( WindowConstants.DISPOSE_ON_CLOSE );
         final Dimension d = new Dimension( 300, 100 );
 
         add( getProgressBar() );
-        setLocation( (owner.getWidth() / 2) - (getWidth() / 2), (owner.getHeight() / 2) - (getHeight() / 2) );
+        setLocation( owner.getX() + owner.getWidth() / 2 - getWidth() / 2, owner.getY() + owner.getHeight() / 2 - getHeight() / 2 );
         pack();
     }
 
@@ -32,12 +32,11 @@ public class ProgressDialog extends JDialog {
         super( owner );
 
         setModalityType( ModalityType.APPLICATION_MODAL );
-//        setUndecorated( true );
+        setUndecorated( true );
         setDefaultCloseOperation( WindowConstants.DISPOSE_ON_CLOSE );
-        final Dimension d = new Dimension( 300, 100 );
 
         add( getProgressBar() );
-        setLocation( (owner.getWidth() / 2) - (getWidth() / 2), (owner.getHeight() / 2) - (getHeight() / 2) );
+        setLocation( owner.getX() + owner.getWidth() / 2 - getWidth() / 2, owner.getY() + owner.getHeight() / 2 - getHeight() / 2 );
         pack();
     }
 

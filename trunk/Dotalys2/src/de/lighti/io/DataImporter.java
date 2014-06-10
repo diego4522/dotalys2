@@ -51,7 +51,7 @@ public final class DataImporter {
             DotaPlay.addListener( new GeneralGameStateTracker( app ) );
         }
 
-        DotaPlay.loadFile( file.getAbsolutePath() );
+        DotaPlay.loadFile( file.getAbsolutePath(), listeners );
 
         //Note really necessary, but move away whatever data has been cached in the listeners
         DotaPlay.getListeners().clear();
