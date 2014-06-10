@@ -109,7 +109,7 @@ public class MapCanvasComponent extends ChartPanel {
 
         //If we have a colour for a player. Otherwise let the component handle it
         if (index != null) {
-            ((XYPlot) getChart().getPlot()).getRenderer().setSeriesPaint( index, Statics.PLAYER_COLOURS[index] );
+            ((XYPlot) getChart().getPlot()).getRenderer().setSeriesPaint( s.getSeriesIndex( series.getKey() ), Statics.PLAYER_COLOURS[index] );
         }
     }
 
@@ -144,6 +144,14 @@ public class MapCanvasComponent extends ChartPanel {
     public void removeSeries( String series ) {
         final XYSeriesCollection s = (XYSeriesCollection) ((XYPlot) getChart().getPlot()).getDataset();
         final XYSeries xys = s.getSeries( series );
+
+        //If we remove a series, the series paints don't seem to get updated
+        final XYDotRenderer renderer = (XYDotRenderer) ((XYPlot) getChart().getPlot()).getRenderer();
+        final int index = s.getSeriesIndex( xys.getKey() );
+        for (int i = index; i < s.getSeriesCount() - 1; i++) {
+            renderer.setSeriesPaint( i, renderer.getSeriesPaint( i + 1 ) );
+        }
+
         s.removeSeries( xys );
 
     }
