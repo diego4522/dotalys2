@@ -2,8 +2,8 @@ package de.lighti;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 import com.valve.dota2.Demo.CDemoClassInfo;
@@ -43,7 +43,7 @@ public class DotaPlay {
      */
     private static ParseState state;
 
-    private static Set<GameEventListener> listeners = new HashSet<GameEventListener>();
+    private static List<GameEventListener> listeners = new ArrayList<GameEventListener>();
 
     private static int tick;
 
@@ -53,7 +53,7 @@ public class DotaPlay {
         listeners.add( l );
     }
 
-    public static Set<GameEventListener> getListeners() {
+    public static List<GameEventListener> getListeners() {
         return listeners;
     }
 
