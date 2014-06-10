@@ -17,6 +17,7 @@ import org.xml.sax.SAXException;
 
 import de.lighti.DotaPlay;
 import de.lighti.DotaPlay.ProgressListener;
+import de.lighti.Dotalys2App;
 import de.lighti.model.AppState;
 import de.lighti.parsing.AbilityTracker;
 import de.lighti.parsing.CreepHandler;
@@ -39,14 +40,16 @@ public final class DataImporter {
         }
     };
 
-    public static void parseReplayFile( AppState appState, File file, ProgressListener... listeners ) {
+    public static void parseReplayFile( AppState appState, Dotalys2App app, File file, ProgressListener... listeners ) {
         DotaPlay.getListeners().clear();
         DotaPlay.addListener( new PlayersListener( appState ) );
         DotaPlay.addListener( new ItemListener( appState ) );
         DotaPlay.addListener( new AbilityTracker( appState ) );
         DotaPlay.addListener( new HeroTracker( appState ) );
         DotaPlay.addListener( new CreepHandler( appState ) );
-        DotaPlay.addListener( new GeneralGameStateTracker( appState ) );
+        if (app != null) {
+            DotaPlay.addListener( new GeneralGameStateTracker( app ) );
+        }
 
         DotaPlay.loadFile( file.getAbsolutePath() );
 

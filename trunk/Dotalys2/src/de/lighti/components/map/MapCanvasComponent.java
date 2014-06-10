@@ -20,7 +20,10 @@ import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYDotRenderer;
 import org.jfree.chart.renderer.xy.XYItemRendererState;
 import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+
+import de.lighti.model.Statics;
 
 /**
  * The MapCanvasComponent renders different variations of the Dota2 minimap
@@ -96,11 +99,35 @@ public class MapCanvasComponent extends ChartPanel {
         }
     }
 
+    public void addSeries( XYSeries series ) {
+        addSeries( series, null );
+    }
+
+    public void addSeries( XYSeries series, Integer index ) {
+        final XYSeriesCollection s = (XYSeriesCollection) ((XYPlot) getChart().getPlot()).getDataset();
+        s.addSeries( series );
+
+        //If we have a colour for a player. Otherwise let the component handle it
+        if (index != null) {
+            ((XYPlot) getChart().getPlot()).getRenderer().setSeriesPaint( index, Statics.PLAYER_COLOURS[index] );
+        }
+    }
+
     /**
      * @return the pencil size for painting the markers
      */
     public int getDotSize() {
         return ((XYDotRenderer) ((XYPlot) getChart().getPlot()).getRenderer()).getDotHeight();
+    }
+
+    public int getItemCount() {
+        final XYSeriesCollection s = (XYSeriesCollection) ((XYPlot) getChart().getPlot()).getDataset();
+        if (s.getSeriesCount() == 0) {
+            return 0;
+        }
+        else {
+            return s.getSeries( 0 ).getItemCount();
+        }
     }
 
     public XYSeriesCollection getMarkers() {
@@ -112,6 +139,13 @@ public class MapCanvasComponent extends ChartPanel {
      */
     public boolean isPaintMapModel() {
         return paintMapModel;
+    }
+
+    public void removeSeries( String series ) {
+        final XYSeriesCollection s = (XYSeriesCollection) ((XYPlot) getChart().getPlot()).getDataset();
+        final XYSeries xys = s.getSeries( series );
+        s.removeSeries( xys );
+
     }
 
     /**

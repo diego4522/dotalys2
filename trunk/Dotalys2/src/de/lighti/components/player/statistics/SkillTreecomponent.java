@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 import de.lighti.io.ImageCache;
+import de.lighti.model.Statics;
 import de.lighti.model.game.Ability;
 
 public class SkillTreecomponent extends JPanel {
@@ -34,23 +35,30 @@ public class SkillTreecomponent extends JPanel {
             int x = 20;
             int y = 20;
             for (final Ability a : abilities) {
-                rows.put( a.getName(), new Point( x, y ) );
-                try {
-                    final BufferedImage image = ImageCache.getAbilityImage( a.getName() );
-                    if (image == null) {
+                if (a != null) {
+                    rows.put( a.getName(), new Point( x, y ) );
+
+                    try {
+                        final BufferedImage image = ImageCache.getAbilityImage( a.getName() );
+                        if (image == null) {
+                            g.drawString( a.getName(), x, y );
+                            x += a.getName().length() * 6 + 5;
+                        }
+                        else {
+                            g.drawImage( image, x, y, 64, 64, this );
+                            x += 64 + 5;
+                        }
+                    }
+
+                    catch (final IOException e) {
+                        LOGGER.warning( "Error loading image: " + e.getLocalizedMessage() );
                         g.drawString( a.getName(), x, y );
                         x += a.getName().length() * 6 + 5;
                     }
-                    else {
-                        g.drawImage( image, x, y, 64, 64, this );
-                        x += 64 + 5;
-                    }
                 }
-
-                catch (final IOException e) {
-                    LOGGER.warning( "Error loading image: " + e.getLocalizedMessage() );
-                    g.drawString( a.getName(), x, y );
-                    x += a.getName().length() * 6 + 5;
+                else {
+                    g.drawString( Statics.UNKNOWN_ABILITY, x, y );
+                    x += Statics.UNKNOWN_ABILITY.length() * 6 + 5;
                 }
             }
 
@@ -74,9 +82,11 @@ public class SkillTreecomponent extends JPanel {
 
             abilityLog = new TreeMap<Long, String>();
             for (final Ability a : abilities) {
-                for (final Long l : a.getLevel().keySet()) {
-                    if (a.getLevel().get( l ) > 0) {
-                        abilityLog.put( l, a.getName() );
+                if (a != null) {
+                    for (final Long l : a.getLevel().keySet()) {
+                        if (a.getLevel().get( l ) > 0) {
+                            abilityLog.put( l, a.getName() );
+                        }
                     }
                 }
             }

@@ -4,13 +4,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedMap;
 import java.util.TreeMap;
-
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
-import javax.swing.ListModel;
 
 import de.lighti.model.game.Ability;
 import de.lighti.model.game.Dota2Item;
@@ -19,13 +13,10 @@ import de.lighti.model.game.Player;
 
 public class AppState {
     public TreeMap<Long, Map<String, Object>> gameEventsPerMs = new TreeMap<Long, Map<String, Object>>();
-    private final SortedMap<String, Player> players = new TreeMap<String, Player>();
-
-    private final DefaultListModel<String> playerListModel;
+//    private final SortedMap<String, Player> players = new TreeMap<String, Player>();
+    private final Set<Player> players;
 
     private final Set<String> playerVariables;
-    private final DefaultComboBoxModel<String> attributeBoxModel;
-    private final DefaultComboBoxModel<String> playerComboModel;
     private final Map<Integer, Hero> heroes;
     private final Map<Integer, Dota2Item> items;
     private final Map<Integer, Ability> abilities;
@@ -35,14 +26,12 @@ public class AppState {
     private int msPerTick;
 
     public AppState() {
-        playerListModel = new DefaultListModel<String>();
-        attributeBoxModel = new DefaultComboBoxModel<String>();
-        playerComboModel = new DefaultComboBoxModel<String>();
         playerVariables = new HashSet<String>();
         heroes = new HashMap<Integer, Hero>();
         items = new HashMap<Integer, Dota2Item>();
         abilities = new HashMap<Integer, Ability>();
-        heroNames = new HashMap<>();
+        heroNames = new HashMap<String, String>();
+        players = new HashSet<Player>();
     }
 
     public void addAbility( int id, Ability ability ) {
@@ -55,47 +44,18 @@ public class AppState {
 
     }
 
-    public void addPlayer( String id, Player p ) {
-        players.put( id, p );
-        boolean inserted = false;
-        for (int i = 0; i < playerListModel.getSize(); i++) {
-            final String element = playerListModel.getElementAt( i );
-            if (id.compareTo( element ) < 0) {
-                playerListModel.insertElementAt( id, i );
-                inserted = true;
-                break;
-            }
-        }
-        if (!inserted) {
-            playerListModel.addElement( id );
-        }
-
-        inserted = false;
-        for (int i = 0; i < playerComboModel.getSize(); i++) {
-            final String element = playerComboModel.getElementAt( i );
-            if (id.compareTo( element ) < 0) {
-                playerComboModel.insertElementAt( id, i );
-                inserted = true;
-                break;
-            }
-        }
-        if (!inserted) {
-            playerComboModel.addElement( id );
-        }
+    public void addPlayer( Player p ) {
+        players.add( p );
 
     }
 
     public void addPlayerVariable( String n ) {
         if (!playerVariables.contains( n )) {
             playerVariables.add( n );
-            attributeBoxModel.addElement( n );
         }
     }
 
     public void clear() {
-        playerListModel.clear();
-        attributeBoxModel.removeAllElements();
-        playerComboModel.removeAllElements();
         playerVariables.clear();
         heroes.clear();
         items.clear();
@@ -105,10 +65,6 @@ public class AppState {
 
     public Ability getAbility( int id ) {
         return abilities.get( id );
-    }
-
-    public ComboBoxModel<String> getAttributeListModel() {
-        return attributeBoxModel;
     }
 
     /**
@@ -184,12 +140,17 @@ public class AppState {
         return msPerTick;
     }
 
-    public Player getPlayer( String id ) {
-        return players.get( id );
+    public Player getPlayer( int id ) {
+        for (final Player p : players) {
+            if (p.getId() == id) {
+                return p;
+            }
+        }
+        throw new IllegalArgumentException( "no such player" );
     }
 
     public Player getPlayerByName( String player ) {
-        for (final Player p : players.values()) {
+        for (final Player p : players) {
             if (p.getName().equals( player )) {
                 return p;
             }
@@ -197,16 +158,12 @@ public class AppState {
         return null;
     }
 
-    public ComboBoxModel<String> getPlayerComboModel() {
-        return playerComboModel;
-    }
-
-    public ListModel<String> getPlayerListModel() {
-        return playerListModel;
-    }
-
-    public SortedMap<String, Player> getPlayers() {
+    public Set<Player> getPlayers() {
         return players;
+    }
+
+    public Set<String> getUnhandledPlayerVariableNames() {
+        return playerVariables;
     }
 
     public void setHero( int id, Hero hero ) {

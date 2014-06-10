@@ -9,14 +9,14 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.event.ListDataEvent;
-import javax.swing.event.ListDataListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
@@ -51,7 +51,7 @@ public class HistogramComponent extends JSplitPane {
 
     public JComboBox<String> getAttributeBox() {
         if (attributeBox == null) {
-            attributeBox = new JComboBox<String>( appState.getAttributeListModel() ) {
+            attributeBox = new JComboBox<String>( new DefaultComboBoxModel<String>() ) {
 
                 /**
                  * 
@@ -70,27 +70,8 @@ public class HistogramComponent extends JSplitPane {
 
             };
 
-            appState.getAttributeListModel().addListDataListener( new ListDataListener() {
-
-                @Override
-                public void contentsChanged( ListDataEvent e ) {
-
-                }
-
-                @Override
-                public void intervalAdded( ListDataEvent e ) {
-                    getAttributeBox().setEnabled( true );
-
-                    getPlayerBox().setEnabled( true );
-                }
-
-                @Override
-                public void intervalRemoved( ListDataEvent e ) {
-
-                }
-            } );
             attributeBox.setAlignmentX( Component.CENTER_ALIGNMENT );
-            attributeBox.setEnabled( false );
+
             attributeBox.addActionListener( new ActionListener() {
 
                 @Override
@@ -117,12 +98,12 @@ public class HistogramComponent extends JSplitPane {
 
     public JList<String> getPlayerBox() {
         if (playerBox == null) {
-            playerBox = new JList<String>( appState.getPlayerListModel() );
+            playerBox = new JList<String>( new DefaultListModel<String>() );
             playerBox.setLayoutOrientation( JList.VERTICAL );
             playerBox.setVisibleRowCount( 10 );
             playerBox.setFixedCellHeight( 12 );
             playerBox.setFixedCellWidth( 200 );
-            playerBox.setEnabled( false );
+
             playerBox.addListSelectionListener( new ListSelectionListener() {
 
                 @Override

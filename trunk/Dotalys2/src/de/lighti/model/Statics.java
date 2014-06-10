@@ -29,4 +29,10 @@ public interface Statics {
                     Color.YELLOW, Color.ORANGE, Color.PINK, Color.GRAY, new Color( 173, 216, 230 ), //Light blue
                     Color.GREEN, new Color( 165, 42, 42 ) //Brown                                                        
     };
+    String UNKNOWN_ABILITY = "<unknown>";
+    String PLAYER_HISTOGRAMS = "Player Histograms";
+    String PLAYER_STATISTICS = "Player Statistics";
+    String MAP_EVENTS = "Map Events";
+    String MATCH_ANALYSIS = "Match Analysis";
+    String APPLICATION_TITLE = "Dotalys2";
 }

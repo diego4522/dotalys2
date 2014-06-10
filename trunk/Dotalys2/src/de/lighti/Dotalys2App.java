@@ -3,16 +3,12 @@ package de.lighti;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.io.IOException;
 
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.UIManager;
-import javax.swing.event.ListDataEvent;
-import javax.swing.event.ListDataListener;
 
 import de.lighti.components.DotalysMenuBar;
 import de.lighti.components.map.MapComponent;
@@ -21,6 +17,7 @@ import de.lighti.components.player.histogram.HistogramComponent;
 import de.lighti.components.player.statistics.PlayerComponent;
 import de.lighti.io.DataImporter;
 import de.lighti.model.AppState;
+import de.lighti.model.Statics;
 
 public class Dotalys2App extends JFrame {
     private final AppState appState;
@@ -44,8 +41,14 @@ public class Dotalys2App extends JFrame {
 
     private JTabbedPane mainView;
 
+    private HistogramComponent histogramComponent;
+
+    private PlayerComponent playerComponent;
+
+    private MapComponent mapComponent;
+
     public Dotalys2App() {
-        super( "Dotalys2" );
+        super( Statics.APPLICATION_TITLE );
 
         appState = new AppState();
         parseLocalisedHeroNames();
@@ -68,50 +71,45 @@ public class Dotalys2App extends JFrame {
         return appState;
     }
 
+    public HistogramComponent getHistogramComponent() {
+        if (histogramComponent == null) {
+            histogramComponent = new HistogramComponent( appState );
+        }
+        return histogramComponent;
+    }
+
     public JComponent getMainView() {
         if (mainView == null) {
             mainView = new JTabbedPane();
-            mainView.addTab( "Player Histograms", new HistogramComponent( appState ) );
+            mainView.addTab( Statics.PLAYER_HISTOGRAMS, getHistogramComponent() );
 
-            final PlayerComponent pc = new PlayerComponent( appState );
-            mainView.addTab( "Player Statistics", pc );
-            try {
-                final MapComponent mc = new MapComponent( appState );
-                mainView.addTab( "Map Events", mc );
-            }
-            catch (final IOException e) {
-                JOptionPane.showMessageDialog( this, e.getLocalizedMessage() );
-            }
+            mainView.addTab( Statics.PLAYER_STATISTICS, getPlayerComponent() );
+
+            mainView.addTab( Statics.MAP_EVENTS, getMapComponent() );
+
             mainView.setEnabled( false );
-            appState.getPlayerComboModel().addListDataListener( new ListDataListener() {
-
-                @Override
-                public void contentsChanged( ListDataEvent e ) {
-                    // TODO Auto-generated method stub
-
-                }
-
-                @Override
-                public void intervalAdded( ListDataEvent e ) {
-                    mainView.setEnabled( true );
-
-                }
-
-                @Override
-                public void intervalRemoved( ListDataEvent e ) {
-                    // TODO Auto-generated method stub
-
-                }
-
-            } );
 
             final GameStatisticsComponent gsc = new GameStatisticsComponent( getAppState() );
-            mainView.addTab( "Match Analysis", gsc );
+            mainView.addTab( Statics.MATCH_ANALYSIS, gsc );
 
             mainView.setBorder( BorderFactory.createEmptyBorder( 5, 5, 5, 5 ) );
         }
 
         return mainView;
+    }
+
+    public MapComponent getMapComponent() {
+        if (mapComponent == null) {
+            mapComponent = new MapComponent( appState );
+        }
+        return mapComponent;
+    }
+
+    public PlayerComponent getPlayerComponent() {
+        if (playerComponent == null) {
+            playerComponent = new PlayerComponent( appState );
+        }
+        return playerComponent;
     }
 
     private void parseLocalisedHeroNames() {

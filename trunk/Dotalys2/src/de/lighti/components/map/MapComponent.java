@@ -1,7 +1,5 @@
 package de.lighti.components.map;
 
-import java.io.IOException;
-import java.util.Collection;
 import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
@@ -9,8 +7,6 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.JTree;
-import javax.swing.event.ListDataEvent;
-import javax.swing.event.ListDataListener;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -20,7 +16,6 @@ import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
 import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
 
 import de.lighti.io.ChartCreator;
 import de.lighti.model.AppState;
@@ -47,7 +42,7 @@ public class MapComponent extends JSplitPane {
 
     private final static Logger LOGGER = Logger.getLogger( MapCanvasComponent.class.getName() );
 
-    public MapComponent( AppState state ) throws IOException {
+    public MapComponent( AppState state ) {
         appState = state;
 
         setOrientation( JSplitPane.HORIZONTAL_SPLIT );
@@ -60,44 +55,17 @@ public class MapComponent extends JSplitPane {
         setDividerLocation( 150 );
         setBorder( BorderFactory.createEmptyBorder( 5, 5, 5, 5 ) );
 
-        appState.getPlayerComboModel().addListDataListener( new ListDataListener() {
-
-            @Override
-            public void contentsChanged( ListDataEvent e ) {
-
-            }
-
-            @Override
-            public void intervalAdded( ListDataEvent e ) {
-                final Collection<Player> p = appState.getPlayers().values();
-
-                final String[] temp = new String[p.size()];
-                int i = 0;
-                for (final Player q : p) {
-                    temp[i++] = q.getName();
-                }
-                buildTreeNodes( temp );
-
-            }
-
-            @Override
-            public void intervalRemoved( ListDataEvent e ) {
-                // TODO Auto-generated method stub
-
-            }
-        } );
-
     }
 
-    private void buildTreeNodes( String[] playerNames ) {
+    public void buildTreeNodes( Iterable<Player> players ) {
 
         final DefaultMutableTreeNode movement = new DefaultMutableTreeNode( CAT_MOVEMENT );
-        for (final String p : playerNames) {
-            movement.add( new DefaultMutableTreeNode( p ) );
+        for (final Player p : players) {
+            movement.add( new DefaultMutableTreeNode( p.getName() ) );
         }
         final DefaultMutableTreeNode deaths = new DefaultMutableTreeNode( CAT_DEATHS );
-        for (final String p : playerNames) {
-            deaths.add( new DefaultMutableTreeNode( p ) );
+        for (final Player p : players) {
+            deaths.add( new DefaultMutableTreeNode( p.getName() ) );
         }
 
         final DefaultTreeModel model = (DefaultTreeModel) attributeTree.getModel();
@@ -125,7 +93,6 @@ public class MapComponent extends JSplitPane {
 
                 @Override
                 public void valueChanged( TreeSelectionEvent e ) {
-                    final XYSeriesCollection series = getMapCanvas().getMarkers();
                     final TreePath[] paths = e.getPaths();
                     for (int i = 0; i < paths.length; i++) {
                         final TreePath p = paths[i];
@@ -141,13 +108,13 @@ public class MapComponent extends JSplitPane {
                                     case CAT_MOVEMENT: {
                                         final XYSeries s = ChartCreator.createMoveMap( player.getName(), appState );
                                         s.setKey( player.getName() + catName );
-                                        series.addSeries( s );
+                                        getMapCanvas().addSeries( s, player.getId() );
                                     }
                                         break;
                                     case CAT_DEATHS: {
                                         final XYSeries s = ChartCreator.createDeathMap( player.getName(), appState );
                                         s.setKey( player.getName() + catName );
-                                        series.addSeries( s );
+                                        getMapCanvas().addSeries( s, player.getId() );
                                     }
                                         break;
                                     default:
@@ -155,10 +122,10 @@ public class MapComponent extends JSplitPane {
                                         break;
                                 }
                                 getOptionContainer().setEnabled( true );
-                                getOptionContainer().getStepSlider().setMaximum( series.getItemCount( 0 ) );
+                                getOptionContainer().getStepSlider().setMaximum( getMapCanvas().getItemCount() );
                             }
                             else {
-                                series.removeSeries( series.getSeries( selectionName + catName ) );
+                                getMapCanvas().removeSeries( selectionName + catName );
                             }
                         }
                     }
