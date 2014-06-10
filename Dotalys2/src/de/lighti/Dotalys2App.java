@@ -35,6 +35,7 @@ public class Dotalys2App extends JFrame {
             UIManager.put( "Panel.background", Color.WHITE );
             UIManager.put( "Slider.background", Color.WHITE );
             UIManager.put( "SplitPane.background", Color.WHITE );
+            UIManager.put( "OptionPane.background", Color.WHITE );
         }
         catch (final Exception e) {
             // Don't care
