@@ -47,6 +47,8 @@ public final class DataImporter {
         DotaPlay.addListener( new AbilityTracker( appState ) );
         DotaPlay.addListener( new HeroTracker( appState ) );
         DotaPlay.addListener( new CreepHandler( appState ) );
+
+        //Make sure this is the last one
         if (app != null) {
             DotaPlay.addListener( new GeneralGameStateTracker( app ) );
         }
