@@ -95,7 +95,7 @@ public class SkillTreecomponent extends JScrollPane {
                     }
                     else {
                         g.drawString( Statics.UNKNOWN_ABILITY, x, y );
-                        x += g.getFontMetrics().getStringBounds( Statics.UNKNOWN_ABILITY, g ).getWidth() + INDENT;
+                        x += metrics.stringWidth( Statics.UNKNOWN_ABILITY ) + INDENT;
                     }
                 }
 
