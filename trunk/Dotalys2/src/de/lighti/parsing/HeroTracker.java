@@ -56,7 +56,7 @@ public class HeroTracker extends DefaultGameEventListener {
                 int value = (int) e.getProperty( name ).getValue();
                 if (value != 0x1FFFFF) {
                     value &= 0x7ff;
-                    h.setItem( DotaPlay.getTickMs(), slot, state.getItem( value ).getName() );
+                    h.setItem( DotaPlay.getTickMs(), slot, value );
                 }
                 else {
                     h.setItem( DotaPlay.getTickMs(), slot, null );

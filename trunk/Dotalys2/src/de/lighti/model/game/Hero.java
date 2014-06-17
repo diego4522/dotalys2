@@ -1,41 +1,61 @@
 package de.lighti.model.game;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Queue;
 import java.util.TreeMap;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class Hero extends Unit {
-    private static int countItem( List<String> list, String n ) {
+    public class ItemEvent {
+        public Integer item;
+        public int slot;
+        public boolean added;
+        public long tick;
+
+        private ItemEvent( long tick, Integer item, int slot, boolean added ) {
+            super();
+            this.tick = tick;
+            this.item = item;
+            this.slot = slot;
+            this.added = added;
+        }
+
+    }
+
+    private static int countItem( Integer[] list, Integer n ) {
         int count = 0;
-        for (final String m : list) {
-            if ((m != null) && m.equals( n )) {
+        for (final Integer m : list) {
+            if (m != null && m.equals( n )) {
                 count++;
             }
         }
         return count;
     }
 
-    private final TreeMap<Long, List<String>> items;
+    private final TreeMap<Long, Integer[]> items;
     private final List<Integer> abilities;
 
-    private final Queue<String> itemLog;
+    private final Queue<ItemEvent> itemLog;
 
     private final TreeMap<Long, int[]> deaths;
+
+    private final static int BAG_SIZE = 12; //two bags of 6. Not sure where courier itmes go
 
     public Hero( String name ) {
         super( name );
 
-        items = new TreeMap<Long, List<String>>();
-        items.put( 0l, new ArrayList<String>() );
-        itemLog = new LinkedBlockingQueue<String>();
+        items = new TreeMap<Long, Integer[]>();
+        items.put( 0l, new Integer[BAG_SIZE] );
+        itemLog = new LinkedBlockingQueue<ItemEvent>();
         abilities = new ArrayList<Integer>();
         deaths = new TreeMap<>();
     }
 
     public void addAbility( long tickMs, int slot, int value ) {
-        while (abilities.size() < (slot + 1)) {
+        while (abilities.size() < slot + 1) {
             abilities.add( null );
         }
 
@@ -47,6 +67,23 @@ public class Hero extends Unit {
 
     }
 
+    private void generateLogEntries( long tick, Integer[] previous, Integer[] current ) {
+        for (int i = 0; i < previous.length; i++) {
+            if (previous[i] != current[i]) {
+                if (current[i] != null) {
+
+                    if (countItem( previous, current[i] ) == 0) {
+                        itemLog.add( new ItemEvent( tick, current[i], i, true ) );
+                    }
+                }
+                else if (previous[i] != null) {
+                    itemLog.add( new ItemEvent( tick, previous[i], i, false ) );
+                }
+            }
+
+        }
+    }
+
     public List<Integer> getAbilities() {
         return abilities;
     }
@@ -55,49 +92,29 @@ public class Hero extends Unit {
         return deaths;
     }
 
-    public Queue<String> getItemLog() {
+    public Queue<ItemEvent> getItemLog() {
         return itemLog;
     }
 
-    public void setItem( long tickMs, int slot, String item ) {
-        List<String> tickItems = items.get( tickMs );
-        if (tickItems == null) {
-            tickItems = new ArrayList<String>( items.floorEntry( tickMs ).getValue() );
-            items.put( tickMs, tickItems );
-        }
-        while (tickItems.size() < (slot + 1)) {
-            tickItems.add( null );
-        }
-        final String oldItem = tickItems.get( slot );
-        if ((oldItem != null) && oldItem.equals( item )) {
-            //We have received the same item we already have in that slot
-            return;
-        }
-        else if ((item == null) && (oldItem == null)) {
-            //We are setting null where already is null .. boring
-            return;
+    public void setItem( long tickMs, int slot, Integer newItem ) {
+        if (items.containsKey( tickMs )) {
+            //Just store the update
+            items.get( tickMs )[slot] = newItem;
         }
         else {
-            tickItems.set( slot, item );
-            final List<String> previous = items.lowerEntry( tickMs ).getValue();
-            if (item != null) {
-                //Now we have actually a new item in that slot. Let's find out if it has been moved from another slot               
-                final int previousCount = countItem( previous, item );
-                final int count = countItem( tickItems, item );
-                if (previousCount < count) {
-                    itemLog.add( "+" + item );
-                }
-            }
+            //We advanced. Push the current bag configuration, calculate the diff to the previous one and make
+            //a new array for the new tick
+            final Entry<Long, Integer[]> current = items.floorEntry( tickMs );
+            final Entry<Long, Integer[]> previous = items.floorEntry( current.getKey() - 1 );
+            final Integer[] newBag = Arrays.copyOf( current.getValue(), current.getValue().length );
+            newBag[slot] = newItem;
+            items.put( tickMs, newBag );
 
-            if (oldItem != null) {
-                //Check what happened to the oldItem
-                final int previousCount = countItem( previous, oldItem );
-                final int count = countItem( tickItems, oldItem );
-                if (previousCount > count) {
-                    itemLog.add( "-" + oldItem );
-                }
+            //previous might be null if we actually pulled the 0l entry into current
+            if (previous != null) {
+                generateLogEntries( current.getKey(), previous.getValue(), current.getValue() );
             }
         }
-
     }
+
 }
