@@ -3,6 +3,7 @@ package de.lighti.model;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -18,7 +19,7 @@ public class AppState {
 
     private final Set<String> playerVariables;
     private final Map<Integer, Hero> heroes;
-    private final Map<Integer, Dota2Item> items;
+    private final TreeMap<Long, Map<Integer, Dota2Item>> items;
     private final Map<Integer, Ability> abilities;
 
     private final Map<String, String> heroNames;
@@ -28,7 +29,7 @@ public class AppState {
     public AppState() {
         playerVariables = new HashSet<String>();
         heroes = new HashMap<Integer, Hero>();
-        items = new HashMap<Integer, Dota2Item>();
+        items = new TreeMap<Long, Map<Integer, Dota2Item>>();
         abilities = new HashMap<Integer, Ability>();
         heroNames = new HashMap<String, String>();
         players = new HashSet<Player>();
@@ -39,8 +40,13 @@ public class AppState {
 
     }
 
-    public void addItem( int id, String value ) {
-        items.put( id, new Dota2Item( value ) );
+    public void addItem( long tick, int id, String value ) {
+        Map<Integer, Dota2Item> i = items.get( tick );
+        if (i == null) {
+            i = new HashMap<Integer, Dota2Item>();
+            items.put( tick, i );
+        }
+        i.put( id, new Dota2Item( value ) );
 
     }
 
@@ -82,11 +88,6 @@ public class AppState {
         return heroes.get( value );
     }
 
-    public Hero getHeroForPlayer( String playerName ) {
-        final Player p = getPlayerByName( playerName );
-        return p.getHero();
-    }
-
     public String getHeroName( String className ) {
         if (className != null) {
             String actualClassName = className.toUpperCase();
@@ -103,22 +104,26 @@ public class AppState {
         }
     }
 
-    public Dota2Item getItem( int value ) {
-        if (items.containsKey( value )) {
-            return items.get( value );
-        }
-        else {
-            return Dota2Item.UNKNOWN_ITEM;
-        }
-    }
-
-    public Dota2Item getItemByName( String name ) {
-        for (final Dota2Item d : items.values()) {
-            if (d.getName().equals( name )) {
-                return d;
+    /**
+     * Returns the Dota2Item corresponding to a (entity) id. The values in a 
+     * heroe's h_mItems array correspond to volatile entity ids representing the game item.
+     * Hence we have to track the timestamp when a certain id was assigned to an item.
+     * @param tick the timestamp
+     * @param value the entity id of the corresponding CDOTA_Item entity
+     * @return the Dota2Item
+     */
+    public Dota2Item getItem( long tick, int value ) {
+        Entry<Long, Map<Integer, Dota2Item>> e = items.floorEntry( tick );
+        while (true) {
+            final Map<Integer, Dota2Item> i = e.getValue();
+            if (i.containsKey( value )) {
+                return i.get( value );
+            }
+            e = items.floorEntry( e.getKey() - 1 );
+            if (e == null) {
+                return Dota2Item.UNKNOWN_ITEM;
             }
         }
-        return Dota2Item.UNKNOWN_ITEM;
     }
 
     public Object getLastKnownValue( long tick, String name ) {

@@ -81,11 +81,17 @@ public class PlayerComponent extends JSplitPane {
 
                 final Hero hero = p.getHero();
                 if (hero != null) {
-                    final Queue<String> completeLog = hero.getItemLog();
-                    for (final String n : completeLog) {
-                        if (n.startsWith( "+" )) {
-                            buildOrder.add( appState.getItemByName( n.substring( 1 ) ) );
+                    final Queue<Hero.ItemEvent> completeLog = hero.getItemLog();
+
+                    for (final Hero.ItemEvent n : completeLog) {
+
+                        //Only the bag, and only added items
+                        if (n.slot <= 5 && n.added) {
+                            buildOrder.add( appState.getItem( n.tick, n.item ) );
                         }
+//                        if (n.startsWith( "+" )) {
+//                            buildOrder.add( appState.getItemByName( n.substring( 1 ) ) );
+//                        }
                     }
                     bc.setItems( buildOrder );
                 }
