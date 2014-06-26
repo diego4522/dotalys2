@@ -6,19 +6,24 @@ public class Player {
     private String name;
     private final int id;
 
-    private int totalEarnedGold;
-
     private Hero hero;
 
     private boolean isRadiant;
 
     private final TreeMap<Long, Integer> xp;
+    private final TreeMap<Long, Integer> gold;
 
     public Player( int id ) {
 
         this.id = id;
         xp = new TreeMap<Long, Integer>();
         xp.put( 0l, 0 );
+        gold = new TreeMap<Long, Integer>();
+        gold.put( 0l, 0 );
+    }
+
+    public int getEarnedGold( long time ) {
+        return gold.floorEntry( time ).getValue();
     }
 
     public Hero getHero() {
@@ -34,7 +39,7 @@ public class Player {
     }
 
     public int getTotalEarnedGold() {
-        return totalEarnedGold;
+        return gold.lastEntry().getValue();
     }
 
     public int getTotalXP() {
@@ -61,8 +66,8 @@ public class Player {
         this.isRadiant = isRadiant;
     }
 
-    public void setTotalEarnedGold( int totalEarnedGold ) {
-        this.totalEarnedGold = totalEarnedGold;
+    public void setTotalEarnedGold( long time, int totalEarnedGold ) {
+        gold.put( time, totalEarnedGold );
     }
 
     public void setTotalXP( long time, int value ) {

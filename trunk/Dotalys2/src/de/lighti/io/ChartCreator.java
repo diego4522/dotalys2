@@ -192,7 +192,11 @@ public final class ChartCreator {
                             series1.add( new FixedMillisecond( seconds ), p.getXP( seconds ) );
                         }
                         break;
-
+                    case Statics.GOLD:
+                        for (long seconds = 0l; seconds < appState.getGameLength(); seconds += appState.getMsPerTick() * 1000) {
+                            series1.add( new FixedMillisecond( seconds ), p.getEarnedGold( seconds ) );
+                        }
+                        break;
                     default:
 
                         for (final Entry<Long, Map<String, Object>> e : appState.gameEventsPerMs.entrySet()) {
@@ -239,6 +243,76 @@ public final class ChartCreator {
         rangeAxis.setUpperMargin( 0.15 );
         plot.setRangeAxis( rangeAxis );
 
+        return chart;
+    }
+
+    private static TimeSeriesCollection createTeamGoldDiffDataSet( AppState appState ) {
+
+        final TimeSeriesCollection series = new TimeSeriesCollection();
+
+        final TimeSeries goodGuys = new TimeSeries( Statics.RADIANT );
+        final TimeSeries badGuys = new TimeSeries( Statics.DIRE );
+
+        final List<Player> radiant = new ArrayList<Player>();
+        final List<Player> dire = new ArrayList<Player>();
+
+        for (final Player p : appState.getPlayers()) {
+            if (p.isRadiant()) {
+                radiant.add( p );
+            }
+            else {
+                dire.add( p );
+            }
+        }
+
+        for (long seconds = 0l; seconds < appState.getGameLength(); seconds += appState.getMsPerTick() * 1000) {
+            long baddyGold = 0l;
+            long goodGold = 0l;
+
+            //Radiant
+            for (final Player p : radiant) {
+                goodGold += p.getEarnedGold( seconds );
+            }
+
+            //Dire
+            for (final Player p : dire) {
+                baddyGold += p.getEarnedGold( seconds );
+            }
+
+            goodGuys.add( new FixedMillisecond( seconds ), goodGold );
+            badGuys.add( new FixedMillisecond( seconds ), baddyGold );
+
+        }
+        series.addSeries( badGuys );
+        series.addSeries( goodGuys );
+        return series;
+    }
+
+    public static JFreeChart createTeamGoldDifferenceGraph( AppState appState ) {
+        final JFreeChart chart = ChartFactory.createTimeSeriesChart( GameStatisticsComponent.TEAM_XP, Statics.EXPERIENCE, "Time",
+                        createTeamGoldDiffDataSet( appState ), true, // legend
+                        true, // tool tips
+                        false // URLs
+                        );
+
+        final XYDifferenceRenderer renderer = new XYDifferenceRenderer( Color.GREEN, Color.RED, false );
+
+        renderer.setSeriesPaint( 0, Color.GREEN );
+        renderer.setSeriesPaint( 1, Color.RED );
+        final XYPlot plot = chart.getXYPlot();
+        plot.setRenderer( renderer );
+
+        final DateAxis domainAxis = new DateAxis( Statics.TIME );
+        domainAxis.setTickMarkPosition( DateTickMarkPosition.MIDDLE );
+        domainAxis.setLowerMargin( 0.0 );
+        domainAxis.setUpperMargin( 0.0 );
+        plot.setDomainAxis( domainAxis );
+        plot.setForegroundAlpha( 0.5f );
+
+        final NumberAxis rangeAxis = new NumberAxis( Statics.GOLD );
+        rangeAxis.setLowerMargin( 0.15 );
+        rangeAxis.setUpperMargin( 0.15 );
+        plot.setRangeAxis( rangeAxis );
         return chart;
     }
 
