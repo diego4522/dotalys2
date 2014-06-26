@@ -10,15 +10,17 @@ import java.util.Map.Entry;
 import java.util.logging.Logger;
 
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.DateAxis;
+import org.jfree.chart.axis.DateTickMarkPosition;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
-import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
-import org.jfree.data.xy.XYDataset;
+import org.jfree.chart.renderer.xy.XYDifferenceRenderer;
+import org.jfree.data.time.FixedMillisecond;
+import org.jfree.data.time.TimeSeries;
+import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
 
 import de.lighti.components.match.GameStatisticsComponent;
 import de.lighti.model.AppState;
@@ -38,39 +40,6 @@ public final class ChartCreator {
     private final static DecimalFormat ID_TO_GAMEEVENT_FORMAT = new DecimalFormat( "0000" );
 
     /**
-     * Helper method that assigns a chart to a chart panel and sets up the layout.
-     * Centralizing it here helps us make all graphs use the same layout.
-     * 
-     * @param panel the chart panel to send the data to
-     * @param chart the chart to be formatted
-     */
-    public static void assignChart( ChartPanel panel, JFreeChart chart ) {
-
-        // NOW DO SOME OPTIONAL CUSTOMISATION OF THE CHART...
-        chart.setBackgroundPaint( Color.white );
-
-//        final StandardLegend legend = (StandardLegend) chart.getLegend();
-        //      legend.setDisplaySeriesShapes(true);
-
-        // get a reference to the plot for further customisation...
-        final XYPlot plot = chart.getXYPlot();
-        plot.setBackgroundPaint( Color.lightGray );
-        //    plot.setAxisOffset(new Spacer(Spacer.ABSOLUTE, 5.0, 5.0, 5.0, 5.0));
-        plot.setDomainGridlinePaint( Color.white );
-        plot.setRangeGridlinePaint( Color.white );
-
-        final XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
-        plot.setRenderer( renderer );
-
-        // change the auto tick unit selection to integer units only...
-        final NumberAxis rangeAxis = (NumberAxis) plot.getRangeAxis();
-        rangeAxis.setStandardTickUnits( NumberAxis.createIntegerTickUnits() );
-        // OPTIONAL CUSTOMISATION COMPLETED.
-        panel.setChart( chart );
-
-    }
-
-    /**
      * This method creates a data set with two series(one radiant, one dire) representing the average
      * distance between all members of that team. For each timestep, the symmetrical half of
      * and Euclidian distance matrix is calculated, and the entries for players of the same team are
@@ -78,10 +47,10 @@ public final class ChartCreator {
      * @param appState the current app state containing player data
      * @return a dat set containing two data series
      */
-    private static XYDataset createAverageTeamDistanceDataSet( AppState appState ) {
-        final XYSeriesCollection series = new XYSeriesCollection();
-        final XYSeries goodGuys = new XYSeries( Statics.RADIANT );
-        final XYSeries badGuys = new XYSeries( Statics.DIRE );
+    private static TimeSeriesCollection createAverageTeamDistanceDataSet( AppState appState ) {
+        final TimeSeriesCollection series = new TimeSeriesCollection();
+        final TimeSeries goodGuys = new TimeSeries( Statics.RADIANT );
+        final TimeSeries badGuys = new TimeSeries( Statics.DIRE );
 
         final List<Hero> radiant = new ArrayList<Hero>();
         final List<Hero> dire = new ArrayList<Hero>();
@@ -127,8 +96,8 @@ public final class ChartCreator {
             goodDistance /= 5l;
             baddyDistance /= 5l;
 
-            goodGuys.add( seconds, goodDistance );
-            badGuys.add( seconds, baddyDistance );
+            goodGuys.add( new FixedMillisecond( seconds ), goodDistance );
+            badGuys.add( new FixedMillisecond( seconds ), baddyDistance );
 
         }
         series.addSeries( badGuys );
@@ -137,14 +106,31 @@ public final class ChartCreator {
     }
 
     public static JFreeChart createAverageTeamDistanceGraph( AppState state ) {
-        return ChartFactory.createXYLineChart( GameStatisticsComponent.AVERAGE_TEAM_DISTANCE, // chart title
+        final JFreeChart chart = ChartFactory.createTimeSeriesChart( GameStatisticsComponent.AVERAGE_TEAM_DISTANCE, // chart title
                         Statics.MILISECONDS, // x axis label
                         "", // y axis label
                         createAverageTeamDistanceDataSet( state ), // data
-                        PlotOrientation.VERTICAL, true, // include legend
+                        true, // include legend
                         true, // tooltips
                         false // urls
                         );
+        final XYPlot plot = chart.getXYPlot();
+
+        final DateAxis domainAxis = new DateAxis( Statics.TIME );
+        domainAxis.setTickMarkPosition( DateTickMarkPosition.MIDDLE );
+        domainAxis.setLowerMargin( 0.0 );
+        domainAxis.setUpperMargin( 0.0 );
+        plot.setDomainAxis( domainAxis );
+        plot.setForegroundAlpha( 0.5f );
+        plot.setDomainPannable( false );
+        plot.setRangePannable( false );
+
+        final NumberAxis rangeAxis = new NumberAxis( GameStatisticsComponent.AVERAGE_TEAM_DISTANCE );
+        rangeAxis.setLowerMargin( 0.15 );
+        rangeAxis.setUpperMargin( 0.15 );
+        plot.setRangeAxis( rangeAxis );
+
+        return chart;
     }
 
     public static XYSeries createDeathMap( String name, AppState appState ) {
@@ -192,18 +178,18 @@ public final class ChartCreator {
         return ret;
     }
 
-    private static XYDataset createPlayerDataSet( String attribute, List<String> players, AppState appState ) {
-        final XYSeriesCollection series = new XYSeriesCollection();
+    private static TimeSeriesCollection createPlayerDataSet( String attribute, List<String> players, AppState appState ) {
+        final TimeSeriesCollection series = new TimeSeriesCollection();
 
         try {
             for (final String player : players) {
                 final int id = appState.getPlayerByName( player ).getId();
-                final XYSeries series1 = new XYSeries( player );
+                final TimeSeries series1 = new TimeSeries( player );
 
                 for (final Entry<Long, Map<String, Object>> e : appState.gameEventsPerMs.entrySet()) {
                     if (e.getValue().containsKey( attribute + "." + ID_TO_GAMEEVENT_FORMAT.format( id ) )) {
                         final Number v = (Number) e.getValue().get( attribute + "." + ID_TO_GAMEEVENT_FORMAT.format( id ) );
-                        series1.add( e.getKey(), v );
+                        series1.add( new FixedMillisecond( e.getKey() ), v );
                     }
                 }
                 series.addSeries( series1 );
@@ -217,7 +203,7 @@ public final class ChartCreator {
     }
 
     public static JFreeChart createPlayerHistogram( String selectedItem, List<String> selectedValuesList, AppState state ) {
-        return ChartFactory.createXYLineChart( selectedItem, // chart title
+        final JFreeChart chart = ChartFactory.createXYLineChart( selectedItem, // chart title
                         Statics.MILISECONDS, // x axis label
                         "", // y axis label
                         createPlayerDataSet( selectedItem, selectedValuesList, state ), // data
@@ -225,6 +211,95 @@ public final class ChartCreator {
                         true, // tooltips
                         false // urls
                         );
+
+        final XYPlot plot = chart.getXYPlot();
+
+        final DateAxis domainAxis = new DateAxis( Statics.TIME );
+        domainAxis.setTickMarkPosition( DateTickMarkPosition.MIDDLE );
+        domainAxis.setLowerMargin( 0.0 );
+        domainAxis.setUpperMargin( 0.0 );
+        plot.setDomainAxis( domainAxis );
+        plot.setForegroundAlpha( 0.5f );
+        plot.setDomainPannable( false );
+        plot.setRangePannable( false );
+
+        final NumberAxis rangeAxis = new NumberAxis( selectedItem );
+        rangeAxis.setLowerMargin( 0.15 );
+        rangeAxis.setUpperMargin( 0.15 );
+        plot.setRangeAxis( rangeAxis );
+
+        return chart;
+    }
+
+    private static TimeSeriesCollection createTeamXPDiffDataSet( AppState appState ) {
+
+        final TimeSeriesCollection series = new TimeSeriesCollection();
+
+        final TimeSeries goodGuys = new TimeSeries( Statics.RADIANT );
+        final TimeSeries badGuys = new TimeSeries( Statics.DIRE );
+
+        final List<Player> radiant = new ArrayList<Player>();
+        final List<Player> dire = new ArrayList<Player>();
+
+        for (final Player p : appState.getPlayers()) {
+            if (p.isRadiant()) {
+                radiant.add( p );
+            }
+            else {
+                dire.add( p );
+            }
+        }
+
+        for (long seconds = 0l; seconds < appState.getGameLength(); seconds += appState.getMsPerTick() * 1000) {
+            long baddyXP = 0l;
+            long goodXP = 0l;
+
+            //Radiant
+            for (final Player p : radiant) {
+                goodXP += p.getXP( seconds );
+            }
+
+            //Dire
+            for (final Player p : dire) {
+                baddyXP += p.getXP( seconds );
+            }
+
+            goodGuys.add( new FixedMillisecond( seconds ), goodXP );
+            badGuys.add( new FixedMillisecond( seconds ), baddyXP );
+
+        }
+        series.addSeries( badGuys );
+        series.addSeries( goodGuys );
+        return series;
+    }
+
+    public static JFreeChart createTeamXpDifferenceGraph( AppState state ) {
+        final JFreeChart chart = ChartFactory.createTimeSeriesChart( GameStatisticsComponent.TEAM_XP, Statics.EXPERIENCE, "Time",
+                        createTeamXPDiffDataSet( state ), true, // legend
+                        true, // tool tips
+                        false // URLs
+                        );
+
+        final XYDifferenceRenderer renderer = new XYDifferenceRenderer( Color.GREEN, Color.RED, false );
+
+        renderer.setSeriesPaint( 0, Color.GREEN );
+        renderer.setSeriesPaint( 1, Color.RED );
+        final XYPlot plot = chart.getXYPlot();
+        plot.setRenderer( renderer );
+
+        final DateAxis domainAxis = new DateAxis( Statics.TIME );
+        domainAxis.setTickMarkPosition( DateTickMarkPosition.MIDDLE );
+        domainAxis.setLowerMargin( 0.0 );
+        domainAxis.setUpperMargin( 0.0 );
+        plot.setDomainAxis( domainAxis );
+        plot.setForegroundAlpha( 0.5f );
+
+        final NumberAxis rangeAxis = new NumberAxis( Statics.EXPERIENCE );
+        rangeAxis.setLowerMargin( 0.15 );
+        rangeAxis.setUpperMargin( 0.15 );
+        plot.setRangeAxis( rangeAxis );
+        return chart;
+
     }
 
     /**

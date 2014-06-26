@@ -78,7 +78,7 @@ public class HistogramComponent extends JSplitPane {
                 public void actionPerformed( ActionEvent e ) {
                     final JFreeChart data = ChartCreator.createPlayerHistogram( (String) attributeBox.getSelectedItem(), playerBox.getSelectedValuesList(),
                                     appState );
-                    ChartCreator.assignChart( getChartPanel(), data );
+                    getChartPanel().setChart( data );
                 }
             } );
 
@@ -110,7 +110,7 @@ public class HistogramComponent extends JSplitPane {
                 public void valueChanged( ListSelectionEvent e ) {
                     final JFreeChart chart = ChartCreator.createPlayerHistogram( (String) attributeBox.getSelectedItem(), playerBox.getSelectedValuesList(),
                                     appState );
-                    ChartCreator.assignChart( getChartPanel(), chart );
+                    getChartPanel().setChart( chart );
                 }
             } );
         }

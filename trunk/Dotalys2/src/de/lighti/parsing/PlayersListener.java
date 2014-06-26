@@ -39,7 +39,7 @@ public class PlayersListener extends DefaultGameEventListener {
                 final String name = p.getName();
                 tickMap.put( name, p.getValue() );
 
-                handleWorldVar( name, p.getValue() );
+                handleWorldVar( tickMs, name, p.getValue() );
 
             }
 
@@ -57,14 +57,14 @@ public class PlayersListener extends DefaultGameEventListener {
                 state.gameEventsPerMs.put( DotaPlay.getTickMs(), tickMap );
             }
 
-            handleWorldVar( name, e.getProperty( name ).getValue() );
+            handleWorldVar( tickMs, name, e.getProperty( name ).getValue() );
             tickMap.put( name, e.getProperty( name ).getValue() );
 
         }
 
     }
 
-    private void handleWorldVar( String name, Object value ) {
+    private void handleWorldVar( long time, String name, Object value ) {
 
         final Matcher m = playerPattern.matcher( name );
         if (m.find()) {
@@ -85,7 +85,7 @@ public class PlayersListener extends DefaultGameEventListener {
                     p.setTotalEarnedGold( (Integer) value );
                     break;
                 case "m_iTotalEarnedXP":
-                    p.setTotalXP( (Integer) value );
+                    p.setTotalXP( time, (Integer) value );
                     break;
                 case "m_hSelectedHero":
                     p.setHero( state.getHero( (Integer) value & 0x7FF ) );

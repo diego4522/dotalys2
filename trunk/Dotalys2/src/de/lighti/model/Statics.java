@@ -35,4 +35,7 @@ public interface Statics {
     String MAP_EVENTS = "Map Events";
     String MATCH_ANALYSIS = "Match Analysis";
     String APPLICATION_TITLE = "Dotalys2";
+    String DIFFERENCE = "Difference";
+    String EXPERIENCE = "Experience";
+    String TIME = "Time";
 }
