@@ -25,12 +25,14 @@ import org.jfree.chart.JFreeChart;
 
 import de.lighti.io.ChartCreator;
 import de.lighti.model.AppState;
+import de.lighti.model.Statics;
 
 public class HistogramComponent extends JSplitPane {
     /**
      * 
      */
     private static final long serialVersionUID = 9074089320819436807L;
+    private static final String DEBUG_DIVIDER = "--- DEBUG ---";
     private ChartPanel chartPanel;
     private JList<String> playerBox;
     private final AppState appState;
@@ -70,15 +72,22 @@ public class HistogramComponent extends JSplitPane {
 
             };
 
+            //First add the known values
+            attributeBox.addItem( Statics.EXPERIENCE );
+            attributeBox.addItem( DEBUG_DIVIDER );
+
+            attributeBox.setEnabled( false );
             attributeBox.setAlignmentX( Component.CENTER_ALIGNMENT );
 
             attributeBox.addActionListener( new ActionListener() {
 
                 @Override
                 public void actionPerformed( ActionEvent e ) {
-                    final JFreeChart data = ChartCreator.createPlayerHistogram( (String) attributeBox.getSelectedItem(), playerBox.getSelectedValuesList(),
-                                    appState );
-                    getChartPanel().setChart( data );
+                    if (!attributeBox.getSelectedItem().equals( DEBUG_DIVIDER )) {
+                        final JFreeChart data = ChartCreator.createPlayerHistogram( (String) attributeBox.getSelectedItem(), playerBox.getSelectedValuesList(),
+                                        appState );
+                        getChartPanel().setChart( data );
+                    }
                 }
             } );
 
@@ -108,9 +117,12 @@ public class HistogramComponent extends JSplitPane {
 
                 @Override
                 public void valueChanged( ListSelectionEvent e ) {
-                    final JFreeChart chart = ChartCreator.createPlayerHistogram( (String) attributeBox.getSelectedItem(), playerBox.getSelectedValuesList(),
-                                    appState );
-                    getChartPanel().setChart( chart );
+                    if (!attributeBox.getSelectedItem().equals( DEBUG_DIVIDER )) {
+
+                        final JFreeChart chart = ChartCreator.createPlayerHistogram( (String) attributeBox.getSelectedItem(),
+                                        playerBox.getSelectedValuesList(), appState );
+                        getChartPanel().setChart( chart );
+                    }
                 }
             } );
         }
@@ -140,5 +152,12 @@ public class HistogramComponent extends JSplitPane {
             selectionPanel.setBorder( BorderFactory.createEmptyBorder( 0, 5, 5, 5 ) );
         }
         return selectionPanel;
+    }
+
+    @Override
+    public void setEnabled( boolean enabled ) {
+        super.setEnabled( enabled );
+
+        getAttributeBox().setEnabled( enabled );
     }
 }
