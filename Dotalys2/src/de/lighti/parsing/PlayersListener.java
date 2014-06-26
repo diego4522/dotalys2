@@ -30,17 +30,9 @@ public class PlayersListener extends DefaultGameEventListener {
     @Override
     public void entityCreated( long tickMs, Entity e ) {
         if (e.getEntityClass().getName().equals( "CDOTA_PlayerResource" )) {
-            Map<String, Object> tickMap = state.gameEventsPerMs.get( DotaPlay.getTickMs() );
-            if (tickMap == null) {
-                tickMap = new HashMap<String, Object>();
-                state.gameEventsPerMs.put( DotaPlay.getTickMs(), tickMap );
-            }
+
             for (final Property<?> p : e.getProperties()) {
-                final String name = p.getName();
-                tickMap.put( name, p.getValue() );
-
-                handleWorldVar( tickMs, name, p.getValue() );
-
+                handleWorldVar( tickMs, p.getName(), p.getValue() );
             }
 
         }
@@ -51,15 +43,7 @@ public class PlayersListener extends DefaultGameEventListener {
     public <T> void entityUpdated( long tickMs, Entity e, String name, T oldValue ) {
 
         if (e.getEntityClass().getName().equals( "CDOTA_PlayerResource" )) {
-            Map<String, Object> tickMap = state.gameEventsPerMs.get( DotaPlay.getTickMs() );
-            if (tickMap == null) {
-                tickMap = new HashMap<String, Object>();
-                state.gameEventsPerMs.put( DotaPlay.getTickMs(), tickMap );
-            }
-
             handleWorldVar( tickMs, name, e.getProperty( name ).getValue() );
-            tickMap.put( name, e.getProperty( name ).getValue() );
-
         }
 
     }
@@ -82,7 +66,7 @@ public class PlayersListener extends DefaultGameEventListener {
                     p.setName( (String) value );
                     break;
                 case "m_iTotalEarnedGold":
-                    p.setTotalEarnedGold( (Integer) value );
+                    p.setTotalEarnedGold( time, (Integer) value );
                     break;
                 case "m_iTotalEarnedXP":
                     p.setTotalXP( time, (Integer) value );
@@ -94,6 +78,12 @@ public class PlayersListener extends DefaultGameEventListener {
                     p.setRadiant( (Integer) value == 2 ); //2 = Radiant, 3 = Dire, 5 = Spectator
                     break;
                 default:
+                    Map<String, Object> tickMap = state.gameEventsPerMs.get( DotaPlay.getTickMs() );
+                    if (tickMap == null) {
+                        tickMap = new HashMap<String, Object>();
+                        state.gameEventsPerMs.put( DotaPlay.getTickMs(), tickMap );
+                    }
+                    tickMap.put( name, value );
                     state.addPlayerVariable( valueName );
                     break;
 

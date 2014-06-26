@@ -38,4 +38,5 @@ public interface Statics {
     String DIFFERENCE = "Difference";
     String EXPERIENCE = "Experience";
     String TIME = "Time";
+    String GOLD = "Gold";
 }

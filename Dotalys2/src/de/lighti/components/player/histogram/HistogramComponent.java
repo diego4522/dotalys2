@@ -74,6 +74,7 @@ public class HistogramComponent extends JSplitPane {
 
             //First add the known values
             attributeBox.addItem( Statics.EXPERIENCE );
+            attributeBox.addItem( Statics.GOLD );
             attributeBox.addItem( DEBUG_DIVIDER );
 
             attributeBox.setEnabled( false );

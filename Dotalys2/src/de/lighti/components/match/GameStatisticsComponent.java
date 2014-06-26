@@ -26,6 +26,7 @@ public class GameStatisticsComponent extends JSplitPane {
     private static final long serialVersionUID = -3232988092086562528L;
     public static final String AVERAGE_TEAM_DISTANCE = "Average Team distance";
     public static final String TEAM_XP = "Difference in Team Experience";
+    protected static final String TEAM_GOLD = "Difference in Team Gold";
 
     private JPanel selectionPanel;
     private ChartPanel chartPanel;
@@ -63,6 +64,7 @@ public class GameStatisticsComponent extends JSplitPane {
             modeBox.setAlignmentX( Component.CENTER_ALIGNMENT );
             modeBox.addItem( AVERAGE_TEAM_DISTANCE );
             modeBox.addItem( TEAM_XP );
+            modeBox.addItem( TEAM_GOLD );
             modeBox.addActionListener( new ActionListener() {
 
                 @Override
@@ -75,6 +77,10 @@ public class GameStatisticsComponent extends JSplitPane {
                             break;
                         case TEAM_XP:
                             data = ChartCreator.createTeamXpDifferenceGraph( appState );
+                            break;
+                        case TEAM_GOLD:
+                            data = ChartCreator.createTeamGoldDifferenceGraph( appState );
+                            break;
                         default:
                             break;
                     }
