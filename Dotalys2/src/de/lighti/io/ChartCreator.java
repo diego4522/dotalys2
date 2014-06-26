@@ -2,6 +2,7 @@ package de.lighti.io;
 
 import java.awt.Color;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -82,35 +83,46 @@ public final class ChartCreator {
         final XYSeries goodGuys = new XYSeries( Statics.RADIANT );
         final XYSeries badGuys = new XYSeries( Statics.DIRE );
 
+        final List<Hero> radiant = new ArrayList<Hero>();
+        final List<Hero> dire = new ArrayList<Hero>();
+
+        for (final Player p : appState.getPlayers()) {
+            if (p.isRadiant()) {
+                radiant.add( p.getHero() );
+            }
+            else {
+                dire.add( p.getHero() );
+            }
+        }
+
         for (long seconds = 0l; seconds < appState.getGameLength(); seconds += appState.getMsPerTick() * 1000) {
             long baddyDistance = 0l;
             long goodDistance = 0l;
 
-            rowLoop: for (final Player p : appState.getPlayers()) {
-                for (final Player q : appState.getPlayers()) {
-                    if (p == q) {
-                        continue rowLoop;
+            //Radiant
+            outerLoop: for (final Hero h : radiant) {
+                for (final Hero i : radiant) {
+                    if (h == i) {
+                        continue outerLoop;
                     }
-                    if (p.isRadiant() == q.isRadiant() == true) {
-                        //Two radiant players
-                        final int x1 = p.getHero().getX( seconds );
-                        final int x2 = q.getHero().getX( seconds );
-                        final int y1 = p.getHero().getY( seconds );
-                        final int y2 = q.getHero().getY( seconds );
-                        goodDistance += Math.sqrt( Math.pow( x1 - x2, 2 ) + Math.pow( y1 - y2, 2 ) );
-                    }
-                    else if (p.isRadiant() == q.isRadiant() == false) {
-                        //Two dire players
-                        final int x1 = p.getHero().getX( seconds );
-                        final int x2 = q.getHero().getX( seconds );
-                        final int y1 = p.getHero().getY( seconds );
-                        final int y2 = q.getHero().getY( seconds );
-                        baddyDistance += Math.sqrt( Math.pow( x1 - x2, 2 ) + Math.pow( y1 - y2, 2 ) );
-                    }
-
+                    final int xDiff = i.getX( seconds ) - h.getX( seconds );
+                    final int yDiff = i.getY( seconds ) - h.getY( seconds );
+                    goodDistance += Math.sqrt( Math.pow( xDiff, 2 ) + Math.pow( yDiff, 2 ) );
                 }
-                //We should never be here
             }
+
+            //Dire
+            outerLoop: for (final Hero h : dire) {
+                for (final Hero i : dire) {
+                    if (h == i) {
+                        continue outerLoop;
+                    }
+                    final int xDiff = i.getX( seconds ) - h.getX( seconds );
+                    final int yDiff = i.getY( seconds ) - h.getY( seconds );
+                    baddyDistance += Math.sqrt( Math.pow( xDiff, 2 ) + Math.pow( yDiff, 2 ) );
+                }
+            }
+
             //Average
             goodDistance /= 5l;
             baddyDistance /= 5l;
