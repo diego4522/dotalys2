@@ -80,7 +80,15 @@ public class Dotalys2App extends JFrame {
 
     public JComponent getMainView() {
         if (mainView == null) {
-            mainView = new JTabbedPane();
+            mainView = new JTabbedPane() {
+                @Override
+                public void setEnabled( boolean enabled ) {
+                    super.setEnabled( enabled );
+
+                    //The player box which is visible at start is the only one we need to send an extra notification to
+                    getHistogramComponent().setEnabled( enabled );
+                }
+            };
             mainView.addTab( Statics.PLAYER_HISTOGRAMS, getHistogramComponent() );
 
             mainView.addTab( Statics.PLAYER_STATISTICS, getPlayerComponent() );

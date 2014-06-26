@@ -183,14 +183,25 @@ public final class ChartCreator {
 
         try {
             for (final String player : players) {
-                final int id = appState.getPlayerByName( player ).getId();
+                final Player p = appState.getPlayerByName( player );
                 final TimeSeries series1 = new TimeSeries( player );
 
-                for (final Entry<Long, Map<String, Object>> e : appState.gameEventsPerMs.entrySet()) {
-                    if (e.getValue().containsKey( attribute + "." + ID_TO_GAMEEVENT_FORMAT.format( id ) )) {
-                        final Number v = (Number) e.getValue().get( attribute + "." + ID_TO_GAMEEVENT_FORMAT.format( id ) );
-                        series1.add( new FixedMillisecond( e.getKey() ), v );
-                    }
+                switch (attribute) {
+                    case Statics.EXPERIENCE:
+                        for (long seconds = 0l; seconds < appState.getGameLength(); seconds += appState.getMsPerTick() * 1000) {
+                            series1.add( new FixedMillisecond( seconds ), p.getXP( seconds ) );
+                        }
+                        break;
+
+                    default:
+
+                        for (final Entry<Long, Map<String, Object>> e : appState.gameEventsPerMs.entrySet()) {
+                            if (e.getValue().containsKey( attribute + "." + ID_TO_GAMEEVENT_FORMAT.format( p.getId() ) )) {
+                                final Number v = (Number) e.getValue().get( attribute + "." + ID_TO_GAMEEVENT_FORMAT.format( p.getId() ) );
+                                series1.add( new FixedMillisecond( e.getKey() ), v );
+                            }
+                        }
+                        break;
                 }
                 series.addSeries( series1 );
 
