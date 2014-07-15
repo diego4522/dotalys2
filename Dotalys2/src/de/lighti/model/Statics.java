@@ -39,4 +39,5 @@ public interface Statics {
     String EXPERIENCE = "Experience";
     String TIME = "Time";
     String GOLD = "Gold";
+    String ZONES = "Zones";
 }

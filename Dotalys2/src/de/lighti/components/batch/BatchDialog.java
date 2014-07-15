@@ -34,9 +34,6 @@ import javax.swing.UIManager;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import com.sun.istack.internal.logging.Logger;
-
-import de.lighti.Main;
 import de.lighti.components.ProgressDialog;
 import de.lighti.components.map.MapComponent;
 import de.lighti.io.ChartCreator;
@@ -261,49 +258,53 @@ public class BatchDialog extends JDialog {
 
         final Thread t = new Thread( new Runnable() {
 
+            private void exportData( String header, String[][] data, String fileOut ) {
+                final File file = new File( fileOut );
+
+                try {
+                    DataExporter.exportCSV( file, header, data );
+                }
+                catch (final IOException e) {
+                    handleError( e.getLocalizedMessage() );
+                }
+
+            }
+
             @Override
             public void run() {
                 int progress = 0;
+
                 while (fileList.hasMoreElements()) {
                     final File f = fileList.nextElement();
                     final AppState state = new AppState();
                     DataImporter.parseReplayFile( state, null, f );
                     for (final CheckBoxListEntry entry : properties) {
-                        switch (entry.getValue()) {
-                            case MapComponent.CAT_MOVEMENT:
-                                try {
-                                    final String header = "#tickms, x , y";
-                                    for (final Player p : state.getPlayers()) {
-                                        if (p.getHero() == null) {
-                                            Logger.getLogger( BatchDialog.class ).warning(
-                                                            "Skipping player " + p.getName() + " because no hero was selected. Most likely a spectator" );
-                                            continue;
-                                        }
-                                        final String[][] data = ChartCreator.createMoveLog( p.getName(), state );
-                                        final File file = new File( dir.getAbsolutePath() + "/" + f.getName().replace( ".dem", "" ) + "_"
-                                                        + MapComponent.CAT_MOVEMENT + "_" + escapeUrlAsFilename( p.getName() ) + ".csv" );
+                        for (final Player p : state.getPlayers()) {
+                            final String fileOut = dir.getAbsolutePath() + "/" + f.getName().replace( ".dem", "" ) + "_" + entry.getValue() + "_"
+                                            + escapeUrlAsFilename( p.getName() ) + ".csv";
+                            String header;
+                            String[][] data;
+                            switch (entry.getValue()) {
+                                case MapComponent.CAT_MOVEMENT:
+                                    header = "#tickms, x , y";
+                                    data = ChartCreator.createMoveLog( p.getName(), state );
+                                    break;
+                                case MapComponent.CAT_ZONES:
+                                    header = "#tickms, zone";
+                                    data = ChartCreator.createZoneLog( p.getName(), state );
+                                    break;
+                                default:
+                                    throw new RuntimeException( "Unknown property " + entry.getName() );
 
-                                        try {
-                                            DataExporter.exportCSV( file, header, data );
-                                        }
-                                        catch (final IOException e) {
-                                            handleError( e.getLocalizedMessage() );
-                                        }
-                                    }
-                                }
-                                catch (final Exception e) {
-                                    Main.displayException( e );
-                                }
-                                break;
-                            default:
-                                handleError( "Unknown property " + entry.getName() );
-                                break;
+                            }
+                            exportData( header, data, fileOut );
                         }
                         progress++;
                         pd.setValue( progress );
-                        pd.setVisible( false );
+
                     }
                 }
+                pd.setVisible( false );
             }
         } );
         t.start();
@@ -341,6 +342,7 @@ public class BatchDialog extends JDialog {
             propertyList = new CheckBoxList();
             propertyList.setBorder( BorderFactory.createLoweredBevelBorder() );
             ((DefaultListModel<CheckBoxListEntry>) propertyList.getModel()).addElement( new CheckBoxListEntry( MapComponent.CAT_MOVEMENT, false ) );
+            ((DefaultListModel<CheckBoxListEntry>) propertyList.getModel()).addElement( new CheckBoxListEntry( MapComponent.CAT_ZONES, false ) );
             propertyList.addPropertyChangeListener( new PropertyChangeListener() {
 
                 @Override
@@ -382,7 +384,7 @@ public class BatchDialog extends JDialog {
     private void validateInput() {
         boolean ret = true;
         ret &= getFileList().getModel().getSize() > 0;
-        ret &= !getPropertyList().getCheckedItems().isEmpty();
+        ret &= !getPropertyList().getSelectedValuesList().isEmpty();
         ret &= !getSavePathField().getText().isEmpty();
         getOkButton().setEnabled( ret );
     }

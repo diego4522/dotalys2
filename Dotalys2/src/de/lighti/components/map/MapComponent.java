@@ -34,6 +34,8 @@ public class MapComponent extends JSplitPane {
 
     public final static String CAT_MOVEMENT = Statics.MOVEMENT;
     public final static String CAT_DEATHS = Statics.DEATHS;
+    public final static String CAT_ZONES = Statics.ZONES;
+
     private MapCanvasComponent mapCanvas;
 
     private OptionContainer optionContainer;
