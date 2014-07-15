@@ -2,6 +2,7 @@ package de.lighti.components.batch;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JCheckBox;
@@ -61,11 +62,12 @@ public class CheckBoxList extends JList<CheckBoxListEntry> {
         return indexes;
     }
 
-    public java.util.List<JCheckBox> getCheckedItems() {
-        final java.util.List<JCheckBox> list = new java.util.ArrayList<JCheckBox>();
+    @Override
+    public List<CheckBoxListEntry> getSelectedValuesList() {
+        final java.util.List<CheckBoxListEntry> list = new java.util.ArrayList<CheckBoxListEntry>();
         final DefaultListModel<CheckBoxListEntry> dlm = (DefaultListModel<CheckBoxListEntry>) getModel();
         for (int i = 0; i < dlm.size(); ++i) {
-            final JCheckBox checkbox = getModel().getElementAt( i );
+            final CheckBoxListEntry checkbox = getModel().getElementAt( i );
 
             if (checkbox.isSelected()) {
                 list.add( checkbox );
@@ -74,4 +76,5 @@ public class CheckBoxList extends JList<CheckBoxListEntry> {
         }
         return list;
     }
+
 }

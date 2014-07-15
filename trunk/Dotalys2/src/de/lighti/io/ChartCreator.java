@@ -28,6 +28,7 @@ import de.lighti.model.Statics;
 import de.lighti.model.game.Hero;
 import de.lighti.model.game.Player;
 import de.lighti.model.game.Unit;
+import de.lighti.model.game.Unit.Zone;
 
 public final class ChartCreator {
     private final static Logger LOGGER = Logger.getLogger( ChartCreator.class.getName() );
@@ -385,6 +386,22 @@ public final class ChartCreator {
         plot.setRangeAxis( rangeAxis );
         return chart;
 
+    }
+
+    public static String[][] createZoneLog( String name, AppState state ) {
+        final Player p = state.getPlayerByName( name );
+
+        final Unit hero = p.getHero();
+        final Map<Long, Zone> zones = hero.getZones();
+
+        final String[][] ret = new String[zones.size()][];
+        int i = 0;
+        for (final Entry<Long, Zone> e : zones.entrySet()) {
+            ret[i] = new String[] { e.getKey().toString(), e.getValue().name() };
+            i++;
+        }
+
+        return ret;
     }
 
     /**
