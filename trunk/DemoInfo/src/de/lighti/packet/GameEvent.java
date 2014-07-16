@@ -65,6 +65,7 @@ public class GameEvent {
                         break;
                     case "attackername":
                         attackerEntity = keyValue.getValShort();
+                        break;
                     case "targetname":
                         target = keyValue.getValShort();
                         break;
@@ -78,7 +79,7 @@ public class GameEvent {
                 }
 
             }
-            if ((attackerEntity < 0) || (eventType < 0) || (source < 0) || (target < 0) || (value < 0) || (inflictor < 0) || (timeStamp < 0)) {
+            if ((attackerEntity < 0) || (eventType < 0) || (source < 0) || (target < 0) || (inflictor < 0) || (timeStamp < 0)) {
                 throw new IllegalStateException( "GameEvent is missing values" );
             }
 
