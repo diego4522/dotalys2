@@ -28,7 +28,7 @@ import de.lighti.model.Statics;
 /**
  * The MapCanvasComponent renders different variations of the Dota2 minimap
  * along with a series of markers. The component has a fixed size of 512x512.
- * 
+ *
  * @author TobiasMahlmann
  *
  */
@@ -47,7 +47,7 @@ public class MapCanvasComponent extends ChartPanel {
     }
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = 2077175805479363567L;
     private static final int DEFAULT_DOT_SIZE = 3;
@@ -70,6 +70,7 @@ public class MapCanvasComponent extends ChartPanel {
         setMinimumSize( size );
         setMaximumSize( size );
         setPreferredSize( size );
+        setPopupMenu( null );
 
         final XYPlot plot = (XYPlot) getChart().getPlot();
         resetDotSize();
