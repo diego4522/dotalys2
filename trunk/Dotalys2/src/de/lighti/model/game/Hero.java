@@ -1,10 +1,10 @@
 package de.lighti.model.game;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map.Entry;
 import java.util.Queue;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -36,7 +36,7 @@ public class Hero extends Unit {
     }
 
     private final TreeMap<Long, Integer[]> items;
-    private final List<Integer> abilities;
+    private final Set<Ability> abilities;
 
     private final Queue<ItemEvent> itemLog;
 
@@ -50,16 +50,8 @@ public class Hero extends Unit {
         items = new TreeMap<Long, Integer[]>();
         items.put( 0l, new Integer[BAG_SIZE] );
         itemLog = new LinkedBlockingQueue<ItemEvent>();
-        abilities = new ArrayList<Integer>();
+        abilities = new HashSet<Ability>();
         deaths = new TreeMap<>();
-    }
-
-    public void addAbility( long tickMs, int slot, int value ) {
-        while (abilities.size() < slot + 1) {
-            abilities.add( null );
-        }
-
-        abilities.set( slot, value );
     }
 
     public void addDeath( long tickMs, int x, int y ) {
@@ -84,8 +76,17 @@ public class Hero extends Unit {
         }
     }
 
-    public List<Integer> getAbilities() {
+    public Set<Ability> getAbilities() {
         return abilities;
+    }
+
+    public Ability getAbilityByName( String name ) {
+        for (final Ability a : abilities) {
+            if (a.getKey().equals( name )) {
+                return a;
+            }
+        }
+        return null;
     }
 
     public TreeMap<Long, int[]> getDeaths() {

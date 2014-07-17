@@ -4,7 +4,6 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,6 +28,7 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.event.DocumentEvent;
@@ -40,48 +40,10 @@ import de.lighti.io.ChartCreator;
 import de.lighti.io.DataExporter;
 import de.lighti.io.DataImporter;
 import de.lighti.model.AppState;
+import de.lighti.model.Statics;
 import de.lighti.model.game.Player;
 
 public class BatchDialog extends JDialog {
-    public static void main( String[] args ) {
-        try {
-            UIManager.setLookAndFeel( UIManager.getSystemLookAndFeelClassName() );
-        }
-        catch (final Exception e) {
-            // Don't care
-        }
-        final BatchDialog d = new BatchDialog( null );
-        d.addWindowListener( new WindowAdapter() {
-
-            @Override
-            public void windowClosed( WindowEvent e ) {
-
-                super.windowClosed( e );
-
-                System.exit( 0 );
-            }
-
-        } );
-        d.setVisible( true );
-    }
-
-    private JList<File> fileList;
-
-    private CheckBoxList propertyList;
-
-    private JButton okButton;
-
-    private JTextField savePathField;
-
-    /**
-     * 
-     */
-    private static final long serialVersionUID = 7655122816807766787L;
-
-    private static final Pattern PATTERN = Pattern.compile( "[^A-Za-z0-9_]" );
-
-    private static final int MAX_LENGTH = 127;
-
     private static String escapeUrlAsFilename( String url ) {
 
         final StringBuffer sb = new StringBuffer();
@@ -92,7 +54,7 @@ public class BatchDialog extends JDialog {
         while (m.find()) {
             m.appendReplacement( sb,
 
-            // Convert matched character to percent-encoded.
+                            // Convert matched character to percent-encoded.
                             "%" + Integer.toHexString( m.group().charAt( 0 ) ).toUpperCase() );
         }
         m.appendTail( sb );
@@ -104,17 +66,54 @@ public class BatchDialog extends JDialog {
         return encoded.substring( 0, end );
     }
 
+    public static void main( String[] args ) {
+        try {
+            UIManager.setLookAndFeel( UIManager.getSystemLookAndFeelClassName() );
+        }
+        catch (final Exception e) {
+            // Don't care
+        }
+        final BatchDialog d = new BatchDialog( null );
+        d.addWindowListener( new WindowAdapter() {
+            @Override
+            public void windowClosed( WindowEvent e ) {
+                super.windowClosed( e );
+                System.exit( 0 );
+            }
+
+        } );
+        d.setVisible( true );
+    }
+
+    private JList<File> fileList;
+
+    private CheckBoxList propertyList;
+    private JButton okButton;
+
+    private JTextField savePathField;
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 7655122816807766787L;
+
+    private static final Pattern PATTERN = Pattern.compile( "[^A-Za-z0-9_]" );
+
+    private static final int MAX_LENGTH = 127;
+
     public BatchDialog( JFrame parent ) {
-        super( parent, "Batch export" );
+        super( parent, Statics.BATCH_EXPORT );
         setPreferredSize( new Dimension( 800, 600 ) );
-        setResizable( false );
-        setLayout( new GridLayout( 1, 1, 10, 10 ) );
         setDefaultCloseOperation( DISPOSE_ON_CLOSE );
         setModal( true );
-        getContentPane().add( createFilePanel() );
-        getContentPane().add( createPropertyOkButtonPanel() );
+        final JSplitPane splitPane = new JSplitPane();
+        splitPane.setLeftComponent( createFilePanel() );
+        splitPane.setRightComponent( createPropertyOkButtonPanel() );
+        setContentPane( splitPane );
 
         pack();
+        splitPane.setDividerLocation( 0.5 );
+
     }
 
     private Component createFilePanel() {
@@ -163,7 +162,7 @@ public class BatchDialog extends JDialog {
         c.weighty = 1.0;
         c.weightx = 1.0;
         c.gridwidth = 2;
-        c.insets = new Insets( 10, 10, 10, 10 );
+        c.insets = new Insets( 5, 5, 5, 5 );
         filePanel.add( getFileList(), c );
 
         c = new GridBagConstraints();
@@ -195,7 +194,7 @@ public class BatchDialog extends JDialog {
         c.weighty = 1.0;
         c.weightx = 1.0;
         c.gridwidth = 1;
-        c.insets = new Insets( 10, 10, 10, 10 );
+        c.insets = new Insets( 5, 5, 5, 5 );
         propertyOkButtonPanel.add( getPropertyList(), c );
 
         c = new GridBagConstraints();
@@ -293,6 +292,11 @@ public class BatchDialog extends JDialog {
                                     header = "#tickms, zone";
                                     data = ChartCreator.createZoneLog( p.getName(), state );
                                     break;
+                                case MapComponent.CAT_ABILITIES:
+                                    header = "#tickms, x, y, ability";
+                                    data = ChartCreator.createAbilityLog( p );
+
+                                    break;
                                 default:
                                     throw new RuntimeException( "Unknown property " + entry.getName() );
 
@@ -322,14 +326,12 @@ public class BatchDialog extends JDialog {
 
     private JButton getOkButton() {
         if (okButton == null) {
-            okButton = new JButton( "Ok" );
+            okButton = new JButton( Statics.OK );
             okButton.setEnabled( false );
             okButton.addActionListener( new ActionListener() {
-
                 @Override
                 public void actionPerformed( ActionEvent e ) {
                     export();
-
                 }
             } );
         }
@@ -343,12 +345,11 @@ public class BatchDialog extends JDialog {
             propertyList.setBorder( BorderFactory.createLoweredBevelBorder() );
             ((DefaultListModel<CheckBoxListEntry>) propertyList.getModel()).addElement( new CheckBoxListEntry( MapComponent.CAT_MOVEMENT, false ) );
             ((DefaultListModel<CheckBoxListEntry>) propertyList.getModel()).addElement( new CheckBoxListEntry( MapComponent.CAT_ZONES, false ) );
+            ((DefaultListModel<CheckBoxListEntry>) propertyList.getModel()).addElement( new CheckBoxListEntry( MapComponent.CAT_ABILITIES, false ) );
             propertyList.addPropertyChangeListener( new PropertyChangeListener() {
-
                 @Override
                 public void propertyChange( PropertyChangeEvent arg0 ) {
                     validateInput();
-
                 }
             } );
         }

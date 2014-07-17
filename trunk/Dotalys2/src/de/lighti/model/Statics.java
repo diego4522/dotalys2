@@ -24,10 +24,10 @@ public interface Statics {
     String STOP = "Stop";
     String ALL = "All";
 
-    Color[] PLAYER_COLOURS = { Color.BLUE, new Color( 0, 128, 128 ), // Teal 
+    Color[] PLAYER_COLOURS = { Color.BLUE, new Color( 0, 128, 128 ), // Teal
                     new Color( 128, 0, 128 ), //Purple
                     Color.YELLOW, Color.ORANGE, Color.PINK, Color.GRAY, new Color( 173, 216, 230 ), //Light blue
-                    Color.GREEN, new Color( 165, 42, 42 ) //Brown                                                        
+                    Color.GREEN, new Color( 165, 42, 42 ) //Brown
     };
     String UNKNOWN_ABILITY = "<unknown>";
     String PLAYER_HISTOGRAMS = "Player Histograms";
@@ -40,4 +40,7 @@ public interface Statics {
     String TIME = "Time";
     String GOLD = "Gold";
     String ZONES = "Zones";
+    String ABILITIES = "Abilities";
+    String BATCH_EXPORT = "Batch export";
+    String OK = "Ok";
 }

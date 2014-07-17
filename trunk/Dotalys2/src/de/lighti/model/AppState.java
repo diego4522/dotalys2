@@ -13,25 +13,75 @@ import de.lighti.model.game.Hero;
 import de.lighti.model.game.Player;
 
 public class AppState {
+    public static String getAbilityName( String key ) {
+        if (key != null) {
+
+            if (abilityNames.containsKey( key.toUpperCase() )) {
+                return abilityNames.get( key.toUpperCase() );
+            }
+            else {
+                return key;
+            }
+        }
+        else {
+            return null;
+        }
+    }
+
+    public static String getHeroName( String className ) {
+        if (className != null) {
+            String actualClassName = className.toUpperCase();
+            actualClassName = actualClassName.replace( "CDOTA_UNIT", "NPC_DOTA" );
+            if (heroNames.containsKey( actualClassName )) {
+                return heroNames.get( actualClassName );
+            }
+            else {
+                return className;
+            }
+        }
+        else {
+            return className;
+        }
+    }
+
+    public static void setAbilityName( String name, String localisedName ) {
+        if (name != null && localisedName != null) {
+            abilityNames.put( name.toUpperCase(), localisedName );
+        }
+    }
+
+    public static void setHeroName( String className, String localisedName ) {
+        if (className != null && localisedName != null) {
+            heroNames.put( className.toUpperCase(), localisedName );
+        }
+    }
+
     public TreeMap<Long, Map<String, Object>> gameEventsPerMs = new TreeMap<Long, Map<String, Object>>();
-//    private final SortedMap<String, Player> players = new TreeMap<String, Player>();
+    //    private final SortedMap<String, Player> players = new TreeMap<String, Player>();
     private final Set<Player> players;
 
     private final Set<String> playerVariables;
     private final Map<Integer, Hero> heroes;
     private final TreeMap<Long, Map<Integer, Dota2Item>> items;
+
     private final Map<Integer, Ability> abilities;
 
-    private final Map<String, String> heroNames;
+    private final static Map<String, String> heroNames;
+
+    private final static Map<String, String> abilityNames;
 
     private int msPerTick;
+
+    static {
+        heroNames = new HashMap<String, String>();
+        abilityNames = new HashMap<String, String>();
+    }
 
     public AppState() {
         playerVariables = new HashSet<String>();
         heroes = new HashMap<Integer, Hero>();
         items = new TreeMap<Long, Map<Integer, Dota2Item>>();
         abilities = new HashMap<Integer, Ability>();
-        heroNames = new HashMap<String, String>();
         players = new HashSet<Player>();
     }
 
@@ -77,7 +127,7 @@ public class AppState {
      * Returns the replay's length in miliseconds. Please
      * be aware that the this is the timestamp when the replay ended,
      * not when the game was decided, i.e. the throne was hit.
-     * 
+     *
      * @return the game's length in miliseconds
      */
     public long getGameLength() {
@@ -88,24 +138,8 @@ public class AppState {
         return heroes.get( value );
     }
 
-    public String getHeroName( String className ) {
-        if (className != null) {
-            String actualClassName = className.toUpperCase();
-            actualClassName = actualClassName.replace( "CDOTA_UNIT", "NPC_DOTA" );
-            if (heroNames.containsKey( actualClassName )) {
-                return heroNames.get( actualClassName );
-            }
-            else {
-                return className;
-            }
-        }
-        else {
-            return className;
-        }
-    }
-
     /**
-     * Returns the Dota2Item corresponding to a (entity) id. The values in a 
+     * Returns the Dota2Item corresponding to a (entity) id. The values in a
      * heroe's h_mItems array correspond to volatile entity ids representing the game item.
      * Hence we have to track the timestamp when a certain id was assigned to an item.
      * @param tick the timestamp
@@ -173,12 +207,6 @@ public class AppState {
 
     public void setHero( int id, Hero hero ) {
         heroes.put( id, hero );
-    }
-
-    public void setHeroName( String className, String localisedName ) {
-        if (className != null && localisedName != null) {
-            heroNames.put( className.toUpperCase(), localisedName );
-        }
     }
 
     public void setMsPerTick( int msPerTick ) {

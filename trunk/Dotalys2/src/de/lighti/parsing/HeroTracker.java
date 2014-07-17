@@ -1,10 +1,13 @@
 package de.lighti.parsing;
 
+import java.util.logging.Logger;
+
 import de.lighti.DefaultGameEventListener;
 import de.lighti.DotaPlay;
 import de.lighti.model.AppState;
 import de.lighti.model.Entity;
 import de.lighti.model.Property;
+import de.lighti.model.game.Ability;
 import de.lighti.model.game.Hero;
 
 public class HeroTracker extends DefaultGameEventListener {
@@ -33,7 +36,14 @@ public class HeroTracker extends DefaultGameEventListener {
                         final int slot = Integer.parseInt( name.substring( name.lastIndexOf( "." ) + 1 ) );
                         value &= 0x7ff;
 
-                        h.addAbility( DotaPlay.getTickMs(), slot, value );
+//                        h.addAbility( DotaPlay.getTickMs(), slot, value );
+                        final Ability a = state.getAbility( value );
+                        if (a == null) {
+                            Logger.getLogger( getClass().getName() ).warning( "Hero " + h.getName() + " has an odd ability" ); //Most likely a temporary entity
+                        }
+                        else {
+                            h.getAbilities().add( a );
+                        }
                     }
                 }
 
@@ -68,7 +78,13 @@ public class HeroTracker extends DefaultGameEventListener {
 
                     final int slot = Integer.parseInt( name.substring( name.lastIndexOf( "." ) + 1 ) );
                     value &= 0x7ff;
-                    h.addAbility( DotaPlay.getTickMs(), slot, value );
+                    final Ability a = state.getAbility( value );
+                    if (a == null) {
+                        Logger.getLogger( getClass().getName() ).warning( "Hero " + h.getName() + " has an odd ability" ); //Most likely a temporary entity
+                    }
+                    else {
+                        h.getAbilities().add( a );
+                    }
                 }
             }
             else if (name.equals( "DT_DOTA_BaseNPC.m_iHealth" )) {

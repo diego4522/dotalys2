@@ -20,17 +20,14 @@ import javax.swing.JSlider;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.filechooser.FileFilter;
-import javax.swing.tree.DefaultMutableTreeNode;
 
-import de.lighti.io.ChartCreator;
 import de.lighti.io.DataExporter;
 import de.lighti.model.AppState;
 import de.lighti.model.Statics;
-import de.lighti.model.game.Player;
 
 public class OptionContainer extends JComponent {
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = -7333865570478624736L;
     private final MapComponent mapComponent;
@@ -73,25 +70,26 @@ public class OptionContainer extends JComponent {
         return new ActionListener() {
             @Override
             public void actionPerformed( ActionEvent e ) {
-                final DefaultMutableTreeNode node = (DefaultMutableTreeNode) mapComponent.getAttributeTree().getLastSelectedPathComponent();
-                if (node != null && node.isLeaf()) {
-                    final String selection = (String) node.getUserObject();
-                    final Player p = appState.getPlayerByName( selection );
-                    if (p != null) {
-                        final DefaultMutableTreeNode category = (DefaultMutableTreeNode) node.getParent();
-                        final String catName = (String) category.getUserObject();
-                        switch (catName) {
-                            case MapComponent.CAT_MOVEMENT:
-                                final String[][] log = ChartCreator.createMoveLog( p.getName(), appState );
-                                doSaveDialog( catName, log );
-                                break;
-                            default:
-                                JOptionPane.showMessageDialog( OptionContainer.this, "Exporting " + catName + " is not implemented", "We're terribly sorry",
-                                                JOptionPane.ERROR_MESSAGE );
-                        }
-                    }
-                }
-
+//                final DefaultMutableTreeNode node = (DefaultMutableTreeNode) mapComponent.getAttributeTree().getLastSelectedPathComponent();
+//                if (node != null && node.isLeaf()) {
+//                    final String selection = (String) node.getUserObject();
+//                    final Player p = appState.getPlayerByName( selection );
+//                    if (p != null) {
+//                        final DefaultMutableTreeNode category = (DefaultMutableTreeNode) node.getParent();
+//                        final String catName = (String) category.getUserObject();
+//                        switch (catName) {
+//                            case MapComponent.CAT_MOVEMENT:
+//                                final String[][] log = ChartCreator.createMoveLog( p.getName(), appState );
+//                                doSaveDialog( catName, log );
+//                                break;
+//                            default:
+//                                JOptionPane.showMessageDialog( OptionContainer.this, "Exporting " + catName + " is not implemented", "We're terribly sorry",
+//                                                JOptionPane.ERROR_MESSAGE );
+//                        }
+//                    }
+//                }
+                JOptionPane.showMessageDialog( OptionContainer.this,
+                                "This button is disabled until I have time to fix it. Blease use the batch export instead." );
             }
         };
     }

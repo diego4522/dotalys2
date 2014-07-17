@@ -35,7 +35,7 @@ public class SkillTreecomponent extends JScrollPane {
     /**
      * Delegate component that takes care of the actual rendering. The outer component is just neded
      * for layouting.
-     * 
+     *
      * @author Tobias Mahlmann
      *
      */
@@ -73,13 +73,13 @@ public class SkillTreecomponent extends JScrollPane {
                 int y = INDENT;
                 for (final Ability a : abilities) {
                     if (a != null) {
-                        columns.put( a.getName(), new Point( x, y ) );
+                        columns.put( a.getKey(), new Point( x, y ) );
 
                         try {
-                            final BufferedImage image = ImageCache.getAbilityImage( a.getName() );
+                            final BufferedImage image = ImageCache.getAbilityImage( a.getKey() );
                             if (image == null) {
-                                g.drawString( a.getName(), x, y );
-                                x += metrics.stringWidth( a.getName() ) + INDENT;
+                                g.drawString( a.getLocalisedName(), x, y );
+                                x += metrics.stringWidth( a.getLocalisedName() ) + INDENT;
                             }
                             else {
                                 g.drawImage( image, x, y, ICON_SIZE, ICON_SIZE, this );
@@ -89,8 +89,8 @@ public class SkillTreecomponent extends JScrollPane {
 
                         catch (final IOException e) {
                             LOGGER.warning( "Error loading image: " + e.getLocalizedMessage() );
-                            g.drawString( a.getName(), x, y );
-                            x += metrics.stringWidth( a.getName() ) + INDENT;
+                            g.drawString( a.getLocalisedName(), x, y );
+                            x += metrics.stringWidth( a.getLocalisedName() ) + INDENT;
                         }
                     }
                     else {
@@ -142,9 +142,9 @@ public class SkillTreecomponent extends JScrollPane {
                     if (a != null) {
 
                         try {
-                            final BufferedImage image = ImageCache.getAbilityImage( a.getName() );
+                            final BufferedImage image = ImageCache.getAbilityImage( a.getKey() );
                             if (image == null) {
-                                x += metrics.stringWidth( a.getName() ) + INDENT;
+                                x += metrics.stringWidth( a.getLocalisedName() ) + INDENT;
                             }
                             else {
                                 x += ICON_SIZE + INDENT;
@@ -153,7 +153,7 @@ public class SkillTreecomponent extends JScrollPane {
 
                         catch (final IOException e) {
                             LOGGER.warning( "Error loading image: " + e.getLocalizedMessage() );
-                            x += metrics.stringWidth( a.getName() ) + INDENT;
+                            x += metrics.stringWidth( a.getLocalisedName() ) + INDENT;
                         }
                     }
                     else {
@@ -178,7 +178,7 @@ public class SkillTreecomponent extends JScrollPane {
                     if (a != null) {
                         for (final Long l : a.getLevel().keySet()) {
                             if (a.getLevel().get( l ) > 0) {
-                                abilityLog.put( l, a.getName() );
+                                abilityLog.put( l, a.getKey() );
                             }
                         }
                     }
@@ -212,7 +212,7 @@ public class SkillTreecomponent extends JScrollPane {
     }
 
     /**
-     * Main update method for this component. 
+     * Main update method for this component.
      * @param abilities a ordered list of a hero abilities.
      */
     public void setAbilities( List<Ability> abilities ) {
