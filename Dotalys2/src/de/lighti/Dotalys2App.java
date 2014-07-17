@@ -23,7 +23,7 @@ public class Dotalys2App extends JFrame {
     private final AppState appState;
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = -5920990846685808741L;
     static {
@@ -51,7 +51,7 @@ public class Dotalys2App extends JFrame {
         super( Statics.APPLICATION_TITLE );
 
         appState = new AppState();
-        parseLocalisedHeroNames();
+        parseLocalisedNames();
 
         setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 
@@ -120,8 +120,9 @@ public class Dotalys2App extends JFrame {
         return playerComponent;
     }
 
-    private void parseLocalisedHeroNames() {
+    private void parseLocalisedNames() {
         DataImporter.readLocalisedHeroNames( getClass().getResourceAsStream( "heroes.xml" ), appState );
+        DataImporter.readLocalisedAbilityNames( getClass().getResourceAsStream( "abilities.xml" ), appState );
 
     }
 }

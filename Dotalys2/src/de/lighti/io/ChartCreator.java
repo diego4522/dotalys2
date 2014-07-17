@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -22,23 +24,63 @@ import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.xy.XYSeries;
 
+import de.lighti.components.map.MapComponent;
 import de.lighti.components.match.GameStatisticsComponent;
 import de.lighti.model.AppState;
 import de.lighti.model.Statics;
+import de.lighti.model.game.Ability;
 import de.lighti.model.game.Hero;
 import de.lighti.model.game.Player;
 import de.lighti.model.game.Unit;
 import de.lighti.model.game.Unit.Zone;
 
 public final class ChartCreator {
-    private final static Logger LOGGER = Logger.getLogger( ChartCreator.class.getName() );
+    public static String[][] createAbilityLog( Player p ) {
+        final List<Object[]> log = new ArrayList();
+        final Hero h = p.getHero();
+        for (final Ability a : h.getAbilities()) {
+            for (final long l : a.getInvocations()) {
+                final Object[] o = new Object[4];
+                o[0] = l;
+                o[1] = h.getX( l );
+                o[2] = h.getY( l );
+                o[3] = a.getKey();
+                log.add( o );
+            }
+        }
+        Collections.sort( log, new Comparator<Object[]>() {
 
-    /**
-     * TODO
-     * We store player id as a real int, but unhandled game events are stored as name.XXXX.
-     * We temporaily solve this by expanding the real id to four digits.
-     */
-    private final static DecimalFormat ID_TO_GAMEEVENT_FORMAT = new DecimalFormat( "0000" );
+            @Override
+            public int compare( Object[] o1, Object[] o2 ) {
+                final long l1 = (long) o1[0];
+                final long l2 = (long) o2[0];
+                return Long.compare( l1, l2 );
+            }
+        } );
+        final String[][] ret = new String[log.size()][4];
+        for (int i = 0; i < log.size(); i++) {
+            final Object[] o = log.get( i );
+            ret[i][0] = o[0].toString();
+            ret[i][1] = o[1].toString();
+            ret[i][2] = o[2].toString();
+            ret[i][3] = o[3].toString();
+        }
+        return ret;
+    }
+
+    public static XYSeries createAbilityMap( Hero hero, String name ) {
+        final Ability ability = hero.getAbilityByName( name );
+        if (ability == null) {
+            throw new IllegalArgumentException( "Hero " + hero.getName() + " has no ability " + name );
+        }
+        final XYSeries ret = new XYSeries( name + MapComponent.CAT_ABILITIES, false, true );
+
+        for (final Long l : ability.getInvocations()) {
+            ret.add( hero.getX( l ), hero.getY( l ) );
+        }
+
+        return ret;
+    }
 
     /**
      * This method creates a data set with two series(one radiant, one dire) representing the average
@@ -403,6 +445,15 @@ public final class ChartCreator {
 
         return ret;
     }
+
+    private final static Logger LOGGER = Logger.getLogger( ChartCreator.class.getName() );
+
+    /**
+     * TODO
+     * We store player id as a real int, but unhandled game events are stored as name.XXXX.
+     * We temporaily solve this by expanding the real id to four digits.
+     */
+    private final static DecimalFormat ID_TO_GAMEEVENT_FORMAT = new DecimalFormat( "0000" );
 
     /**
      * Default constructor to prevent instantiation.

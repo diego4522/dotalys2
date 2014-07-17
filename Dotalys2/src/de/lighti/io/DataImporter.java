@@ -27,19 +27,6 @@ import de.lighti.parsing.ItemListener;
 import de.lighti.parsing.PlayersListener;
 
 public final class DataImporter {
-    public static final FileFilter FILE_FILTER = new FileFilter() {
-
-        @Override
-        public boolean accept( File f ) {
-            return f.isDirectory() || f.getName().endsWith( ".dem" );
-        }
-
-        @Override
-        public String getDescription() {
-            return "Dota2 Replay files (*.dem)";
-        }
-    };
-
     public static void parseReplayFile( AppState appState, Dotalys2App app, File file, ProgressListener... listeners ) {
         DotaPlay.getListeners().clear();
         DotaPlay.addListener( new PlayersListener( appState ) );
@@ -57,6 +44,75 @@ public final class DataImporter {
 
         //Note really necessary, but move away whatever data has been cached in the listeners
         DotaPlay.getListeners().clear();
+    }
+
+    public static void readLocalisedAbilityNames( InputStream inputStream, AppState appState ) {
+        try {
+
+            //Get the DOM Builder Factory
+            final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+
+            //Get the DOM Builder
+            final DocumentBuilder builder = factory.newDocumentBuilder();
+
+            //Load and Parse the XML document
+            //document contains the complete XML as a Tree.
+            final Document document = builder.parse( inputStream );
+            //Iterating through the nodes and extracting the data.
+            final NodeList nodeList = document.getDocumentElement().getChildNodes();
+
+            for (int i = 0; i < nodeList.getLength(); i++) {
+
+                final Node node = nodeList.item( i );
+                if (node instanceof Element) {
+                    if (!node.getNodeName().equals( "abilities" )) {
+                        continue;
+                    }
+
+                    final NodeList childNodes = node.getChildNodes();
+                    for (int j = 0; j < childNodes.getLength(); j++) {
+                        final Node cNode = childNodes.item( j );
+                        if (!(cNode instanceof Element) || !cNode.getNodeName().equals( "ability" )) {
+                            continue;
+                        }
+                        String name = null;
+                        String localisedName = null;
+
+                        final NodeList childChildNodes = cNode.getChildNodes();
+                        for (int h = 0; h < childChildNodes.getLength(); h++) {
+                            final Node ccNode = childChildNodes.item( h );
+                            if (!(ccNode instanceof Element)) {
+                                continue;
+                            }
+                            final Node textNode = ccNode.getLastChild();
+                            if (textNode == null) {
+                                continue;
+                            }
+                            final String content = textNode.getTextContent();
+
+                            if (ccNode.getNodeName().equals( "name" )) {
+                                name = content.trim();
+                            }
+                            else if (ccNode.getNodeName().equals( "localizedName" )) {
+                                localisedName = content.trim();
+                            }
+                        }
+
+                        if (name != null && localisedName != null) {
+
+                            AppState.setAbilityName( name, localisedName );
+                        }
+
+                    }
+
+                }
+
+            }
+        }
+        catch (final IOException | ParserConfigurationException | SAXException e) {
+            throw new IllegalStateException( e );
+        }
+
     }
 
     public static void readLocalisedHeroNames( InputStream inputStream, AppState appState ) {
@@ -109,7 +165,7 @@ public final class DataImporter {
                             throw new SAXException( "Found hero without name or localised name" );
                         }
                         else {
-                            appState.setHeroName( name, localisedName );
+                            AppState.setHeroName( name, localisedName );
                         }
 
                     }
@@ -122,6 +178,19 @@ public final class DataImporter {
             throw new IllegalStateException( e );
         }
     }
+
+    public static final FileFilter FILE_FILTER = new FileFilter() {
+
+        @Override
+        public boolean accept( File f ) {
+            return f.isDirectory() || f.getName().endsWith( ".dem" );
+        }
+
+        @Override
+        public String getDescription() {
+            return "Dota2 Replay files (*.dem)";
+        }
+    };
 
     private DataImporter() {
 

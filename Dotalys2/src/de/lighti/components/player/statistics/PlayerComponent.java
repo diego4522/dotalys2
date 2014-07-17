@@ -33,7 +33,7 @@ import de.lighti.model.game.Player;
 
 public class PlayerComponent extends JSplitPane {
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = 1L;
     private final AppState appState;
@@ -115,8 +115,8 @@ public class PlayerComponent extends JSplitPane {
                 final Hero hero = p.getHero();
 
                 final List<Ability> abilities = new ArrayList<Ability>();
-                for (final Integer i : hero.getAbilities()) {
-                    abilities.add( appState.getAbility( i ) );
+                for (final Ability a : hero.getAbilities()) {
+                    abilities.add( a );
                 }
                 c.setAbilities( abilities );
                 c.repaint();
@@ -132,7 +132,7 @@ public class PlayerComponent extends JSplitPane {
         final TableModel model = new DefaultTableModel( 7, 2 ) {
 
             /**
-             * 
+             *
              */
             private static final long serialVersionUID = -5417710077260844257L;
 
@@ -201,11 +201,11 @@ public class PlayerComponent extends JSplitPane {
             playerBox = new JComboBox<String>() {
 
                 /**
-                 * 
+                 *
                  */
                 private static final long serialVersionUID = 1L;
 
-                /** 
+                /**
                  * @inherited <p>
                  */
                 @Override
