@@ -144,7 +144,7 @@ public class MapComponent extends JSplitPane {
                                         s.setKey( player.getName() + catName );
                                         getMapCanvas().addSeries( s, player.getId() );
                                     }
-                                    break;
+                                        break;
                                     case CAT_DEATHS: {
                                         final Player player = appState.getPlayerByName( (String) selection );
 
@@ -152,14 +152,14 @@ public class MapComponent extends JSplitPane {
                                         s.setKey( player.getName() + catName );
                                         getMapCanvas().addSeries( s, player.getId() );
                                     }
-                                    break;
+                                        break;
                                     case CAT_ABILITIES: {
                                         final String playerName = (String) ((DefaultMutableTreeNode) selectedNode.getParent()).getUserObject();
                                         final Player player = appState.getPlayerByName( playerName );
                                         final XYSeries s = ChartCreator.createAbilityMap( player.getHero(), ((Ability) selection).getKey() );
                                         getMapCanvas().addSeries( s, player.getId() );
                                     }
-                                        break;
+                                    break;
                                     default:
                                         LOGGER.warning( "Unknown category in tree" );
                                         break;
@@ -168,7 +168,14 @@ public class MapComponent extends JSplitPane {
                                 getOptionContainer().getStepSlider().setMaximum( getMapCanvas().getItemCount() );
                             }
                             else {
-                                getMapCanvas().removeSeries( ((Ability) selection).getKey() + catName );
+                                //TODO remove this hack
+                                if (selection instanceof Ability) {
+                                    getMapCanvas().removeSeries( ((Ability) selection).getKey() + catName );
+                                }
+                                else {
+                                    getMapCanvas().removeSeries( selection + catName );
+                                }
+
                             }
                         }
                     }
