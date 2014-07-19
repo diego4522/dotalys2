@@ -40,7 +40,7 @@ public class AbilityTracker extends DefaultGameEventListener {
                 final Float value = (Float) e.getProperty( name ).getValue();
                 if (!value.equals( oldValue )) {
                     final Float cd = (Float) e.getProperty( "DT_DOTABaseAbility.m_flCooldownLength" ).getValue();
-                    state.getAbility( e.getId() ).addInvocation( (long) (value * 1000) - cd.longValue() );
+                    state.getAbility( e.getId() ).addInvocation( (long) ((value - cd) * 1000f) );
                 }
             }
 
