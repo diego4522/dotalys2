@@ -1,7 +1,8 @@
 package de.lighti.model.game;
 
-import java.util.PriorityQueue;
+import java.util.SortedSet;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import de.lighti.model.AppState;
 
@@ -10,21 +11,21 @@ public class Ability {
     private String localisedName;
 
     private final TreeMap<Long, Integer> level;
-    private final PriorityQueue<Long> invocations;
+    private final SortedSet<Long> invocations;
 
     public Ability( String key ) {
         super();
         this.key = key;
         localisedName = AppState.getAbilityName( key );
         level = new TreeMap<Long, Integer>();
-        invocations = new PriorityQueue<Long>();
+        invocations = new TreeSet<Long>();
     }
 
     public void addInvocation( long tickMs ) {
         invocations.add( tickMs );
     }
 
-    public PriorityQueue<Long> getInvocations() {
+    public SortedSet<Long> getInvocations() {
         return invocations;
     }
 
