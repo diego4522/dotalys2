@@ -8,10 +8,10 @@ import de.lighti.model.state.StateUtils.SendProp;
 import de.lighti.util.BitInputBuffer;
 
 /**
- * This class represents a property of an Entity. 
- * 
+ * This class represents a property of an Entity.
+ *
  * The code is based on the c++ parser library https://github.com/dschleck/edith
- * 
+ *
  * @author Tobias Mahlmann
  *
  * @param <T>
@@ -20,8 +20,6 @@ public class Property<T> {
     enum FloatType {
         FT_None, FT_LowPrecision, FT_Integral,
     }
-
-    private static final int MAX_STRING_LENGTH = 0x200;;
 
     private static int getArrayLengthBits( SendProp prop ) {
         int n = prop.getNumberOfElements();
@@ -33,7 +31,7 @@ public class Property<T> {
         }
 
         return bits;
-    }
+    };
 
     private static Vector<Property> readArray( BitInputBuffer stream, SendProp prop ) {
         if (prop.getArrayProp() == null) {
@@ -240,7 +238,7 @@ public class Property<T> {
     }
 
     private static float readFloatNoScale( BitInputBuffer stream ) {
-        return stream.readBitsAsInt( 32 );
+        return stream.readBitsAsFloat( 32 );
     }
 
     private static Integer readInteger( BitInputBuffer stream, SendProp prop ) {
@@ -397,6 +395,8 @@ public class Property<T> {
         vector[1] = readFloat( stream, prop );
         return vector;
     }
+
+    private static final int MAX_STRING_LENGTH = 0x200;
 
     private final String name;
 
