@@ -5,11 +5,12 @@ import java.util.BitSet;
 
 /**
  * A BitInputBuffer wraps a stream of bytes so they can be read bit by bit.
- * 
+ *
  * @author Tobias Mahlmann
  *
  */
 public class BitInputBuffer {
+
     /**
      * Converts an array of bits into a (signed) integer.
      * @param a an array of bits. The first array element is treated as the highest bit.
@@ -98,6 +99,10 @@ public class BitInputBuffer {
         }
     }
 
+    public float readBitsAsFloat( int entryBits ) {
+        return Float.intBitsToFloat( readBitsAsInt( entryBits ) );
+    }
+
     public int readBitsAsInt( int entryBits ) {
         return encodeBoolAsInt( readBits( entryBits ) );
     }
@@ -105,7 +110,7 @@ public class BitInputBuffer {
     public String readString( int maxSize ) {
         final StringBuilder builder = new StringBuilder();
 
-        for (int i = 0; i < (maxSize - 1); ++i) {
+        for (int i = 0; i < maxSize - 1; ++i) {
             final char c = (char) encodeBoolAsInt( readBits( 8 ) );
 
             if (c == '\0') {
@@ -134,7 +139,7 @@ public class BitInputBuffer {
             value |= lower << read;
             read += 7;
         }
-        while (((got >>> 7) > 0) && (read < 35));
+        while (got >>> 7 > 0 && read < 35);
 
         return value;
     }
