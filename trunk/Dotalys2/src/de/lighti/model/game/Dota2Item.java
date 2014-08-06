@@ -8,7 +8,7 @@ import java.util.Map;
 import de.lighti.io.ImageCache;
 
 public class Dota2Item {
-    private final String name;
+    private String name;
 
     public final static Dota2Item UNKNOWN_ITEM = new Dota2Item( "<Unknown>", false );
 
@@ -22,9 +22,6 @@ public class Dota2Item {
 
     public Dota2Item( String name, boolean fetchImage ) {
         super();
-        if ((name == null) || name.isEmpty()) {
-            throw new IllegalArgumentException( "name must not be null" );
-        }
 
         this.name = name;
         this.fetchImage = fetchImage;
@@ -34,7 +31,7 @@ public class Dota2Item {
     public BufferedImage getImage() throws IOException {
         if (fetchImage) {
             BufferedImage i = images.get( name );
-            if ((i == null) && !images.containsKey( name )) {
+            if (i == null && !images.containsKey( name )) {
                 i = ImageCache.getItemImage( name );
                 images.put( name, i );
             }
@@ -45,6 +42,13 @@ public class Dota2Item {
 
     public String getName() {
         return name;
+    }
+
+    public void setName( String value ) {
+        if (value == null || value.isEmpty()) {
+            throw new IllegalArgumentException( "name must not be empty" );
+        }
+        name = value;
     }
 
 }
