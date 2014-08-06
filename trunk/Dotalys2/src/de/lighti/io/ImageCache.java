@@ -47,7 +47,9 @@ public final class ImageCache {
             return memoryCache.get( id );
         }
         else {
-            if (System.getSecurityManager() == null) {
+            final File cacheDir = new File( CACHE_DIR );
+            if (System.getSecurityManager() == null && cacheDir.isDirectory()) {
+
                 final String filename = CACHE_DIR + "/" + id + FILE_SUFFIX;
                 final File f = new File( filename );
                 if (f.exists()) {
