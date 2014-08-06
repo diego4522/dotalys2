@@ -10,12 +10,12 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class Hero extends Unit {
     public class ItemEvent {
-        public Integer item;
+        public Dota2Item item;
         public int slot;
         public boolean added;
         public long tick;
 
-        private ItemEvent( long tick, Integer item, int slot, boolean added ) {
+        private ItemEvent( long tick, Dota2Item item, int slot, boolean added ) {
             super();
             this.tick = tick;
             this.item = item;
@@ -25,30 +25,33 @@ public class Hero extends Unit {
 
     }
 
-    private static int countItem( Integer[] list, Integer n ) {
+    private static int countItem( Dota2Item[] list, Dota2Item n ) {
+        if (n == null) {
+            throw new IllegalArgumentException( "n must not be null" );
+        }
         int count = 0;
-        for (final Integer m : list) {
-            if (m != null && m.equals( n )) {
+        for (final Dota2Item m : list) {
+            if (m != null && m.getName().equals( n.getName() )) {
                 count++;
             }
         }
         return count;
     }
 
-    private final TreeMap<Long, Integer[]> items;
+    private final TreeMap<Long, Dota2Item[]> items;
     private final Set<Ability> abilities;
 
     private final Queue<ItemEvent> itemLog;
 
     private final TreeMap<Long, int[]> deaths;
 
-    private final static int BAG_SIZE = 12; //two bags of 6. Not sure where courier itmes go
+    public final static int BAG_SIZE = 12; //two bags of 6. Not sure where courier itmes go
 
     public Hero( String name ) {
         super( name );
 
-        items = new TreeMap<Long, Integer[]>();
-        items.put( 0l, new Integer[BAG_SIZE] );
+        items = new TreeMap<Long, Dota2Item[]>();
+        items.put( 0l, new Dota2Item[BAG_SIZE] );
         itemLog = new LinkedBlockingQueue<ItemEvent>();
         abilities = new HashSet<Ability>();
         deaths = new TreeMap<>();
@@ -59,11 +62,10 @@ public class Hero extends Unit {
 
     }
 
-    private void generateLogEntries( long tick, Integer[] previous, Integer[] current ) {
+    private void generateLogEntries( long tick, Dota2Item[] previous, Dota2Item[] current ) {
         for (int i = 0; i < previous.length; i++) {
             if (previous[i] != current[i]) {
                 if (current[i] != null) {
-
                     if (countItem( previous, current[i] ) == 0) {
                         itemLog.add( new ItemEvent( tick, current[i], i, true ) );
                     }
@@ -97,7 +99,7 @@ public class Hero extends Unit {
         return itemLog;
     }
 
-    public void setItem( long tickMs, int slot, Integer newItem ) {
+    public void setItem( long tickMs, int slot, Dota2Item newItem ) {
         if (items.containsKey( tickMs )) {
             //Just store the update
             items.get( tickMs )[slot] = newItem;
@@ -105,9 +107,9 @@ public class Hero extends Unit {
         else {
             //We advanced. Push the current bag configuration, calculate the diff to the previous one and make
             //a new array for the new tick
-            final Entry<Long, Integer[]> current = items.floorEntry( tickMs );
-            final Entry<Long, Integer[]> previous = items.floorEntry( current.getKey() - 1 );
-            final Integer[] newBag = Arrays.copyOf( current.getValue(), current.getValue().length );
+            final Entry<Long, Dota2Item[]> current = items.floorEntry( tickMs );
+            final Entry<Long, Dota2Item[]> previous = items.floorEntry( current.getKey() - 1 );
+            final Dota2Item[] newBag = Arrays.copyOf( current.getValue(), current.getValue().length );
             newBag[slot] = newItem;
             items.put( tickMs, newBag );
 

@@ -87,7 +87,7 @@ public class PlayerComponent extends JSplitPane {
 
                         //Only the bag, and only added items
                         if (n.slot <= 5 && n.added) {
-                            buildOrder.add( appState.getItem( n.tick, n.item ) );
+                            buildOrder.add( n.item );
                         }
 //                        if (n.startsWith( "+" )) {
 //                            buildOrder.add( appState.getItemByName( n.substring( 1 ) ) );
