@@ -7,9 +7,11 @@ import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 import de.lighti.DefaultGameEventListener;
 import de.lighti.Dotalys2App;
+import de.lighti.model.Statics;
 import de.lighti.model.game.Player;
 import de.lighti.model.state.ParseState;
 
@@ -22,6 +24,9 @@ public class GeneralGameStateTracker extends DefaultGameEventListener {
 
     @Override
     public void parseComplete( long tickMs, ParseState state ) {
+        if (state.getProtocolVersion() > Statics.SUPPORTED_PROTOCOL_VERSION) {
+            JOptionPane.showMessageDialog( app, Statics.PROTOCOL_WARNING, Statics.WARNING, JOptionPane.WARNING_MESSAGE );
+        }
         app.getAppState().setMsPerTick( (int) (state.getTickInterval() * 1000) );
 
         //Unhandled PlayerVariables
