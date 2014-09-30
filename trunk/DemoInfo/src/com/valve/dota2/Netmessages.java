@@ -9,7 +9,7 @@ public final class Netmessages {
       com.google.protobuf.ExtensionRegistry registry) {
   }
   /**
-   * Protobuf enum {@code com.valve.dota2.NET_Messages}
+   * Protobuf enum {@code NET_Messages}
    */
   public enum NET_Messages
       implements com.google.protobuf.ProtocolMessageEnum {
@@ -19,58 +19,30 @@ public final class Netmessages {
     net_NOP(0, 0),
     /**
      * <code>net_Disconnect = 1;</code>
-     *
-     * <pre>
-     * disconnect, last message in connection
-     * </pre>
      */
     net_Disconnect(1, 1),
     /**
      * <code>net_File = 2;</code>
-     *
-     * <pre>
-     * file transmission message request/deny
-     * </pre>
      */
     net_File(2, 2),
     /**
      * <code>net_SplitScreenUser = 3;</code>
-     *
-     * <pre>
-     * Changes split screen user, client and server must both provide handler
-     * </pre>
      */
     net_SplitScreenUser(3, 3),
     /**
      * <code>net_Tick = 4;</code>
-     *
-     * <pre>
-     * s-&gt;c world tick, c-&gt;s ack world tick
-     * </pre>
      */
     net_Tick(4, 4),
     /**
      * <code>net_StringCmd = 5;</code>
-     *
-     * <pre>
-     * a string command
-     * </pre>
      */
     net_StringCmd(5, 5),
     /**
      * <code>net_SetConVar = 6;</code>
-     *
-     * <pre>
-     * sends one/multiple convar/userinfo settings
-     * </pre>
      */
     net_SetConVar(6, 6),
     /**
      * <code>net_SignonState = 7;</code>
-     *
-     * <pre>
-     * signals or acks current signon state
-     * </pre>
      */
     net_SignonState(7, 7),
     ;
@@ -81,58 +53,30 @@ public final class Netmessages {
     public static final int net_NOP_VALUE = 0;
     /**
      * <code>net_Disconnect = 1;</code>
-     *
-     * <pre>
-     * disconnect, last message in connection
-     * </pre>
      */
     public static final int net_Disconnect_VALUE = 1;
     /**
      * <code>net_File = 2;</code>
-     *
-     * <pre>
-     * file transmission message request/deny
-     * </pre>
      */
     public static final int net_File_VALUE = 2;
     /**
      * <code>net_SplitScreenUser = 3;</code>
-     *
-     * <pre>
-     * Changes split screen user, client and server must both provide handler
-     * </pre>
      */
     public static final int net_SplitScreenUser_VALUE = 3;
     /**
      * <code>net_Tick = 4;</code>
-     *
-     * <pre>
-     * s-&gt;c world tick, c-&gt;s ack world tick
-     * </pre>
      */
     public static final int net_Tick_VALUE = 4;
     /**
      * <code>net_StringCmd = 5;</code>
-     *
-     * <pre>
-     * a string command
-     * </pre>
      */
     public static final int net_StringCmd_VALUE = 5;
     /**
      * <code>net_SetConVar = 6;</code>
-     *
-     * <pre>
-     * sends one/multiple convar/userinfo settings
-     * </pre>
      */
     public static final int net_SetConVar_VALUE = 6;
     /**
      * <code>net_SignonState = 7;</code>
-     *
-     * <pre>
-     * signals or acks current signon state
-     * </pre>
      */
     public static final int net_SignonState_VALUE = 7;
 
@@ -197,276 +141,44 @@ public final class Netmessages {
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:com.valve.dota2.NET_Messages)
+    // @@protoc_insertion_point(enum_scope:NET_Messages)
   }
 
   /**
-   * Protobuf enum {@code com.valve.dota2.SIGNONSTATE}
-   */
-  public enum SIGNONSTATE
-      implements com.google.protobuf.ProtocolMessageEnum {
-    /**
-     * <code>SIGNONSTATE_NONE = 0;</code>
-     *
-     * <pre>
-     * no state yet; about to connect
-     * </pre>
-     */
-    SIGNONSTATE_NONE(0, 0),
-    /**
-     * <code>SIGNONSTATE_CHALLENGE = 1;</code>
-     *
-     * <pre>
-     * client challenging server; all OOB packets
-     * </pre>
-     */
-    SIGNONSTATE_CHALLENGE(1, 1),
-    /**
-     * <code>SIGNONSTATE_CONNECTED = 2;</code>
-     *
-     * <pre>
-     * client is connected to server; netchans ready
-     * </pre>
-     */
-    SIGNONSTATE_CONNECTED(2, 2),
-    /**
-     * <code>SIGNONSTATE_NEW = 3;</code>
-     *
-     * <pre>
-     * just got serverinfo and string tables
-     * </pre>
-     */
-    SIGNONSTATE_NEW(3, 3),
-    /**
-     * <code>SIGNONSTATE_PRESPAWN = 4;</code>
-     *
-     * <pre>
-     * received signon buffers
-     * </pre>
-     */
-    SIGNONSTATE_PRESPAWN(4, 4),
-    /**
-     * <code>SIGNONSTATE_SPAWN = 5;</code>
-     *
-     * <pre>
-     * ready to receive entity packets
-     * </pre>
-     */
-    SIGNONSTATE_SPAWN(5, 5),
-    /**
-     * <code>SIGNONSTATE_FULL = 6;</code>
-     *
-     * <pre>
-     * we are fully connected; first non-delta packet received
-     * </pre>
-     */
-    SIGNONSTATE_FULL(6, 6),
-    /**
-     * <code>SIGNONSTATE_CHANGELEVEL = 7;</code>
-     *
-     * <pre>
-     * server is changing level; please wait
-     * </pre>
-     */
-    SIGNONSTATE_CHANGELEVEL(7, 7),
-    ;
-
-    /**
-     * <code>SIGNONSTATE_NONE = 0;</code>
-     *
-     * <pre>
-     * no state yet; about to connect
-     * </pre>
-     */
-    public static final int SIGNONSTATE_NONE_VALUE = 0;
-    /**
-     * <code>SIGNONSTATE_CHALLENGE = 1;</code>
-     *
-     * <pre>
-     * client challenging server; all OOB packets
-     * </pre>
-     */
-    public static final int SIGNONSTATE_CHALLENGE_VALUE = 1;
-    /**
-     * <code>SIGNONSTATE_CONNECTED = 2;</code>
-     *
-     * <pre>
-     * client is connected to server; netchans ready
-     * </pre>
-     */
-    public static final int SIGNONSTATE_CONNECTED_VALUE = 2;
-    /**
-     * <code>SIGNONSTATE_NEW = 3;</code>
-     *
-     * <pre>
-     * just got serverinfo and string tables
-     * </pre>
-     */
-    public static final int SIGNONSTATE_NEW_VALUE = 3;
-    /**
-     * <code>SIGNONSTATE_PRESPAWN = 4;</code>
-     *
-     * <pre>
-     * received signon buffers
-     * </pre>
-     */
-    public static final int SIGNONSTATE_PRESPAWN_VALUE = 4;
-    /**
-     * <code>SIGNONSTATE_SPAWN = 5;</code>
-     *
-     * <pre>
-     * ready to receive entity packets
-     * </pre>
-     */
-    public static final int SIGNONSTATE_SPAWN_VALUE = 5;
-    /**
-     * <code>SIGNONSTATE_FULL = 6;</code>
-     *
-     * <pre>
-     * we are fully connected; first non-delta packet received
-     * </pre>
-     */
-    public static final int SIGNONSTATE_FULL_VALUE = 6;
-    /**
-     * <code>SIGNONSTATE_CHANGELEVEL = 7;</code>
-     *
-     * <pre>
-     * server is changing level; please wait
-     * </pre>
-     */
-    public static final int SIGNONSTATE_CHANGELEVEL_VALUE = 7;
-
-
-    public final int getNumber() { return value; }
-
-    public static SIGNONSTATE valueOf(int value) {
-      switch (value) {
-        case 0: return SIGNONSTATE_NONE;
-        case 1: return SIGNONSTATE_CHALLENGE;
-        case 2: return SIGNONSTATE_CONNECTED;
-        case 3: return SIGNONSTATE_NEW;
-        case 4: return SIGNONSTATE_PRESPAWN;
-        case 5: return SIGNONSTATE_SPAWN;
-        case 6: return SIGNONSTATE_FULL;
-        case 7: return SIGNONSTATE_CHANGELEVEL;
-        default: return null;
-      }
-    }
-
-    public static com.google.protobuf.Internal.EnumLiteMap<SIGNONSTATE>
-        internalGetValueMap() {
-      return internalValueMap;
-    }
-    private static com.google.protobuf.Internal.EnumLiteMap<SIGNONSTATE>
-        internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<SIGNONSTATE>() {
-            public SIGNONSTATE findValueByNumber(int number) {
-              return SIGNONSTATE.valueOf(number);
-            }
-          };
-
-    public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-      return getDescriptor().getValues().get(index);
-    }
-    public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-      return getDescriptor();
-    }
-    public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-      return com.valve.dota2.Netmessages.getDescriptor().getEnumTypes().get(1);
-    }
-
-    private static final SIGNONSTATE[] VALUES = values();
-
-    public static SIGNONSTATE valueOf(
-        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-      if (desc.getType() != getDescriptor()) {
-        throw new java.lang.IllegalArgumentException(
-          "EnumValueDescriptor is not for this type.");
-      }
-      return VALUES[desc.getIndex()];
-    }
-
-    private final int index;
-    private final int value;
-
-    private SIGNONSTATE(int index, int value) {
-      this.index = index;
-      this.value = value;
-    }
-
-    // @@protoc_insertion_point(enum_scope:com.valve.dota2.SIGNONSTATE)
-  }
-
-  /**
-   * Protobuf enum {@code com.valve.dota2.CLC_Messages}
+   * Protobuf enum {@code CLC_Messages}
    */
   public enum CLC_Messages
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <code>clc_ClientInfo = 8;</code>
-     *
-     * <pre>
-     * client info (table CRC etc)    
-     * </pre>
      */
     clc_ClientInfo(0, 8),
     /**
      * <code>clc_Move = 9;</code>
-     *
-     * <pre>
-     * [CUserCmd]     
-     * </pre>
      */
     clc_Move(1, 9),
     /**
      * <code>clc_VoiceData = 10;</code>
-     *
-     * <pre>
-     * Voicestream data from a client    
-     * </pre>
      */
     clc_VoiceData(2, 10),
     /**
      * <code>clc_BaselineAck = 11;</code>
-     *
-     * <pre>
-     * client acknowledges a new baseline seqnr   
-     * </pre>
      */
     clc_BaselineAck(3, 11),
     /**
      * <code>clc_ListenEvents = 12;</code>
-     *
-     * <pre>
-     * client acknowledges a new baseline seqnr   
-     * </pre>
      */
     clc_ListenEvents(4, 12),
     /**
      * <code>clc_RespondCvarValue = 13;</code>
-     *
-     * <pre>
-     * client is responding to a svc_GetCvarValue message.  
-     * </pre>
      */
     clc_RespondCvarValue(5, 13),
     /**
      * <code>clc_FileCRCCheck = 14;</code>
-     *
-     * <pre>
-     * client is sending a file's CRC to the server to be verified.   
-     * </pre>
      */
     clc_FileCRCCheck(6, 14),
     /**
      * <code>clc_LoadingProgress = 15;</code>
-     *
-     * <pre>
-     * client loading progress  
-     * </pre>
      */
     clc_LoadingProgress(7, 15),
     /**
@@ -481,66 +193,34 @@ public final class Netmessages {
 
     /**
      * <code>clc_ClientInfo = 8;</code>
-     *
-     * <pre>
-     * client info (table CRC etc)    
-     * </pre>
      */
     public static final int clc_ClientInfo_VALUE = 8;
     /**
      * <code>clc_Move = 9;</code>
-     *
-     * <pre>
-     * [CUserCmd]     
-     * </pre>
      */
     public static final int clc_Move_VALUE = 9;
     /**
      * <code>clc_VoiceData = 10;</code>
-     *
-     * <pre>
-     * Voicestream data from a client    
-     * </pre>
      */
     public static final int clc_VoiceData_VALUE = 10;
     /**
      * <code>clc_BaselineAck = 11;</code>
-     *
-     * <pre>
-     * client acknowledges a new baseline seqnr   
-     * </pre>
      */
     public static final int clc_BaselineAck_VALUE = 11;
     /**
      * <code>clc_ListenEvents = 12;</code>
-     *
-     * <pre>
-     * client acknowledges a new baseline seqnr   
-     * </pre>
      */
     public static final int clc_ListenEvents_VALUE = 12;
     /**
      * <code>clc_RespondCvarValue = 13;</code>
-     *
-     * <pre>
-     * client is responding to a svc_GetCvarValue message.  
-     * </pre>
      */
     public static final int clc_RespondCvarValue_VALUE = 13;
     /**
      * <code>clc_FileCRCCheck = 14;</code>
-     *
-     * <pre>
-     * client is sending a file's CRC to the server to be verified.   
-     * </pre>
      */
     public static final int clc_FileCRCCheck_VALUE = 14;
     /**
      * <code>clc_LoadingProgress = 15;</code>
-     *
-     * <pre>
-     * client loading progress  
-     * </pre>
      */
     public static final int clc_LoadingProgress_VALUE = 15;
     /**
@@ -593,7 +273,7 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.getDescriptor().getEnumTypes().get(2);
+      return com.valve.dota2.Netmessages.getDescriptor().getEnumTypes().get(1);
     }
 
     private static final CLC_Messages[] VALUES = values();
@@ -615,400 +295,306 @@ public final class Netmessages {
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:com.valve.dota2.CLC_Messages)
+    // @@protoc_insertion_point(enum_scope:CLC_Messages)
   }
 
   /**
-   * Protobuf enum {@code com.valve.dota2.SVC_Messages}
+   * Protobuf enum {@code VoiceDataFormat_t}
+   */
+  public enum VoiceDataFormat_t
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>VOICEDATA_FORMAT_STEAM = 0;</code>
+     */
+    VOICEDATA_FORMAT_STEAM(0, 0),
+    /**
+     * <code>VOICEDATA_FORMAT_ENGINE = 1;</code>
+     */
+    VOICEDATA_FORMAT_ENGINE(1, 1),
+    ;
+
+    /**
+     * <code>VOICEDATA_FORMAT_STEAM = 0;</code>
+     */
+    public static final int VOICEDATA_FORMAT_STEAM_VALUE = 0;
+    /**
+     * <code>VOICEDATA_FORMAT_ENGINE = 1;</code>
+     */
+    public static final int VOICEDATA_FORMAT_ENGINE_VALUE = 1;
+
+
+    public final int getNumber() { return value; }
+
+    public static VoiceDataFormat_t valueOf(int value) {
+      switch (value) {
+        case 0: return VOICEDATA_FORMAT_STEAM;
+        case 1: return VOICEDATA_FORMAT_ENGINE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<VoiceDataFormat_t>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static com.google.protobuf.Internal.EnumLiteMap<VoiceDataFormat_t>
+        internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<VoiceDataFormat_t>() {
+            public VoiceDataFormat_t findValueByNumber(int number) {
+              return VoiceDataFormat_t.valueOf(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(index);
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.valve.dota2.Netmessages.getDescriptor().getEnumTypes().get(2);
+    }
+
+    private static final VoiceDataFormat_t[] VALUES = values();
+
+    public static VoiceDataFormat_t valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int index;
+    private final int value;
+
+    private VoiceDataFormat_t(int index, int value) {
+      this.index = index;
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:VoiceDataFormat_t)
+  }
+
+  /**
+   * Protobuf enum {@code SVC_Messages}
    */
   public enum SVC_Messages
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <code>svc_ServerInfo = 8;</code>
-     *
-     * <pre>
-     * first message from server about game; map etc
-     * </pre>
      */
     svc_ServerInfo(0, 8),
     /**
      * <code>svc_SendTable = 9;</code>
-     *
-     * <pre>
-     * sends a sendtable description for a game class
-     * </pre>
      */
     svc_SendTable(1, 9),
     /**
      * <code>svc_ClassInfo = 10;</code>
-     *
-     * <pre>
-     * Info about classes (first byte is a CLASSINFO_ define).							
-     * </pre>
      */
     svc_ClassInfo(2, 10),
     /**
      * <code>svc_SetPause = 11;</code>
-     *
-     * <pre>
-     * tells client if server paused or unpaused
-     * </pre>
      */
     svc_SetPause(3, 11),
     /**
      * <code>svc_CreateStringTable = 12;</code>
-     *
-     * <pre>
-     * inits shared string tables
-     * </pre>
      */
     svc_CreateStringTable(4, 12),
     /**
      * <code>svc_UpdateStringTable = 13;</code>
-     *
-     * <pre>
-     * updates a string table
-     * </pre>
      */
     svc_UpdateStringTable(5, 13),
     /**
      * <code>svc_VoiceInit = 14;</code>
-     *
-     * <pre>
-     * inits used voice codecs &amp; quality
-     * </pre>
      */
     svc_VoiceInit(6, 14),
     /**
      * <code>svc_VoiceData = 15;</code>
-     *
-     * <pre>
-     * Voicestream data from the server
-     * </pre>
      */
     svc_VoiceData(7, 15),
     /**
      * <code>svc_Print = 16;</code>
-     *
-     * <pre>
-     * print text to console
-     * </pre>
      */
     svc_Print(8, 16),
     /**
      * <code>svc_Sounds = 17;</code>
-     *
-     * <pre>
-     * starts playing sound
-     * </pre>
      */
     svc_Sounds(9, 17),
     /**
      * <code>svc_SetView = 18;</code>
-     *
-     * <pre>
-     * sets entity as point of view
-     * </pre>
      */
     svc_SetView(10, 18),
     /**
      * <code>svc_FixAngle = 19;</code>
-     *
-     * <pre>
-     * sets/corrects players viewangle
-     * </pre>
      */
     svc_FixAngle(11, 19),
     /**
      * <code>svc_CrosshairAngle = 20;</code>
-     *
-     * <pre>
-     * adjusts crosshair in auto aim mode to lock on traget
-     * </pre>
      */
     svc_CrosshairAngle(12, 20),
     /**
      * <code>svc_BSPDecal = 21;</code>
-     *
-     * <pre>
-     * add a static decal to the world BSP
-     * </pre>
      */
     svc_BSPDecal(13, 21),
     /**
      * <code>svc_SplitScreen = 22;</code>
-     *
-     * <pre>
-     * split screen style message
-     * </pre>
      */
     svc_SplitScreen(14, 22),
     /**
      * <code>svc_UserMessage = 23;</code>
-     *
-     * <pre>
-     * a game specific message 
-     * </pre>
      */
     svc_UserMessage(15, 23),
     /**
      * <code>svc_EntityMessage = 24;</code>
-     *
-     * <pre>
-     * a message for an entity
-     * </pre>
      */
     svc_EntityMessage(16, 24),
     /**
      * <code>svc_GameEvent = 25;</code>
-     *
-     * <pre>
-     * global game event fired
-     * </pre>
      */
     svc_GameEvent(17, 25),
     /**
      * <code>svc_PacketEntities = 26;</code>
-     *
-     * <pre>
-     * non-delta compressed entities
-     * </pre>
      */
     svc_PacketEntities(18, 26),
     /**
      * <code>svc_TempEntities = 27;</code>
-     *
-     * <pre>
-     * non-reliable event object
-     * </pre>
      */
     svc_TempEntities(19, 27),
     /**
      * <code>svc_Prefetch = 28;</code>
-     *
-     * <pre>
-     * only sound indices for now
-     * </pre>
      */
     svc_Prefetch(20, 28),
     /**
      * <code>svc_Menu = 29;</code>
-     *
-     * <pre>
-     * display a menu from a plugin
-     * </pre>
      */
     svc_Menu(21, 29),
     /**
      * <code>svc_GameEventList = 30;</code>
-     *
-     * <pre>
-     * list of known games events and fields
-     * </pre>
      */
     svc_GameEventList(22, 30),
     /**
      * <code>svc_GetCvarValue = 31;</code>
-     *
-     * <pre>
-     * Server wants to know the value of a cvar on the client
-     * </pre>
      */
     svc_GetCvarValue(23, 31),
+    /**
+     * <code>svc_PacketReliable = 32;</code>
+     */
+    svc_PacketReliable(24, 32),
+    /**
+     * <code>svc_FullFrameSplit = 33;</code>
+     */
+    svc_FullFrameSplit(25, 33),
     ;
 
     /**
      * <code>svc_ServerInfo = 8;</code>
-     *
-     * <pre>
-     * first message from server about game; map etc
-     * </pre>
      */
     public static final int svc_ServerInfo_VALUE = 8;
     /**
      * <code>svc_SendTable = 9;</code>
-     *
-     * <pre>
-     * sends a sendtable description for a game class
-     * </pre>
      */
     public static final int svc_SendTable_VALUE = 9;
     /**
      * <code>svc_ClassInfo = 10;</code>
-     *
-     * <pre>
-     * Info about classes (first byte is a CLASSINFO_ define).							
-     * </pre>
      */
     public static final int svc_ClassInfo_VALUE = 10;
     /**
      * <code>svc_SetPause = 11;</code>
-     *
-     * <pre>
-     * tells client if server paused or unpaused
-     * </pre>
      */
     public static final int svc_SetPause_VALUE = 11;
     /**
      * <code>svc_CreateStringTable = 12;</code>
-     *
-     * <pre>
-     * inits shared string tables
-     * </pre>
      */
     public static final int svc_CreateStringTable_VALUE = 12;
     /**
      * <code>svc_UpdateStringTable = 13;</code>
-     *
-     * <pre>
-     * updates a string table
-     * </pre>
      */
     public static final int svc_UpdateStringTable_VALUE = 13;
     /**
      * <code>svc_VoiceInit = 14;</code>
-     *
-     * <pre>
-     * inits used voice codecs &amp; quality
-     * </pre>
      */
     public static final int svc_VoiceInit_VALUE = 14;
     /**
      * <code>svc_VoiceData = 15;</code>
-     *
-     * <pre>
-     * Voicestream data from the server
-     * </pre>
      */
     public static final int svc_VoiceData_VALUE = 15;
     /**
      * <code>svc_Print = 16;</code>
-     *
-     * <pre>
-     * print text to console
-     * </pre>
      */
     public static final int svc_Print_VALUE = 16;
     /**
      * <code>svc_Sounds = 17;</code>
-     *
-     * <pre>
-     * starts playing sound
-     * </pre>
      */
     public static final int svc_Sounds_VALUE = 17;
     /**
      * <code>svc_SetView = 18;</code>
-     *
-     * <pre>
-     * sets entity as point of view
-     * </pre>
      */
     public static final int svc_SetView_VALUE = 18;
     /**
      * <code>svc_FixAngle = 19;</code>
-     *
-     * <pre>
-     * sets/corrects players viewangle
-     * </pre>
      */
     public static final int svc_FixAngle_VALUE = 19;
     /**
      * <code>svc_CrosshairAngle = 20;</code>
-     *
-     * <pre>
-     * adjusts crosshair in auto aim mode to lock on traget
-     * </pre>
      */
     public static final int svc_CrosshairAngle_VALUE = 20;
     /**
      * <code>svc_BSPDecal = 21;</code>
-     *
-     * <pre>
-     * add a static decal to the world BSP
-     * </pre>
      */
     public static final int svc_BSPDecal_VALUE = 21;
     /**
      * <code>svc_SplitScreen = 22;</code>
-     *
-     * <pre>
-     * split screen style message
-     * </pre>
      */
     public static final int svc_SplitScreen_VALUE = 22;
     /**
      * <code>svc_UserMessage = 23;</code>
-     *
-     * <pre>
-     * a game specific message 
-     * </pre>
      */
     public static final int svc_UserMessage_VALUE = 23;
     /**
      * <code>svc_EntityMessage = 24;</code>
-     *
-     * <pre>
-     * a message for an entity
-     * </pre>
      */
     public static final int svc_EntityMessage_VALUE = 24;
     /**
      * <code>svc_GameEvent = 25;</code>
-     *
-     * <pre>
-     * global game event fired
-     * </pre>
      */
     public static final int svc_GameEvent_VALUE = 25;
     /**
      * <code>svc_PacketEntities = 26;</code>
-     *
-     * <pre>
-     * non-delta compressed entities
-     * </pre>
      */
     public static final int svc_PacketEntities_VALUE = 26;
     /**
      * <code>svc_TempEntities = 27;</code>
-     *
-     * <pre>
-     * non-reliable event object
-     * </pre>
      */
     public static final int svc_TempEntities_VALUE = 27;
     /**
      * <code>svc_Prefetch = 28;</code>
-     *
-     * <pre>
-     * only sound indices for now
-     * </pre>
      */
     public static final int svc_Prefetch_VALUE = 28;
     /**
      * <code>svc_Menu = 29;</code>
-     *
-     * <pre>
-     * display a menu from a plugin
-     * </pre>
      */
     public static final int svc_Menu_VALUE = 29;
     /**
      * <code>svc_GameEventList = 30;</code>
-     *
-     * <pre>
-     * list of known games events and fields
-     * </pre>
      */
     public static final int svc_GameEventList_VALUE = 30;
     /**
      * <code>svc_GetCvarValue = 31;</code>
-     *
-     * <pre>
-     * Server wants to know the value of a cvar on the client
-     * </pre>
      */
     public static final int svc_GetCvarValue_VALUE = 31;
+    /**
+     * <code>svc_PacketReliable = 32;</code>
+     */
+    public static final int svc_PacketReliable_VALUE = 32;
+    /**
+     * <code>svc_FullFrameSplit = 33;</code>
+     */
+    public static final int svc_FullFrameSplit_VALUE = 33;
 
 
     public final int getNumber() { return value; }
@@ -1039,6 +625,8 @@ public final class Netmessages {
         case 29: return svc_Menu;
         case 30: return svc_GameEventList;
         case 31: return svc_GetCvarValue;
+        case 32: return svc_PacketReliable;
+        case 33: return svc_FullFrameSplit;
         default: return null;
       }
     }
@@ -1087,11 +675,11 @@ public final class Netmessages {
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:com.valve.dota2.SVC_Messages)
+    // @@protoc_insertion_point(enum_scope:SVC_Messages)
   }
 
   /**
-   * Protobuf enum {@code com.valve.dota2.ESplitScreenMessageType}
+   * Protobuf enum {@code ESplitScreenMessageType}
    */
   public enum ESplitScreenMessageType
       implements com.google.protobuf.ProtocolMessageEnum {
@@ -1106,10 +694,6 @@ public final class Netmessages {
     ;
 
     /**
-     * <code>MSG_SPLITSCREEN_TYPE_BITS = 1;</code>
-     */
-    public static final ESplitScreenMessageType MSG_SPLITSCREEN_TYPE_BITS = MSG_SPLITSCREEN_REMOVEUSER;
-    /**
      * <code>MSG_SPLITSCREEN_ADDUSER = 0;</code>
      */
     public static final int MSG_SPLITSCREEN_ADDUSER_VALUE = 0;
@@ -1117,10 +701,6 @@ public final class Netmessages {
      * <code>MSG_SPLITSCREEN_REMOVEUSER = 1;</code>
      */
     public static final int MSG_SPLITSCREEN_REMOVEUSER_VALUE = 1;
-    /**
-     * <code>MSG_SPLITSCREEN_TYPE_BITS = 1;</code>
-     */
-    public static final int MSG_SPLITSCREEN_TYPE_BITS_VALUE = 1;
 
 
     public final int getNumber() { return value; }
@@ -1158,9 +738,7 @@ public final class Netmessages {
       return com.valve.dota2.Netmessages.getDescriptor().getEnumTypes().get(4);
     }
 
-    private static final ESplitScreenMessageType[] VALUES = {
-      MSG_SPLITSCREEN_ADDUSER, MSG_SPLITSCREEN_REMOVEUSER, MSG_SPLITSCREEN_TYPE_BITS, 
-    };
+    private static final ESplitScreenMessageType[] VALUES = values();
 
     public static ESplitScreenMessageType valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
@@ -1179,1632 +757,39 @@ public final class Netmessages {
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:com.valve.dota2.ESplitScreenMessageType)
-  }
-
-  public interface CMsgVectorOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-
-    // optional float x = 1;
-    /**
-     * <code>optional float x = 1;</code>
-     */
-    boolean hasX();
-    /**
-     * <code>optional float x = 1;</code>
-     */
-    float getX();
-
-    // optional float y = 2;
-    /**
-     * <code>optional float y = 2;</code>
-     */
-    boolean hasY();
-    /**
-     * <code>optional float y = 2;</code>
-     */
-    float getY();
-
-    // optional float z = 3;
-    /**
-     * <code>optional float z = 3;</code>
-     */
-    boolean hasZ();
-    /**
-     * <code>optional float z = 3;</code>
-     */
-    float getZ();
-  }
-  /**
-   * Protobuf type {@code com.valve.dota2.CMsgVector}
-   */
-  public static final class CMsgVector extends
-      com.google.protobuf.GeneratedMessage
-      implements CMsgVectorOrBuilder {
-    // Use CMsgVector.newBuilder() to construct.
-    private CMsgVector(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private CMsgVector(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final CMsgVector defaultInstance;
-    public static CMsgVector getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public CMsgVector getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private CMsgVector(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 13: {
-              bitField0_ |= 0x00000001;
-              x_ = input.readFloat();
-              break;
-            }
-            case 21: {
-              bitField0_ |= 0x00000002;
-              y_ = input.readFloat();
-              break;
-            }
-            case 29: {
-              bitField0_ |= 0x00000004;
-              z_ = input.readFloat();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsgVector_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsgVector_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.valve.dota2.Netmessages.CMsgVector.class, com.valve.dota2.Netmessages.CMsgVector.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<CMsgVector> PARSER =
-        new com.google.protobuf.AbstractParser<CMsgVector>() {
-      public CMsgVector parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CMsgVector(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<CMsgVector> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
-    // optional float x = 1;
-    public static final int X_FIELD_NUMBER = 1;
-    private float x_;
-    /**
-     * <code>optional float x = 1;</code>
-     */
-    public boolean hasX() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>optional float x = 1;</code>
-     */
-    public float getX() {
-      return x_;
-    }
-
-    // optional float y = 2;
-    public static final int Y_FIELD_NUMBER = 2;
-    private float y_;
-    /**
-     * <code>optional float y = 2;</code>
-     */
-    public boolean hasY() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>optional float y = 2;</code>
-     */
-    public float getY() {
-      return y_;
-    }
-
-    // optional float z = 3;
-    public static final int Z_FIELD_NUMBER = 3;
-    private float z_;
-    /**
-     * <code>optional float z = 3;</code>
-     */
-    public boolean hasZ() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>optional float z = 3;</code>
-     */
-    public float getZ() {
-      return z_;
-    }
-
-    private void initFields() {
-      x_ = 0F;
-      y_ = 0F;
-      z_ = 0F;
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeFloat(1, x_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeFloat(2, y_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeFloat(3, z_);
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(1, x_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(2, y_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(3, z_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static com.valve.dota2.Netmessages.CMsgVector parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.valve.dota2.Netmessages.CMsgVector parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CMsgVector parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.valve.dota2.Netmessages.CMsgVector parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CMsgVector parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.valve.dota2.Netmessages.CMsgVector parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CMsgVector parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static com.valve.dota2.Netmessages.CMsgVector parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CMsgVector parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.valve.dota2.Netmessages.CMsgVector parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.valve.dota2.Netmessages.CMsgVector prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code com.valve.dota2.CMsgVector}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.valve.dota2.Netmessages.CMsgVectorOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsgVector_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsgVector_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.valve.dota2.Netmessages.CMsgVector.class, com.valve.dota2.Netmessages.CMsgVector.Builder.class);
-      }
-
-      // Construct using com.valve.dota2.Netmessages.CMsgVector.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        x_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        y_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        z_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsgVector_descriptor;
-      }
-
-      public com.valve.dota2.Netmessages.CMsgVector getDefaultInstanceForType() {
-        return com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
-      }
-
-      public com.valve.dota2.Netmessages.CMsgVector build() {
-        com.valve.dota2.Netmessages.CMsgVector result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.valve.dota2.Netmessages.CMsgVector buildPartial() {
-        com.valve.dota2.Netmessages.CMsgVector result = new com.valve.dota2.Netmessages.CMsgVector(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.x_ = x_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.y_ = y_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.z_ = z_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.valve.dota2.Netmessages.CMsgVector) {
-          return mergeFrom((com.valve.dota2.Netmessages.CMsgVector)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.valve.dota2.Netmessages.CMsgVector other) {
-        if (other == com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance()) return this;
-        if (other.hasX()) {
-          setX(other.getX());
-        }
-        if (other.hasY()) {
-          setY(other.getY());
-        }
-        if (other.hasZ()) {
-          setZ(other.getZ());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.valve.dota2.Netmessages.CMsgVector parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.valve.dota2.Netmessages.CMsgVector) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      // optional float x = 1;
-      private float x_ ;
-      /**
-       * <code>optional float x = 1;</code>
-       */
-      public boolean hasX() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>optional float x = 1;</code>
-       */
-      public float getX() {
-        return x_;
-      }
-      /**
-       * <code>optional float x = 1;</code>
-       */
-      public Builder setX(float value) {
-        bitField0_ |= 0x00000001;
-        x_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional float x = 1;</code>
-       */
-      public Builder clearX() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        x_ = 0F;
-        onChanged();
-        return this;
-      }
-
-      // optional float y = 2;
-      private float y_ ;
-      /**
-       * <code>optional float y = 2;</code>
-       */
-      public boolean hasY() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>optional float y = 2;</code>
-       */
-      public float getY() {
-        return y_;
-      }
-      /**
-       * <code>optional float y = 2;</code>
-       */
-      public Builder setY(float value) {
-        bitField0_ |= 0x00000002;
-        y_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional float y = 2;</code>
-       */
-      public Builder clearY() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        y_ = 0F;
-        onChanged();
-        return this;
-      }
-
-      // optional float z = 3;
-      private float z_ ;
-      /**
-       * <code>optional float z = 3;</code>
-       */
-      public boolean hasZ() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>optional float z = 3;</code>
-       */
-      public float getZ() {
-        return z_;
-      }
-      /**
-       * <code>optional float z = 3;</code>
-       */
-      public Builder setZ(float value) {
-        bitField0_ |= 0x00000004;
-        z_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional float z = 3;</code>
-       */
-      public Builder clearZ() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        z_ = 0F;
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CMsgVector)
-    }
-
-    static {
-      defaultInstance = new CMsgVector(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CMsgVector)
-  }
-
-  public interface CMsgVector2DOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-
-    // optional float x = 1;
-    /**
-     * <code>optional float x = 1;</code>
-     */
-    boolean hasX();
-    /**
-     * <code>optional float x = 1;</code>
-     */
-    float getX();
-
-    // optional float y = 2;
-    /**
-     * <code>optional float y = 2;</code>
-     */
-    boolean hasY();
-    /**
-     * <code>optional float y = 2;</code>
-     */
-    float getY();
-  }
-  /**
-   * Protobuf type {@code com.valve.dota2.CMsgVector2D}
-   */
-  public static final class CMsgVector2D extends
-      com.google.protobuf.GeneratedMessage
-      implements CMsgVector2DOrBuilder {
-    // Use CMsgVector2D.newBuilder() to construct.
-    private CMsgVector2D(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private CMsgVector2D(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final CMsgVector2D defaultInstance;
-    public static CMsgVector2D getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public CMsgVector2D getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private CMsgVector2D(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 13: {
-              bitField0_ |= 0x00000001;
-              x_ = input.readFloat();
-              break;
-            }
-            case 21: {
-              bitField0_ |= 0x00000002;
-              y_ = input.readFloat();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsgVector2D_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsgVector2D_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.valve.dota2.Netmessages.CMsgVector2D.class, com.valve.dota2.Netmessages.CMsgVector2D.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<CMsgVector2D> PARSER =
-        new com.google.protobuf.AbstractParser<CMsgVector2D>() {
-      public CMsgVector2D parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CMsgVector2D(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<CMsgVector2D> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
-    // optional float x = 1;
-    public static final int X_FIELD_NUMBER = 1;
-    private float x_;
-    /**
-     * <code>optional float x = 1;</code>
-     */
-    public boolean hasX() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>optional float x = 1;</code>
-     */
-    public float getX() {
-      return x_;
-    }
-
-    // optional float y = 2;
-    public static final int Y_FIELD_NUMBER = 2;
-    private float y_;
-    /**
-     * <code>optional float y = 2;</code>
-     */
-    public boolean hasY() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>optional float y = 2;</code>
-     */
-    public float getY() {
-      return y_;
-    }
-
-    private void initFields() {
-      x_ = 0F;
-      y_ = 0F;
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeFloat(1, x_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeFloat(2, y_);
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(1, x_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(2, y_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static com.valve.dota2.Netmessages.CMsgVector2D parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.valve.dota2.Netmessages.CMsgVector2D parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CMsgVector2D parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.valve.dota2.Netmessages.CMsgVector2D parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CMsgVector2D parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.valve.dota2.Netmessages.CMsgVector2D parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CMsgVector2D parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static com.valve.dota2.Netmessages.CMsgVector2D parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CMsgVector2D parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.valve.dota2.Netmessages.CMsgVector2D parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.valve.dota2.Netmessages.CMsgVector2D prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code com.valve.dota2.CMsgVector2D}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.valve.dota2.Netmessages.CMsgVector2DOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsgVector2D_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsgVector2D_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.valve.dota2.Netmessages.CMsgVector2D.class, com.valve.dota2.Netmessages.CMsgVector2D.Builder.class);
-      }
-
-      // Construct using com.valve.dota2.Netmessages.CMsgVector2D.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        x_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        y_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsgVector2D_descriptor;
-      }
-
-      public com.valve.dota2.Netmessages.CMsgVector2D getDefaultInstanceForType() {
-        return com.valve.dota2.Netmessages.CMsgVector2D.getDefaultInstance();
-      }
-
-      public com.valve.dota2.Netmessages.CMsgVector2D build() {
-        com.valve.dota2.Netmessages.CMsgVector2D result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.valve.dota2.Netmessages.CMsgVector2D buildPartial() {
-        com.valve.dota2.Netmessages.CMsgVector2D result = new com.valve.dota2.Netmessages.CMsgVector2D(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.x_ = x_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.y_ = y_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.valve.dota2.Netmessages.CMsgVector2D) {
-          return mergeFrom((com.valve.dota2.Netmessages.CMsgVector2D)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.valve.dota2.Netmessages.CMsgVector2D other) {
-        if (other == com.valve.dota2.Netmessages.CMsgVector2D.getDefaultInstance()) return this;
-        if (other.hasX()) {
-          setX(other.getX());
-        }
-        if (other.hasY()) {
-          setY(other.getY());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.valve.dota2.Netmessages.CMsgVector2D parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.valve.dota2.Netmessages.CMsgVector2D) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      // optional float x = 1;
-      private float x_ ;
-      /**
-       * <code>optional float x = 1;</code>
-       */
-      public boolean hasX() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>optional float x = 1;</code>
-       */
-      public float getX() {
-        return x_;
-      }
-      /**
-       * <code>optional float x = 1;</code>
-       */
-      public Builder setX(float value) {
-        bitField0_ |= 0x00000001;
-        x_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional float x = 1;</code>
-       */
-      public Builder clearX() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        x_ = 0F;
-        onChanged();
-        return this;
-      }
-
-      // optional float y = 2;
-      private float y_ ;
-      /**
-       * <code>optional float y = 2;</code>
-       */
-      public boolean hasY() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>optional float y = 2;</code>
-       */
-      public float getY() {
-        return y_;
-      }
-      /**
-       * <code>optional float y = 2;</code>
-       */
-      public Builder setY(float value) {
-        bitField0_ |= 0x00000002;
-        y_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional float y = 2;</code>
-       */
-      public Builder clearY() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        y_ = 0F;
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CMsgVector2D)
-    }
-
-    static {
-      defaultInstance = new CMsgVector2D(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CMsgVector2D)
-  }
-
-  public interface CMsgQAngleOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-
-    // optional float x = 1;
-    /**
-     * <code>optional float x = 1;</code>
-     */
-    boolean hasX();
-    /**
-     * <code>optional float x = 1;</code>
-     */
-    float getX();
-
-    // optional float y = 2;
-    /**
-     * <code>optional float y = 2;</code>
-     */
-    boolean hasY();
-    /**
-     * <code>optional float y = 2;</code>
-     */
-    float getY();
-
-    // optional float z = 3;
-    /**
-     * <code>optional float z = 3;</code>
-     */
-    boolean hasZ();
-    /**
-     * <code>optional float z = 3;</code>
-     */
-    float getZ();
-  }
-  /**
-   * Protobuf type {@code com.valve.dota2.CMsgQAngle}
-   */
-  public static final class CMsgQAngle extends
-      com.google.protobuf.GeneratedMessage
-      implements CMsgQAngleOrBuilder {
-    // Use CMsgQAngle.newBuilder() to construct.
-    private CMsgQAngle(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private CMsgQAngle(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final CMsgQAngle defaultInstance;
-    public static CMsgQAngle getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public CMsgQAngle getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private CMsgQAngle(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 13: {
-              bitField0_ |= 0x00000001;
-              x_ = input.readFloat();
-              break;
-            }
-            case 21: {
-              bitField0_ |= 0x00000002;
-              y_ = input.readFloat();
-              break;
-            }
-            case 29: {
-              bitField0_ |= 0x00000004;
-              z_ = input.readFloat();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsgQAngle_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsgQAngle_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.valve.dota2.Netmessages.CMsgQAngle.class, com.valve.dota2.Netmessages.CMsgQAngle.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<CMsgQAngle> PARSER =
-        new com.google.protobuf.AbstractParser<CMsgQAngle>() {
-      public CMsgQAngle parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CMsgQAngle(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<CMsgQAngle> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
-    // optional float x = 1;
-    public static final int X_FIELD_NUMBER = 1;
-    private float x_;
-    /**
-     * <code>optional float x = 1;</code>
-     */
-    public boolean hasX() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>optional float x = 1;</code>
-     */
-    public float getX() {
-      return x_;
-    }
-
-    // optional float y = 2;
-    public static final int Y_FIELD_NUMBER = 2;
-    private float y_;
-    /**
-     * <code>optional float y = 2;</code>
-     */
-    public boolean hasY() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>optional float y = 2;</code>
-     */
-    public float getY() {
-      return y_;
-    }
-
-    // optional float z = 3;
-    public static final int Z_FIELD_NUMBER = 3;
-    private float z_;
-    /**
-     * <code>optional float z = 3;</code>
-     */
-    public boolean hasZ() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
-    }
-    /**
-     * <code>optional float z = 3;</code>
-     */
-    public float getZ() {
-      return z_;
-    }
-
-    private void initFields() {
-      x_ = 0F;
-      y_ = 0F;
-      z_ = 0F;
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeFloat(1, x_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeFloat(2, y_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeFloat(3, z_);
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(1, x_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(2, y_);
-      }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(3, z_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static com.valve.dota2.Netmessages.CMsgQAngle parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.valve.dota2.Netmessages.CMsgQAngle parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CMsgQAngle parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.valve.dota2.Netmessages.CMsgQAngle parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CMsgQAngle parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.valve.dota2.Netmessages.CMsgQAngle parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CMsgQAngle parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static com.valve.dota2.Netmessages.CMsgQAngle parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CMsgQAngle parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.valve.dota2.Netmessages.CMsgQAngle parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.valve.dota2.Netmessages.CMsgQAngle prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code com.valve.dota2.CMsgQAngle}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.valve.dota2.Netmessages.CMsgQAngleOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsgQAngle_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsgQAngle_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.valve.dota2.Netmessages.CMsgQAngle.class, com.valve.dota2.Netmessages.CMsgQAngle.Builder.class);
-      }
-
-      // Construct using com.valve.dota2.Netmessages.CMsgQAngle.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        x_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        y_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        z_ = 0F;
-        bitField0_ = (bitField0_ & ~0x00000004);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsgQAngle_descriptor;
-      }
-
-      public com.valve.dota2.Netmessages.CMsgQAngle getDefaultInstanceForType() {
-        return com.valve.dota2.Netmessages.CMsgQAngle.getDefaultInstance();
-      }
-
-      public com.valve.dota2.Netmessages.CMsgQAngle build() {
-        com.valve.dota2.Netmessages.CMsgQAngle result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.valve.dota2.Netmessages.CMsgQAngle buildPartial() {
-        com.valve.dota2.Netmessages.CMsgQAngle result = new com.valve.dota2.Netmessages.CMsgQAngle(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.x_ = x_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.y_ = y_;
-        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-          to_bitField0_ |= 0x00000004;
-        }
-        result.z_ = z_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.valve.dota2.Netmessages.CMsgQAngle) {
-          return mergeFrom((com.valve.dota2.Netmessages.CMsgQAngle)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.valve.dota2.Netmessages.CMsgQAngle other) {
-        if (other == com.valve.dota2.Netmessages.CMsgQAngle.getDefaultInstance()) return this;
-        if (other.hasX()) {
-          setX(other.getX());
-        }
-        if (other.hasY()) {
-          setY(other.getY());
-        }
-        if (other.hasZ()) {
-          setZ(other.getZ());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.valve.dota2.Netmessages.CMsgQAngle parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.valve.dota2.Netmessages.CMsgQAngle) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      // optional float x = 1;
-      private float x_ ;
-      /**
-       * <code>optional float x = 1;</code>
-       */
-      public boolean hasX() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>optional float x = 1;</code>
-       */
-      public float getX() {
-        return x_;
-      }
-      /**
-       * <code>optional float x = 1;</code>
-       */
-      public Builder setX(float value) {
-        bitField0_ |= 0x00000001;
-        x_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional float x = 1;</code>
-       */
-      public Builder clearX() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        x_ = 0F;
-        onChanged();
-        return this;
-      }
-
-      // optional float y = 2;
-      private float y_ ;
-      /**
-       * <code>optional float y = 2;</code>
-       */
-      public boolean hasY() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>optional float y = 2;</code>
-       */
-      public float getY() {
-        return y_;
-      }
-      /**
-       * <code>optional float y = 2;</code>
-       */
-      public Builder setY(float value) {
-        bitField0_ |= 0x00000002;
-        y_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional float y = 2;</code>
-       */
-      public Builder clearY() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        y_ = 0F;
-        onChanged();
-        return this;
-      }
-
-      // optional float z = 3;
-      private float z_ ;
-      /**
-       * <code>optional float z = 3;</code>
-       */
-      public boolean hasZ() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>optional float z = 3;</code>
-       */
-      public float getZ() {
-        return z_;
-      }
-      /**
-       * <code>optional float z = 3;</code>
-       */
-      public Builder setZ(float value) {
-        bitField0_ |= 0x00000004;
-        z_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional float z = 3;</code>
-       */
-      public Builder clearZ() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        z_ = 0F;
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CMsgQAngle)
-    }
-
-    static {
-      defaultInstance = new CMsgQAngle(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CMsgQAngle)
+    // @@protoc_insertion_point(enum_scope:ESplitScreenMessageType)
   }
 
   public interface CMsg_CVarsOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;
+    // repeated .CMsg_CVars.CVar cvars = 1;
     /**
-     * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+     * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
      */
     java.util.List<com.valve.dota2.Netmessages.CMsg_CVars.CVar> 
         getCvarsList();
     /**
-     * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+     * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
      */
     com.valve.dota2.Netmessages.CMsg_CVars.CVar getCvars(int index);
     /**
-     * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+     * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
      */
     int getCvarsCount();
     /**
-     * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+     * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
      */
     java.util.List<? extends com.valve.dota2.Netmessages.CMsg_CVars.CVarOrBuilder> 
         getCvarsOrBuilderList();
     /**
-     * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+     * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
      */
     com.valve.dota2.Netmessages.CMsg_CVars.CVarOrBuilder getCvarsOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CMsg_CVars}
+   * Protobuf type {@code CMsg_CVars}
    */
   public static final class CMsg_CVars extends
       com.google.protobuf.GeneratedMessage
@@ -2879,12 +864,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsg_CVars_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CMsg_CVars_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsg_CVars_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CMsg_CVars_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CMsg_CVars.class, com.valve.dota2.Netmessages.CMsg_CVars.Builder.class);
     }
@@ -2938,7 +923,7 @@ public final class Netmessages {
           getValueBytes();
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CMsg_CVars.CVar}
+     * Protobuf type {@code CMsg_CVars.CVar}
      */
     public static final class CVar extends
         com.google.protobuf.GeneratedMessage
@@ -3012,12 +997,12 @@ public final class Netmessages {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsg_CVars_CVar_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CMsg_CVars_CVar_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsg_CVars_CVar_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CMsg_CVars_CVar_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CMsg_CVars.CVar.class, com.valve.dota2.Netmessages.CMsg_CVars.CVar.Builder.class);
       }
@@ -3242,19 +1227,19 @@ public final class Netmessages {
         return builder;
       }
       /**
-       * Protobuf type {@code com.valve.dota2.CMsg_CVars.CVar}
+       * Protobuf type {@code CMsg_CVars.CVar}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
          implements com.valve.dota2.Netmessages.CMsg_CVars.CVarOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsg_CVars_CVar_descriptor;
+          return com.valve.dota2.Netmessages.internal_static_CMsg_CVars_CVar_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsg_CVars_CVar_fieldAccessorTable
+          return com.valve.dota2.Netmessages.internal_static_CMsg_CVars_CVar_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.valve.dota2.Netmessages.CMsg_CVars.CVar.class, com.valve.dota2.Netmessages.CMsg_CVars.CVar.Builder.class);
         }
@@ -3292,7 +1277,7 @@ public final class Netmessages {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsg_CVars_CVar_descriptor;
+          return com.valve.dota2.Netmessages.internal_static_CMsg_CVars_CVar_descriptor;
         }
 
         public com.valve.dota2.Netmessages.CMsg_CVars.CVar getDefaultInstanceForType() {
@@ -3520,7 +1505,7 @@ public final class Netmessages {
           return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:com.valve.dota2.CMsg_CVars.CVar)
+        // @@protoc_insertion_point(builder_scope:CMsg_CVars.CVar)
       }
 
       static {
@@ -3528,39 +1513,39 @@ public final class Netmessages {
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:com.valve.dota2.CMsg_CVars.CVar)
+      // @@protoc_insertion_point(class_scope:CMsg_CVars.CVar)
     }
 
-    // repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;
+    // repeated .CMsg_CVars.CVar cvars = 1;
     public static final int CVARS_FIELD_NUMBER = 1;
     private java.util.List<com.valve.dota2.Netmessages.CMsg_CVars.CVar> cvars_;
     /**
-     * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+     * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
      */
     public java.util.List<com.valve.dota2.Netmessages.CMsg_CVars.CVar> getCvarsList() {
       return cvars_;
     }
     /**
-     * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+     * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
      */
     public java.util.List<? extends com.valve.dota2.Netmessages.CMsg_CVars.CVarOrBuilder> 
         getCvarsOrBuilderList() {
       return cvars_;
     }
     /**
-     * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+     * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
      */
     public int getCvarsCount() {
       return cvars_.size();
     }
     /**
-     * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+     * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
      */
     public com.valve.dota2.Netmessages.CMsg_CVars.CVar getCvars(int index) {
       return cvars_.get(index);
     }
     /**
-     * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+     * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
      */
     public com.valve.dota2.Netmessages.CMsg_CVars.CVarOrBuilder getCvarsOrBuilder(
         int index) {
@@ -3677,19 +1662,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CMsg_CVars}
+     * Protobuf type {@code CMsg_CVars}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CMsg_CVarsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsg_CVars_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CMsg_CVars_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsg_CVars_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CMsg_CVars_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CMsg_CVars.class, com.valve.dota2.Netmessages.CMsg_CVars.Builder.class);
       }
@@ -3730,7 +1715,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CMsg_CVars_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CMsg_CVars_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CMsg_CVars getDefaultInstanceForType() {
@@ -3825,7 +1810,7 @@ public final class Netmessages {
       }
       private int bitField0_;
 
-      // repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;
+      // repeated .CMsg_CVars.CVar cvars = 1;
       private java.util.List<com.valve.dota2.Netmessages.CMsg_CVars.CVar> cvars_ =
         java.util.Collections.emptyList();
       private void ensureCvarsIsMutable() {
@@ -3839,7 +1824,7 @@ public final class Netmessages {
           com.valve.dota2.Netmessages.CMsg_CVars.CVar, com.valve.dota2.Netmessages.CMsg_CVars.CVar.Builder, com.valve.dota2.Netmessages.CMsg_CVars.CVarOrBuilder> cvarsBuilder_;
 
       /**
-       * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+       * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
        */
       public java.util.List<com.valve.dota2.Netmessages.CMsg_CVars.CVar> getCvarsList() {
         if (cvarsBuilder_ == null) {
@@ -3849,7 +1834,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+       * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
        */
       public int getCvarsCount() {
         if (cvarsBuilder_ == null) {
@@ -3859,7 +1844,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+       * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
        */
       public com.valve.dota2.Netmessages.CMsg_CVars.CVar getCvars(int index) {
         if (cvarsBuilder_ == null) {
@@ -3869,7 +1854,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+       * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
        */
       public Builder setCvars(
           int index, com.valve.dota2.Netmessages.CMsg_CVars.CVar value) {
@@ -3886,7 +1871,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+       * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
        */
       public Builder setCvars(
           int index, com.valve.dota2.Netmessages.CMsg_CVars.CVar.Builder builderForValue) {
@@ -3900,7 +1885,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+       * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
        */
       public Builder addCvars(com.valve.dota2.Netmessages.CMsg_CVars.CVar value) {
         if (cvarsBuilder_ == null) {
@@ -3916,7 +1901,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+       * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
        */
       public Builder addCvars(
           int index, com.valve.dota2.Netmessages.CMsg_CVars.CVar value) {
@@ -3933,7 +1918,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+       * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
        */
       public Builder addCvars(
           com.valve.dota2.Netmessages.CMsg_CVars.CVar.Builder builderForValue) {
@@ -3947,7 +1932,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+       * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
        */
       public Builder addCvars(
           int index, com.valve.dota2.Netmessages.CMsg_CVars.CVar.Builder builderForValue) {
@@ -3961,7 +1946,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+       * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
        */
       public Builder addAllCvars(
           java.lang.Iterable<? extends com.valve.dota2.Netmessages.CMsg_CVars.CVar> values) {
@@ -3975,7 +1960,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+       * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
        */
       public Builder clearCvars() {
         if (cvarsBuilder_ == null) {
@@ -3988,7 +1973,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+       * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
        */
       public Builder removeCvars(int index) {
         if (cvarsBuilder_ == null) {
@@ -4001,14 +1986,14 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+       * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
        */
       public com.valve.dota2.Netmessages.CMsg_CVars.CVar.Builder getCvarsBuilder(
           int index) {
         return getCvarsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+       * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
        */
       public com.valve.dota2.Netmessages.CMsg_CVars.CVarOrBuilder getCvarsOrBuilder(
           int index) {
@@ -4018,7 +2003,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+       * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
        */
       public java.util.List<? extends com.valve.dota2.Netmessages.CMsg_CVars.CVarOrBuilder> 
            getCvarsOrBuilderList() {
@@ -4029,14 +2014,14 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+       * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
        */
       public com.valve.dota2.Netmessages.CMsg_CVars.CVar.Builder addCvarsBuilder() {
         return getCvarsFieldBuilder().addBuilder(
             com.valve.dota2.Netmessages.CMsg_CVars.CVar.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+       * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
        */
       public com.valve.dota2.Netmessages.CMsg_CVars.CVar.Builder addCvarsBuilder(
           int index) {
@@ -4044,7 +2029,7 @@ public final class Netmessages {
             index, com.valve.dota2.Netmessages.CMsg_CVars.CVar.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.valve.dota2.CMsg_CVars.CVar cvars = 1;</code>
+       * <code>repeated .CMsg_CVars.CVar cvars = 1;</code>
        */
       public java.util.List<com.valve.dota2.Netmessages.CMsg_CVars.CVar.Builder> 
            getCvarsBuilderList() {
@@ -4065,7 +2050,7 @@ public final class Netmessages {
         return cvarsBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CMsg_CVars)
+      // @@protoc_insertion_point(builder_scope:CMsg_CVars)
     }
 
     static {
@@ -4073,14 +2058,14 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CMsg_CVars)
+    // @@protoc_insertion_point(class_scope:CMsg_CVars)
   }
 
   public interface CNETMsg_NOPOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CNETMsg_NOP}
+   * Protobuf type {@code CNETMsg_NOP}
    */
   public static final class CNETMsg_NOP extends
       com.google.protobuf.GeneratedMessage
@@ -4143,12 +2128,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_NOP_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CNETMsg_NOP_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_NOP_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CNETMsg_NOP_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CNETMsg_NOP.class, com.valve.dota2.Netmessages.CNETMsg_NOP.Builder.class);
     }
@@ -4270,19 +2255,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CNETMsg_NOP}
+     * Protobuf type {@code CNETMsg_NOP}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CNETMsg_NOPOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_NOP_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_NOP_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_NOP_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_NOP_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CNETMsg_NOP.class, com.valve.dota2.Netmessages.CNETMsg_NOP.Builder.class);
       }
@@ -4316,7 +2301,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_NOP_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_NOP_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CNETMsg_NOP getDefaultInstanceForType() {
@@ -4374,7 +2359,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CNETMsg_NOP)
+      // @@protoc_insertion_point(builder_scope:CNETMsg_NOP)
     }
 
     static {
@@ -4382,29 +2367,39 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CNETMsg_NOP)
+    // @@protoc_insertion_point(class_scope:CNETMsg_NOP)
   }
 
   public interface CNETMsg_DisconnectOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional string text = 1;
+    // optional string text_deprecated = 1;
     /**
-     * <code>optional string text = 1;</code>
+     * <code>optional string text_deprecated = 1;</code>
      */
-    boolean hasText();
+    boolean hasTextDeprecated();
     /**
-     * <code>optional string text = 1;</code>
+     * <code>optional string text_deprecated = 1;</code>
      */
-    java.lang.String getText();
+    java.lang.String getTextDeprecated();
     /**
-     * <code>optional string text = 1;</code>
+     * <code>optional string text_deprecated = 1;</code>
      */
     com.google.protobuf.ByteString
-        getTextBytes();
+        getTextDeprecatedBytes();
+
+    // optional .ENetworkDisconnectionReason reason = 2 [default = NETWORK_DISCONNECT_INVALID];
+    /**
+     * <code>optional .ENetworkDisconnectionReason reason = 2 [default = NETWORK_DISCONNECT_INVALID];</code>
+     */
+    boolean hasReason();
+    /**
+     * <code>optional .ENetworkDisconnectionReason reason = 2 [default = NETWORK_DISCONNECT_INVALID];</code>
+     */
+    com.valve.dota2.NetworkConnection.ENetworkDisconnectionReason getReason();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CNETMsg_Disconnect}
+   * Protobuf type {@code CNETMsg_Disconnect}
    */
   public static final class CNETMsg_Disconnect extends
       com.google.protobuf.GeneratedMessage
@@ -4456,7 +2451,18 @@ public final class Netmessages {
             }
             case 10: {
               bitField0_ |= 0x00000001;
-              text_ = input.readBytes();
+              textDeprecated_ = input.readBytes();
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+              com.valve.dota2.NetworkConnection.ENetworkDisconnectionReason value = com.valve.dota2.NetworkConnection.ENetworkDisconnectionReason.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(2, rawValue);
+              } else {
+                bitField0_ |= 0x00000002;
+                reason_ = value;
+              }
               break;
             }
           }
@@ -4473,12 +2479,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_Disconnect_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CNETMsg_Disconnect_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_Disconnect_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CNETMsg_Disconnect_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CNETMsg_Disconnect.class, com.valve.dota2.Netmessages.CNETMsg_Disconnect.Builder.class);
     }
@@ -4499,20 +2505,20 @@ public final class Netmessages {
     }
 
     private int bitField0_;
-    // optional string text = 1;
-    public static final int TEXT_FIELD_NUMBER = 1;
-    private java.lang.Object text_;
+    // optional string text_deprecated = 1;
+    public static final int TEXT_DEPRECATED_FIELD_NUMBER = 1;
+    private java.lang.Object textDeprecated_;
     /**
-     * <code>optional string text = 1;</code>
+     * <code>optional string text_deprecated = 1;</code>
      */
-    public boolean hasText() {
+    public boolean hasTextDeprecated() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional string text = 1;</code>
+     * <code>optional string text_deprecated = 1;</code>
      */
-    public java.lang.String getText() {
-      java.lang.Object ref = text_;
+    public java.lang.String getTextDeprecated() {
+      java.lang.Object ref = textDeprecated_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
@@ -4520,30 +2526,47 @@ public final class Netmessages {
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
-          text_ = s;
+          textDeprecated_ = s;
         }
         return s;
       }
     }
     /**
-     * <code>optional string text = 1;</code>
+     * <code>optional string text_deprecated = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getTextBytes() {
-      java.lang.Object ref = text_;
+        getTextDeprecatedBytes() {
+      java.lang.Object ref = textDeprecated_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        text_ = b;
+        textDeprecated_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
 
+    // optional .ENetworkDisconnectionReason reason = 2 [default = NETWORK_DISCONNECT_INVALID];
+    public static final int REASON_FIELD_NUMBER = 2;
+    private com.valve.dota2.NetworkConnection.ENetworkDisconnectionReason reason_;
+    /**
+     * <code>optional .ENetworkDisconnectionReason reason = 2 [default = NETWORK_DISCONNECT_INVALID];</code>
+     */
+    public boolean hasReason() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional .ENetworkDisconnectionReason reason = 2 [default = NETWORK_DISCONNECT_INVALID];</code>
+     */
+    public com.valve.dota2.NetworkConnection.ENetworkDisconnectionReason getReason() {
+      return reason_;
+    }
+
     private void initFields() {
-      text_ = "";
+      textDeprecated_ = "";
+      reason_ = com.valve.dota2.NetworkConnection.ENetworkDisconnectionReason.NETWORK_DISCONNECT_INVALID;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -4558,7 +2581,10 @@ public final class Netmessages {
                         throws java.io.IOException {
       getSerializedSize();
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getTextBytes());
+        output.writeBytes(1, getTextDeprecatedBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeEnum(2, reason_.getNumber());
       }
       getUnknownFields().writeTo(output);
     }
@@ -4571,7 +2597,11 @@ public final class Netmessages {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getTextBytes());
+          .computeBytesSize(1, getTextDeprecatedBytes());
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, reason_.getNumber());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -4652,19 +2682,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CNETMsg_Disconnect}
+     * Protobuf type {@code CNETMsg_Disconnect}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CNETMsg_DisconnectOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_Disconnect_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_Disconnect_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_Disconnect_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_Disconnect_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CNETMsg_Disconnect.class, com.valve.dota2.Netmessages.CNETMsg_Disconnect.Builder.class);
       }
@@ -4689,8 +2719,10 @@ public final class Netmessages {
 
       public Builder clear() {
         super.clear();
-        text_ = "";
+        textDeprecated_ = "";
         bitField0_ = (bitField0_ & ~0x00000001);
+        reason_ = com.valve.dota2.NetworkConnection.ENetworkDisconnectionReason.NETWORK_DISCONNECT_INVALID;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -4700,7 +2732,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_Disconnect_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_Disconnect_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CNETMsg_Disconnect getDefaultInstanceForType() {
@@ -4722,7 +2754,11 @@ public final class Netmessages {
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
-        result.text_ = text_;
+        result.textDeprecated_ = textDeprecated_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.reason_ = reason_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -4739,10 +2775,13 @@ public final class Netmessages {
 
       public Builder mergeFrom(com.valve.dota2.Netmessages.CNETMsg_Disconnect other) {
         if (other == com.valve.dota2.Netmessages.CNETMsg_Disconnect.getDefaultInstance()) return this;
-        if (other.hasText()) {
+        if (other.hasTextDeprecated()) {
           bitField0_ |= 0x00000001;
-          text_ = other.text_;
+          textDeprecated_ = other.textDeprecated_;
           onChanged();
+        }
+        if (other.hasReason()) {
+          setReason(other.getReason());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -4771,81 +2810,117 @@ public final class Netmessages {
       }
       private int bitField0_;
 
-      // optional string text = 1;
-      private java.lang.Object text_ = "";
+      // optional string text_deprecated = 1;
+      private java.lang.Object textDeprecated_ = "";
       /**
-       * <code>optional string text = 1;</code>
+       * <code>optional string text_deprecated = 1;</code>
        */
-      public boolean hasText() {
+      public boolean hasTextDeprecated() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional string text = 1;</code>
+       * <code>optional string text_deprecated = 1;</code>
        */
-      public java.lang.String getText() {
-        java.lang.Object ref = text_;
+      public java.lang.String getTextDeprecated() {
+        java.lang.Object ref = textDeprecated_;
         if (!(ref instanceof java.lang.String)) {
           java.lang.String s = ((com.google.protobuf.ByteString) ref)
               .toStringUtf8();
-          text_ = s;
+          textDeprecated_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>optional string text = 1;</code>
+       * <code>optional string text_deprecated = 1;</code>
        */
       public com.google.protobuf.ByteString
-          getTextBytes() {
-        java.lang.Object ref = text_;
+          getTextDeprecatedBytes() {
+        java.lang.Object ref = textDeprecated_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          text_ = b;
+          textDeprecated_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>optional string text = 1;</code>
+       * <code>optional string text_deprecated = 1;</code>
        */
-      public Builder setText(
+      public Builder setTextDeprecated(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000001;
-        text_ = value;
+        textDeprecated_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional string text = 1;</code>
+       * <code>optional string text_deprecated = 1;</code>
        */
-      public Builder clearText() {
+      public Builder clearTextDeprecated() {
         bitField0_ = (bitField0_ & ~0x00000001);
-        text_ = getDefaultInstance().getText();
+        textDeprecated_ = getDefaultInstance().getTextDeprecated();
         onChanged();
         return this;
       }
       /**
-       * <code>optional string text = 1;</code>
+       * <code>optional string text_deprecated = 1;</code>
        */
-      public Builder setTextBytes(
+      public Builder setTextDeprecatedBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   bitField0_ |= 0x00000001;
-        text_ = value;
+        textDeprecated_ = value;
         onChanged();
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CNETMsg_Disconnect)
+      // optional .ENetworkDisconnectionReason reason = 2 [default = NETWORK_DISCONNECT_INVALID];
+      private com.valve.dota2.NetworkConnection.ENetworkDisconnectionReason reason_ = com.valve.dota2.NetworkConnection.ENetworkDisconnectionReason.NETWORK_DISCONNECT_INVALID;
+      /**
+       * <code>optional .ENetworkDisconnectionReason reason = 2 [default = NETWORK_DISCONNECT_INVALID];</code>
+       */
+      public boolean hasReason() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional .ENetworkDisconnectionReason reason = 2 [default = NETWORK_DISCONNECT_INVALID];</code>
+       */
+      public com.valve.dota2.NetworkConnection.ENetworkDisconnectionReason getReason() {
+        return reason_;
+      }
+      /**
+       * <code>optional .ENetworkDisconnectionReason reason = 2 [default = NETWORK_DISCONNECT_INVALID];</code>
+       */
+      public Builder setReason(com.valve.dota2.NetworkConnection.ENetworkDisconnectionReason value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        reason_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .ENetworkDisconnectionReason reason = 2 [default = NETWORK_DISCONNECT_INVALID];</code>
+       */
+      public Builder clearReason() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        reason_ = com.valve.dota2.NetworkConnection.ENetworkDisconnectionReason.NETWORK_DISCONNECT_INVALID;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:CNETMsg_Disconnect)
     }
 
     static {
@@ -4853,7 +2928,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CNETMsg_Disconnect)
+    // @@protoc_insertion_point(class_scope:CNETMsg_Disconnect)
   }
 
   public interface CNETMsg_FileOrBuilder
@@ -4905,7 +2980,7 @@ public final class Netmessages {
     boolean getDeny();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CNETMsg_File}
+   * Protobuf type {@code CNETMsg_File}
    */
   public static final class CNETMsg_File extends
       com.google.protobuf.GeneratedMessage
@@ -4989,12 +3064,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_File_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CNETMsg_File_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_File_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CNETMsg_File_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CNETMsg_File.class, com.valve.dota2.Netmessages.CNETMsg_File.Builder.class);
     }
@@ -5240,19 +3315,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CNETMsg_File}
+     * Protobuf type {@code CNETMsg_File}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CNETMsg_FileOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_File_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_File_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_File_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_File_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CNETMsg_File.class, com.valve.dota2.Netmessages.CNETMsg_File.Builder.class);
       }
@@ -5294,7 +3369,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_File_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_File_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CNETMsg_File getDefaultInstanceForType() {
@@ -5559,7 +3634,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CNETMsg_File)
+      // @@protoc_insertion_point(builder_scope:CNETMsg_File)
     }
 
     static {
@@ -5567,7 +3642,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CNETMsg_File)
+    // @@protoc_insertion_point(class_scope:CNETMsg_File)
   }
 
   public interface CNETMsg_SplitScreenUserOrBuilder
@@ -5584,7 +3659,7 @@ public final class Netmessages {
     int getSlot();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CNETMsg_SplitScreenUser}
+   * Protobuf type {@code CNETMsg_SplitScreenUser}
    */
   public static final class CNETMsg_SplitScreenUser extends
       com.google.protobuf.GeneratedMessage
@@ -5653,12 +3728,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_SplitScreenUser_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CNETMsg_SplitScreenUser_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_SplitScreenUser_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CNETMsg_SplitScreenUser_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CNETMsg_SplitScreenUser.class, com.valve.dota2.Netmessages.CNETMsg_SplitScreenUser.Builder.class);
     }
@@ -5805,19 +3880,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CNETMsg_SplitScreenUser}
+     * Protobuf type {@code CNETMsg_SplitScreenUser}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CNETMsg_SplitScreenUserOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_SplitScreenUser_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_SplitScreenUser_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_SplitScreenUser_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_SplitScreenUser_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CNETMsg_SplitScreenUser.class, com.valve.dota2.Netmessages.CNETMsg_SplitScreenUser.Builder.class);
       }
@@ -5853,7 +3928,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_SplitScreenUser_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_SplitScreenUser_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CNETMsg_SplitScreenUser getDefaultInstanceForType() {
@@ -5955,7 +4030,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CNETMsg_SplitScreenUser)
+      // @@protoc_insertion_point(builder_scope:CNETMsg_SplitScreenUser)
     }
 
     static {
@@ -5963,7 +4038,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CNETMsg_SplitScreenUser)
+    // @@protoc_insertion_point(class_scope:CNETMsg_SplitScreenUser)
   }
 
   public interface CNETMsg_TickOrBuilder
@@ -5972,59 +4047,65 @@ public final class Netmessages {
     // optional uint32 tick = 1;
     /**
      * <code>optional uint32 tick = 1;</code>
-     *
-     * <pre>
-     * current tick count
-     * </pre>
      */
     boolean hasTick();
     /**
      * <code>optional uint32 tick = 1;</code>
-     *
-     * <pre>
-     * current tick count
-     * </pre>
      */
     int getTick();
 
-    // optional uint32 host_frametime = 2;
+    // optional uint32 host_frametime_deprecated = 2;
     /**
-     * <code>optional uint32 host_frametime = 2;</code>
-     *
-     * <pre>
-     * Host frame time in 1/100000th of a second
-     * </pre>
+     * <code>optional uint32 host_frametime_deprecated = 2;</code>
      */
-    boolean hasHostFrametime();
+    boolean hasHostFrametimeDeprecated();
     /**
-     * <code>optional uint32 host_frametime = 2;</code>
-     *
-     * <pre>
-     * Host frame time in 1/100000th of a second
-     * </pre>
+     * <code>optional uint32 host_frametime_deprecated = 2;</code>
      */
-    int getHostFrametime();
+    int getHostFrametimeDeprecated();
 
-    // optional uint32 host_frametime_std_deviation = 3;
+    // optional uint32 host_frametime_std_deviation_deprecated = 3;
     /**
-     * <code>optional uint32 host_frametime_std_deviation = 3;</code>
-     *
-     * <pre>
-     * Host frame time stddev in 1/100000th of a second
-     * </pre>
+     * <code>optional uint32 host_frametime_std_deviation_deprecated = 3;</code>
      */
-    boolean hasHostFrametimeStdDeviation();
+    boolean hasHostFrametimeStdDeviationDeprecated();
     /**
-     * <code>optional uint32 host_frametime_std_deviation = 3;</code>
-     *
-     * <pre>
-     * Host frame time stddev in 1/100000th of a second
-     * </pre>
+     * <code>optional uint32 host_frametime_std_deviation_deprecated = 3;</code>
      */
-    int getHostFrametimeStdDeviation();
+    int getHostFrametimeStdDeviationDeprecated();
+
+    // optional uint32 host_computationtime = 4;
+    /**
+     * <code>optional uint32 host_computationtime = 4;</code>
+     */
+    boolean hasHostComputationtime();
+    /**
+     * <code>optional uint32 host_computationtime = 4;</code>
+     */
+    int getHostComputationtime();
+
+    // optional uint32 host_computationtime_std_deviation = 5;
+    /**
+     * <code>optional uint32 host_computationtime_std_deviation = 5;</code>
+     */
+    boolean hasHostComputationtimeStdDeviation();
+    /**
+     * <code>optional uint32 host_computationtime_std_deviation = 5;</code>
+     */
+    int getHostComputationtimeStdDeviation();
+
+    // optional uint32 host_framestarttime_std_deviation = 6;
+    /**
+     * <code>optional uint32 host_framestarttime_std_deviation = 6;</code>
+     */
+    boolean hasHostFramestarttimeStdDeviation();
+    /**
+     * <code>optional uint32 host_framestarttime_std_deviation = 6;</code>
+     */
+    int getHostFramestarttimeStdDeviation();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CNETMsg_Tick}
+   * Protobuf type {@code CNETMsg_Tick}
    */
   public static final class CNETMsg_Tick extends
       com.google.protobuf.GeneratedMessage
@@ -6081,12 +4162,27 @@ public final class Netmessages {
             }
             case 16: {
               bitField0_ |= 0x00000002;
-              hostFrametime_ = input.readUInt32();
+              hostFrametimeDeprecated_ = input.readUInt32();
               break;
             }
             case 24: {
               bitField0_ |= 0x00000004;
-              hostFrametimeStdDeviation_ = input.readUInt32();
+              hostFrametimeStdDeviationDeprecated_ = input.readUInt32();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              hostComputationtime_ = input.readUInt32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              hostComputationtimeStdDeviation_ = input.readUInt32();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              hostFramestarttimeStdDeviation_ = input.readUInt32();
               break;
             }
           }
@@ -6103,12 +4199,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_Tick_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CNETMsg_Tick_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_Tick_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CNETMsg_Tick_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CNETMsg_Tick.class, com.valve.dota2.Netmessages.CNETMsg_Tick.Builder.class);
     }
@@ -6134,77 +4230,104 @@ public final class Netmessages {
     private int tick_;
     /**
      * <code>optional uint32 tick = 1;</code>
-     *
-     * <pre>
-     * current tick count
-     * </pre>
      */
     public boolean hasTick() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>optional uint32 tick = 1;</code>
-     *
-     * <pre>
-     * current tick count
-     * </pre>
      */
     public int getTick() {
       return tick_;
     }
 
-    // optional uint32 host_frametime = 2;
-    public static final int HOST_FRAMETIME_FIELD_NUMBER = 2;
-    private int hostFrametime_;
+    // optional uint32 host_frametime_deprecated = 2;
+    public static final int HOST_FRAMETIME_DEPRECATED_FIELD_NUMBER = 2;
+    private int hostFrametimeDeprecated_;
     /**
-     * <code>optional uint32 host_frametime = 2;</code>
-     *
-     * <pre>
-     * Host frame time in 1/100000th of a second
-     * </pre>
+     * <code>optional uint32 host_frametime_deprecated = 2;</code>
      */
-    public boolean hasHostFrametime() {
+    public boolean hasHostFrametimeDeprecated() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional uint32 host_frametime = 2;</code>
-     *
-     * <pre>
-     * Host frame time in 1/100000th of a second
-     * </pre>
+     * <code>optional uint32 host_frametime_deprecated = 2;</code>
      */
-    public int getHostFrametime() {
-      return hostFrametime_;
+    public int getHostFrametimeDeprecated() {
+      return hostFrametimeDeprecated_;
     }
 
-    // optional uint32 host_frametime_std_deviation = 3;
-    public static final int HOST_FRAMETIME_STD_DEVIATION_FIELD_NUMBER = 3;
-    private int hostFrametimeStdDeviation_;
+    // optional uint32 host_frametime_std_deviation_deprecated = 3;
+    public static final int HOST_FRAMETIME_STD_DEVIATION_DEPRECATED_FIELD_NUMBER = 3;
+    private int hostFrametimeStdDeviationDeprecated_;
     /**
-     * <code>optional uint32 host_frametime_std_deviation = 3;</code>
-     *
-     * <pre>
-     * Host frame time stddev in 1/100000th of a second
-     * </pre>
+     * <code>optional uint32 host_frametime_std_deviation_deprecated = 3;</code>
      */
-    public boolean hasHostFrametimeStdDeviation() {
+    public boolean hasHostFrametimeStdDeviationDeprecated() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional uint32 host_frametime_std_deviation = 3;</code>
-     *
-     * <pre>
-     * Host frame time stddev in 1/100000th of a second
-     * </pre>
+     * <code>optional uint32 host_frametime_std_deviation_deprecated = 3;</code>
      */
-    public int getHostFrametimeStdDeviation() {
-      return hostFrametimeStdDeviation_;
+    public int getHostFrametimeStdDeviationDeprecated() {
+      return hostFrametimeStdDeviationDeprecated_;
+    }
+
+    // optional uint32 host_computationtime = 4;
+    public static final int HOST_COMPUTATIONTIME_FIELD_NUMBER = 4;
+    private int hostComputationtime_;
+    /**
+     * <code>optional uint32 host_computationtime = 4;</code>
+     */
+    public boolean hasHostComputationtime() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional uint32 host_computationtime = 4;</code>
+     */
+    public int getHostComputationtime() {
+      return hostComputationtime_;
+    }
+
+    // optional uint32 host_computationtime_std_deviation = 5;
+    public static final int HOST_COMPUTATIONTIME_STD_DEVIATION_FIELD_NUMBER = 5;
+    private int hostComputationtimeStdDeviation_;
+    /**
+     * <code>optional uint32 host_computationtime_std_deviation = 5;</code>
+     */
+    public boolean hasHostComputationtimeStdDeviation() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional uint32 host_computationtime_std_deviation = 5;</code>
+     */
+    public int getHostComputationtimeStdDeviation() {
+      return hostComputationtimeStdDeviation_;
+    }
+
+    // optional uint32 host_framestarttime_std_deviation = 6;
+    public static final int HOST_FRAMESTARTTIME_STD_DEVIATION_FIELD_NUMBER = 6;
+    private int hostFramestarttimeStdDeviation_;
+    /**
+     * <code>optional uint32 host_framestarttime_std_deviation = 6;</code>
+     */
+    public boolean hasHostFramestarttimeStdDeviation() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional uint32 host_framestarttime_std_deviation = 6;</code>
+     */
+    public int getHostFramestarttimeStdDeviation() {
+      return hostFramestarttimeStdDeviation_;
     }
 
     private void initFields() {
       tick_ = 0;
-      hostFrametime_ = 0;
-      hostFrametimeStdDeviation_ = 0;
+      hostFrametimeDeprecated_ = 0;
+      hostFrametimeStdDeviationDeprecated_ = 0;
+      hostComputationtime_ = 0;
+      hostComputationtimeStdDeviation_ = 0;
+      hostFramestarttimeStdDeviation_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -6222,10 +4345,19 @@ public final class Netmessages {
         output.writeUInt32(1, tick_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeUInt32(2, hostFrametime_);
+        output.writeUInt32(2, hostFrametimeDeprecated_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeUInt32(3, hostFrametimeStdDeviation_);
+        output.writeUInt32(3, hostFrametimeStdDeviationDeprecated_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeUInt32(4, hostComputationtime_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeUInt32(5, hostComputationtimeStdDeviation_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeUInt32(6, hostFramestarttimeStdDeviation_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -6242,11 +4374,23 @@ public final class Netmessages {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, hostFrametime_);
+          .computeUInt32Size(2, hostFrametimeDeprecated_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, hostFrametimeStdDeviation_);
+          .computeUInt32Size(3, hostFrametimeStdDeviationDeprecated_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(4, hostComputationtime_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(5, hostComputationtimeStdDeviation_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(6, hostFramestarttimeStdDeviation_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -6327,19 +4471,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CNETMsg_Tick}
+     * Protobuf type {@code CNETMsg_Tick}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CNETMsg_TickOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_Tick_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_Tick_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_Tick_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_Tick_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CNETMsg_Tick.class, com.valve.dota2.Netmessages.CNETMsg_Tick.Builder.class);
       }
@@ -6366,10 +4510,16 @@ public final class Netmessages {
         super.clear();
         tick_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        hostFrametime_ = 0;
+        hostFrametimeDeprecated_ = 0;
         bitField0_ = (bitField0_ & ~0x00000002);
-        hostFrametimeStdDeviation_ = 0;
+        hostFrametimeStdDeviationDeprecated_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
+        hostComputationtime_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        hostComputationtimeStdDeviation_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        hostFramestarttimeStdDeviation_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -6379,7 +4529,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_Tick_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_Tick_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CNETMsg_Tick getDefaultInstanceForType() {
@@ -6405,11 +4555,23 @@ public final class Netmessages {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.hostFrametime_ = hostFrametime_;
+        result.hostFrametimeDeprecated_ = hostFrametimeDeprecated_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.hostFrametimeStdDeviation_ = hostFrametimeStdDeviation_;
+        result.hostFrametimeStdDeviationDeprecated_ = hostFrametimeStdDeviationDeprecated_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.hostComputationtime_ = hostComputationtime_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.hostComputationtimeStdDeviation_ = hostComputationtimeStdDeviation_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.hostFramestarttimeStdDeviation_ = hostFramestarttimeStdDeviation_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -6429,11 +4591,20 @@ public final class Netmessages {
         if (other.hasTick()) {
           setTick(other.getTick());
         }
-        if (other.hasHostFrametime()) {
-          setHostFrametime(other.getHostFrametime());
+        if (other.hasHostFrametimeDeprecated()) {
+          setHostFrametimeDeprecated(other.getHostFrametimeDeprecated());
         }
-        if (other.hasHostFrametimeStdDeviation()) {
-          setHostFrametimeStdDeviation(other.getHostFrametimeStdDeviation());
+        if (other.hasHostFrametimeStdDeviationDeprecated()) {
+          setHostFrametimeStdDeviationDeprecated(other.getHostFrametimeStdDeviationDeprecated());
+        }
+        if (other.hasHostComputationtime()) {
+          setHostComputationtime(other.getHostComputationtime());
+        }
+        if (other.hasHostComputationtimeStdDeviation()) {
+          setHostComputationtimeStdDeviation(other.getHostComputationtimeStdDeviation());
+        }
+        if (other.hasHostFramestarttimeStdDeviation()) {
+          setHostFramestarttimeStdDeviation(other.getHostFramestarttimeStdDeviation());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -6466,30 +4637,18 @@ public final class Netmessages {
       private int tick_ ;
       /**
        * <code>optional uint32 tick = 1;</code>
-       *
-       * <pre>
-       * current tick count
-       * </pre>
        */
       public boolean hasTick() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional uint32 tick = 1;</code>
-       *
-       * <pre>
-       * current tick count
-       * </pre>
        */
       public int getTick() {
         return tick_;
       }
       /**
        * <code>optional uint32 tick = 1;</code>
-       *
-       * <pre>
-       * current tick count
-       * </pre>
        */
       public Builder setTick(int value) {
         bitField0_ |= 0x00000001;
@@ -6499,10 +4658,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional uint32 tick = 1;</code>
-       *
-       * <pre>
-       * current tick count
-       * </pre>
        */
       public Builder clearTick() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -6511,105 +4666,172 @@ public final class Netmessages {
         return this;
       }
 
-      // optional uint32 host_frametime = 2;
-      private int hostFrametime_ ;
+      // optional uint32 host_frametime_deprecated = 2;
+      private int hostFrametimeDeprecated_ ;
       /**
-       * <code>optional uint32 host_frametime = 2;</code>
-       *
-       * <pre>
-       * Host frame time in 1/100000th of a second
-       * </pre>
+       * <code>optional uint32 host_frametime_deprecated = 2;</code>
        */
-      public boolean hasHostFrametime() {
+      public boolean hasHostFrametimeDeprecated() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional uint32 host_frametime = 2;</code>
-       *
-       * <pre>
-       * Host frame time in 1/100000th of a second
-       * </pre>
+       * <code>optional uint32 host_frametime_deprecated = 2;</code>
        */
-      public int getHostFrametime() {
-        return hostFrametime_;
+      public int getHostFrametimeDeprecated() {
+        return hostFrametimeDeprecated_;
       }
       /**
-       * <code>optional uint32 host_frametime = 2;</code>
-       *
-       * <pre>
-       * Host frame time in 1/100000th of a second
-       * </pre>
+       * <code>optional uint32 host_frametime_deprecated = 2;</code>
        */
-      public Builder setHostFrametime(int value) {
+      public Builder setHostFrametimeDeprecated(int value) {
         bitField0_ |= 0x00000002;
-        hostFrametime_ = value;
+        hostFrametimeDeprecated_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional uint32 host_frametime = 2;</code>
-       *
-       * <pre>
-       * Host frame time in 1/100000th of a second
-       * </pre>
+       * <code>optional uint32 host_frametime_deprecated = 2;</code>
        */
-      public Builder clearHostFrametime() {
+      public Builder clearHostFrametimeDeprecated() {
         bitField0_ = (bitField0_ & ~0x00000002);
-        hostFrametime_ = 0;
+        hostFrametimeDeprecated_ = 0;
         onChanged();
         return this;
       }
 
-      // optional uint32 host_frametime_std_deviation = 3;
-      private int hostFrametimeStdDeviation_ ;
+      // optional uint32 host_frametime_std_deviation_deprecated = 3;
+      private int hostFrametimeStdDeviationDeprecated_ ;
       /**
-       * <code>optional uint32 host_frametime_std_deviation = 3;</code>
-       *
-       * <pre>
-       * Host frame time stddev in 1/100000th of a second
-       * </pre>
+       * <code>optional uint32 host_frametime_std_deviation_deprecated = 3;</code>
        */
-      public boolean hasHostFrametimeStdDeviation() {
+      public boolean hasHostFrametimeStdDeviationDeprecated() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional uint32 host_frametime_std_deviation = 3;</code>
-       *
-       * <pre>
-       * Host frame time stddev in 1/100000th of a second
-       * </pre>
+       * <code>optional uint32 host_frametime_std_deviation_deprecated = 3;</code>
        */
-      public int getHostFrametimeStdDeviation() {
-        return hostFrametimeStdDeviation_;
+      public int getHostFrametimeStdDeviationDeprecated() {
+        return hostFrametimeStdDeviationDeprecated_;
       }
       /**
-       * <code>optional uint32 host_frametime_std_deviation = 3;</code>
-       *
-       * <pre>
-       * Host frame time stddev in 1/100000th of a second
-       * </pre>
+       * <code>optional uint32 host_frametime_std_deviation_deprecated = 3;</code>
        */
-      public Builder setHostFrametimeStdDeviation(int value) {
+      public Builder setHostFrametimeStdDeviationDeprecated(int value) {
         bitField0_ |= 0x00000004;
-        hostFrametimeStdDeviation_ = value;
+        hostFrametimeStdDeviationDeprecated_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional uint32 host_frametime_std_deviation = 3;</code>
-       *
-       * <pre>
-       * Host frame time stddev in 1/100000th of a second
-       * </pre>
+       * <code>optional uint32 host_frametime_std_deviation_deprecated = 3;</code>
        */
-      public Builder clearHostFrametimeStdDeviation() {
+      public Builder clearHostFrametimeStdDeviationDeprecated() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        hostFrametimeStdDeviation_ = 0;
+        hostFrametimeStdDeviationDeprecated_ = 0;
         onChanged();
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CNETMsg_Tick)
+      // optional uint32 host_computationtime = 4;
+      private int hostComputationtime_ ;
+      /**
+       * <code>optional uint32 host_computationtime = 4;</code>
+       */
+      public boolean hasHostComputationtime() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional uint32 host_computationtime = 4;</code>
+       */
+      public int getHostComputationtime() {
+        return hostComputationtime_;
+      }
+      /**
+       * <code>optional uint32 host_computationtime = 4;</code>
+       */
+      public Builder setHostComputationtime(int value) {
+        bitField0_ |= 0x00000008;
+        hostComputationtime_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 host_computationtime = 4;</code>
+       */
+      public Builder clearHostComputationtime() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        hostComputationtime_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional uint32 host_computationtime_std_deviation = 5;
+      private int hostComputationtimeStdDeviation_ ;
+      /**
+       * <code>optional uint32 host_computationtime_std_deviation = 5;</code>
+       */
+      public boolean hasHostComputationtimeStdDeviation() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional uint32 host_computationtime_std_deviation = 5;</code>
+       */
+      public int getHostComputationtimeStdDeviation() {
+        return hostComputationtimeStdDeviation_;
+      }
+      /**
+       * <code>optional uint32 host_computationtime_std_deviation = 5;</code>
+       */
+      public Builder setHostComputationtimeStdDeviation(int value) {
+        bitField0_ |= 0x00000010;
+        hostComputationtimeStdDeviation_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 host_computationtime_std_deviation = 5;</code>
+       */
+      public Builder clearHostComputationtimeStdDeviation() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        hostComputationtimeStdDeviation_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional uint32 host_framestarttime_std_deviation = 6;
+      private int hostFramestarttimeStdDeviation_ ;
+      /**
+       * <code>optional uint32 host_framestarttime_std_deviation = 6;</code>
+       */
+      public boolean hasHostFramestarttimeStdDeviation() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional uint32 host_framestarttime_std_deviation = 6;</code>
+       */
+      public int getHostFramestarttimeStdDeviation() {
+        return hostFramestarttimeStdDeviation_;
+      }
+      /**
+       * <code>optional uint32 host_framestarttime_std_deviation = 6;</code>
+       */
+      public Builder setHostFramestarttimeStdDeviation(int value) {
+        bitField0_ |= 0x00000020;
+        hostFramestarttimeStdDeviation_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 host_framestarttime_std_deviation = 6;</code>
+       */
+      public Builder clearHostFramestarttimeStdDeviation() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        hostFramestarttimeStdDeviation_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:CNETMsg_Tick)
     }
 
     static {
@@ -6617,7 +4839,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CNETMsg_Tick)
+    // @@protoc_insertion_point(class_scope:CNETMsg_Tick)
   }
 
   public interface CNETMsg_StringCmdOrBuilder
@@ -6639,7 +4861,7 @@ public final class Netmessages {
         getCommandBytes();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CNETMsg_StringCmd}
+   * Protobuf type {@code CNETMsg_StringCmd}
    */
   public static final class CNETMsg_StringCmd extends
       com.google.protobuf.GeneratedMessage
@@ -6708,12 +4930,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_StringCmd_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CNETMsg_StringCmd_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_StringCmd_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CNETMsg_StringCmd_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CNETMsg_StringCmd.class, com.valve.dota2.Netmessages.CNETMsg_StringCmd.Builder.class);
     }
@@ -6887,19 +5109,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CNETMsg_StringCmd}
+     * Protobuf type {@code CNETMsg_StringCmd}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CNETMsg_StringCmdOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_StringCmd_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_StringCmd_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_StringCmd_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_StringCmd_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CNETMsg_StringCmd.class, com.valve.dota2.Netmessages.CNETMsg_StringCmd.Builder.class);
       }
@@ -6935,7 +5157,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_StringCmd_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_StringCmd_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CNETMsg_StringCmd getDefaultInstanceForType() {
@@ -7080,7 +5302,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CNETMsg_StringCmd)
+      // @@protoc_insertion_point(builder_scope:CNETMsg_StringCmd)
     }
 
     static {
@@ -7088,28 +5310,28 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CNETMsg_StringCmd)
+    // @@protoc_insertion_point(class_scope:CNETMsg_StringCmd)
   }
 
   public interface CNETMsg_SetConVarOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional .com.valve.dota2.CMsg_CVars convars = 1;
+    // optional .CMsg_CVars convars = 1;
     /**
-     * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+     * <code>optional .CMsg_CVars convars = 1;</code>
      */
     boolean hasConvars();
     /**
-     * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+     * <code>optional .CMsg_CVars convars = 1;</code>
      */
     com.valve.dota2.Netmessages.CMsg_CVars getConvars();
     /**
-     * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+     * <code>optional .CMsg_CVars convars = 1;</code>
      */
     com.valve.dota2.Netmessages.CMsg_CVarsOrBuilder getConvarsOrBuilder();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CNETMsg_SetConVar}
+   * Protobuf type {@code CNETMsg_SetConVar}
    */
   public static final class CNETMsg_SetConVar extends
       com.google.protobuf.GeneratedMessage
@@ -7186,12 +5408,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_SetConVar_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CNETMsg_SetConVar_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_SetConVar_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CNETMsg_SetConVar_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CNETMsg_SetConVar.class, com.valve.dota2.Netmessages.CNETMsg_SetConVar.Builder.class);
     }
@@ -7212,23 +5434,23 @@ public final class Netmessages {
     }
 
     private int bitField0_;
-    // optional .com.valve.dota2.CMsg_CVars convars = 1;
+    // optional .CMsg_CVars convars = 1;
     public static final int CONVARS_FIELD_NUMBER = 1;
     private com.valve.dota2.Netmessages.CMsg_CVars convars_;
     /**
-     * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+     * <code>optional .CMsg_CVars convars = 1;</code>
      */
     public boolean hasConvars() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+     * <code>optional .CMsg_CVars convars = 1;</code>
      */
     public com.valve.dota2.Netmessages.CMsg_CVars getConvars() {
       return convars_;
     }
     /**
-     * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+     * <code>optional .CMsg_CVars convars = 1;</code>
      */
     public com.valve.dota2.Netmessages.CMsg_CVarsOrBuilder getConvarsOrBuilder() {
       return convars_;
@@ -7344,19 +5566,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CNETMsg_SetConVar}
+     * Protobuf type {@code CNETMsg_SetConVar}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CNETMsg_SetConVarOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_SetConVar_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_SetConVar_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_SetConVar_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_SetConVar_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CNETMsg_SetConVar.class, com.valve.dota2.Netmessages.CNETMsg_SetConVar.Builder.class);
       }
@@ -7397,7 +5619,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_SetConVar_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_SetConVar_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CNETMsg_SetConVar getDefaultInstanceForType() {
@@ -7470,18 +5692,18 @@ public final class Netmessages {
       }
       private int bitField0_;
 
-      // optional .com.valve.dota2.CMsg_CVars convars = 1;
+      // optional .CMsg_CVars convars = 1;
       private com.valve.dota2.Netmessages.CMsg_CVars convars_ = com.valve.dota2.Netmessages.CMsg_CVars.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.valve.dota2.Netmessages.CMsg_CVars, com.valve.dota2.Netmessages.CMsg_CVars.Builder, com.valve.dota2.Netmessages.CMsg_CVarsOrBuilder> convarsBuilder_;
       /**
-       * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+       * <code>optional .CMsg_CVars convars = 1;</code>
        */
       public boolean hasConvars() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+       * <code>optional .CMsg_CVars convars = 1;</code>
        */
       public com.valve.dota2.Netmessages.CMsg_CVars getConvars() {
         if (convarsBuilder_ == null) {
@@ -7491,7 +5713,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+       * <code>optional .CMsg_CVars convars = 1;</code>
        */
       public Builder setConvars(com.valve.dota2.Netmessages.CMsg_CVars value) {
         if (convarsBuilder_ == null) {
@@ -7507,7 +5729,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+       * <code>optional .CMsg_CVars convars = 1;</code>
        */
       public Builder setConvars(
           com.valve.dota2.Netmessages.CMsg_CVars.Builder builderForValue) {
@@ -7521,7 +5743,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+       * <code>optional .CMsg_CVars convars = 1;</code>
        */
       public Builder mergeConvars(com.valve.dota2.Netmessages.CMsg_CVars value) {
         if (convarsBuilder_ == null) {
@@ -7540,7 +5762,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+       * <code>optional .CMsg_CVars convars = 1;</code>
        */
       public Builder clearConvars() {
         if (convarsBuilder_ == null) {
@@ -7553,7 +5775,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+       * <code>optional .CMsg_CVars convars = 1;</code>
        */
       public com.valve.dota2.Netmessages.CMsg_CVars.Builder getConvarsBuilder() {
         bitField0_ |= 0x00000001;
@@ -7561,7 +5783,7 @@ public final class Netmessages {
         return getConvarsFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+       * <code>optional .CMsg_CVars convars = 1;</code>
        */
       public com.valve.dota2.Netmessages.CMsg_CVarsOrBuilder getConvarsOrBuilder() {
         if (convarsBuilder_ != null) {
@@ -7571,7 +5793,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+       * <code>optional .CMsg_CVars convars = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.valve.dota2.Netmessages.CMsg_CVars, com.valve.dota2.Netmessages.CMsg_CVars.Builder, com.valve.dota2.Netmessages.CMsg_CVarsOrBuilder> 
@@ -7587,7 +5809,7 @@ public final class Netmessages {
         return convarsBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CNETMsg_SetConVar)
+      // @@protoc_insertion_point(builder_scope:CNETMsg_SetConVar)
     }
 
     static {
@@ -7595,7 +5817,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CNETMsg_SetConVar)
+    // @@protoc_insertion_point(class_scope:CNETMsg_SetConVar)
   }
 
   public interface CNETMsg_SignonStateOrBuilder
@@ -7604,89 +5826,49 @@ public final class Netmessages {
     // optional uint32 signon_state = 1;
     /**
      * <code>optional uint32 signon_state = 1;</code>
-     *
-     * <pre>
-     * See SIGNONSTATE_ defines
-     * </pre>
      */
     boolean hasSignonState();
     /**
      * <code>optional uint32 signon_state = 1;</code>
-     *
-     * <pre>
-     * See SIGNONSTATE_ defines
-     * </pre>
      */
     int getSignonState();
 
     // optional uint32 spawn_count = 2;
     /**
      * <code>optional uint32 spawn_count = 2;</code>
-     *
-     * <pre>
-     * server spawn count (session number)
-     * </pre>
      */
     boolean hasSpawnCount();
     /**
      * <code>optional uint32 spawn_count = 2;</code>
-     *
-     * <pre>
-     * server spawn count (session number)
-     * </pre>
      */
     int getSpawnCount();
 
     // optional uint32 num_server_players = 3;
     /**
      * <code>optional uint32 num_server_players = 3;</code>
-     *
-     * <pre>
-     * Number of players the server discloses as connected to the server
-     * </pre>
      */
     boolean hasNumServerPlayers();
     /**
      * <code>optional uint32 num_server_players = 3;</code>
-     *
-     * <pre>
-     * Number of players the server discloses as connected to the server
-     * </pre>
      */
     int getNumServerPlayers();
 
     // repeated string players_networkids = 4;
     /**
      * <code>repeated string players_networkids = 4;</code>
-     *
-     * <pre>
-     * player network ids
-     * </pre>
      */
     java.util.List<java.lang.String>
     getPlayersNetworkidsList();
     /**
      * <code>repeated string players_networkids = 4;</code>
-     *
-     * <pre>
-     * player network ids
-     * </pre>
      */
     int getPlayersNetworkidsCount();
     /**
      * <code>repeated string players_networkids = 4;</code>
-     *
-     * <pre>
-     * player network ids
-     * </pre>
      */
     java.lang.String getPlayersNetworkids(int index);
     /**
      * <code>repeated string players_networkids = 4;</code>
-     *
-     * <pre>
-     * player network ids
-     * </pre>
      */
     com.google.protobuf.ByteString
         getPlayersNetworkidsBytes(int index);
@@ -7694,32 +5876,20 @@ public final class Netmessages {
     // optional string map_name = 5;
     /**
      * <code>optional string map_name = 5;</code>
-     *
-     * <pre>
-     * Name of the current map
-     * </pre>
      */
     boolean hasMapName();
     /**
      * <code>optional string map_name = 5;</code>
-     *
-     * <pre>
-     * Name of the current map
-     * </pre>
      */
     java.lang.String getMapName();
     /**
      * <code>optional string map_name = 5;</code>
-     *
-     * <pre>
-     * Name of the current map
-     * </pre>
      */
     com.google.protobuf.ByteString
         getMapNameBytes();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CNETMsg_SignonState}
+   * Protobuf type {@code CNETMsg_SignonState}
    */
   public static final class CNETMsg_SignonState extends
       com.google.protobuf.GeneratedMessage
@@ -7814,12 +5984,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_SignonState_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CNETMsg_SignonState_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_SignonState_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CNETMsg_SignonState_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CNETMsg_SignonState.class, com.valve.dota2.Netmessages.CNETMsg_SignonState.Builder.class);
     }
@@ -7845,20 +6015,12 @@ public final class Netmessages {
     private int signonState_;
     /**
      * <code>optional uint32 signon_state = 1;</code>
-     *
-     * <pre>
-     * See SIGNONSTATE_ defines
-     * </pre>
      */
     public boolean hasSignonState() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>optional uint32 signon_state = 1;</code>
-     *
-     * <pre>
-     * See SIGNONSTATE_ defines
-     * </pre>
      */
     public int getSignonState() {
       return signonState_;
@@ -7869,20 +6031,12 @@ public final class Netmessages {
     private int spawnCount_;
     /**
      * <code>optional uint32 spawn_count = 2;</code>
-     *
-     * <pre>
-     * server spawn count (session number)
-     * </pre>
      */
     public boolean hasSpawnCount() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <code>optional uint32 spawn_count = 2;</code>
-     *
-     * <pre>
-     * server spawn count (session number)
-     * </pre>
      */
     public int getSpawnCount() {
       return spawnCount_;
@@ -7893,20 +6047,12 @@ public final class Netmessages {
     private int numServerPlayers_;
     /**
      * <code>optional uint32 num_server_players = 3;</code>
-     *
-     * <pre>
-     * Number of players the server discloses as connected to the server
-     * </pre>
      */
     public boolean hasNumServerPlayers() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <code>optional uint32 num_server_players = 3;</code>
-     *
-     * <pre>
-     * Number of players the server discloses as connected to the server
-     * </pre>
      */
     public int getNumServerPlayers() {
       return numServerPlayers_;
@@ -7917,10 +6063,6 @@ public final class Netmessages {
     private com.google.protobuf.LazyStringList playersNetworkids_;
     /**
      * <code>repeated string players_networkids = 4;</code>
-     *
-     * <pre>
-     * player network ids
-     * </pre>
      */
     public java.util.List<java.lang.String>
         getPlayersNetworkidsList() {
@@ -7928,30 +6070,18 @@ public final class Netmessages {
     }
     /**
      * <code>repeated string players_networkids = 4;</code>
-     *
-     * <pre>
-     * player network ids
-     * </pre>
      */
     public int getPlayersNetworkidsCount() {
       return playersNetworkids_.size();
     }
     /**
      * <code>repeated string players_networkids = 4;</code>
-     *
-     * <pre>
-     * player network ids
-     * </pre>
      */
     public java.lang.String getPlayersNetworkids(int index) {
       return playersNetworkids_.get(index);
     }
     /**
      * <code>repeated string players_networkids = 4;</code>
-     *
-     * <pre>
-     * player network ids
-     * </pre>
      */
     public com.google.protobuf.ByteString
         getPlayersNetworkidsBytes(int index) {
@@ -7963,20 +6093,12 @@ public final class Netmessages {
     private java.lang.Object mapName_;
     /**
      * <code>optional string map_name = 5;</code>
-     *
-     * <pre>
-     * Name of the current map
-     * </pre>
      */
     public boolean hasMapName() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      * <code>optional string map_name = 5;</code>
-     *
-     * <pre>
-     * Name of the current map
-     * </pre>
      */
     public java.lang.String getMapName() {
       java.lang.Object ref = mapName_;
@@ -7994,10 +6116,6 @@ public final class Netmessages {
     }
     /**
      * <code>optional string map_name = 5;</code>
-     *
-     * <pre>
-     * Name of the current map
-     * </pre>
      */
     public com.google.protobuf.ByteString
         getMapNameBytes() {
@@ -8160,19 +6278,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CNETMsg_SignonState}
+     * Protobuf type {@code CNETMsg_SignonState}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CNETMsg_SignonStateOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_SignonState_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_SignonState_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_SignonState_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_SignonState_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CNETMsg_SignonState.class, com.valve.dota2.Netmessages.CNETMsg_SignonState.Builder.class);
       }
@@ -8216,7 +6334,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CNETMsg_SignonState_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CNETMsg_SignonState_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CNETMsg_SignonState getDefaultInstanceForType() {
@@ -8328,30 +6446,18 @@ public final class Netmessages {
       private int signonState_ ;
       /**
        * <code>optional uint32 signon_state = 1;</code>
-       *
-       * <pre>
-       * See SIGNONSTATE_ defines
-       * </pre>
        */
       public boolean hasSignonState() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional uint32 signon_state = 1;</code>
-       *
-       * <pre>
-       * See SIGNONSTATE_ defines
-       * </pre>
        */
       public int getSignonState() {
         return signonState_;
       }
       /**
        * <code>optional uint32 signon_state = 1;</code>
-       *
-       * <pre>
-       * See SIGNONSTATE_ defines
-       * </pre>
        */
       public Builder setSignonState(int value) {
         bitField0_ |= 0x00000001;
@@ -8361,10 +6467,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional uint32 signon_state = 1;</code>
-       *
-       * <pre>
-       * See SIGNONSTATE_ defines
-       * </pre>
        */
       public Builder clearSignonState() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -8377,30 +6479,18 @@ public final class Netmessages {
       private int spawnCount_ ;
       /**
        * <code>optional uint32 spawn_count = 2;</code>
-       *
-       * <pre>
-       * server spawn count (session number)
-       * </pre>
        */
       public boolean hasSpawnCount() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <code>optional uint32 spawn_count = 2;</code>
-       *
-       * <pre>
-       * server spawn count (session number)
-       * </pre>
        */
       public int getSpawnCount() {
         return spawnCount_;
       }
       /**
        * <code>optional uint32 spawn_count = 2;</code>
-       *
-       * <pre>
-       * server spawn count (session number)
-       * </pre>
        */
       public Builder setSpawnCount(int value) {
         bitField0_ |= 0x00000002;
@@ -8410,10 +6500,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional uint32 spawn_count = 2;</code>
-       *
-       * <pre>
-       * server spawn count (session number)
-       * </pre>
        */
       public Builder clearSpawnCount() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -8426,30 +6512,18 @@ public final class Netmessages {
       private int numServerPlayers_ ;
       /**
        * <code>optional uint32 num_server_players = 3;</code>
-       *
-       * <pre>
-       * Number of players the server discloses as connected to the server
-       * </pre>
        */
       public boolean hasNumServerPlayers() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <code>optional uint32 num_server_players = 3;</code>
-       *
-       * <pre>
-       * Number of players the server discloses as connected to the server
-       * </pre>
        */
       public int getNumServerPlayers() {
         return numServerPlayers_;
       }
       /**
        * <code>optional uint32 num_server_players = 3;</code>
-       *
-       * <pre>
-       * Number of players the server discloses as connected to the server
-       * </pre>
        */
       public Builder setNumServerPlayers(int value) {
         bitField0_ |= 0x00000004;
@@ -8459,10 +6533,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional uint32 num_server_players = 3;</code>
-       *
-       * <pre>
-       * Number of players the server discloses as connected to the server
-       * </pre>
        */
       public Builder clearNumServerPlayers() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -8481,10 +6551,6 @@ public final class Netmessages {
       }
       /**
        * <code>repeated string players_networkids = 4;</code>
-       *
-       * <pre>
-       * player network ids
-       * </pre>
        */
       public java.util.List<java.lang.String>
           getPlayersNetworkidsList() {
@@ -8492,30 +6558,18 @@ public final class Netmessages {
       }
       /**
        * <code>repeated string players_networkids = 4;</code>
-       *
-       * <pre>
-       * player network ids
-       * </pre>
        */
       public int getPlayersNetworkidsCount() {
         return playersNetworkids_.size();
       }
       /**
        * <code>repeated string players_networkids = 4;</code>
-       *
-       * <pre>
-       * player network ids
-       * </pre>
        */
       public java.lang.String getPlayersNetworkids(int index) {
         return playersNetworkids_.get(index);
       }
       /**
        * <code>repeated string players_networkids = 4;</code>
-       *
-       * <pre>
-       * player network ids
-       * </pre>
        */
       public com.google.protobuf.ByteString
           getPlayersNetworkidsBytes(int index) {
@@ -8523,10 +6577,6 @@ public final class Netmessages {
       }
       /**
        * <code>repeated string players_networkids = 4;</code>
-       *
-       * <pre>
-       * player network ids
-       * </pre>
        */
       public Builder setPlayersNetworkids(
           int index, java.lang.String value) {
@@ -8540,10 +6590,6 @@ public final class Netmessages {
       }
       /**
        * <code>repeated string players_networkids = 4;</code>
-       *
-       * <pre>
-       * player network ids
-       * </pre>
        */
       public Builder addPlayersNetworkids(
           java.lang.String value) {
@@ -8557,10 +6603,6 @@ public final class Netmessages {
       }
       /**
        * <code>repeated string players_networkids = 4;</code>
-       *
-       * <pre>
-       * player network ids
-       * </pre>
        */
       public Builder addAllPlayersNetworkids(
           java.lang.Iterable<java.lang.String> values) {
@@ -8571,10 +6613,6 @@ public final class Netmessages {
       }
       /**
        * <code>repeated string players_networkids = 4;</code>
-       *
-       * <pre>
-       * player network ids
-       * </pre>
        */
       public Builder clearPlayersNetworkids() {
         playersNetworkids_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -8584,10 +6622,6 @@ public final class Netmessages {
       }
       /**
        * <code>repeated string players_networkids = 4;</code>
-       *
-       * <pre>
-       * player network ids
-       * </pre>
        */
       public Builder addPlayersNetworkidsBytes(
           com.google.protobuf.ByteString value) {
@@ -8604,20 +6638,12 @@ public final class Netmessages {
       private java.lang.Object mapName_ = "";
       /**
        * <code>optional string map_name = 5;</code>
-       *
-       * <pre>
-       * Name of the current map
-       * </pre>
        */
       public boolean hasMapName() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        * <code>optional string map_name = 5;</code>
-       *
-       * <pre>
-       * Name of the current map
-       * </pre>
        */
       public java.lang.String getMapName() {
         java.lang.Object ref = mapName_;
@@ -8632,10 +6658,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string map_name = 5;</code>
-       *
-       * <pre>
-       * Name of the current map
-       * </pre>
        */
       public com.google.protobuf.ByteString
           getMapNameBytes() {
@@ -8652,10 +6674,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string map_name = 5;</code>
-       *
-       * <pre>
-       * Name of the current map
-       * </pre>
        */
       public Builder setMapName(
           java.lang.String value) {
@@ -8669,10 +6687,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string map_name = 5;</code>
-       *
-       * <pre>
-       * Name of the current map
-       * </pre>
        */
       public Builder clearMapName() {
         bitField0_ = (bitField0_ & ~0x00000010);
@@ -8682,10 +6696,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string map_name = 5;</code>
-       *
-       * <pre>
-       * Name of the current map
-       * </pre>
        */
       public Builder setMapNameBytes(
           com.google.protobuf.ByteString value) {
@@ -8698,7 +6708,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CNETMsg_SignonState)
+      // @@protoc_insertion_point(builder_scope:CNETMsg_SignonState)
     }
 
     static {
@@ -8706,7 +6716,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CNETMsg_SignonState)
+    // @@protoc_insertion_point(class_scope:CNETMsg_SignonState)
   }
 
   public interface CCLCMsg_ClientInfoOrBuilder
@@ -8792,7 +6802,7 @@ public final class Netmessages {
     int getCustomFiles(int index);
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CCLCMsg_ClientInfo}
+   * Protobuf type {@code CCLCMsg_ClientInfo}
    */
   public static final class CCLCMsg_ClientInfo extends
       com.google.protobuf.GeneratedMessage
@@ -8910,12 +6920,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_ClientInfo_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_ClientInfo_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_ClientInfo_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_ClientInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CCLCMsg_ClientInfo.class, com.valve.dota2.Netmessages.CCLCMsg_ClientInfo.Builder.class);
     }
@@ -9242,19 +7252,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CCLCMsg_ClientInfo}
+     * Protobuf type {@code CCLCMsg_ClientInfo}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CCLCMsg_ClientInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_ClientInfo_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_ClientInfo_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_ClientInfo_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_ClientInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CCLCMsg_ClientInfo.class, com.valve.dota2.Netmessages.CCLCMsg_ClientInfo.Builder.class);
       }
@@ -9302,7 +7312,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_ClientInfo_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_ClientInfo_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CCLCMsg_ClientInfo getDefaultInstanceForType() {
@@ -9728,7 +7738,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CCLCMsg_ClientInfo)
+      // @@protoc_insertion_point(builder_scope:CCLCMsg_ClientInfo)
     }
 
     static {
@@ -9736,7 +7746,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CCLCMsg_ClientInfo)
+    // @@protoc_insertion_point(class_scope:CCLCMsg_ClientInfo)
   }
 
   public interface CCLCMsg_MoveOrBuilder
@@ -9745,18 +7755,10 @@ public final class Netmessages {
     // optional uint32 num_backup_commands = 1;
     /**
      * <code>optional uint32 num_backup_commands = 1;</code>
-     *
-     * <pre>
-     * new commands = user_cmds_size() - num_backup_commands
-     * </pre>
      */
     boolean hasNumBackupCommands();
     /**
      * <code>optional uint32 num_backup_commands = 1;</code>
-     *
-     * <pre>
-     * new commands = user_cmds_size() - num_backup_commands
-     * </pre>
      */
     int getNumBackupCommands();
 
@@ -9781,7 +7783,7 @@ public final class Netmessages {
     com.google.protobuf.ByteString getData();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CCLCMsg_Move}
+   * Protobuf type {@code CCLCMsg_Move}
    */
   public static final class CCLCMsg_Move extends
       com.google.protobuf.GeneratedMessage
@@ -9860,12 +7862,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_Move_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_Move_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_Move_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_Move_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CCLCMsg_Move.class, com.valve.dota2.Netmessages.CCLCMsg_Move.Builder.class);
     }
@@ -9891,20 +7893,12 @@ public final class Netmessages {
     private int numBackupCommands_;
     /**
      * <code>optional uint32 num_backup_commands = 1;</code>
-     *
-     * <pre>
-     * new commands = user_cmds_size() - num_backup_commands
-     * </pre>
      */
     public boolean hasNumBackupCommands() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>optional uint32 num_backup_commands = 1;</code>
-     *
-     * <pre>
-     * new commands = user_cmds_size() - num_backup_commands
-     * </pre>
      */
     public int getNumBackupCommands() {
       return numBackupCommands_;
@@ -10068,19 +8062,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CCLCMsg_Move}
+     * Protobuf type {@code CCLCMsg_Move}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CCLCMsg_MoveOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_Move_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_Move_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_Move_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_Move_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CCLCMsg_Move.class, com.valve.dota2.Netmessages.CCLCMsg_Move.Builder.class);
       }
@@ -10120,7 +8114,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_Move_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_Move_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CCLCMsg_Move getDefaultInstanceForType() {
@@ -10207,30 +8201,18 @@ public final class Netmessages {
       private int numBackupCommands_ ;
       /**
        * <code>optional uint32 num_backup_commands = 1;</code>
-       *
-       * <pre>
-       * new commands = user_cmds_size() - num_backup_commands
-       * </pre>
        */
       public boolean hasNumBackupCommands() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional uint32 num_backup_commands = 1;</code>
-       *
-       * <pre>
-       * new commands = user_cmds_size() - num_backup_commands
-       * </pre>
        */
       public int getNumBackupCommands() {
         return numBackupCommands_;
       }
       /**
        * <code>optional uint32 num_backup_commands = 1;</code>
-       *
-       * <pre>
-       * new commands = user_cmds_size() - num_backup_commands
-       * </pre>
        */
       public Builder setNumBackupCommands(int value) {
         bitField0_ |= 0x00000001;
@@ -10240,10 +8222,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional uint32 num_backup_commands = 1;</code>
-       *
-       * <pre>
-       * new commands = user_cmds_size() - num_backup_commands
-       * </pre>
        */
       public Builder clearNumBackupCommands() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -10321,7 +8299,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CCLCMsg_Move)
+      // @@protoc_insertion_point(builder_scope:CCLCMsg_Move)
     }
 
     static {
@@ -10329,7 +8307,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CCLCMsg_Move)
+    // @@protoc_insertion_point(class_scope:CCLCMsg_Move)
   }
 
   public interface CCLCMsg_VoiceDataOrBuilder
@@ -10354,9 +8332,49 @@ public final class Netmessages {
      * <code>optional fixed64 xuid = 2;</code>
      */
     long getXuid();
+
+    // optional .VoiceDataFormat_t format = 3 [default = VOICEDATA_FORMAT_STEAM];
+    /**
+     * <code>optional .VoiceDataFormat_t format = 3 [default = VOICEDATA_FORMAT_STEAM];</code>
+     */
+    boolean hasFormat();
+    /**
+     * <code>optional .VoiceDataFormat_t format = 3 [default = VOICEDATA_FORMAT_STEAM];</code>
+     */
+    com.valve.dota2.Netmessages.VoiceDataFormat_t getFormat();
+
+    // optional int32 sequence_bytes = 4;
+    /**
+     * <code>optional int32 sequence_bytes = 4;</code>
+     */
+    boolean hasSequenceBytes();
+    /**
+     * <code>optional int32 sequence_bytes = 4;</code>
+     */
+    int getSequenceBytes();
+
+    // optional uint32 section_number = 5;
+    /**
+     * <code>optional uint32 section_number = 5;</code>
+     */
+    boolean hasSectionNumber();
+    /**
+     * <code>optional uint32 section_number = 5;</code>
+     */
+    int getSectionNumber();
+
+    // optional uint32 uncompressed_sample_offset = 6;
+    /**
+     * <code>optional uint32 uncompressed_sample_offset = 6;</code>
+     */
+    boolean hasUncompressedSampleOffset();
+    /**
+     * <code>optional uint32 uncompressed_sample_offset = 6;</code>
+     */
+    int getUncompressedSampleOffset();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CCLCMsg_VoiceData}
+   * Protobuf type {@code CCLCMsg_VoiceData}
    */
   public static final class CCLCMsg_VoiceData extends
       com.google.protobuf.GeneratedMessage
@@ -10416,6 +8434,32 @@ public final class Netmessages {
               xuid_ = input.readFixed64();
               break;
             }
+            case 24: {
+              int rawValue = input.readEnum();
+              com.valve.dota2.Netmessages.VoiceDataFormat_t value = com.valve.dota2.Netmessages.VoiceDataFormat_t.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(3, rawValue);
+              } else {
+                bitField0_ |= 0x00000004;
+                format_ = value;
+              }
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              sequenceBytes_ = input.readInt32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              sectionNumber_ = input.readUInt32();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
+              uncompressedSampleOffset_ = input.readUInt32();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -10430,12 +8474,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_VoiceData_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_VoiceData_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_VoiceData_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_VoiceData_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CCLCMsg_VoiceData.class, com.valve.dota2.Netmessages.CCLCMsg_VoiceData.Builder.class);
     }
@@ -10488,9 +8532,77 @@ public final class Netmessages {
       return xuid_;
     }
 
+    // optional .VoiceDataFormat_t format = 3 [default = VOICEDATA_FORMAT_STEAM];
+    public static final int FORMAT_FIELD_NUMBER = 3;
+    private com.valve.dota2.Netmessages.VoiceDataFormat_t format_;
+    /**
+     * <code>optional .VoiceDataFormat_t format = 3 [default = VOICEDATA_FORMAT_STEAM];</code>
+     */
+    public boolean hasFormat() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional .VoiceDataFormat_t format = 3 [default = VOICEDATA_FORMAT_STEAM];</code>
+     */
+    public com.valve.dota2.Netmessages.VoiceDataFormat_t getFormat() {
+      return format_;
+    }
+
+    // optional int32 sequence_bytes = 4;
+    public static final int SEQUENCE_BYTES_FIELD_NUMBER = 4;
+    private int sequenceBytes_;
+    /**
+     * <code>optional int32 sequence_bytes = 4;</code>
+     */
+    public boolean hasSequenceBytes() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional int32 sequence_bytes = 4;</code>
+     */
+    public int getSequenceBytes() {
+      return sequenceBytes_;
+    }
+
+    // optional uint32 section_number = 5;
+    public static final int SECTION_NUMBER_FIELD_NUMBER = 5;
+    private int sectionNumber_;
+    /**
+     * <code>optional uint32 section_number = 5;</code>
+     */
+    public boolean hasSectionNumber() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>optional uint32 section_number = 5;</code>
+     */
+    public int getSectionNumber() {
+      return sectionNumber_;
+    }
+
+    // optional uint32 uncompressed_sample_offset = 6;
+    public static final int UNCOMPRESSED_SAMPLE_OFFSET_FIELD_NUMBER = 6;
+    private int uncompressedSampleOffset_;
+    /**
+     * <code>optional uint32 uncompressed_sample_offset = 6;</code>
+     */
+    public boolean hasUncompressedSampleOffset() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional uint32 uncompressed_sample_offset = 6;</code>
+     */
+    public int getUncompressedSampleOffset() {
+      return uncompressedSampleOffset_;
+    }
+
     private void initFields() {
       data_ = com.google.protobuf.ByteString.EMPTY;
       xuid_ = 0L;
+      format_ = com.valve.dota2.Netmessages.VoiceDataFormat_t.VOICEDATA_FORMAT_STEAM;
+      sequenceBytes_ = 0;
+      sectionNumber_ = 0;
+      uncompressedSampleOffset_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -10510,6 +8622,18 @@ public final class Netmessages {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeFixed64(2, xuid_);
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeEnum(3, format_.getNumber());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, sequenceBytes_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeUInt32(5, sectionNumber_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeUInt32(6, uncompressedSampleOffset_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -10526,6 +8650,22 @@ public final class Netmessages {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeFixed64Size(2, xuid_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, format_.getNumber());
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, sequenceBytes_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(5, sectionNumber_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(6, uncompressedSampleOffset_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -10606,19 +8746,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CCLCMsg_VoiceData}
+     * Protobuf type {@code CCLCMsg_VoiceData}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CCLCMsg_VoiceDataOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_VoiceData_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_VoiceData_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_VoiceData_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_VoiceData_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CCLCMsg_VoiceData.class, com.valve.dota2.Netmessages.CCLCMsg_VoiceData.Builder.class);
       }
@@ -10647,6 +8787,14 @@ public final class Netmessages {
         bitField0_ = (bitField0_ & ~0x00000001);
         xuid_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
+        format_ = com.valve.dota2.Netmessages.VoiceDataFormat_t.VOICEDATA_FORMAT_STEAM;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        sequenceBytes_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        sectionNumber_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        uncompressedSampleOffset_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -10656,7 +8804,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_VoiceData_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_VoiceData_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CCLCMsg_VoiceData getDefaultInstanceForType() {
@@ -10683,6 +8831,22 @@ public final class Netmessages {
           to_bitField0_ |= 0x00000002;
         }
         result.xuid_ = xuid_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.format_ = format_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.sequenceBytes_ = sequenceBytes_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.sectionNumber_ = sectionNumber_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.uncompressedSampleOffset_ = uncompressedSampleOffset_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -10704,6 +8868,18 @@ public final class Netmessages {
         }
         if (other.hasXuid()) {
           setXuid(other.getXuid());
+        }
+        if (other.hasFormat()) {
+          setFormat(other.getFormat());
+        }
+        if (other.hasSequenceBytes()) {
+          setSequenceBytes(other.getSequenceBytes());
+        }
+        if (other.hasSectionNumber()) {
+          setSectionNumber(other.getSectionNumber());
+        }
+        if (other.hasUncompressedSampleOffset()) {
+          setUncompressedSampleOffset(other.getUncompressedSampleOffset());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -10801,7 +8977,142 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CCLCMsg_VoiceData)
+      // optional .VoiceDataFormat_t format = 3 [default = VOICEDATA_FORMAT_STEAM];
+      private com.valve.dota2.Netmessages.VoiceDataFormat_t format_ = com.valve.dota2.Netmessages.VoiceDataFormat_t.VOICEDATA_FORMAT_STEAM;
+      /**
+       * <code>optional .VoiceDataFormat_t format = 3 [default = VOICEDATA_FORMAT_STEAM];</code>
+       */
+      public boolean hasFormat() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional .VoiceDataFormat_t format = 3 [default = VOICEDATA_FORMAT_STEAM];</code>
+       */
+      public com.valve.dota2.Netmessages.VoiceDataFormat_t getFormat() {
+        return format_;
+      }
+      /**
+       * <code>optional .VoiceDataFormat_t format = 3 [default = VOICEDATA_FORMAT_STEAM];</code>
+       */
+      public Builder setFormat(com.valve.dota2.Netmessages.VoiceDataFormat_t value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000004;
+        format_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .VoiceDataFormat_t format = 3 [default = VOICEDATA_FORMAT_STEAM];</code>
+       */
+      public Builder clearFormat() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        format_ = com.valve.dota2.Netmessages.VoiceDataFormat_t.VOICEDATA_FORMAT_STEAM;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 sequence_bytes = 4;
+      private int sequenceBytes_ ;
+      /**
+       * <code>optional int32 sequence_bytes = 4;</code>
+       */
+      public boolean hasSequenceBytes() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int32 sequence_bytes = 4;</code>
+       */
+      public int getSequenceBytes() {
+        return sequenceBytes_;
+      }
+      /**
+       * <code>optional int32 sequence_bytes = 4;</code>
+       */
+      public Builder setSequenceBytes(int value) {
+        bitField0_ |= 0x00000008;
+        sequenceBytes_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 sequence_bytes = 4;</code>
+       */
+      public Builder clearSequenceBytes() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        sequenceBytes_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional uint32 section_number = 5;
+      private int sectionNumber_ ;
+      /**
+       * <code>optional uint32 section_number = 5;</code>
+       */
+      public boolean hasSectionNumber() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional uint32 section_number = 5;</code>
+       */
+      public int getSectionNumber() {
+        return sectionNumber_;
+      }
+      /**
+       * <code>optional uint32 section_number = 5;</code>
+       */
+      public Builder setSectionNumber(int value) {
+        bitField0_ |= 0x00000010;
+        sectionNumber_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 section_number = 5;</code>
+       */
+      public Builder clearSectionNumber() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        sectionNumber_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional uint32 uncompressed_sample_offset = 6;
+      private int uncompressedSampleOffset_ ;
+      /**
+       * <code>optional uint32 uncompressed_sample_offset = 6;</code>
+       */
+      public boolean hasUncompressedSampleOffset() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional uint32 uncompressed_sample_offset = 6;</code>
+       */
+      public int getUncompressedSampleOffset() {
+        return uncompressedSampleOffset_;
+      }
+      /**
+       * <code>optional uint32 uncompressed_sample_offset = 6;</code>
+       */
+      public Builder setUncompressedSampleOffset(int value) {
+        bitField0_ |= 0x00000020;
+        uncompressedSampleOffset_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 uncompressed_sample_offset = 6;</code>
+       */
+      public Builder clearUncompressedSampleOffset() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        uncompressedSampleOffset_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:CCLCMsg_VoiceData)
     }
 
     static {
@@ -10809,7 +9120,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CCLCMsg_VoiceData)
+    // @@protoc_insertion_point(class_scope:CCLCMsg_VoiceData)
   }
 
   public interface CCLCMsg_BaselineAckOrBuilder
@@ -10836,7 +9147,7 @@ public final class Netmessages {
     int getBaselineNr();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CCLCMsg_BaselineAck}
+   * Protobuf type {@code CCLCMsg_BaselineAck}
    */
   public static final class CCLCMsg_BaselineAck extends
       com.google.protobuf.GeneratedMessage
@@ -10910,12 +9221,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_BaselineAck_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_BaselineAck_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_BaselineAck_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_BaselineAck_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CCLCMsg_BaselineAck.class, com.valve.dota2.Netmessages.CCLCMsg_BaselineAck.Builder.class);
     }
@@ -11086,19 +9397,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CCLCMsg_BaselineAck}
+     * Protobuf type {@code CCLCMsg_BaselineAck}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CCLCMsg_BaselineAckOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_BaselineAck_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_BaselineAck_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_BaselineAck_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_BaselineAck_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CCLCMsg_BaselineAck.class, com.valve.dota2.Netmessages.CCLCMsg_BaselineAck.Builder.class);
       }
@@ -11136,7 +9447,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_BaselineAck_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_BaselineAck_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CCLCMsg_BaselineAck getDefaultInstanceForType() {
@@ -11278,7 +9589,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CCLCMsg_BaselineAck)
+      // @@protoc_insertion_point(builder_scope:CCLCMsg_BaselineAck)
     }
 
     static {
@@ -11286,7 +9597,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CCLCMsg_BaselineAck)
+    // @@protoc_insertion_point(class_scope:CCLCMsg_BaselineAck)
   }
 
   public interface CCLCMsg_ListenEventsOrBuilder
@@ -11307,7 +9618,7 @@ public final class Netmessages {
     int getEventMask(int index);
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CCLCMsg_ListenEvents}
+   * Protobuf type {@code CCLCMsg_ListenEvents}
    */
   public static final class CCLCMsg_ListenEvents extends
       com.google.protobuf.GeneratedMessage
@@ -11395,12 +9706,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_ListenEvents_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_ListenEvents_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_ListenEvents_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_ListenEvents_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CCLCMsg_ListenEvents.class, com.valve.dota2.Netmessages.CCLCMsg_ListenEvents.Builder.class);
     }
@@ -11555,19 +9866,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CCLCMsg_ListenEvents}
+     * Protobuf type {@code CCLCMsg_ListenEvents}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CCLCMsg_ListenEventsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_ListenEvents_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_ListenEvents_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_ListenEvents_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_ListenEvents_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CCLCMsg_ListenEvents.class, com.valve.dota2.Netmessages.CCLCMsg_ListenEvents.Builder.class);
       }
@@ -11603,7 +9914,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_ListenEvents_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_ListenEvents_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CCLCMsg_ListenEvents getDefaultInstanceForType() {
@@ -11744,7 +10055,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CCLCMsg_ListenEvents)
+      // @@protoc_insertion_point(builder_scope:CCLCMsg_ListenEvents)
     }
 
     static {
@@ -11752,7 +10063,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CCLCMsg_ListenEvents)
+    // @@protoc_insertion_point(class_scope:CCLCMsg_ListenEvents)
   }
 
   public interface CCLCMsg_RespondCvarValueOrBuilder
@@ -11761,36 +10072,20 @@ public final class Netmessages {
     // optional int32 cookie = 1;
     /**
      * <code>optional int32 cookie = 1;</code>
-     *
-     * <pre>
-     * QueryCvarCookie_t
-     * </pre>
      */
     boolean hasCookie();
     /**
      * <code>optional int32 cookie = 1;</code>
-     *
-     * <pre>
-     * QueryCvarCookie_t
-     * </pre>
      */
     int getCookie();
 
     // optional int32 status_code = 2;
     /**
      * <code>optional int32 status_code = 2;</code>
-     *
-     * <pre>
-     * EQueryCvarValueStatus
-     * </pre>
      */
     boolean hasStatusCode();
     /**
      * <code>optional int32 status_code = 2;</code>
-     *
-     * <pre>
-     * EQueryCvarValueStatus
-     * </pre>
      */
     int getStatusCode();
 
@@ -11825,7 +10120,7 @@ public final class Netmessages {
         getValueBytes();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CCLCMsg_RespondCvarValue}
+   * Protobuf type {@code CCLCMsg_RespondCvarValue}
    */
   public static final class CCLCMsg_RespondCvarValue extends
       com.google.protobuf.GeneratedMessage
@@ -11909,12 +10204,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_RespondCvarValue_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_RespondCvarValue_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_RespondCvarValue_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_RespondCvarValue_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CCLCMsg_RespondCvarValue.class, com.valve.dota2.Netmessages.CCLCMsg_RespondCvarValue.Builder.class);
     }
@@ -11940,20 +10235,12 @@ public final class Netmessages {
     private int cookie_;
     /**
      * <code>optional int32 cookie = 1;</code>
-     *
-     * <pre>
-     * QueryCvarCookie_t
-     * </pre>
      */
     public boolean hasCookie() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>optional int32 cookie = 1;</code>
-     *
-     * <pre>
-     * QueryCvarCookie_t
-     * </pre>
      */
     public int getCookie() {
       return cookie_;
@@ -11964,20 +10251,12 @@ public final class Netmessages {
     private int statusCode_;
     /**
      * <code>optional int32 status_code = 2;</code>
-     *
-     * <pre>
-     * EQueryCvarValueStatus
-     * </pre>
      */
     public boolean hasStatusCode() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <code>optional int32 status_code = 2;</code>
-     *
-     * <pre>
-     * EQueryCvarValueStatus
-     * </pre>
      */
     public int getStatusCode() {
       return statusCode_;
@@ -12203,19 +10482,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CCLCMsg_RespondCvarValue}
+     * Protobuf type {@code CCLCMsg_RespondCvarValue}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CCLCMsg_RespondCvarValueOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_RespondCvarValue_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_RespondCvarValue_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_RespondCvarValue_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_RespondCvarValue_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CCLCMsg_RespondCvarValue.class, com.valve.dota2.Netmessages.CCLCMsg_RespondCvarValue.Builder.class);
       }
@@ -12257,7 +10536,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_RespondCvarValue_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_RespondCvarValue_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CCLCMsg_RespondCvarValue getDefaultInstanceForType() {
@@ -12355,30 +10634,18 @@ public final class Netmessages {
       private int cookie_ ;
       /**
        * <code>optional int32 cookie = 1;</code>
-       *
-       * <pre>
-       * QueryCvarCookie_t
-       * </pre>
        */
       public boolean hasCookie() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional int32 cookie = 1;</code>
-       *
-       * <pre>
-       * QueryCvarCookie_t
-       * </pre>
        */
       public int getCookie() {
         return cookie_;
       }
       /**
        * <code>optional int32 cookie = 1;</code>
-       *
-       * <pre>
-       * QueryCvarCookie_t
-       * </pre>
        */
       public Builder setCookie(int value) {
         bitField0_ |= 0x00000001;
@@ -12388,10 +10655,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional int32 cookie = 1;</code>
-       *
-       * <pre>
-       * QueryCvarCookie_t
-       * </pre>
        */
       public Builder clearCookie() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -12404,30 +10667,18 @@ public final class Netmessages {
       private int statusCode_ ;
       /**
        * <code>optional int32 status_code = 2;</code>
-       *
-       * <pre>
-       * EQueryCvarValueStatus
-       * </pre>
        */
       public boolean hasStatusCode() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <code>optional int32 status_code = 2;</code>
-       *
-       * <pre>
-       * EQueryCvarValueStatus
-       * </pre>
        */
       public int getStatusCode() {
         return statusCode_;
       }
       /**
        * <code>optional int32 status_code = 2;</code>
-       *
-       * <pre>
-       * EQueryCvarValueStatus
-       * </pre>
        */
       public Builder setStatusCode(int value) {
         bitField0_ |= 0x00000002;
@@ -12437,10 +10688,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional int32 status_code = 2;</code>
-       *
-       * <pre>
-       * EQueryCvarValueStatus
-       * </pre>
        */
       public Builder clearStatusCode() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -12597,7 +10844,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CCLCMsg_RespondCvarValue)
+      // @@protoc_insertion_point(builder_scope:CCLCMsg_RespondCvarValue)
     }
 
     static {
@@ -12605,7 +10852,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CCLCMsg_RespondCvarValue)
+    // @@protoc_insertion_point(class_scope:CCLCMsg_RespondCvarValue)
   }
 
   public interface CCLCMsg_FileCRCCheckOrBuilder
@@ -12672,7 +10919,7 @@ public final class Netmessages {
     int getCrc();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CCLCMsg_FileCRCCheck}
+   * Protobuf type {@code CCLCMsg_FileCRCCheck}
    */
   public static final class CCLCMsg_FileCRCCheck extends
       com.google.protobuf.GeneratedMessage
@@ -12761,12 +11008,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_FileCRCCheck_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_FileCRCCheck_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_FileCRCCheck_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_FileCRCCheck_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CCLCMsg_FileCRCCheck.class, com.valve.dota2.Netmessages.CCLCMsg_FileCRCCheck.Builder.class);
     }
@@ -13063,19 +11310,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CCLCMsg_FileCRCCheck}
+     * Protobuf type {@code CCLCMsg_FileCRCCheck}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CCLCMsg_FileCRCCheckOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_FileCRCCheck_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_FileCRCCheck_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_FileCRCCheck_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_FileCRCCheck_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CCLCMsg_FileCRCCheck.class, com.valve.dota2.Netmessages.CCLCMsg_FileCRCCheck.Builder.class);
       }
@@ -13119,7 +11366,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_FileCRCCheck_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_FileCRCCheck_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CCLCMsg_FileCRCCheck getDefaultInstanceForType() {
@@ -13467,7 +11714,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CCLCMsg_FileCRCCheck)
+      // @@protoc_insertion_point(builder_scope:CCLCMsg_FileCRCCheck)
     }
 
     static {
@@ -13475,7 +11722,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CCLCMsg_FileCRCCheck)
+    // @@protoc_insertion_point(class_scope:CCLCMsg_FileCRCCheck)
   }
 
   public interface CCLCMsg_LoadingProgressOrBuilder
@@ -13492,7 +11739,7 @@ public final class Netmessages {
     int getProgress();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CCLCMsg_LoadingProgress}
+   * Protobuf type {@code CCLCMsg_LoadingProgress}
    */
   public static final class CCLCMsg_LoadingProgress extends
       com.google.protobuf.GeneratedMessage
@@ -13561,12 +11808,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_LoadingProgress_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_LoadingProgress_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_LoadingProgress_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_LoadingProgress_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CCLCMsg_LoadingProgress.class, com.valve.dota2.Netmessages.CCLCMsg_LoadingProgress.Builder.class);
     }
@@ -13713,19 +11960,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CCLCMsg_LoadingProgress}
+     * Protobuf type {@code CCLCMsg_LoadingProgress}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CCLCMsg_LoadingProgressOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_LoadingProgress_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_LoadingProgress_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_LoadingProgress_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_LoadingProgress_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CCLCMsg_LoadingProgress.class, com.valve.dota2.Netmessages.CCLCMsg_LoadingProgress.Builder.class);
       }
@@ -13761,7 +12008,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_LoadingProgress_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_LoadingProgress_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CCLCMsg_LoadingProgress getDefaultInstanceForType() {
@@ -13863,7 +12110,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CCLCMsg_LoadingProgress)
+      // @@protoc_insertion_point(builder_scope:CCLCMsg_LoadingProgress)
     }
 
     static {
@@ -13871,28 +12118,28 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CCLCMsg_LoadingProgress)
+    // @@protoc_insertion_point(class_scope:CCLCMsg_LoadingProgress)
   }
 
   public interface CCLCMsg_SplitPlayerConnectOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional .com.valve.dota2.CMsg_CVars convars = 1;
+    // optional .CMsg_CVars convars = 1;
     /**
-     * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+     * <code>optional .CMsg_CVars convars = 1;</code>
      */
     boolean hasConvars();
     /**
-     * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+     * <code>optional .CMsg_CVars convars = 1;</code>
      */
     com.valve.dota2.Netmessages.CMsg_CVars getConvars();
     /**
-     * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+     * <code>optional .CMsg_CVars convars = 1;</code>
      */
     com.valve.dota2.Netmessages.CMsg_CVarsOrBuilder getConvarsOrBuilder();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CCLCMsg_SplitPlayerConnect}
+   * Protobuf type {@code CCLCMsg_SplitPlayerConnect}
    */
   public static final class CCLCMsg_SplitPlayerConnect extends
       com.google.protobuf.GeneratedMessage
@@ -13969,12 +12216,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_SplitPlayerConnect_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_SplitPlayerConnect_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_SplitPlayerConnect_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_SplitPlayerConnect_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CCLCMsg_SplitPlayerConnect.class, com.valve.dota2.Netmessages.CCLCMsg_SplitPlayerConnect.Builder.class);
     }
@@ -13995,23 +12242,23 @@ public final class Netmessages {
     }
 
     private int bitField0_;
-    // optional .com.valve.dota2.CMsg_CVars convars = 1;
+    // optional .CMsg_CVars convars = 1;
     public static final int CONVARS_FIELD_NUMBER = 1;
     private com.valve.dota2.Netmessages.CMsg_CVars convars_;
     /**
-     * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+     * <code>optional .CMsg_CVars convars = 1;</code>
      */
     public boolean hasConvars() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+     * <code>optional .CMsg_CVars convars = 1;</code>
      */
     public com.valve.dota2.Netmessages.CMsg_CVars getConvars() {
       return convars_;
     }
     /**
-     * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+     * <code>optional .CMsg_CVars convars = 1;</code>
      */
     public com.valve.dota2.Netmessages.CMsg_CVarsOrBuilder getConvarsOrBuilder() {
       return convars_;
@@ -14127,19 +12374,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CCLCMsg_SplitPlayerConnect}
+     * Protobuf type {@code CCLCMsg_SplitPlayerConnect}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CCLCMsg_SplitPlayerConnectOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_SplitPlayerConnect_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_SplitPlayerConnect_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_SplitPlayerConnect_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_SplitPlayerConnect_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CCLCMsg_SplitPlayerConnect.class, com.valve.dota2.Netmessages.CCLCMsg_SplitPlayerConnect.Builder.class);
       }
@@ -14180,7 +12427,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_SplitPlayerConnect_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_SplitPlayerConnect_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CCLCMsg_SplitPlayerConnect getDefaultInstanceForType() {
@@ -14253,18 +12500,18 @@ public final class Netmessages {
       }
       private int bitField0_;
 
-      // optional .com.valve.dota2.CMsg_CVars convars = 1;
+      // optional .CMsg_CVars convars = 1;
       private com.valve.dota2.Netmessages.CMsg_CVars convars_ = com.valve.dota2.Netmessages.CMsg_CVars.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.valve.dota2.Netmessages.CMsg_CVars, com.valve.dota2.Netmessages.CMsg_CVars.Builder, com.valve.dota2.Netmessages.CMsg_CVarsOrBuilder> convarsBuilder_;
       /**
-       * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+       * <code>optional .CMsg_CVars convars = 1;</code>
        */
       public boolean hasConvars() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+       * <code>optional .CMsg_CVars convars = 1;</code>
        */
       public com.valve.dota2.Netmessages.CMsg_CVars getConvars() {
         if (convarsBuilder_ == null) {
@@ -14274,7 +12521,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+       * <code>optional .CMsg_CVars convars = 1;</code>
        */
       public Builder setConvars(com.valve.dota2.Netmessages.CMsg_CVars value) {
         if (convarsBuilder_ == null) {
@@ -14290,7 +12537,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+       * <code>optional .CMsg_CVars convars = 1;</code>
        */
       public Builder setConvars(
           com.valve.dota2.Netmessages.CMsg_CVars.Builder builderForValue) {
@@ -14304,7 +12551,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+       * <code>optional .CMsg_CVars convars = 1;</code>
        */
       public Builder mergeConvars(com.valve.dota2.Netmessages.CMsg_CVars value) {
         if (convarsBuilder_ == null) {
@@ -14323,7 +12570,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+       * <code>optional .CMsg_CVars convars = 1;</code>
        */
       public Builder clearConvars() {
         if (convarsBuilder_ == null) {
@@ -14336,7 +12583,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+       * <code>optional .CMsg_CVars convars = 1;</code>
        */
       public com.valve.dota2.Netmessages.CMsg_CVars.Builder getConvarsBuilder() {
         bitField0_ |= 0x00000001;
@@ -14344,7 +12591,7 @@ public final class Netmessages {
         return getConvarsFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+       * <code>optional .CMsg_CVars convars = 1;</code>
        */
       public com.valve.dota2.Netmessages.CMsg_CVarsOrBuilder getConvarsOrBuilder() {
         if (convarsBuilder_ != null) {
@@ -14354,7 +12601,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CMsg_CVars convars = 1;</code>
+       * <code>optional .CMsg_CVars convars = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.valve.dota2.Netmessages.CMsg_CVars, com.valve.dota2.Netmessages.CMsg_CVars.Builder, com.valve.dota2.Netmessages.CMsg_CVarsOrBuilder> 
@@ -14370,7 +12617,7 @@ public final class Netmessages {
         return convarsBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CCLCMsg_SplitPlayerConnect)
+      // @@protoc_insertion_point(builder_scope:CCLCMsg_SplitPlayerConnect)
     }
 
     static {
@@ -14378,7 +12625,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CCLCMsg_SplitPlayerConnect)
+    // @@protoc_insertion_point(class_scope:CCLCMsg_SplitPlayerConnect)
   }
 
   public interface CCLCMsg_ClientMessageOrBuilder
@@ -14405,7 +12652,7 @@ public final class Netmessages {
     com.google.protobuf.ByteString getData();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CCLCMsg_ClientMessage}
+   * Protobuf type {@code CCLCMsg_ClientMessage}
    */
   public static final class CCLCMsg_ClientMessage extends
       com.google.protobuf.GeneratedMessage
@@ -14479,12 +12726,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_ClientMessage_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_ClientMessage_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_ClientMessage_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CCLCMsg_ClientMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CCLCMsg_ClientMessage.class, com.valve.dota2.Netmessages.CCLCMsg_ClientMessage.Builder.class);
     }
@@ -14655,19 +12902,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CCLCMsg_ClientMessage}
+     * Protobuf type {@code CCLCMsg_ClientMessage}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CCLCMsg_ClientMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_ClientMessage_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_ClientMessage_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_ClientMessage_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_ClientMessage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CCLCMsg_ClientMessage.class, com.valve.dota2.Netmessages.CCLCMsg_ClientMessage.Builder.class);
       }
@@ -14705,7 +12952,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CCLCMsg_ClientMessage_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CCLCMsg_ClientMessage_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CCLCMsg_ClientMessage getDefaultInstanceForType() {
@@ -14850,7 +13097,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CCLCMsg_ClientMessage)
+      // @@protoc_insertion_point(builder_scope:CCLCMsg_ClientMessage)
     }
 
     static {
@@ -14858,7 +13105,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CCLCMsg_ClientMessage)
+    // @@protoc_insertion_point(class_scope:CCLCMsg_ClientMessage)
   }
 
   public interface CSVCMsg_ServerInfoOrBuilder
@@ -14867,260 +13114,144 @@ public final class Netmessages {
     // optional int32 protocol = 1;
     /**
      * <code>optional int32 protocol = 1;</code>
-     *
-     * <pre>
-     * protocol version
-     * </pre>
      */
     boolean hasProtocol();
     /**
      * <code>optional int32 protocol = 1;</code>
-     *
-     * <pre>
-     * protocol version
-     * </pre>
      */
     int getProtocol();
 
     // optional int32 server_count = 2;
     /**
      * <code>optional int32 server_count = 2;</code>
-     *
-     * <pre>
-     * number of changelevels since server start
-     * </pre>
      */
     boolean hasServerCount();
     /**
      * <code>optional int32 server_count = 2;</code>
-     *
-     * <pre>
-     * number of changelevels since server start
-     * </pre>
      */
     int getServerCount();
 
     // optional bool is_dedicated = 3;
     /**
      * <code>optional bool is_dedicated = 3;</code>
-     *
-     * <pre>
-     * dedicated server ?	
-     * </pre>
      */
     boolean hasIsDedicated();
     /**
      * <code>optional bool is_dedicated = 3;</code>
-     *
-     * <pre>
-     * dedicated server ?	
-     * </pre>
      */
     boolean getIsDedicated();
 
     // optional bool is_hltv = 4;
     /**
      * <code>optional bool is_hltv = 4;</code>
-     *
-     * <pre>
-     * HLTV server ?
-     * </pre>
      */
     boolean hasIsHltv();
     /**
      * <code>optional bool is_hltv = 4;</code>
-     *
-     * <pre>
-     * HLTV server ?
-     * </pre>
      */
     boolean getIsHltv();
 
     // optional bool is_replay = 5;
     /**
      * <code>optional bool is_replay = 5;</code>
-     *
-     * <pre>
-     * Replay server ?
-     * </pre>
      */
     boolean hasIsReplay();
     /**
      * <code>optional bool is_replay = 5;</code>
-     *
-     * <pre>
-     * Replay server ?
-     * </pre>
      */
     boolean getIsReplay();
 
     // optional int32 c_os = 6;
     /**
      * <code>optional int32 c_os = 6;</code>
-     *
-     * <pre>
-     * L = linux, W = Win32
-     * </pre>
      */
     boolean hasCOs();
     /**
      * <code>optional int32 c_os = 6;</code>
-     *
-     * <pre>
-     * L = linux, W = Win32
-     * </pre>
      */
     int getCOs();
 
     // optional fixed32 map_crc = 7;
     /**
      * <code>optional fixed32 map_crc = 7;</code>
-     *
-     * <pre>
-     * server map CRC
-     * </pre>
      */
     boolean hasMapCrc();
     /**
      * <code>optional fixed32 map_crc = 7;</code>
-     *
-     * <pre>
-     * server map CRC
-     * </pre>
      */
     int getMapCrc();
 
     // optional fixed32 client_crc = 8;
     /**
      * <code>optional fixed32 client_crc = 8;</code>
-     *
-     * <pre>
-     * client.dll CRC server is using
-     * </pre>
      */
     boolean hasClientCrc();
     /**
      * <code>optional fixed32 client_crc = 8;</code>
-     *
-     * <pre>
-     * client.dll CRC server is using
-     * </pre>
      */
     int getClientCrc();
 
     // optional fixed32 string_table_crc = 9;
     /**
      * <code>optional fixed32 string_table_crc = 9;</code>
-     *
-     * <pre>
-     * string table CRC server is using
-     * </pre>
      */
     boolean hasStringTableCrc();
     /**
      * <code>optional fixed32 string_table_crc = 9;</code>
-     *
-     * <pre>
-     * string table CRC server is using
-     * </pre>
      */
     int getStringTableCrc();
 
     // optional int32 max_clients = 10;
     /**
      * <code>optional int32 max_clients = 10;</code>
-     *
-     * <pre>
-     * max number of clients on server
-     * </pre>
      */
     boolean hasMaxClients();
     /**
      * <code>optional int32 max_clients = 10;</code>
-     *
-     * <pre>
-     * max number of clients on server
-     * </pre>
      */
     int getMaxClients();
 
     // optional int32 max_classes = 11;
     /**
      * <code>optional int32 max_classes = 11;</code>
-     *
-     * <pre>
-     * max number of server classes
-     * </pre>
      */
     boolean hasMaxClasses();
     /**
      * <code>optional int32 max_classes = 11;</code>
-     *
-     * <pre>
-     * max number of server classes
-     * </pre>
      */
     int getMaxClasses();
 
     // optional int32 player_slot = 12;
     /**
      * <code>optional int32 player_slot = 12;</code>
-     *
-     * <pre>
-     * our client slot number
-     * </pre>
      */
     boolean hasPlayerSlot();
     /**
      * <code>optional int32 player_slot = 12;</code>
-     *
-     * <pre>
-     * our client slot number
-     * </pre>
      */
     int getPlayerSlot();
 
     // optional float tick_interval = 13;
     /**
      * <code>optional float tick_interval = 13;</code>
-     *
-     * <pre>
-     * server tick interval
-     * </pre>
      */
     boolean hasTickInterval();
     /**
      * <code>optional float tick_interval = 13;</code>
-     *
-     * <pre>
-     * server tick interval
-     * </pre>
      */
     float getTickInterval();
 
     // optional string game_dir = 14;
     /**
      * <code>optional string game_dir = 14;</code>
-     *
-     * <pre>
-     * game directory eg "tf2"
-     * </pre>
      */
     boolean hasGameDir();
     /**
      * <code>optional string game_dir = 14;</code>
-     *
-     * <pre>
-     * game directory eg "tf2"
-     * </pre>
      */
     java.lang.String getGameDir();
     /**
      * <code>optional string game_dir = 14;</code>
-     *
-     * <pre>
-     * game directory eg "tf2"
-     * </pre>
      */
     com.google.protobuf.ByteString
         getGameDirBytes();
@@ -15128,26 +13259,14 @@ public final class Netmessages {
     // optional string map_name = 15;
     /**
      * <code>optional string map_name = 15;</code>
-     *
-     * <pre>
-     * name of current map 
-     * </pre>
      */
     boolean hasMapName();
     /**
      * <code>optional string map_name = 15;</code>
-     *
-     * <pre>
-     * name of current map 
-     * </pre>
      */
     java.lang.String getMapName();
     /**
      * <code>optional string map_name = 15;</code>
-     *
-     * <pre>
-     * name of current map 
-     * </pre>
      */
     com.google.protobuf.ByteString
         getMapNameBytes();
@@ -15155,26 +13274,14 @@ public final class Netmessages {
     // optional string sky_name = 16;
     /**
      * <code>optional string sky_name = 16;</code>
-     *
-     * <pre>
-     * name of current skybox 
-     * </pre>
      */
     boolean hasSkyName();
     /**
      * <code>optional string sky_name = 16;</code>
-     *
-     * <pre>
-     * name of current skybox 
-     * </pre>
      */
     java.lang.String getSkyName();
     /**
      * <code>optional string sky_name = 16;</code>
-     *
-     * <pre>
-     * name of current skybox 
-     * </pre>
      */
     com.google.protobuf.ByteString
         getSkyNameBytes();
@@ -15182,32 +13289,35 @@ public final class Netmessages {
     // optional string host_name = 17;
     /**
      * <code>optional string host_name = 17;</code>
-     *
-     * <pre>
-     * server name
-     * </pre>
      */
     boolean hasHostName();
     /**
      * <code>optional string host_name = 17;</code>
-     *
-     * <pre>
-     * server name
-     * </pre>
      */
     java.lang.String getHostName();
     /**
      * <code>optional string host_name = 17;</code>
-     *
-     * <pre>
-     * server name
-     * </pre>
      */
     com.google.protobuf.ByteString
         getHostNameBytes();
+
+    // optional string addon_name = 18;
+    /**
+     * <code>optional string addon_name = 18;</code>
+     */
+    boolean hasAddonName();
+    /**
+     * <code>optional string addon_name = 18;</code>
+     */
+    java.lang.String getAddonName();
+    /**
+     * <code>optional string addon_name = 18;</code>
+     */
+    com.google.protobuf.ByteString
+        getAddonNameBytes();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_ServerInfo}
+   * Protobuf type {@code CSVCMsg_ServerInfo}
    */
   public static final class CSVCMsg_ServerInfo extends
       com.google.protobuf.GeneratedMessage
@@ -15342,6 +13452,11 @@ public final class Netmessages {
               hostName_ = input.readBytes();
               break;
             }
+            case 146: {
+              bitField0_ |= 0x00020000;
+              addonName_ = input.readBytes();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -15356,12 +13471,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_ServerInfo_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_ServerInfo_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_ServerInfo_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_ServerInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_ServerInfo.class, com.valve.dota2.Netmessages.CSVCMsg_ServerInfo.Builder.class);
     }
@@ -15387,20 +13502,12 @@ public final class Netmessages {
     private int protocol_;
     /**
      * <code>optional int32 protocol = 1;</code>
-     *
-     * <pre>
-     * protocol version
-     * </pre>
      */
     public boolean hasProtocol() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>optional int32 protocol = 1;</code>
-     *
-     * <pre>
-     * protocol version
-     * </pre>
      */
     public int getProtocol() {
       return protocol_;
@@ -15411,20 +13518,12 @@ public final class Netmessages {
     private int serverCount_;
     /**
      * <code>optional int32 server_count = 2;</code>
-     *
-     * <pre>
-     * number of changelevels since server start
-     * </pre>
      */
     public boolean hasServerCount() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <code>optional int32 server_count = 2;</code>
-     *
-     * <pre>
-     * number of changelevels since server start
-     * </pre>
      */
     public int getServerCount() {
       return serverCount_;
@@ -15435,20 +13534,12 @@ public final class Netmessages {
     private boolean isDedicated_;
     /**
      * <code>optional bool is_dedicated = 3;</code>
-     *
-     * <pre>
-     * dedicated server ?	
-     * </pre>
      */
     public boolean hasIsDedicated() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <code>optional bool is_dedicated = 3;</code>
-     *
-     * <pre>
-     * dedicated server ?	
-     * </pre>
      */
     public boolean getIsDedicated() {
       return isDedicated_;
@@ -15459,20 +13550,12 @@ public final class Netmessages {
     private boolean isHltv_;
     /**
      * <code>optional bool is_hltv = 4;</code>
-     *
-     * <pre>
-     * HLTV server ?
-     * </pre>
      */
     public boolean hasIsHltv() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      * <code>optional bool is_hltv = 4;</code>
-     *
-     * <pre>
-     * HLTV server ?
-     * </pre>
      */
     public boolean getIsHltv() {
       return isHltv_;
@@ -15483,20 +13566,12 @@ public final class Netmessages {
     private boolean isReplay_;
     /**
      * <code>optional bool is_replay = 5;</code>
-     *
-     * <pre>
-     * Replay server ?
-     * </pre>
      */
     public boolean hasIsReplay() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
      * <code>optional bool is_replay = 5;</code>
-     *
-     * <pre>
-     * Replay server ?
-     * </pre>
      */
     public boolean getIsReplay() {
       return isReplay_;
@@ -15507,20 +13582,12 @@ public final class Netmessages {
     private int cOs_;
     /**
      * <code>optional int32 c_os = 6;</code>
-     *
-     * <pre>
-     * L = linux, W = Win32
-     * </pre>
      */
     public boolean hasCOs() {
       return ((bitField0_ & 0x00000020) == 0x00000020);
     }
     /**
      * <code>optional int32 c_os = 6;</code>
-     *
-     * <pre>
-     * L = linux, W = Win32
-     * </pre>
      */
     public int getCOs() {
       return cOs_;
@@ -15531,20 +13598,12 @@ public final class Netmessages {
     private int mapCrc_;
     /**
      * <code>optional fixed32 map_crc = 7;</code>
-     *
-     * <pre>
-     * server map CRC
-     * </pre>
      */
     public boolean hasMapCrc() {
       return ((bitField0_ & 0x00000040) == 0x00000040);
     }
     /**
      * <code>optional fixed32 map_crc = 7;</code>
-     *
-     * <pre>
-     * server map CRC
-     * </pre>
      */
     public int getMapCrc() {
       return mapCrc_;
@@ -15555,20 +13614,12 @@ public final class Netmessages {
     private int clientCrc_;
     /**
      * <code>optional fixed32 client_crc = 8;</code>
-     *
-     * <pre>
-     * client.dll CRC server is using
-     * </pre>
      */
     public boolean hasClientCrc() {
       return ((bitField0_ & 0x00000080) == 0x00000080);
     }
     /**
      * <code>optional fixed32 client_crc = 8;</code>
-     *
-     * <pre>
-     * client.dll CRC server is using
-     * </pre>
      */
     public int getClientCrc() {
       return clientCrc_;
@@ -15579,20 +13630,12 @@ public final class Netmessages {
     private int stringTableCrc_;
     /**
      * <code>optional fixed32 string_table_crc = 9;</code>
-     *
-     * <pre>
-     * string table CRC server is using
-     * </pre>
      */
     public boolean hasStringTableCrc() {
       return ((bitField0_ & 0x00000100) == 0x00000100);
     }
     /**
      * <code>optional fixed32 string_table_crc = 9;</code>
-     *
-     * <pre>
-     * string table CRC server is using
-     * </pre>
      */
     public int getStringTableCrc() {
       return stringTableCrc_;
@@ -15603,20 +13646,12 @@ public final class Netmessages {
     private int maxClients_;
     /**
      * <code>optional int32 max_clients = 10;</code>
-     *
-     * <pre>
-     * max number of clients on server
-     * </pre>
      */
     public boolean hasMaxClients() {
       return ((bitField0_ & 0x00000200) == 0x00000200);
     }
     /**
      * <code>optional int32 max_clients = 10;</code>
-     *
-     * <pre>
-     * max number of clients on server
-     * </pre>
      */
     public int getMaxClients() {
       return maxClients_;
@@ -15627,20 +13662,12 @@ public final class Netmessages {
     private int maxClasses_;
     /**
      * <code>optional int32 max_classes = 11;</code>
-     *
-     * <pre>
-     * max number of server classes
-     * </pre>
      */
     public boolean hasMaxClasses() {
       return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
      * <code>optional int32 max_classes = 11;</code>
-     *
-     * <pre>
-     * max number of server classes
-     * </pre>
      */
     public int getMaxClasses() {
       return maxClasses_;
@@ -15651,20 +13678,12 @@ public final class Netmessages {
     private int playerSlot_;
     /**
      * <code>optional int32 player_slot = 12;</code>
-     *
-     * <pre>
-     * our client slot number
-     * </pre>
      */
     public boolean hasPlayerSlot() {
       return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
      * <code>optional int32 player_slot = 12;</code>
-     *
-     * <pre>
-     * our client slot number
-     * </pre>
      */
     public int getPlayerSlot() {
       return playerSlot_;
@@ -15675,20 +13694,12 @@ public final class Netmessages {
     private float tickInterval_;
     /**
      * <code>optional float tick_interval = 13;</code>
-     *
-     * <pre>
-     * server tick interval
-     * </pre>
      */
     public boolean hasTickInterval() {
       return ((bitField0_ & 0x00001000) == 0x00001000);
     }
     /**
      * <code>optional float tick_interval = 13;</code>
-     *
-     * <pre>
-     * server tick interval
-     * </pre>
      */
     public float getTickInterval() {
       return tickInterval_;
@@ -15699,20 +13710,12 @@ public final class Netmessages {
     private java.lang.Object gameDir_;
     /**
      * <code>optional string game_dir = 14;</code>
-     *
-     * <pre>
-     * game directory eg "tf2"
-     * </pre>
      */
     public boolean hasGameDir() {
       return ((bitField0_ & 0x00002000) == 0x00002000);
     }
     /**
      * <code>optional string game_dir = 14;</code>
-     *
-     * <pre>
-     * game directory eg "tf2"
-     * </pre>
      */
     public java.lang.String getGameDir() {
       java.lang.Object ref = gameDir_;
@@ -15730,10 +13733,6 @@ public final class Netmessages {
     }
     /**
      * <code>optional string game_dir = 14;</code>
-     *
-     * <pre>
-     * game directory eg "tf2"
-     * </pre>
      */
     public com.google.protobuf.ByteString
         getGameDirBytes() {
@@ -15754,20 +13753,12 @@ public final class Netmessages {
     private java.lang.Object mapName_;
     /**
      * <code>optional string map_name = 15;</code>
-     *
-     * <pre>
-     * name of current map 
-     * </pre>
      */
     public boolean hasMapName() {
       return ((bitField0_ & 0x00004000) == 0x00004000);
     }
     /**
      * <code>optional string map_name = 15;</code>
-     *
-     * <pre>
-     * name of current map 
-     * </pre>
      */
     public java.lang.String getMapName() {
       java.lang.Object ref = mapName_;
@@ -15785,10 +13776,6 @@ public final class Netmessages {
     }
     /**
      * <code>optional string map_name = 15;</code>
-     *
-     * <pre>
-     * name of current map 
-     * </pre>
      */
     public com.google.protobuf.ByteString
         getMapNameBytes() {
@@ -15809,20 +13796,12 @@ public final class Netmessages {
     private java.lang.Object skyName_;
     /**
      * <code>optional string sky_name = 16;</code>
-     *
-     * <pre>
-     * name of current skybox 
-     * </pre>
      */
     public boolean hasSkyName() {
       return ((bitField0_ & 0x00008000) == 0x00008000);
     }
     /**
      * <code>optional string sky_name = 16;</code>
-     *
-     * <pre>
-     * name of current skybox 
-     * </pre>
      */
     public java.lang.String getSkyName() {
       java.lang.Object ref = skyName_;
@@ -15840,10 +13819,6 @@ public final class Netmessages {
     }
     /**
      * <code>optional string sky_name = 16;</code>
-     *
-     * <pre>
-     * name of current skybox 
-     * </pre>
      */
     public com.google.protobuf.ByteString
         getSkyNameBytes() {
@@ -15864,20 +13839,12 @@ public final class Netmessages {
     private java.lang.Object hostName_;
     /**
      * <code>optional string host_name = 17;</code>
-     *
-     * <pre>
-     * server name
-     * </pre>
      */
     public boolean hasHostName() {
       return ((bitField0_ & 0x00010000) == 0x00010000);
     }
     /**
      * <code>optional string host_name = 17;</code>
-     *
-     * <pre>
-     * server name
-     * </pre>
      */
     public java.lang.String getHostName() {
       java.lang.Object ref = hostName_;
@@ -15895,10 +13862,6 @@ public final class Netmessages {
     }
     /**
      * <code>optional string host_name = 17;</code>
-     *
-     * <pre>
-     * server name
-     * </pre>
      */
     public com.google.protobuf.ByteString
         getHostNameBytes() {
@@ -15908,6 +13871,49 @@ public final class Netmessages {
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         hostName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // optional string addon_name = 18;
+    public static final int ADDON_NAME_FIELD_NUMBER = 18;
+    private java.lang.Object addonName_;
+    /**
+     * <code>optional string addon_name = 18;</code>
+     */
+    public boolean hasAddonName() {
+      return ((bitField0_ & 0x00020000) == 0x00020000);
+    }
+    /**
+     * <code>optional string addon_name = 18;</code>
+     */
+    public java.lang.String getAddonName() {
+      java.lang.Object ref = addonName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          addonName_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string addon_name = 18;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAddonNameBytes() {
+      java.lang.Object ref = addonName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        addonName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -15932,6 +13938,7 @@ public final class Netmessages {
       mapName_ = "";
       skyName_ = "";
       hostName_ = "";
+      addonName_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -15995,6 +14002,9 @@ public final class Netmessages {
       }
       if (((bitField0_ & 0x00010000) == 0x00010000)) {
         output.writeBytes(17, getHostNameBytes());
+      }
+      if (((bitField0_ & 0x00020000) == 0x00020000)) {
+        output.writeBytes(18, getAddonNameBytes());
       }
       getUnknownFields().writeTo(output);
     }
@@ -16072,6 +14082,10 @@ public final class Netmessages {
       if (((bitField0_ & 0x00010000) == 0x00010000)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(17, getHostNameBytes());
+      }
+      if (((bitField0_ & 0x00020000) == 0x00020000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(18, getAddonNameBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -16152,19 +14166,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_ServerInfo}
+     * Protobuf type {@code CSVCMsg_ServerInfo}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_ServerInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_ServerInfo_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_ServerInfo_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_ServerInfo_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_ServerInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_ServerInfo.class, com.valve.dota2.Netmessages.CSVCMsg_ServerInfo.Builder.class);
       }
@@ -16223,6 +14237,8 @@ public final class Netmessages {
         bitField0_ = (bitField0_ & ~0x00008000);
         hostName_ = "";
         bitField0_ = (bitField0_ & ~0x00010000);
+        addonName_ = "";
+        bitField0_ = (bitField0_ & ~0x00020000);
         return this;
       }
 
@@ -16232,7 +14248,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_ServerInfo_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_ServerInfo_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_ServerInfo getDefaultInstanceForType() {
@@ -16319,6 +14335,10 @@ public final class Netmessages {
           to_bitField0_ |= 0x00010000;
         }
         result.hostName_ = hostName_;
+        if (((from_bitField0_ & 0x00020000) == 0x00020000)) {
+          to_bitField0_ |= 0x00020000;
+        }
+        result.addonName_ = addonName_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -16394,6 +14414,11 @@ public final class Netmessages {
           hostName_ = other.hostName_;
           onChanged();
         }
+        if (other.hasAddonName()) {
+          bitField0_ |= 0x00020000;
+          addonName_ = other.addonName_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -16425,30 +14450,18 @@ public final class Netmessages {
       private int protocol_ ;
       /**
        * <code>optional int32 protocol = 1;</code>
-       *
-       * <pre>
-       * protocol version
-       * </pre>
        */
       public boolean hasProtocol() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional int32 protocol = 1;</code>
-       *
-       * <pre>
-       * protocol version
-       * </pre>
        */
       public int getProtocol() {
         return protocol_;
       }
       /**
        * <code>optional int32 protocol = 1;</code>
-       *
-       * <pre>
-       * protocol version
-       * </pre>
        */
       public Builder setProtocol(int value) {
         bitField0_ |= 0x00000001;
@@ -16458,10 +14471,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional int32 protocol = 1;</code>
-       *
-       * <pre>
-       * protocol version
-       * </pre>
        */
       public Builder clearProtocol() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -16474,30 +14483,18 @@ public final class Netmessages {
       private int serverCount_ ;
       /**
        * <code>optional int32 server_count = 2;</code>
-       *
-       * <pre>
-       * number of changelevels since server start
-       * </pre>
        */
       public boolean hasServerCount() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <code>optional int32 server_count = 2;</code>
-       *
-       * <pre>
-       * number of changelevels since server start
-       * </pre>
        */
       public int getServerCount() {
         return serverCount_;
       }
       /**
        * <code>optional int32 server_count = 2;</code>
-       *
-       * <pre>
-       * number of changelevels since server start
-       * </pre>
        */
       public Builder setServerCount(int value) {
         bitField0_ |= 0x00000002;
@@ -16507,10 +14504,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional int32 server_count = 2;</code>
-       *
-       * <pre>
-       * number of changelevels since server start
-       * </pre>
        */
       public Builder clearServerCount() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -16523,30 +14516,18 @@ public final class Netmessages {
       private boolean isDedicated_ ;
       /**
        * <code>optional bool is_dedicated = 3;</code>
-       *
-       * <pre>
-       * dedicated server ?	
-       * </pre>
        */
       public boolean hasIsDedicated() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <code>optional bool is_dedicated = 3;</code>
-       *
-       * <pre>
-       * dedicated server ?	
-       * </pre>
        */
       public boolean getIsDedicated() {
         return isDedicated_;
       }
       /**
        * <code>optional bool is_dedicated = 3;</code>
-       *
-       * <pre>
-       * dedicated server ?	
-       * </pre>
        */
       public Builder setIsDedicated(boolean value) {
         bitField0_ |= 0x00000004;
@@ -16556,10 +14537,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional bool is_dedicated = 3;</code>
-       *
-       * <pre>
-       * dedicated server ?	
-       * </pre>
        */
       public Builder clearIsDedicated() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -16572,30 +14549,18 @@ public final class Netmessages {
       private boolean isHltv_ ;
       /**
        * <code>optional bool is_hltv = 4;</code>
-       *
-       * <pre>
-       * HLTV server ?
-       * </pre>
        */
       public boolean hasIsHltv() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <code>optional bool is_hltv = 4;</code>
-       *
-       * <pre>
-       * HLTV server ?
-       * </pre>
        */
       public boolean getIsHltv() {
         return isHltv_;
       }
       /**
        * <code>optional bool is_hltv = 4;</code>
-       *
-       * <pre>
-       * HLTV server ?
-       * </pre>
        */
       public Builder setIsHltv(boolean value) {
         bitField0_ |= 0x00000008;
@@ -16605,10 +14570,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional bool is_hltv = 4;</code>
-       *
-       * <pre>
-       * HLTV server ?
-       * </pre>
        */
       public Builder clearIsHltv() {
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -16621,30 +14582,18 @@ public final class Netmessages {
       private boolean isReplay_ ;
       /**
        * <code>optional bool is_replay = 5;</code>
-       *
-       * <pre>
-       * Replay server ?
-       * </pre>
        */
       public boolean hasIsReplay() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        * <code>optional bool is_replay = 5;</code>
-       *
-       * <pre>
-       * Replay server ?
-       * </pre>
        */
       public boolean getIsReplay() {
         return isReplay_;
       }
       /**
        * <code>optional bool is_replay = 5;</code>
-       *
-       * <pre>
-       * Replay server ?
-       * </pre>
        */
       public Builder setIsReplay(boolean value) {
         bitField0_ |= 0x00000010;
@@ -16654,10 +14603,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional bool is_replay = 5;</code>
-       *
-       * <pre>
-       * Replay server ?
-       * </pre>
        */
       public Builder clearIsReplay() {
         bitField0_ = (bitField0_ & ~0x00000010);
@@ -16670,30 +14615,18 @@ public final class Netmessages {
       private int cOs_ ;
       /**
        * <code>optional int32 c_os = 6;</code>
-       *
-       * <pre>
-       * L = linux, W = Win32
-       * </pre>
        */
       public boolean hasCOs() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
        * <code>optional int32 c_os = 6;</code>
-       *
-       * <pre>
-       * L = linux, W = Win32
-       * </pre>
        */
       public int getCOs() {
         return cOs_;
       }
       /**
        * <code>optional int32 c_os = 6;</code>
-       *
-       * <pre>
-       * L = linux, W = Win32
-       * </pre>
        */
       public Builder setCOs(int value) {
         bitField0_ |= 0x00000020;
@@ -16703,10 +14636,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional int32 c_os = 6;</code>
-       *
-       * <pre>
-       * L = linux, W = Win32
-       * </pre>
        */
       public Builder clearCOs() {
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -16719,30 +14648,18 @@ public final class Netmessages {
       private int mapCrc_ ;
       /**
        * <code>optional fixed32 map_crc = 7;</code>
-       *
-       * <pre>
-       * server map CRC
-       * </pre>
        */
       public boolean hasMapCrc() {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
        * <code>optional fixed32 map_crc = 7;</code>
-       *
-       * <pre>
-       * server map CRC
-       * </pre>
        */
       public int getMapCrc() {
         return mapCrc_;
       }
       /**
        * <code>optional fixed32 map_crc = 7;</code>
-       *
-       * <pre>
-       * server map CRC
-       * </pre>
        */
       public Builder setMapCrc(int value) {
         bitField0_ |= 0x00000040;
@@ -16752,10 +14669,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional fixed32 map_crc = 7;</code>
-       *
-       * <pre>
-       * server map CRC
-       * </pre>
        */
       public Builder clearMapCrc() {
         bitField0_ = (bitField0_ & ~0x00000040);
@@ -16768,30 +14681,18 @@ public final class Netmessages {
       private int clientCrc_ ;
       /**
        * <code>optional fixed32 client_crc = 8;</code>
-       *
-       * <pre>
-       * client.dll CRC server is using
-       * </pre>
        */
       public boolean hasClientCrc() {
         return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
        * <code>optional fixed32 client_crc = 8;</code>
-       *
-       * <pre>
-       * client.dll CRC server is using
-       * </pre>
        */
       public int getClientCrc() {
         return clientCrc_;
       }
       /**
        * <code>optional fixed32 client_crc = 8;</code>
-       *
-       * <pre>
-       * client.dll CRC server is using
-       * </pre>
        */
       public Builder setClientCrc(int value) {
         bitField0_ |= 0x00000080;
@@ -16801,10 +14702,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional fixed32 client_crc = 8;</code>
-       *
-       * <pre>
-       * client.dll CRC server is using
-       * </pre>
        */
       public Builder clearClientCrc() {
         bitField0_ = (bitField0_ & ~0x00000080);
@@ -16817,30 +14714,18 @@ public final class Netmessages {
       private int stringTableCrc_ ;
       /**
        * <code>optional fixed32 string_table_crc = 9;</code>
-       *
-       * <pre>
-       * string table CRC server is using
-       * </pre>
        */
       public boolean hasStringTableCrc() {
         return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
        * <code>optional fixed32 string_table_crc = 9;</code>
-       *
-       * <pre>
-       * string table CRC server is using
-       * </pre>
        */
       public int getStringTableCrc() {
         return stringTableCrc_;
       }
       /**
        * <code>optional fixed32 string_table_crc = 9;</code>
-       *
-       * <pre>
-       * string table CRC server is using
-       * </pre>
        */
       public Builder setStringTableCrc(int value) {
         bitField0_ |= 0x00000100;
@@ -16850,10 +14735,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional fixed32 string_table_crc = 9;</code>
-       *
-       * <pre>
-       * string table CRC server is using
-       * </pre>
        */
       public Builder clearStringTableCrc() {
         bitField0_ = (bitField0_ & ~0x00000100);
@@ -16866,30 +14747,18 @@ public final class Netmessages {
       private int maxClients_ ;
       /**
        * <code>optional int32 max_clients = 10;</code>
-       *
-       * <pre>
-       * max number of clients on server
-       * </pre>
        */
       public boolean hasMaxClients() {
         return ((bitField0_ & 0x00000200) == 0x00000200);
       }
       /**
        * <code>optional int32 max_clients = 10;</code>
-       *
-       * <pre>
-       * max number of clients on server
-       * </pre>
        */
       public int getMaxClients() {
         return maxClients_;
       }
       /**
        * <code>optional int32 max_clients = 10;</code>
-       *
-       * <pre>
-       * max number of clients on server
-       * </pre>
        */
       public Builder setMaxClients(int value) {
         bitField0_ |= 0x00000200;
@@ -16899,10 +14768,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional int32 max_clients = 10;</code>
-       *
-       * <pre>
-       * max number of clients on server
-       * </pre>
        */
       public Builder clearMaxClients() {
         bitField0_ = (bitField0_ & ~0x00000200);
@@ -16915,30 +14780,18 @@ public final class Netmessages {
       private int maxClasses_ ;
       /**
        * <code>optional int32 max_classes = 11;</code>
-       *
-       * <pre>
-       * max number of server classes
-       * </pre>
        */
       public boolean hasMaxClasses() {
         return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
        * <code>optional int32 max_classes = 11;</code>
-       *
-       * <pre>
-       * max number of server classes
-       * </pre>
        */
       public int getMaxClasses() {
         return maxClasses_;
       }
       /**
        * <code>optional int32 max_classes = 11;</code>
-       *
-       * <pre>
-       * max number of server classes
-       * </pre>
        */
       public Builder setMaxClasses(int value) {
         bitField0_ |= 0x00000400;
@@ -16948,10 +14801,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional int32 max_classes = 11;</code>
-       *
-       * <pre>
-       * max number of server classes
-       * </pre>
        */
       public Builder clearMaxClasses() {
         bitField0_ = (bitField0_ & ~0x00000400);
@@ -16964,30 +14813,18 @@ public final class Netmessages {
       private int playerSlot_ ;
       /**
        * <code>optional int32 player_slot = 12;</code>
-       *
-       * <pre>
-       * our client slot number
-       * </pre>
        */
       public boolean hasPlayerSlot() {
         return ((bitField0_ & 0x00000800) == 0x00000800);
       }
       /**
        * <code>optional int32 player_slot = 12;</code>
-       *
-       * <pre>
-       * our client slot number
-       * </pre>
        */
       public int getPlayerSlot() {
         return playerSlot_;
       }
       /**
        * <code>optional int32 player_slot = 12;</code>
-       *
-       * <pre>
-       * our client slot number
-       * </pre>
        */
       public Builder setPlayerSlot(int value) {
         bitField0_ |= 0x00000800;
@@ -16997,10 +14834,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional int32 player_slot = 12;</code>
-       *
-       * <pre>
-       * our client slot number
-       * </pre>
        */
       public Builder clearPlayerSlot() {
         bitField0_ = (bitField0_ & ~0x00000800);
@@ -17013,30 +14846,18 @@ public final class Netmessages {
       private float tickInterval_ ;
       /**
        * <code>optional float tick_interval = 13;</code>
-       *
-       * <pre>
-       * server tick interval
-       * </pre>
        */
       public boolean hasTickInterval() {
         return ((bitField0_ & 0x00001000) == 0x00001000);
       }
       /**
        * <code>optional float tick_interval = 13;</code>
-       *
-       * <pre>
-       * server tick interval
-       * </pre>
        */
       public float getTickInterval() {
         return tickInterval_;
       }
       /**
        * <code>optional float tick_interval = 13;</code>
-       *
-       * <pre>
-       * server tick interval
-       * </pre>
        */
       public Builder setTickInterval(float value) {
         bitField0_ |= 0x00001000;
@@ -17046,10 +14867,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional float tick_interval = 13;</code>
-       *
-       * <pre>
-       * server tick interval
-       * </pre>
        */
       public Builder clearTickInterval() {
         bitField0_ = (bitField0_ & ~0x00001000);
@@ -17062,20 +14879,12 @@ public final class Netmessages {
       private java.lang.Object gameDir_ = "";
       /**
        * <code>optional string game_dir = 14;</code>
-       *
-       * <pre>
-       * game directory eg "tf2"
-       * </pre>
        */
       public boolean hasGameDir() {
         return ((bitField0_ & 0x00002000) == 0x00002000);
       }
       /**
        * <code>optional string game_dir = 14;</code>
-       *
-       * <pre>
-       * game directory eg "tf2"
-       * </pre>
        */
       public java.lang.String getGameDir() {
         java.lang.Object ref = gameDir_;
@@ -17090,10 +14899,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string game_dir = 14;</code>
-       *
-       * <pre>
-       * game directory eg "tf2"
-       * </pre>
        */
       public com.google.protobuf.ByteString
           getGameDirBytes() {
@@ -17110,10 +14915,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string game_dir = 14;</code>
-       *
-       * <pre>
-       * game directory eg "tf2"
-       * </pre>
        */
       public Builder setGameDir(
           java.lang.String value) {
@@ -17127,10 +14928,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string game_dir = 14;</code>
-       *
-       * <pre>
-       * game directory eg "tf2"
-       * </pre>
        */
       public Builder clearGameDir() {
         bitField0_ = (bitField0_ & ~0x00002000);
@@ -17140,10 +14937,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string game_dir = 14;</code>
-       *
-       * <pre>
-       * game directory eg "tf2"
-       * </pre>
        */
       public Builder setGameDirBytes(
           com.google.protobuf.ByteString value) {
@@ -17160,20 +14953,12 @@ public final class Netmessages {
       private java.lang.Object mapName_ = "";
       /**
        * <code>optional string map_name = 15;</code>
-       *
-       * <pre>
-       * name of current map 
-       * </pre>
        */
       public boolean hasMapName() {
         return ((bitField0_ & 0x00004000) == 0x00004000);
       }
       /**
        * <code>optional string map_name = 15;</code>
-       *
-       * <pre>
-       * name of current map 
-       * </pre>
        */
       public java.lang.String getMapName() {
         java.lang.Object ref = mapName_;
@@ -17188,10 +14973,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string map_name = 15;</code>
-       *
-       * <pre>
-       * name of current map 
-       * </pre>
        */
       public com.google.protobuf.ByteString
           getMapNameBytes() {
@@ -17208,10 +14989,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string map_name = 15;</code>
-       *
-       * <pre>
-       * name of current map 
-       * </pre>
        */
       public Builder setMapName(
           java.lang.String value) {
@@ -17225,10 +15002,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string map_name = 15;</code>
-       *
-       * <pre>
-       * name of current map 
-       * </pre>
        */
       public Builder clearMapName() {
         bitField0_ = (bitField0_ & ~0x00004000);
@@ -17238,10 +15011,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string map_name = 15;</code>
-       *
-       * <pre>
-       * name of current map 
-       * </pre>
        */
       public Builder setMapNameBytes(
           com.google.protobuf.ByteString value) {
@@ -17258,20 +15027,12 @@ public final class Netmessages {
       private java.lang.Object skyName_ = "";
       /**
        * <code>optional string sky_name = 16;</code>
-       *
-       * <pre>
-       * name of current skybox 
-       * </pre>
        */
       public boolean hasSkyName() {
         return ((bitField0_ & 0x00008000) == 0x00008000);
       }
       /**
        * <code>optional string sky_name = 16;</code>
-       *
-       * <pre>
-       * name of current skybox 
-       * </pre>
        */
       public java.lang.String getSkyName() {
         java.lang.Object ref = skyName_;
@@ -17286,10 +15047,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string sky_name = 16;</code>
-       *
-       * <pre>
-       * name of current skybox 
-       * </pre>
        */
       public com.google.protobuf.ByteString
           getSkyNameBytes() {
@@ -17306,10 +15063,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string sky_name = 16;</code>
-       *
-       * <pre>
-       * name of current skybox 
-       * </pre>
        */
       public Builder setSkyName(
           java.lang.String value) {
@@ -17323,10 +15076,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string sky_name = 16;</code>
-       *
-       * <pre>
-       * name of current skybox 
-       * </pre>
        */
       public Builder clearSkyName() {
         bitField0_ = (bitField0_ & ~0x00008000);
@@ -17336,10 +15085,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string sky_name = 16;</code>
-       *
-       * <pre>
-       * name of current skybox 
-       * </pre>
        */
       public Builder setSkyNameBytes(
           com.google.protobuf.ByteString value) {
@@ -17356,20 +15101,12 @@ public final class Netmessages {
       private java.lang.Object hostName_ = "";
       /**
        * <code>optional string host_name = 17;</code>
-       *
-       * <pre>
-       * server name
-       * </pre>
        */
       public boolean hasHostName() {
         return ((bitField0_ & 0x00010000) == 0x00010000);
       }
       /**
        * <code>optional string host_name = 17;</code>
-       *
-       * <pre>
-       * server name
-       * </pre>
        */
       public java.lang.String getHostName() {
         java.lang.Object ref = hostName_;
@@ -17384,10 +15121,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string host_name = 17;</code>
-       *
-       * <pre>
-       * server name
-       * </pre>
        */
       public com.google.protobuf.ByteString
           getHostNameBytes() {
@@ -17404,10 +15137,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string host_name = 17;</code>
-       *
-       * <pre>
-       * server name
-       * </pre>
        */
       public Builder setHostName(
           java.lang.String value) {
@@ -17421,10 +15150,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string host_name = 17;</code>
-       *
-       * <pre>
-       * server name
-       * </pre>
        */
       public Builder clearHostName() {
         bitField0_ = (bitField0_ & ~0x00010000);
@@ -17434,10 +15159,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string host_name = 17;</code>
-       *
-       * <pre>
-       * server name
-       * </pre>
        */
       public Builder setHostNameBytes(
           com.google.protobuf.ByteString value) {
@@ -17450,7 +15171,81 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_ServerInfo)
+      // optional string addon_name = 18;
+      private java.lang.Object addonName_ = "";
+      /**
+       * <code>optional string addon_name = 18;</code>
+       */
+      public boolean hasAddonName() {
+        return ((bitField0_ & 0x00020000) == 0x00020000);
+      }
+      /**
+       * <code>optional string addon_name = 18;</code>
+       */
+      public java.lang.String getAddonName() {
+        java.lang.Object ref = addonName_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          addonName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string addon_name = 18;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAddonNameBytes() {
+        java.lang.Object ref = addonName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          addonName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string addon_name = 18;</code>
+       */
+      public Builder setAddonName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00020000;
+        addonName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string addon_name = 18;</code>
+       */
+      public Builder clearAddonName() {
+        bitField0_ = (bitField0_ & ~0x00020000);
+        addonName_ = getDefaultInstance().getAddonName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string addon_name = 18;</code>
+       */
+      public Builder setAddonNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00020000;
+        addonName_ = value;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_ServerInfo)
     }
 
     static {
@@ -17458,7 +15253,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_ServerInfo)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_ServerInfo)
   }
 
   public interface CSVCMsg_ClassInfoOrBuilder
@@ -17474,33 +15269,33 @@ public final class Netmessages {
      */
     boolean getCreateOnClient();
 
-    // repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;
+    // repeated .CSVCMsg_ClassInfo.class_t classes = 2;
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+     * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
      */
     java.util.List<com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t> 
         getClassesList();
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+     * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
      */
     com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t getClasses(int index);
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+     * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
      */
     int getClassesCount();
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+     * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
      */
     java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_tOrBuilder> 
         getClassesOrBuilderList();
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+     * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
      */
     com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_tOrBuilder getClassesOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_ClassInfo}
+   * Protobuf type {@code CSVCMsg_ClassInfo}
    */
   public static final class CSVCMsg_ClassInfo extends
       com.google.protobuf.GeneratedMessage
@@ -17580,12 +15375,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_ClassInfo_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_ClassInfo_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_ClassInfo_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_ClassInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class, com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.Builder.class);
     }
@@ -17649,7 +15444,7 @@ public final class Netmessages {
           getClassNameBytes();
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_ClassInfo.class_t}
+     * Protobuf type {@code CSVCMsg_ClassInfo.class_t}
      */
     public static final class class_t extends
         com.google.protobuf.GeneratedMessage
@@ -17728,12 +15523,12 @@ public final class Netmessages {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_ClassInfo_class_t_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_ClassInfo_class_t_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_ClassInfo_class_t_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_ClassInfo_class_t_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t.class, com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t.Builder.class);
       }
@@ -17982,19 +15777,19 @@ public final class Netmessages {
         return builder;
       }
       /**
-       * Protobuf type {@code com.valve.dota2.CSVCMsg_ClassInfo.class_t}
+       * Protobuf type {@code CSVCMsg_ClassInfo.class_t}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
          implements com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_tOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_ClassInfo_class_t_descriptor;
+          return com.valve.dota2.Netmessages.internal_static_CSVCMsg_ClassInfo_class_t_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_ClassInfo_class_t_fieldAccessorTable
+          return com.valve.dota2.Netmessages.internal_static_CSVCMsg_ClassInfo_class_t_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t.class, com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t.Builder.class);
         }
@@ -18034,7 +15829,7 @@ public final class Netmessages {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_ClassInfo_class_t_descriptor;
+          return com.valve.dota2.Netmessages.internal_static_CSVCMsg_ClassInfo_class_t_descriptor;
         }
 
         public com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t getDefaultInstanceForType() {
@@ -18302,7 +16097,7 @@ public final class Netmessages {
           return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_ClassInfo.class_t)
+        // @@protoc_insertion_point(builder_scope:CSVCMsg_ClassInfo.class_t)
       }
 
       static {
@@ -18310,7 +16105,7 @@ public final class Netmessages {
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_ClassInfo.class_t)
+      // @@protoc_insertion_point(class_scope:CSVCMsg_ClassInfo.class_t)
     }
 
     private int bitField0_;
@@ -18330,36 +16125,36 @@ public final class Netmessages {
       return createOnClient_;
     }
 
-    // repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;
+    // repeated .CSVCMsg_ClassInfo.class_t classes = 2;
     public static final int CLASSES_FIELD_NUMBER = 2;
     private java.util.List<com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t> classes_;
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+     * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
      */
     public java.util.List<com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t> getClassesList() {
       return classes_;
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+     * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
      */
     public java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_tOrBuilder> 
         getClassesOrBuilderList() {
       return classes_;
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+     * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
      */
     public int getClassesCount() {
       return classes_.size();
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+     * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
      */
     public com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t getClasses(int index) {
       return classes_.get(index);
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+     * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
      */
     public com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_tOrBuilder getClassesOrBuilder(
         int index) {
@@ -18484,19 +16279,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_ClassInfo}
+     * Protobuf type {@code CSVCMsg_ClassInfo}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_ClassInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_ClassInfo_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_ClassInfo_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_ClassInfo_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_ClassInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class, com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.Builder.class);
       }
@@ -18539,7 +16334,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_ClassInfo_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_ClassInfo_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_ClassInfo getDefaultInstanceForType() {
@@ -18676,7 +16471,7 @@ public final class Netmessages {
         return this;
       }
 
-      // repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;
+      // repeated .CSVCMsg_ClassInfo.class_t classes = 2;
       private java.util.List<com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t> classes_ =
         java.util.Collections.emptyList();
       private void ensureClassesIsMutable() {
@@ -18690,7 +16485,7 @@ public final class Netmessages {
           com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t, com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t.Builder, com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_tOrBuilder> classesBuilder_;
 
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+       * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
        */
       public java.util.List<com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t> getClassesList() {
         if (classesBuilder_ == null) {
@@ -18700,7 +16495,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+       * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
        */
       public int getClassesCount() {
         if (classesBuilder_ == null) {
@@ -18710,7 +16505,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+       * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t getClasses(int index) {
         if (classesBuilder_ == null) {
@@ -18720,7 +16515,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+       * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
        */
       public Builder setClasses(
           int index, com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t value) {
@@ -18737,7 +16532,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+       * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
        */
       public Builder setClasses(
           int index, com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t.Builder builderForValue) {
@@ -18751,7 +16546,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+       * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
        */
       public Builder addClasses(com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t value) {
         if (classesBuilder_ == null) {
@@ -18767,7 +16562,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+       * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
        */
       public Builder addClasses(
           int index, com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t value) {
@@ -18784,7 +16579,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+       * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
        */
       public Builder addClasses(
           com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t.Builder builderForValue) {
@@ -18798,7 +16593,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+       * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
        */
       public Builder addClasses(
           int index, com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t.Builder builderForValue) {
@@ -18812,7 +16607,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+       * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
        */
       public Builder addAllClasses(
           java.lang.Iterable<? extends com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t> values) {
@@ -18826,7 +16621,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+       * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
        */
       public Builder clearClasses() {
         if (classesBuilder_ == null) {
@@ -18839,7 +16634,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+       * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
        */
       public Builder removeClasses(int index) {
         if (classesBuilder_ == null) {
@@ -18852,14 +16647,14 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+       * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t.Builder getClassesBuilder(
           int index) {
         return getClassesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+       * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_tOrBuilder getClassesOrBuilder(
           int index) {
@@ -18869,7 +16664,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+       * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
        */
       public java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_tOrBuilder> 
            getClassesOrBuilderList() {
@@ -18880,14 +16675,14 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+       * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t.Builder addClassesBuilder() {
         return getClassesFieldBuilder().addBuilder(
             com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+       * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t.Builder addClassesBuilder(
           int index) {
@@ -18895,7 +16690,7 @@ public final class Netmessages {
             index, com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_ClassInfo.class_t classes = 2;</code>
+       * <code>repeated .CSVCMsg_ClassInfo.class_t classes = 2;</code>
        */
       public java.util.List<com.valve.dota2.Netmessages.CSVCMsg_ClassInfo.class_t.Builder> 
            getClassesBuilderList() {
@@ -18916,7 +16711,7 @@ public final class Netmessages {
         return classesBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_ClassInfo)
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_ClassInfo)
     }
 
     static {
@@ -18924,7 +16719,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_ClassInfo)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_ClassInfo)
   }
 
   public interface CSVCMsg_SetPauseOrBuilder
@@ -18941,7 +16736,7 @@ public final class Netmessages {
     boolean getPaused();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_SetPause}
+   * Protobuf type {@code CSVCMsg_SetPause}
    */
   public static final class CSVCMsg_SetPause extends
       com.google.protobuf.GeneratedMessage
@@ -19010,12 +16805,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SetPause_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SetPause_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SetPause_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SetPause_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_SetPause.class, com.valve.dota2.Netmessages.CSVCMsg_SetPause.Builder.class);
     }
@@ -19162,19 +16957,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_SetPause}
+     * Protobuf type {@code CSVCMsg_SetPause}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_SetPauseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SetPause_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SetPause_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SetPause_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SetPause_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_SetPause.class, com.valve.dota2.Netmessages.CSVCMsg_SetPause.Builder.class);
       }
@@ -19210,7 +17005,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SetPause_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SetPause_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_SetPause getDefaultInstanceForType() {
@@ -19312,7 +17107,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_SetPause)
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_SetPause)
     }
 
     static {
@@ -19320,7 +17115,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_SetPause)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_SetPause)
   }
 
   public interface CSVCMsg_VoiceInitOrBuilder
@@ -19350,9 +17145,19 @@ public final class Netmessages {
      */
     com.google.protobuf.ByteString
         getCodecBytes();
+
+    // optional int32 version = 3 [default = 0];
+    /**
+     * <code>optional int32 version = 3 [default = 0];</code>
+     */
+    boolean hasVersion();
+    /**
+     * <code>optional int32 version = 3 [default = 0];</code>
+     */
+    int getVersion();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_VoiceInit}
+   * Protobuf type {@code CSVCMsg_VoiceInit}
    */
   public static final class CSVCMsg_VoiceInit extends
       com.google.protobuf.GeneratedMessage
@@ -19412,6 +17217,11 @@ public final class Netmessages {
               codec_ = input.readBytes();
               break;
             }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              version_ = input.readInt32();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -19426,12 +17236,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_VoiceInit_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_VoiceInit_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_VoiceInit_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_VoiceInit_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_VoiceInit.class, com.valve.dota2.Netmessages.CSVCMsg_VoiceInit.Builder.class);
     }
@@ -19511,9 +17321,26 @@ public final class Netmessages {
       }
     }
 
+    // optional int32 version = 3 [default = 0];
+    public static final int VERSION_FIELD_NUMBER = 3;
+    private int version_;
+    /**
+     * <code>optional int32 version = 3 [default = 0];</code>
+     */
+    public boolean hasVersion() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional int32 version = 3 [default = 0];</code>
+     */
+    public int getVersion() {
+      return version_;
+    }
+
     private void initFields() {
       quality_ = 0;
       codec_ = "";
+      version_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -19533,6 +17360,9 @@ public final class Netmessages {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBytes(2, getCodecBytes());
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, version_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -19549,6 +17379,10 @@ public final class Netmessages {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, getCodecBytes());
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, version_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -19629,19 +17463,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_VoiceInit}
+     * Protobuf type {@code CSVCMsg_VoiceInit}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_VoiceInitOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_VoiceInit_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_VoiceInit_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_VoiceInit_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_VoiceInit_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_VoiceInit.class, com.valve.dota2.Netmessages.CSVCMsg_VoiceInit.Builder.class);
       }
@@ -19670,6 +17504,8 @@ public final class Netmessages {
         bitField0_ = (bitField0_ & ~0x00000001);
         codec_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
+        version_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -19679,7 +17515,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_VoiceInit_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_VoiceInit_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_VoiceInit getDefaultInstanceForType() {
@@ -19706,6 +17542,10 @@ public final class Netmessages {
           to_bitField0_ |= 0x00000002;
         }
         result.codec_ = codec_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.version_ = version_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -19729,6 +17569,9 @@ public final class Netmessages {
           bitField0_ |= 0x00000002;
           codec_ = other.codec_;
           onChanged();
+        }
+        if (other.hasVersion()) {
+          setVersion(other.getVersion());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -19864,7 +17707,40 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_VoiceInit)
+      // optional int32 version = 3 [default = 0];
+      private int version_ ;
+      /**
+       * <code>optional int32 version = 3 [default = 0];</code>
+       */
+      public boolean hasVersion() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int32 version = 3 [default = 0];</code>
+       */
+      public int getVersion() {
+        return version_;
+      }
+      /**
+       * <code>optional int32 version = 3 [default = 0];</code>
+       */
+      public Builder setVersion(int value) {
+        bitField0_ |= 0x00000004;
+        version_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 version = 3 [default = 0];</code>
+       */
+      public Builder clearVersion() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        version_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_VoiceInit)
     }
 
     static {
@@ -19872,7 +17748,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_VoiceInit)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_VoiceInit)
   }
 
   public interface CSVCMsg_PrintOrBuilder
@@ -19894,7 +17770,7 @@ public final class Netmessages {
         getTextBytes();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_Print}
+   * Protobuf type {@code CSVCMsg_Print}
    */
   public static final class CSVCMsg_Print extends
       com.google.protobuf.GeneratedMessage
@@ -19963,12 +17839,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Print_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Print_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Print_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Print_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_Print.class, com.valve.dota2.Netmessages.CSVCMsg_Print.Builder.class);
     }
@@ -20142,19 +18018,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_Print}
+     * Protobuf type {@code CSVCMsg_Print}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_PrintOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Print_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Print_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Print_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Print_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_Print.class, com.valve.dota2.Netmessages.CSVCMsg_Print.Builder.class);
       }
@@ -20190,7 +18066,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Print_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Print_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_Print getDefaultInstanceForType() {
@@ -20335,7 +18211,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_Print)
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_Print)
     }
 
     static {
@@ -20343,7 +18219,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_Print)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_Print)
   }
 
   public interface CSVCMsg_SoundsOrBuilder
@@ -20359,33 +18235,33 @@ public final class Netmessages {
      */
     boolean getReliableSound();
 
-    // repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;
+    // repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+     * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
      */
     java.util.List<com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t> 
         getSoundsList();
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+     * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
      */
     com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t getSounds(int index);
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+     * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
      */
     int getSoundsCount();
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+     * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
      */
     java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_tOrBuilder> 
         getSoundsOrBuilderList();
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+     * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
      */
     com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_tOrBuilder getSoundsOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_Sounds}
+   * Protobuf type {@code CSVCMsg_Sounds}
    */
   public static final class CSVCMsg_Sounds extends
       com.google.protobuf.GeneratedMessage
@@ -20465,12 +18341,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Sounds_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Sounds_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Sounds_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Sounds_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_Sounds.class, com.valve.dota2.Netmessages.CSVCMsg_Sounds.Builder.class);
     }
@@ -20636,18 +18512,10 @@ public final class Netmessages {
       // optional int32 sound_level = 15;
       /**
        * <code>optional int32 sound_level = 15;</code>
-       *
-       * <pre>
-       * soundlevel_t
-       * </pre>
        */
       boolean hasSoundLevel();
       /**
        * <code>optional int32 sound_level = 15;</code>
-       *
-       * <pre>
-       * soundlevel_t
-       * </pre>
        */
       int getSoundLevel();
 
@@ -20672,7 +18540,7 @@ public final class Netmessages {
       boolean getIsAmbient();
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_Sounds.sounddata_t}
+     * Protobuf type {@code CSVCMsg_Sounds.sounddata_t}
      */
     public static final class sounddata_t extends
         com.google.protobuf.GeneratedMessage
@@ -20821,12 +18689,12 @@ public final class Netmessages {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Sounds_sounddata_t_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Sounds_sounddata_t_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Sounds_sounddata_t_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Sounds_sounddata_t_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t.class, com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t.Builder.class);
       }
@@ -21076,20 +18944,12 @@ public final class Netmessages {
       private int soundLevel_;
       /**
        * <code>optional int32 sound_level = 15;</code>
-       *
-       * <pre>
-       * soundlevel_t
-       * </pre>
        */
       public boolean hasSoundLevel() {
         return ((bitField0_ & 0x00004000) == 0x00004000);
       }
       /**
        * <code>optional int32 sound_level = 15;</code>
-       *
-       * <pre>
-       * soundlevel_t
-       * </pre>
        */
       public int getSoundLevel() {
         return soundLevel_;
@@ -21365,19 +19225,19 @@ public final class Netmessages {
         return builder;
       }
       /**
-       * Protobuf type {@code com.valve.dota2.CSVCMsg_Sounds.sounddata_t}
+       * Protobuf type {@code CSVCMsg_Sounds.sounddata_t}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
          implements com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_tOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Sounds_sounddata_t_descriptor;
+          return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Sounds_sounddata_t_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Sounds_sounddata_t_fieldAccessorTable
+          return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Sounds_sounddata_t_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t.class, com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t.Builder.class);
         }
@@ -21445,7 +19305,7 @@ public final class Netmessages {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Sounds_sounddata_t_descriptor;
+          return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Sounds_sounddata_t_descriptor;
         }
 
         public com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t getDefaultInstanceForType() {
@@ -22092,30 +19952,18 @@ public final class Netmessages {
         private int soundLevel_ ;
         /**
          * <code>optional int32 sound_level = 15;</code>
-         *
-         * <pre>
-         * soundlevel_t
-         * </pre>
          */
         public boolean hasSoundLevel() {
           return ((bitField0_ & 0x00004000) == 0x00004000);
         }
         /**
          * <code>optional int32 sound_level = 15;</code>
-         *
-         * <pre>
-         * soundlevel_t
-         * </pre>
          */
         public int getSoundLevel() {
           return soundLevel_;
         }
         /**
          * <code>optional int32 sound_level = 15;</code>
-         *
-         * <pre>
-         * soundlevel_t
-         * </pre>
          */
         public Builder setSoundLevel(int value) {
           bitField0_ |= 0x00004000;
@@ -22125,10 +19973,6 @@ public final class Netmessages {
         }
         /**
          * <code>optional int32 sound_level = 15;</code>
-         *
-         * <pre>
-         * soundlevel_t
-         * </pre>
          */
         public Builder clearSoundLevel() {
           bitField0_ = (bitField0_ & ~0x00004000);
@@ -22203,7 +20047,7 @@ public final class Netmessages {
           return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_Sounds.sounddata_t)
+        // @@protoc_insertion_point(builder_scope:CSVCMsg_Sounds.sounddata_t)
       }
 
       static {
@@ -22211,7 +20055,7 @@ public final class Netmessages {
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_Sounds.sounddata_t)
+      // @@protoc_insertion_point(class_scope:CSVCMsg_Sounds.sounddata_t)
     }
 
     private int bitField0_;
@@ -22231,36 +20075,36 @@ public final class Netmessages {
       return reliableSound_;
     }
 
-    // repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;
+    // repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;
     public static final int SOUNDS_FIELD_NUMBER = 2;
     private java.util.List<com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t> sounds_;
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+     * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
      */
     public java.util.List<com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t> getSoundsList() {
       return sounds_;
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+     * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
      */
     public java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_tOrBuilder> 
         getSoundsOrBuilderList() {
       return sounds_;
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+     * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
      */
     public int getSoundsCount() {
       return sounds_.size();
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+     * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
      */
     public com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t getSounds(int index) {
       return sounds_.get(index);
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+     * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
      */
     public com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_tOrBuilder getSoundsOrBuilder(
         int index) {
@@ -22385,19 +20229,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_Sounds}
+     * Protobuf type {@code CSVCMsg_Sounds}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_SoundsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Sounds_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Sounds_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Sounds_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Sounds_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_Sounds.class, com.valve.dota2.Netmessages.CSVCMsg_Sounds.Builder.class);
       }
@@ -22440,7 +20284,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Sounds_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Sounds_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_Sounds getDefaultInstanceForType() {
@@ -22577,7 +20421,7 @@ public final class Netmessages {
         return this;
       }
 
-      // repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;
+      // repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;
       private java.util.List<com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t> sounds_ =
         java.util.Collections.emptyList();
       private void ensureSoundsIsMutable() {
@@ -22591,7 +20435,7 @@ public final class Netmessages {
           com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t, com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t.Builder, com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_tOrBuilder> soundsBuilder_;
 
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+       * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
        */
       public java.util.List<com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t> getSoundsList() {
         if (soundsBuilder_ == null) {
@@ -22601,7 +20445,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+       * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
        */
       public int getSoundsCount() {
         if (soundsBuilder_ == null) {
@@ -22611,7 +20455,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+       * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t getSounds(int index) {
         if (soundsBuilder_ == null) {
@@ -22621,7 +20465,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+       * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
        */
       public Builder setSounds(
           int index, com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t value) {
@@ -22638,7 +20482,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+       * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
        */
       public Builder setSounds(
           int index, com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t.Builder builderForValue) {
@@ -22652,7 +20496,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+       * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
        */
       public Builder addSounds(com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t value) {
         if (soundsBuilder_ == null) {
@@ -22668,7 +20512,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+       * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
        */
       public Builder addSounds(
           int index, com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t value) {
@@ -22685,7 +20529,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+       * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
        */
       public Builder addSounds(
           com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t.Builder builderForValue) {
@@ -22699,7 +20543,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+       * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
        */
       public Builder addSounds(
           int index, com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t.Builder builderForValue) {
@@ -22713,7 +20557,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+       * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
        */
       public Builder addAllSounds(
           java.lang.Iterable<? extends com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t> values) {
@@ -22727,7 +20571,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+       * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
        */
       public Builder clearSounds() {
         if (soundsBuilder_ == null) {
@@ -22740,7 +20584,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+       * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
        */
       public Builder removeSounds(int index) {
         if (soundsBuilder_ == null) {
@@ -22753,14 +20597,14 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+       * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t.Builder getSoundsBuilder(
           int index) {
         return getSoundsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+       * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_tOrBuilder getSoundsOrBuilder(
           int index) {
@@ -22770,7 +20614,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+       * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
        */
       public java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_tOrBuilder> 
            getSoundsOrBuilderList() {
@@ -22781,14 +20625,14 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+       * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t.Builder addSoundsBuilder() {
         return getSoundsFieldBuilder().addBuilder(
             com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+       * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t.Builder addSoundsBuilder(
           int index) {
@@ -22796,7 +20640,7 @@ public final class Netmessages {
             index, com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
+       * <code>repeated .CSVCMsg_Sounds.sounddata_t sounds = 2;</code>
        */
       public java.util.List<com.valve.dota2.Netmessages.CSVCMsg_Sounds.sounddata_t.Builder> 
            getSoundsBuilderList() {
@@ -22817,7 +20661,7 @@ public final class Netmessages {
         return soundsBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_Sounds)
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_Sounds)
     }
 
     static {
@@ -22825,7 +20669,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_Sounds)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_Sounds)
   }
 
   public interface CSVCMsg_PrefetchOrBuilder
@@ -22842,7 +20686,7 @@ public final class Netmessages {
     int getSoundIndex();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_Prefetch}
+   * Protobuf type {@code CSVCMsg_Prefetch}
    */
   public static final class CSVCMsg_Prefetch extends
       com.google.protobuf.GeneratedMessage
@@ -22911,12 +20755,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Prefetch_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Prefetch_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Prefetch_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Prefetch_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_Prefetch.class, com.valve.dota2.Netmessages.CSVCMsg_Prefetch.Builder.class);
     }
@@ -23063,19 +20907,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_Prefetch}
+     * Protobuf type {@code CSVCMsg_Prefetch}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_PrefetchOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Prefetch_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Prefetch_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Prefetch_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Prefetch_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_Prefetch.class, com.valve.dota2.Netmessages.CSVCMsg_Prefetch.Builder.class);
       }
@@ -23111,7 +20955,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Prefetch_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Prefetch_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_Prefetch getDefaultInstanceForType() {
@@ -23213,7 +21057,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_Prefetch)
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_Prefetch)
     }
 
     static {
@@ -23221,7 +21065,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_Prefetch)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_Prefetch)
   }
 
   public interface CSVCMsg_SetViewOrBuilder
@@ -23238,7 +21082,7 @@ public final class Netmessages {
     int getEntityIndex();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_SetView}
+   * Protobuf type {@code CSVCMsg_SetView}
    */
   public static final class CSVCMsg_SetView extends
       com.google.protobuf.GeneratedMessage
@@ -23307,12 +21151,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SetView_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SetView_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SetView_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SetView_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_SetView.class, com.valve.dota2.Netmessages.CSVCMsg_SetView.Builder.class);
     }
@@ -23459,19 +21303,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_SetView}
+     * Protobuf type {@code CSVCMsg_SetView}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_SetViewOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SetView_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SetView_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SetView_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SetView_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_SetView.class, com.valve.dota2.Netmessages.CSVCMsg_SetView.Builder.class);
       }
@@ -23507,7 +21351,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SetView_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SetView_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_SetView getDefaultInstanceForType() {
@@ -23609,7 +21453,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_SetView)
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_SetView)
     }
 
     static {
@@ -23617,7 +21461,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_SetView)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_SetView)
   }
 
   public interface CSVCMsg_FixAngleOrBuilder
@@ -23633,22 +21477,22 @@ public final class Netmessages {
      */
     boolean getRelative();
 
-    // optional .com.valve.dota2.CMsgQAngle angle = 2;
+    // optional .CMsgQAngle angle = 2;
     /**
-     * <code>optional .com.valve.dota2.CMsgQAngle angle = 2;</code>
+     * <code>optional .CMsgQAngle angle = 2;</code>
      */
     boolean hasAngle();
     /**
-     * <code>optional .com.valve.dota2.CMsgQAngle angle = 2;</code>
+     * <code>optional .CMsgQAngle angle = 2;</code>
      */
-    com.valve.dota2.Netmessages.CMsgQAngle getAngle();
+    com.valve.dota2.Networkbasetypes.CMsgQAngle getAngle();
     /**
-     * <code>optional .com.valve.dota2.CMsgQAngle angle = 2;</code>
+     * <code>optional .CMsgQAngle angle = 2;</code>
      */
-    com.valve.dota2.Netmessages.CMsgQAngleOrBuilder getAngleOrBuilder();
+    com.valve.dota2.Networkbasetypes.CMsgQAngleOrBuilder getAngleOrBuilder();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_FixAngle}
+   * Protobuf type {@code CSVCMsg_FixAngle}
    */
   public static final class CSVCMsg_FixAngle extends
       com.google.protobuf.GeneratedMessage
@@ -23704,11 +21548,11 @@ public final class Netmessages {
               break;
             }
             case 18: {
-              com.valve.dota2.Netmessages.CMsgQAngle.Builder subBuilder = null;
+              com.valve.dota2.Networkbasetypes.CMsgQAngle.Builder subBuilder = null;
               if (((bitField0_ & 0x00000002) == 0x00000002)) {
                 subBuilder = angle_.toBuilder();
               }
-              angle_ = input.readMessage(com.valve.dota2.Netmessages.CMsgQAngle.PARSER, extensionRegistry);
+              angle_ = input.readMessage(com.valve.dota2.Networkbasetypes.CMsgQAngle.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(angle_);
                 angle_ = subBuilder.buildPartial();
@@ -23730,12 +21574,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_FixAngle_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_FixAngle_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_FixAngle_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_FixAngle_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_FixAngle.class, com.valve.dota2.Netmessages.CSVCMsg_FixAngle.Builder.class);
     }
@@ -23772,31 +21616,31 @@ public final class Netmessages {
       return relative_;
     }
 
-    // optional .com.valve.dota2.CMsgQAngle angle = 2;
+    // optional .CMsgQAngle angle = 2;
     public static final int ANGLE_FIELD_NUMBER = 2;
-    private com.valve.dota2.Netmessages.CMsgQAngle angle_;
+    private com.valve.dota2.Networkbasetypes.CMsgQAngle angle_;
     /**
-     * <code>optional .com.valve.dota2.CMsgQAngle angle = 2;</code>
+     * <code>optional .CMsgQAngle angle = 2;</code>
      */
     public boolean hasAngle() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional .com.valve.dota2.CMsgQAngle angle = 2;</code>
+     * <code>optional .CMsgQAngle angle = 2;</code>
      */
-    public com.valve.dota2.Netmessages.CMsgQAngle getAngle() {
+    public com.valve.dota2.Networkbasetypes.CMsgQAngle getAngle() {
       return angle_;
     }
     /**
-     * <code>optional .com.valve.dota2.CMsgQAngle angle = 2;</code>
+     * <code>optional .CMsgQAngle angle = 2;</code>
      */
-    public com.valve.dota2.Netmessages.CMsgQAngleOrBuilder getAngleOrBuilder() {
+    public com.valve.dota2.Networkbasetypes.CMsgQAngleOrBuilder getAngleOrBuilder() {
       return angle_;
     }
 
     private void initFields() {
       relative_ = false;
-      angle_ = com.valve.dota2.Netmessages.CMsgQAngle.getDefaultInstance();
+      angle_ = com.valve.dota2.Networkbasetypes.CMsgQAngle.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -23912,19 +21756,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_FixAngle}
+     * Protobuf type {@code CSVCMsg_FixAngle}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_FixAngleOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_FixAngle_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_FixAngle_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_FixAngle_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_FixAngle_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_FixAngle.class, com.valve.dota2.Netmessages.CSVCMsg_FixAngle.Builder.class);
       }
@@ -23953,7 +21797,7 @@ public final class Netmessages {
         relative_ = false;
         bitField0_ = (bitField0_ & ~0x00000001);
         if (angleBuilder_ == null) {
-          angle_ = com.valve.dota2.Netmessages.CMsgQAngle.getDefaultInstance();
+          angle_ = com.valve.dota2.Networkbasetypes.CMsgQAngle.getDefaultInstance();
         } else {
           angleBuilder_.clear();
         }
@@ -23967,7 +21811,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_FixAngle_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_FixAngle_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_FixAngle getDefaultInstanceForType() {
@@ -24080,20 +21924,20 @@ public final class Netmessages {
         return this;
       }
 
-      // optional .com.valve.dota2.CMsgQAngle angle = 2;
-      private com.valve.dota2.Netmessages.CMsgQAngle angle_ = com.valve.dota2.Netmessages.CMsgQAngle.getDefaultInstance();
+      // optional .CMsgQAngle angle = 2;
+      private com.valve.dota2.Networkbasetypes.CMsgQAngle angle_ = com.valve.dota2.Networkbasetypes.CMsgQAngle.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          com.valve.dota2.Netmessages.CMsgQAngle, com.valve.dota2.Netmessages.CMsgQAngle.Builder, com.valve.dota2.Netmessages.CMsgQAngleOrBuilder> angleBuilder_;
+          com.valve.dota2.Networkbasetypes.CMsgQAngle, com.valve.dota2.Networkbasetypes.CMsgQAngle.Builder, com.valve.dota2.Networkbasetypes.CMsgQAngleOrBuilder> angleBuilder_;
       /**
-       * <code>optional .com.valve.dota2.CMsgQAngle angle = 2;</code>
+       * <code>optional .CMsgQAngle angle = 2;</code>
        */
       public boolean hasAngle() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgQAngle angle = 2;</code>
+       * <code>optional .CMsgQAngle angle = 2;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgQAngle getAngle() {
+      public com.valve.dota2.Networkbasetypes.CMsgQAngle getAngle() {
         if (angleBuilder_ == null) {
           return angle_;
         } else {
@@ -24101,9 +21945,9 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgQAngle angle = 2;</code>
+       * <code>optional .CMsgQAngle angle = 2;</code>
        */
-      public Builder setAngle(com.valve.dota2.Netmessages.CMsgQAngle value) {
+      public Builder setAngle(com.valve.dota2.Networkbasetypes.CMsgQAngle value) {
         if (angleBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -24117,10 +21961,10 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgQAngle angle = 2;</code>
+       * <code>optional .CMsgQAngle angle = 2;</code>
        */
       public Builder setAngle(
-          com.valve.dota2.Netmessages.CMsgQAngle.Builder builderForValue) {
+          com.valve.dota2.Networkbasetypes.CMsgQAngle.Builder builderForValue) {
         if (angleBuilder_ == null) {
           angle_ = builderForValue.build();
           onChanged();
@@ -24131,14 +21975,14 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgQAngle angle = 2;</code>
+       * <code>optional .CMsgQAngle angle = 2;</code>
        */
-      public Builder mergeAngle(com.valve.dota2.Netmessages.CMsgQAngle value) {
+      public Builder mergeAngle(com.valve.dota2.Networkbasetypes.CMsgQAngle value) {
         if (angleBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              angle_ != com.valve.dota2.Netmessages.CMsgQAngle.getDefaultInstance()) {
+              angle_ != com.valve.dota2.Networkbasetypes.CMsgQAngle.getDefaultInstance()) {
             angle_ =
-              com.valve.dota2.Netmessages.CMsgQAngle.newBuilder(angle_).mergeFrom(value).buildPartial();
+              com.valve.dota2.Networkbasetypes.CMsgQAngle.newBuilder(angle_).mergeFrom(value).buildPartial();
           } else {
             angle_ = value;
           }
@@ -24150,11 +21994,11 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgQAngle angle = 2;</code>
+       * <code>optional .CMsgQAngle angle = 2;</code>
        */
       public Builder clearAngle() {
         if (angleBuilder_ == null) {
-          angle_ = com.valve.dota2.Netmessages.CMsgQAngle.getDefaultInstance();
+          angle_ = com.valve.dota2.Networkbasetypes.CMsgQAngle.getDefaultInstance();
           onChanged();
         } else {
           angleBuilder_.clear();
@@ -24163,17 +22007,17 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgQAngle angle = 2;</code>
+       * <code>optional .CMsgQAngle angle = 2;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgQAngle.Builder getAngleBuilder() {
+      public com.valve.dota2.Networkbasetypes.CMsgQAngle.Builder getAngleBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
         return getAngleFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgQAngle angle = 2;</code>
+       * <code>optional .CMsgQAngle angle = 2;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgQAngleOrBuilder getAngleOrBuilder() {
+      public com.valve.dota2.Networkbasetypes.CMsgQAngleOrBuilder getAngleOrBuilder() {
         if (angleBuilder_ != null) {
           return angleBuilder_.getMessageOrBuilder();
         } else {
@@ -24181,14 +22025,14 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgQAngle angle = 2;</code>
+       * <code>optional .CMsgQAngle angle = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          com.valve.dota2.Netmessages.CMsgQAngle, com.valve.dota2.Netmessages.CMsgQAngle.Builder, com.valve.dota2.Netmessages.CMsgQAngleOrBuilder> 
+          com.valve.dota2.Networkbasetypes.CMsgQAngle, com.valve.dota2.Networkbasetypes.CMsgQAngle.Builder, com.valve.dota2.Networkbasetypes.CMsgQAngleOrBuilder> 
           getAngleFieldBuilder() {
         if (angleBuilder_ == null) {
           angleBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              com.valve.dota2.Netmessages.CMsgQAngle, com.valve.dota2.Netmessages.CMsgQAngle.Builder, com.valve.dota2.Netmessages.CMsgQAngleOrBuilder>(
+              com.valve.dota2.Networkbasetypes.CMsgQAngle, com.valve.dota2.Networkbasetypes.CMsgQAngle.Builder, com.valve.dota2.Networkbasetypes.CMsgQAngleOrBuilder>(
                   angle_,
                   getParentForChildren(),
                   isClean());
@@ -24197,7 +22041,7 @@ public final class Netmessages {
         return angleBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_FixAngle)
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_FixAngle)
     }
 
     static {
@@ -24205,28 +22049,28 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_FixAngle)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_FixAngle)
   }
 
   public interface CSVCMsg_CrosshairAngleOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional .com.valve.dota2.CMsgQAngle angle = 1;
+    // optional .CMsgQAngle angle = 1;
     /**
-     * <code>optional .com.valve.dota2.CMsgQAngle angle = 1;</code>
+     * <code>optional .CMsgQAngle angle = 1;</code>
      */
     boolean hasAngle();
     /**
-     * <code>optional .com.valve.dota2.CMsgQAngle angle = 1;</code>
+     * <code>optional .CMsgQAngle angle = 1;</code>
      */
-    com.valve.dota2.Netmessages.CMsgQAngle getAngle();
+    com.valve.dota2.Networkbasetypes.CMsgQAngle getAngle();
     /**
-     * <code>optional .com.valve.dota2.CMsgQAngle angle = 1;</code>
+     * <code>optional .CMsgQAngle angle = 1;</code>
      */
-    com.valve.dota2.Netmessages.CMsgQAngleOrBuilder getAngleOrBuilder();
+    com.valve.dota2.Networkbasetypes.CMsgQAngleOrBuilder getAngleOrBuilder();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_CrosshairAngle}
+   * Protobuf type {@code CSVCMsg_CrosshairAngle}
    */
   public static final class CSVCMsg_CrosshairAngle extends
       com.google.protobuf.GeneratedMessage
@@ -24277,11 +22121,11 @@ public final class Netmessages {
               break;
             }
             case 10: {
-              com.valve.dota2.Netmessages.CMsgQAngle.Builder subBuilder = null;
+              com.valve.dota2.Networkbasetypes.CMsgQAngle.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
                 subBuilder = angle_.toBuilder();
               }
-              angle_ = input.readMessage(com.valve.dota2.Netmessages.CMsgQAngle.PARSER, extensionRegistry);
+              angle_ = input.readMessage(com.valve.dota2.Networkbasetypes.CMsgQAngle.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(angle_);
                 angle_ = subBuilder.buildPartial();
@@ -24303,12 +22147,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_CrosshairAngle_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_CrosshairAngle_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_CrosshairAngle_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_CrosshairAngle_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_CrosshairAngle.class, com.valve.dota2.Netmessages.CSVCMsg_CrosshairAngle.Builder.class);
     }
@@ -24329,30 +22173,30 @@ public final class Netmessages {
     }
 
     private int bitField0_;
-    // optional .com.valve.dota2.CMsgQAngle angle = 1;
+    // optional .CMsgQAngle angle = 1;
     public static final int ANGLE_FIELD_NUMBER = 1;
-    private com.valve.dota2.Netmessages.CMsgQAngle angle_;
+    private com.valve.dota2.Networkbasetypes.CMsgQAngle angle_;
     /**
-     * <code>optional .com.valve.dota2.CMsgQAngle angle = 1;</code>
+     * <code>optional .CMsgQAngle angle = 1;</code>
      */
     public boolean hasAngle() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional .com.valve.dota2.CMsgQAngle angle = 1;</code>
+     * <code>optional .CMsgQAngle angle = 1;</code>
      */
-    public com.valve.dota2.Netmessages.CMsgQAngle getAngle() {
+    public com.valve.dota2.Networkbasetypes.CMsgQAngle getAngle() {
       return angle_;
     }
     /**
-     * <code>optional .com.valve.dota2.CMsgQAngle angle = 1;</code>
+     * <code>optional .CMsgQAngle angle = 1;</code>
      */
-    public com.valve.dota2.Netmessages.CMsgQAngleOrBuilder getAngleOrBuilder() {
+    public com.valve.dota2.Networkbasetypes.CMsgQAngleOrBuilder getAngleOrBuilder() {
       return angle_;
     }
 
     private void initFields() {
-      angle_ = com.valve.dota2.Netmessages.CMsgQAngle.getDefaultInstance();
+      angle_ = com.valve.dota2.Networkbasetypes.CMsgQAngle.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -24461,19 +22305,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_CrosshairAngle}
+     * Protobuf type {@code CSVCMsg_CrosshairAngle}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_CrosshairAngleOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_CrosshairAngle_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_CrosshairAngle_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_CrosshairAngle_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_CrosshairAngle_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_CrosshairAngle.class, com.valve.dota2.Netmessages.CSVCMsg_CrosshairAngle.Builder.class);
       }
@@ -24500,7 +22344,7 @@ public final class Netmessages {
       public Builder clear() {
         super.clear();
         if (angleBuilder_ == null) {
-          angle_ = com.valve.dota2.Netmessages.CMsgQAngle.getDefaultInstance();
+          angle_ = com.valve.dota2.Networkbasetypes.CMsgQAngle.getDefaultInstance();
         } else {
           angleBuilder_.clear();
         }
@@ -24514,7 +22358,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_CrosshairAngle_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_CrosshairAngle_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_CrosshairAngle getDefaultInstanceForType() {
@@ -24587,20 +22431,20 @@ public final class Netmessages {
       }
       private int bitField0_;
 
-      // optional .com.valve.dota2.CMsgQAngle angle = 1;
-      private com.valve.dota2.Netmessages.CMsgQAngle angle_ = com.valve.dota2.Netmessages.CMsgQAngle.getDefaultInstance();
+      // optional .CMsgQAngle angle = 1;
+      private com.valve.dota2.Networkbasetypes.CMsgQAngle angle_ = com.valve.dota2.Networkbasetypes.CMsgQAngle.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          com.valve.dota2.Netmessages.CMsgQAngle, com.valve.dota2.Netmessages.CMsgQAngle.Builder, com.valve.dota2.Netmessages.CMsgQAngleOrBuilder> angleBuilder_;
+          com.valve.dota2.Networkbasetypes.CMsgQAngle, com.valve.dota2.Networkbasetypes.CMsgQAngle.Builder, com.valve.dota2.Networkbasetypes.CMsgQAngleOrBuilder> angleBuilder_;
       /**
-       * <code>optional .com.valve.dota2.CMsgQAngle angle = 1;</code>
+       * <code>optional .CMsgQAngle angle = 1;</code>
        */
       public boolean hasAngle() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgQAngle angle = 1;</code>
+       * <code>optional .CMsgQAngle angle = 1;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgQAngle getAngle() {
+      public com.valve.dota2.Networkbasetypes.CMsgQAngle getAngle() {
         if (angleBuilder_ == null) {
           return angle_;
         } else {
@@ -24608,9 +22452,9 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgQAngle angle = 1;</code>
+       * <code>optional .CMsgQAngle angle = 1;</code>
        */
-      public Builder setAngle(com.valve.dota2.Netmessages.CMsgQAngle value) {
+      public Builder setAngle(com.valve.dota2.Networkbasetypes.CMsgQAngle value) {
         if (angleBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -24624,10 +22468,10 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgQAngle angle = 1;</code>
+       * <code>optional .CMsgQAngle angle = 1;</code>
        */
       public Builder setAngle(
-          com.valve.dota2.Netmessages.CMsgQAngle.Builder builderForValue) {
+          com.valve.dota2.Networkbasetypes.CMsgQAngle.Builder builderForValue) {
         if (angleBuilder_ == null) {
           angle_ = builderForValue.build();
           onChanged();
@@ -24638,14 +22482,14 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgQAngle angle = 1;</code>
+       * <code>optional .CMsgQAngle angle = 1;</code>
        */
-      public Builder mergeAngle(com.valve.dota2.Netmessages.CMsgQAngle value) {
+      public Builder mergeAngle(com.valve.dota2.Networkbasetypes.CMsgQAngle value) {
         if (angleBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              angle_ != com.valve.dota2.Netmessages.CMsgQAngle.getDefaultInstance()) {
+              angle_ != com.valve.dota2.Networkbasetypes.CMsgQAngle.getDefaultInstance()) {
             angle_ =
-              com.valve.dota2.Netmessages.CMsgQAngle.newBuilder(angle_).mergeFrom(value).buildPartial();
+              com.valve.dota2.Networkbasetypes.CMsgQAngle.newBuilder(angle_).mergeFrom(value).buildPartial();
           } else {
             angle_ = value;
           }
@@ -24657,11 +22501,11 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgQAngle angle = 1;</code>
+       * <code>optional .CMsgQAngle angle = 1;</code>
        */
       public Builder clearAngle() {
         if (angleBuilder_ == null) {
-          angle_ = com.valve.dota2.Netmessages.CMsgQAngle.getDefaultInstance();
+          angle_ = com.valve.dota2.Networkbasetypes.CMsgQAngle.getDefaultInstance();
           onChanged();
         } else {
           angleBuilder_.clear();
@@ -24670,17 +22514,17 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgQAngle angle = 1;</code>
+       * <code>optional .CMsgQAngle angle = 1;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgQAngle.Builder getAngleBuilder() {
+      public com.valve.dota2.Networkbasetypes.CMsgQAngle.Builder getAngleBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
         return getAngleFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgQAngle angle = 1;</code>
+       * <code>optional .CMsgQAngle angle = 1;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgQAngleOrBuilder getAngleOrBuilder() {
+      public com.valve.dota2.Networkbasetypes.CMsgQAngleOrBuilder getAngleOrBuilder() {
         if (angleBuilder_ != null) {
           return angleBuilder_.getMessageOrBuilder();
         } else {
@@ -24688,14 +22532,14 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgQAngle angle = 1;</code>
+       * <code>optional .CMsgQAngle angle = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          com.valve.dota2.Netmessages.CMsgQAngle, com.valve.dota2.Netmessages.CMsgQAngle.Builder, com.valve.dota2.Netmessages.CMsgQAngleOrBuilder> 
+          com.valve.dota2.Networkbasetypes.CMsgQAngle, com.valve.dota2.Networkbasetypes.CMsgQAngle.Builder, com.valve.dota2.Networkbasetypes.CMsgQAngleOrBuilder> 
           getAngleFieldBuilder() {
         if (angleBuilder_ == null) {
           angleBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              com.valve.dota2.Netmessages.CMsgQAngle, com.valve.dota2.Netmessages.CMsgQAngle.Builder, com.valve.dota2.Netmessages.CMsgQAngleOrBuilder>(
+              com.valve.dota2.Networkbasetypes.CMsgQAngle, com.valve.dota2.Networkbasetypes.CMsgQAngle.Builder, com.valve.dota2.Networkbasetypes.CMsgQAngleOrBuilder>(
                   angle_,
                   getParentForChildren(),
                   isClean());
@@ -24704,7 +22548,7 @@ public final class Netmessages {
         return angleBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_CrosshairAngle)
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_CrosshairAngle)
     }
 
     static {
@@ -24712,25 +22556,25 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_CrosshairAngle)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_CrosshairAngle)
   }
 
   public interface CSVCMsg_BSPDecalOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional .com.valve.dota2.CMsgVector pos = 1;
+    // optional .CMsgVector pos = 1;
     /**
-     * <code>optional .com.valve.dota2.CMsgVector pos = 1;</code>
+     * <code>optional .CMsgVector pos = 1;</code>
      */
     boolean hasPos();
     /**
-     * <code>optional .com.valve.dota2.CMsgVector pos = 1;</code>
+     * <code>optional .CMsgVector pos = 1;</code>
      */
-    com.valve.dota2.Netmessages.CMsgVector getPos();
+    com.valve.dota2.Networkbasetypes.CMsgVector getPos();
     /**
-     * <code>optional .com.valve.dota2.CMsgVector pos = 1;</code>
+     * <code>optional .CMsgVector pos = 1;</code>
      */
-    com.valve.dota2.Netmessages.CMsgVectorOrBuilder getPosOrBuilder();
+    com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder getPosOrBuilder();
 
     // optional int32 decal_texture_index = 2;
     /**
@@ -24773,7 +22617,7 @@ public final class Netmessages {
     boolean getLowPriority();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_BSPDecal}
+   * Protobuf type {@code CSVCMsg_BSPDecal}
    */
   public static final class CSVCMsg_BSPDecal extends
       com.google.protobuf.GeneratedMessage
@@ -24824,11 +22668,11 @@ public final class Netmessages {
               break;
             }
             case 10: {
-              com.valve.dota2.Netmessages.CMsgVector.Builder subBuilder = null;
+              com.valve.dota2.Networkbasetypes.CMsgVector.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
                 subBuilder = pos_.toBuilder();
               }
-              pos_ = input.readMessage(com.valve.dota2.Netmessages.CMsgVector.PARSER, extensionRegistry);
+              pos_ = input.readMessage(com.valve.dota2.Networkbasetypes.CMsgVector.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(pos_);
                 pos_ = subBuilder.buildPartial();
@@ -24870,12 +22714,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_BSPDecal_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_BSPDecal_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_BSPDecal_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_BSPDecal_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_BSPDecal.class, com.valve.dota2.Netmessages.CSVCMsg_BSPDecal.Builder.class);
     }
@@ -24896,25 +22740,25 @@ public final class Netmessages {
     }
 
     private int bitField0_;
-    // optional .com.valve.dota2.CMsgVector pos = 1;
+    // optional .CMsgVector pos = 1;
     public static final int POS_FIELD_NUMBER = 1;
-    private com.valve.dota2.Netmessages.CMsgVector pos_;
+    private com.valve.dota2.Networkbasetypes.CMsgVector pos_;
     /**
-     * <code>optional .com.valve.dota2.CMsgVector pos = 1;</code>
+     * <code>optional .CMsgVector pos = 1;</code>
      */
     public boolean hasPos() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional .com.valve.dota2.CMsgVector pos = 1;</code>
+     * <code>optional .CMsgVector pos = 1;</code>
      */
-    public com.valve.dota2.Netmessages.CMsgVector getPos() {
+    public com.valve.dota2.Networkbasetypes.CMsgVector getPos() {
       return pos_;
     }
     /**
-     * <code>optional .com.valve.dota2.CMsgVector pos = 1;</code>
+     * <code>optional .CMsgVector pos = 1;</code>
      */
-    public com.valve.dota2.Netmessages.CMsgVectorOrBuilder getPosOrBuilder() {
+    public com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder getPosOrBuilder() {
       return pos_;
     }
 
@@ -24983,7 +22827,7 @@ public final class Netmessages {
     }
 
     private void initFields() {
-      pos_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+      pos_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
       decalTextureIndex_ = 0;
       entityIndex_ = 0;
       modelIndex_ = 0;
@@ -25124,19 +22968,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_BSPDecal}
+     * Protobuf type {@code CSVCMsg_BSPDecal}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_BSPDecalOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_BSPDecal_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_BSPDecal_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_BSPDecal_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_BSPDecal_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_BSPDecal.class, com.valve.dota2.Netmessages.CSVCMsg_BSPDecal.Builder.class);
       }
@@ -25163,7 +23007,7 @@ public final class Netmessages {
       public Builder clear() {
         super.clear();
         if (posBuilder_ == null) {
-          pos_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+          pos_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
         } else {
           posBuilder_.clear();
         }
@@ -25185,7 +23029,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_BSPDecal_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_BSPDecal_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_BSPDecal getDefaultInstanceForType() {
@@ -25286,20 +23130,20 @@ public final class Netmessages {
       }
       private int bitField0_;
 
-      // optional .com.valve.dota2.CMsgVector pos = 1;
-      private com.valve.dota2.Netmessages.CMsgVector pos_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+      // optional .CMsgVector pos = 1;
+      private com.valve.dota2.Networkbasetypes.CMsgVector pos_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          com.valve.dota2.Netmessages.CMsgVector, com.valve.dota2.Netmessages.CMsgVector.Builder, com.valve.dota2.Netmessages.CMsgVectorOrBuilder> posBuilder_;
+          com.valve.dota2.Networkbasetypes.CMsgVector, com.valve.dota2.Networkbasetypes.CMsgVector.Builder, com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder> posBuilder_;
       /**
-       * <code>optional .com.valve.dota2.CMsgVector pos = 1;</code>
+       * <code>optional .CMsgVector pos = 1;</code>
        */
       public boolean hasPos() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector pos = 1;</code>
+       * <code>optional .CMsgVector pos = 1;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgVector getPos() {
+      public com.valve.dota2.Networkbasetypes.CMsgVector getPos() {
         if (posBuilder_ == null) {
           return pos_;
         } else {
@@ -25307,9 +23151,9 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector pos = 1;</code>
+       * <code>optional .CMsgVector pos = 1;</code>
        */
-      public Builder setPos(com.valve.dota2.Netmessages.CMsgVector value) {
+      public Builder setPos(com.valve.dota2.Networkbasetypes.CMsgVector value) {
         if (posBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -25323,10 +23167,10 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector pos = 1;</code>
+       * <code>optional .CMsgVector pos = 1;</code>
        */
       public Builder setPos(
-          com.valve.dota2.Netmessages.CMsgVector.Builder builderForValue) {
+          com.valve.dota2.Networkbasetypes.CMsgVector.Builder builderForValue) {
         if (posBuilder_ == null) {
           pos_ = builderForValue.build();
           onChanged();
@@ -25337,14 +23181,14 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector pos = 1;</code>
+       * <code>optional .CMsgVector pos = 1;</code>
        */
-      public Builder mergePos(com.valve.dota2.Netmessages.CMsgVector value) {
+      public Builder mergePos(com.valve.dota2.Networkbasetypes.CMsgVector value) {
         if (posBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001) &&
-              pos_ != com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance()) {
+              pos_ != com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance()) {
             pos_ =
-              com.valve.dota2.Netmessages.CMsgVector.newBuilder(pos_).mergeFrom(value).buildPartial();
+              com.valve.dota2.Networkbasetypes.CMsgVector.newBuilder(pos_).mergeFrom(value).buildPartial();
           } else {
             pos_ = value;
           }
@@ -25356,11 +23200,11 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector pos = 1;</code>
+       * <code>optional .CMsgVector pos = 1;</code>
        */
       public Builder clearPos() {
         if (posBuilder_ == null) {
-          pos_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+          pos_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
           onChanged();
         } else {
           posBuilder_.clear();
@@ -25369,17 +23213,17 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector pos = 1;</code>
+       * <code>optional .CMsgVector pos = 1;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgVector.Builder getPosBuilder() {
+      public com.valve.dota2.Networkbasetypes.CMsgVector.Builder getPosBuilder() {
         bitField0_ |= 0x00000001;
         onChanged();
         return getPosFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector pos = 1;</code>
+       * <code>optional .CMsgVector pos = 1;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgVectorOrBuilder getPosOrBuilder() {
+      public com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder getPosOrBuilder() {
         if (posBuilder_ != null) {
           return posBuilder_.getMessageOrBuilder();
         } else {
@@ -25387,14 +23231,14 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector pos = 1;</code>
+       * <code>optional .CMsgVector pos = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          com.valve.dota2.Netmessages.CMsgVector, com.valve.dota2.Netmessages.CMsgVector.Builder, com.valve.dota2.Netmessages.CMsgVectorOrBuilder> 
+          com.valve.dota2.Networkbasetypes.CMsgVector, com.valve.dota2.Networkbasetypes.CMsgVector.Builder, com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder> 
           getPosFieldBuilder() {
         if (posBuilder_ == null) {
           posBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              com.valve.dota2.Netmessages.CMsgVector, com.valve.dota2.Netmessages.CMsgVector.Builder, com.valve.dota2.Netmessages.CMsgVectorOrBuilder>(
+              com.valve.dota2.Networkbasetypes.CMsgVector, com.valve.dota2.Networkbasetypes.CMsgVector.Builder, com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder>(
                   pos_,
                   getParentForChildren(),
                   isClean());
@@ -25535,7 +23379,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_BSPDecal)
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_BSPDecal)
     }
 
     static {
@@ -25543,19 +23387,19 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_BSPDecal)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_BSPDecal)
   }
 
   public interface CSVCMsg_SplitScreenOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional .com.valve.dota2.ESplitScreenMessageType type = 1;
+    // optional .ESplitScreenMessageType type = 1 [default = MSG_SPLITSCREEN_ADDUSER];
     /**
-     * <code>optional .com.valve.dota2.ESplitScreenMessageType type = 1;</code>
+     * <code>optional .ESplitScreenMessageType type = 1 [default = MSG_SPLITSCREEN_ADDUSER];</code>
      */
     boolean hasType();
     /**
-     * <code>optional .com.valve.dota2.ESplitScreenMessageType type = 1;</code>
+     * <code>optional .ESplitScreenMessageType type = 1 [default = MSG_SPLITSCREEN_ADDUSER];</code>
      */
     com.valve.dota2.Netmessages.ESplitScreenMessageType getType();
 
@@ -25580,7 +23424,7 @@ public final class Netmessages {
     int getPlayerIndex();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_SplitScreen}
+   * Protobuf type {@code CSVCMsg_SplitScreen}
    */
   public static final class CSVCMsg_SplitScreen extends
       com.google.protobuf.GeneratedMessage
@@ -25665,12 +23509,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SplitScreen_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SplitScreen_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SplitScreen_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SplitScreen_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_SplitScreen.class, com.valve.dota2.Netmessages.CSVCMsg_SplitScreen.Builder.class);
     }
@@ -25691,17 +23535,17 @@ public final class Netmessages {
     }
 
     private int bitField0_;
-    // optional .com.valve.dota2.ESplitScreenMessageType type = 1;
+    // optional .ESplitScreenMessageType type = 1 [default = MSG_SPLITSCREEN_ADDUSER];
     public static final int TYPE_FIELD_NUMBER = 1;
     private com.valve.dota2.Netmessages.ESplitScreenMessageType type_;
     /**
-     * <code>optional .com.valve.dota2.ESplitScreenMessageType type = 1;</code>
+     * <code>optional .ESplitScreenMessageType type = 1 [default = MSG_SPLITSCREEN_ADDUSER];</code>
      */
     public boolean hasType() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional .com.valve.dota2.ESplitScreenMessageType type = 1;</code>
+     * <code>optional .ESplitScreenMessageType type = 1 [default = MSG_SPLITSCREEN_ADDUSER];</code>
      */
     public com.valve.dota2.Netmessages.ESplitScreenMessageType getType() {
       return type_;
@@ -25865,19 +23709,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_SplitScreen}
+     * Protobuf type {@code CSVCMsg_SplitScreen}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_SplitScreenOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SplitScreen_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SplitScreen_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SplitScreen_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SplitScreen_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_SplitScreen.class, com.valve.dota2.Netmessages.CSVCMsg_SplitScreen.Builder.class);
       }
@@ -25917,7 +23761,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SplitScreen_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SplitScreen_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_SplitScreen getDefaultInstanceForType() {
@@ -26000,22 +23844,22 @@ public final class Netmessages {
       }
       private int bitField0_;
 
-      // optional .com.valve.dota2.ESplitScreenMessageType type = 1;
+      // optional .ESplitScreenMessageType type = 1 [default = MSG_SPLITSCREEN_ADDUSER];
       private com.valve.dota2.Netmessages.ESplitScreenMessageType type_ = com.valve.dota2.Netmessages.ESplitScreenMessageType.MSG_SPLITSCREEN_ADDUSER;
       /**
-       * <code>optional .com.valve.dota2.ESplitScreenMessageType type = 1;</code>
+       * <code>optional .ESplitScreenMessageType type = 1 [default = MSG_SPLITSCREEN_ADDUSER];</code>
        */
       public boolean hasType() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional .com.valve.dota2.ESplitScreenMessageType type = 1;</code>
+       * <code>optional .ESplitScreenMessageType type = 1 [default = MSG_SPLITSCREEN_ADDUSER];</code>
        */
       public com.valve.dota2.Netmessages.ESplitScreenMessageType getType() {
         return type_;
       }
       /**
-       * <code>optional .com.valve.dota2.ESplitScreenMessageType type = 1;</code>
+       * <code>optional .ESplitScreenMessageType type = 1 [default = MSG_SPLITSCREEN_ADDUSER];</code>
        */
       public Builder setType(com.valve.dota2.Netmessages.ESplitScreenMessageType value) {
         if (value == null) {
@@ -26027,7 +23871,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.ESplitScreenMessageType type = 1;</code>
+       * <code>optional .ESplitScreenMessageType type = 1 [default = MSG_SPLITSCREEN_ADDUSER];</code>
        */
       public Builder clearType() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -26102,7 +23946,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_SplitScreen)
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_SplitScreen)
     }
 
     static {
@@ -26110,7 +23954,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_SplitScreen)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_SplitScreen)
   }
 
   public interface CSVCMsg_GetCvarValueOrBuilder
@@ -26119,18 +23963,10 @@ public final class Netmessages {
     // optional int32 cookie = 1;
     /**
      * <code>optional int32 cookie = 1;</code>
-     *
-     * <pre>
-     * QueryCvarCookie_t
-     * </pre>
      */
     boolean hasCookie();
     /**
      * <code>optional int32 cookie = 1;</code>
-     *
-     * <pre>
-     * QueryCvarCookie_t
-     * </pre>
      */
     int getCookie();
 
@@ -26150,7 +23986,7 @@ public final class Netmessages {
         getCvarNameBytes();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_GetCvarValue}
+   * Protobuf type {@code CSVCMsg_GetCvarValue}
    */
   public static final class CSVCMsg_GetCvarValue extends
       com.google.protobuf.GeneratedMessage
@@ -26224,12 +24060,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GetCvarValue_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GetCvarValue_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GetCvarValue_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GetCvarValue_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_GetCvarValue.class, com.valve.dota2.Netmessages.CSVCMsg_GetCvarValue.Builder.class);
     }
@@ -26255,20 +24091,12 @@ public final class Netmessages {
     private int cookie_;
     /**
      * <code>optional int32 cookie = 1;</code>
-     *
-     * <pre>
-     * QueryCvarCookie_t
-     * </pre>
      */
     public boolean hasCookie() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>optional int32 cookie = 1;</code>
-     *
-     * <pre>
-     * QueryCvarCookie_t
-     * </pre>
      */
     public int getCookie() {
       return cookie_;
@@ -26435,19 +24263,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_GetCvarValue}
+     * Protobuf type {@code CSVCMsg_GetCvarValue}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_GetCvarValueOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GetCvarValue_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GetCvarValue_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GetCvarValue_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GetCvarValue_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_GetCvarValue.class, com.valve.dota2.Netmessages.CSVCMsg_GetCvarValue.Builder.class);
       }
@@ -26485,7 +24313,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GetCvarValue_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GetCvarValue_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_GetCvarValue getDefaultInstanceForType() {
@@ -26567,30 +24395,18 @@ public final class Netmessages {
       private int cookie_ ;
       /**
        * <code>optional int32 cookie = 1;</code>
-       *
-       * <pre>
-       * QueryCvarCookie_t
-       * </pre>
        */
       public boolean hasCookie() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional int32 cookie = 1;</code>
-       *
-       * <pre>
-       * QueryCvarCookie_t
-       * </pre>
        */
       public int getCookie() {
         return cookie_;
       }
       /**
        * <code>optional int32 cookie = 1;</code>
-       *
-       * <pre>
-       * QueryCvarCookie_t
-       * </pre>
        */
       public Builder setCookie(int value) {
         bitField0_ |= 0x00000001;
@@ -26600,10 +24416,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional int32 cookie = 1;</code>
-       *
-       * <pre>
-       * QueryCvarCookie_t
-       * </pre>
        */
       public Builder clearCookie() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -26686,7 +24498,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_GetCvarValue)
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_GetCvarValue)
     }
 
     static {
@@ -26694,7 +24506,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_GetCvarValue)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_GetCvarValue)
   }
 
   public interface CSVCMsg_MenuOrBuilder
@@ -26703,41 +24515,25 @@ public final class Netmessages {
     // optional int32 dialog_type = 1;
     /**
      * <code>optional int32 dialog_type = 1;</code>
-     *
-     * <pre>
-     * DIALOG_TYPE
-     * </pre>
      */
     boolean hasDialogType();
     /**
      * <code>optional int32 dialog_type = 1;</code>
-     *
-     * <pre>
-     * DIALOG_TYPE
-     * </pre>
      */
     int getDialogType();
 
     // optional bytes menu_key_values = 2;
     /**
      * <code>optional bytes menu_key_values = 2;</code>
-     *
-     * <pre>
-     * KeyValues.WriteAsBinary()
-     * </pre>
      */
     boolean hasMenuKeyValues();
     /**
      * <code>optional bytes menu_key_values = 2;</code>
-     *
-     * <pre>
-     * KeyValues.WriteAsBinary()
-     * </pre>
      */
     com.google.protobuf.ByteString getMenuKeyValues();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_Menu}
+   * Protobuf type {@code CSVCMsg_Menu}
    */
   public static final class CSVCMsg_Menu extends
       com.google.protobuf.GeneratedMessage
@@ -26811,12 +24607,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Menu_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Menu_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Menu_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Menu_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_Menu.class, com.valve.dota2.Netmessages.CSVCMsg_Menu.Builder.class);
     }
@@ -26842,20 +24638,12 @@ public final class Netmessages {
     private int dialogType_;
     /**
      * <code>optional int32 dialog_type = 1;</code>
-     *
-     * <pre>
-     * DIALOG_TYPE
-     * </pre>
      */
     public boolean hasDialogType() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>optional int32 dialog_type = 1;</code>
-     *
-     * <pre>
-     * DIALOG_TYPE
-     * </pre>
      */
     public int getDialogType() {
       return dialogType_;
@@ -26866,20 +24654,12 @@ public final class Netmessages {
     private com.google.protobuf.ByteString menuKeyValues_;
     /**
      * <code>optional bytes menu_key_values = 2;</code>
-     *
-     * <pre>
-     * KeyValues.WriteAsBinary()
-     * </pre>
      */
     public boolean hasMenuKeyValues() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <code>optional bytes menu_key_values = 2;</code>
-     *
-     * <pre>
-     * KeyValues.WriteAsBinary()
-     * </pre>
      */
     public com.google.protobuf.ByteString getMenuKeyValues() {
       return menuKeyValues_;
@@ -27003,19 +24783,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_Menu}
+     * Protobuf type {@code CSVCMsg_Menu}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_MenuOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Menu_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Menu_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Menu_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Menu_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_Menu.class, com.valve.dota2.Netmessages.CSVCMsg_Menu.Builder.class);
       }
@@ -27053,7 +24833,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_Menu_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_Menu_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_Menu getDefaultInstanceForType() {
@@ -27133,30 +24913,18 @@ public final class Netmessages {
       private int dialogType_ ;
       /**
        * <code>optional int32 dialog_type = 1;</code>
-       *
-       * <pre>
-       * DIALOG_TYPE
-       * </pre>
        */
       public boolean hasDialogType() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional int32 dialog_type = 1;</code>
-       *
-       * <pre>
-       * DIALOG_TYPE
-       * </pre>
        */
       public int getDialogType() {
         return dialogType_;
       }
       /**
        * <code>optional int32 dialog_type = 1;</code>
-       *
-       * <pre>
-       * DIALOG_TYPE
-       * </pre>
        */
       public Builder setDialogType(int value) {
         bitField0_ |= 0x00000001;
@@ -27166,10 +24934,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional int32 dialog_type = 1;</code>
-       *
-       * <pre>
-       * DIALOG_TYPE
-       * </pre>
        */
       public Builder clearDialogType() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -27182,30 +24946,18 @@ public final class Netmessages {
       private com.google.protobuf.ByteString menuKeyValues_ = com.google.protobuf.ByteString.EMPTY;
       /**
        * <code>optional bytes menu_key_values = 2;</code>
-       *
-       * <pre>
-       * KeyValues.WriteAsBinary()
-       * </pre>
        */
       public boolean hasMenuKeyValues() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <code>optional bytes menu_key_values = 2;</code>
-       *
-       * <pre>
-       * KeyValues.WriteAsBinary()
-       * </pre>
        */
       public com.google.protobuf.ByteString getMenuKeyValues() {
         return menuKeyValues_;
       }
       /**
        * <code>optional bytes menu_key_values = 2;</code>
-       *
-       * <pre>
-       * KeyValues.WriteAsBinary()
-       * </pre>
        */
       public Builder setMenuKeyValues(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -27218,10 +24970,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional bytes menu_key_values = 2;</code>
-       *
-       * <pre>
-       * KeyValues.WriteAsBinary()
-       * </pre>
        */
       public Builder clearMenuKeyValues() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -27230,7 +24978,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_Menu)
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_Menu)
     }
 
     static {
@@ -27238,7 +24986,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_Menu)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_Menu)
   }
 
   public interface CSVCMsg_SendTableOrBuilder
@@ -27279,33 +25027,33 @@ public final class Netmessages {
      */
     boolean getNeedsDecoder();
 
-    // repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;
+    // repeated .CSVCMsg_SendTable.sendprop_t props = 4;
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+     * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
      */
     java.util.List<com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t> 
         getPropsList();
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+     * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
      */
     com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t getProps(int index);
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+     * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
      */
     int getPropsCount();
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+     * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
      */
     java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_tOrBuilder> 
         getPropsOrBuilderList();
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+     * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
      */
     com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_tOrBuilder getPropsOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_SendTable}
+   * Protobuf type {@code CSVCMsg_SendTable}
    */
   public static final class CSVCMsg_SendTable extends
       com.google.protobuf.GeneratedMessage
@@ -27395,12 +25143,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SendTable_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SendTable_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SendTable_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SendTable_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_SendTable.class, com.valve.dota2.Netmessages.CSVCMsg_SendTable.Builder.class);
     }
@@ -27426,18 +25174,10 @@ public final class Netmessages {
       // optional int32 type = 1;
       /**
        * <code>optional int32 type = 1;</code>
-       *
-       * <pre>
-       * SendPropType
-       * </pre>
        */
       boolean hasType();
       /**
        * <code>optional int32 type = 1;</code>
-       *
-       * <pre>
-       * SendPropType
-       * </pre>
        */
       int getType();
 
@@ -27479,26 +25219,14 @@ public final class Netmessages {
       // optional string dt_name = 5;
       /**
        * <code>optional string dt_name = 5;</code>
-       *
-       * <pre>
-       * if pProp-&gt;m_Type == DPT_DataTable || IsExcludeProp
-       * </pre>
        */
       boolean hasDtName();
       /**
        * <code>optional string dt_name = 5;</code>
-       *
-       * <pre>
-       * if pProp-&gt;m_Type == DPT_DataTable || IsExcludeProp
-       * </pre>
        */
       java.lang.String getDtName();
       /**
        * <code>optional string dt_name = 5;</code>
-       *
-       * <pre>
-       * if pProp-&gt;m_Type == DPT_DataTable || IsExcludeProp
-       * </pre>
        */
       com.google.protobuf.ByteString
           getDtNameBytes();
@@ -27506,77 +25234,45 @@ public final class Netmessages {
       // optional int32 num_elements = 6;
       /**
        * <code>optional int32 num_elements = 6;</code>
-       *
-       * <pre>
-       * else if pProp-&gt;m_Type == DPT_Array
-       * </pre>
        */
       boolean hasNumElements();
       /**
        * <code>optional int32 num_elements = 6;</code>
-       *
-       * <pre>
-       * else if pProp-&gt;m_Type == DPT_Array
-       * </pre>
        */
       int getNumElements();
 
       // optional float low_value = 7;
       /**
        * <code>optional float low_value = 7;</code>
-       *
-       * <pre>
-       * else ...
-       * </pre>
        */
       boolean hasLowValue();
       /**
        * <code>optional float low_value = 7;</code>
-       *
-       * <pre>
-       * else ...
-       * </pre>
        */
       float getLowValue();
 
       // optional float high_value = 8;
       /**
        * <code>optional float high_value = 8;</code>
-       *
-       * <pre>
-       * 		...
-       * </pre>
        */
       boolean hasHighValue();
       /**
        * <code>optional float high_value = 8;</code>
-       *
-       * <pre>
-       * 		...
-       * </pre>
        */
       float getHighValue();
 
       // optional int32 num_bits = 9;
       /**
        * <code>optional int32 num_bits = 9;</code>
-       *
-       * <pre>
-       *		...
-       * </pre>
        */
       boolean hasNumBits();
       /**
        * <code>optional int32 num_bits = 9;</code>
-       *
-       * <pre>
-       *		...
-       * </pre>
        */
       int getNumBits();
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_SendTable.sendprop_t}
+     * Protobuf type {@code CSVCMsg_SendTable.sendprop_t}
      */
     public static final class sendprop_t extends
         com.google.protobuf.GeneratedMessage
@@ -27685,12 +25381,12 @@ public final class Netmessages {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SendTable_sendprop_t_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SendTable_sendprop_t_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SendTable_sendprop_t_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SendTable_sendprop_t_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t.class, com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t.Builder.class);
       }
@@ -27716,20 +25412,12 @@ public final class Netmessages {
       private int type_;
       /**
        * <code>optional int32 type = 1;</code>
-       *
-       * <pre>
-       * SendPropType
-       * </pre>
        */
       public boolean hasType() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional int32 type = 1;</code>
-       *
-       * <pre>
-       * SendPropType
-       * </pre>
        */
       public int getType() {
         return type_;
@@ -27815,20 +25503,12 @@ public final class Netmessages {
       private java.lang.Object dtName_;
       /**
        * <code>optional string dt_name = 5;</code>
-       *
-       * <pre>
-       * if pProp-&gt;m_Type == DPT_DataTable || IsExcludeProp
-       * </pre>
        */
       public boolean hasDtName() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        * <code>optional string dt_name = 5;</code>
-       *
-       * <pre>
-       * if pProp-&gt;m_Type == DPT_DataTable || IsExcludeProp
-       * </pre>
        */
       public java.lang.String getDtName() {
         java.lang.Object ref = dtName_;
@@ -27846,10 +25526,6 @@ public final class Netmessages {
       }
       /**
        * <code>optional string dt_name = 5;</code>
-       *
-       * <pre>
-       * if pProp-&gt;m_Type == DPT_DataTable || IsExcludeProp
-       * </pre>
        */
       public com.google.protobuf.ByteString
           getDtNameBytes() {
@@ -27870,20 +25546,12 @@ public final class Netmessages {
       private int numElements_;
       /**
        * <code>optional int32 num_elements = 6;</code>
-       *
-       * <pre>
-       * else if pProp-&gt;m_Type == DPT_Array
-       * </pre>
        */
       public boolean hasNumElements() {
         return ((bitField0_ & 0x00000020) == 0x00000020);
       }
       /**
        * <code>optional int32 num_elements = 6;</code>
-       *
-       * <pre>
-       * else if pProp-&gt;m_Type == DPT_Array
-       * </pre>
        */
       public int getNumElements() {
         return numElements_;
@@ -27894,20 +25562,12 @@ public final class Netmessages {
       private float lowValue_;
       /**
        * <code>optional float low_value = 7;</code>
-       *
-       * <pre>
-       * else ...
-       * </pre>
        */
       public boolean hasLowValue() {
         return ((bitField0_ & 0x00000040) == 0x00000040);
       }
       /**
        * <code>optional float low_value = 7;</code>
-       *
-       * <pre>
-       * else ...
-       * </pre>
        */
       public float getLowValue() {
         return lowValue_;
@@ -27918,20 +25578,12 @@ public final class Netmessages {
       private float highValue_;
       /**
        * <code>optional float high_value = 8;</code>
-       *
-       * <pre>
-       * 		...
-       * </pre>
        */
       public boolean hasHighValue() {
         return ((bitField0_ & 0x00000080) == 0x00000080);
       }
       /**
        * <code>optional float high_value = 8;</code>
-       *
-       * <pre>
-       * 		...
-       * </pre>
        */
       public float getHighValue() {
         return highValue_;
@@ -27942,20 +25594,12 @@ public final class Netmessages {
       private int numBits_;
       /**
        * <code>optional int32 num_bits = 9;</code>
-       *
-       * <pre>
-       *		...
-       * </pre>
        */
       public boolean hasNumBits() {
         return ((bitField0_ & 0x00000100) == 0x00000100);
       }
       /**
        * <code>optional int32 num_bits = 9;</code>
-       *
-       * <pre>
-       *		...
-       * </pre>
        */
       public int getNumBits() {
         return numBits_;
@@ -28135,19 +25779,19 @@ public final class Netmessages {
         return builder;
       }
       /**
-       * Protobuf type {@code com.valve.dota2.CSVCMsg_SendTable.sendprop_t}
+       * Protobuf type {@code CSVCMsg_SendTable.sendprop_t}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
          implements com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_tOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SendTable_sendprop_t_descriptor;
+          return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SendTable_sendprop_t_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SendTable_sendprop_t_fieldAccessorTable
+          return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SendTable_sendprop_t_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t.class, com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t.Builder.class);
         }
@@ -28199,7 +25843,7 @@ public final class Netmessages {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SendTable_sendprop_t_descriptor;
+          return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SendTable_sendprop_t_descriptor;
         }
 
         public com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t getDefaultInstanceForType() {
@@ -28332,30 +25976,18 @@ public final class Netmessages {
         private int type_ ;
         /**
          * <code>optional int32 type = 1;</code>
-         *
-         * <pre>
-         * SendPropType
-         * </pre>
          */
         public boolean hasType() {
           return ((bitField0_ & 0x00000001) == 0x00000001);
         }
         /**
          * <code>optional int32 type = 1;</code>
-         *
-         * <pre>
-         * SendPropType
-         * </pre>
          */
         public int getType() {
           return type_;
         }
         /**
          * <code>optional int32 type = 1;</code>
-         *
-         * <pre>
-         * SendPropType
-         * </pre>
          */
         public Builder setType(int value) {
           bitField0_ |= 0x00000001;
@@ -28365,10 +25997,6 @@ public final class Netmessages {
         }
         /**
          * <code>optional int32 type = 1;</code>
-         *
-         * <pre>
-         * SendPropType
-         * </pre>
          */
         public Builder clearType() {
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -28521,20 +26149,12 @@ public final class Netmessages {
         private java.lang.Object dtName_ = "";
         /**
          * <code>optional string dt_name = 5;</code>
-         *
-         * <pre>
-         * if pProp-&gt;m_Type == DPT_DataTable || IsExcludeProp
-         * </pre>
          */
         public boolean hasDtName() {
           return ((bitField0_ & 0x00000010) == 0x00000010);
         }
         /**
          * <code>optional string dt_name = 5;</code>
-         *
-         * <pre>
-         * if pProp-&gt;m_Type == DPT_DataTable || IsExcludeProp
-         * </pre>
          */
         public java.lang.String getDtName() {
           java.lang.Object ref = dtName_;
@@ -28549,10 +26169,6 @@ public final class Netmessages {
         }
         /**
          * <code>optional string dt_name = 5;</code>
-         *
-         * <pre>
-         * if pProp-&gt;m_Type == DPT_DataTable || IsExcludeProp
-         * </pre>
          */
         public com.google.protobuf.ByteString
             getDtNameBytes() {
@@ -28569,10 +26185,6 @@ public final class Netmessages {
         }
         /**
          * <code>optional string dt_name = 5;</code>
-         *
-         * <pre>
-         * if pProp-&gt;m_Type == DPT_DataTable || IsExcludeProp
-         * </pre>
          */
         public Builder setDtName(
             java.lang.String value) {
@@ -28586,10 +26198,6 @@ public final class Netmessages {
         }
         /**
          * <code>optional string dt_name = 5;</code>
-         *
-         * <pre>
-         * if pProp-&gt;m_Type == DPT_DataTable || IsExcludeProp
-         * </pre>
          */
         public Builder clearDtName() {
           bitField0_ = (bitField0_ & ~0x00000010);
@@ -28599,10 +26207,6 @@ public final class Netmessages {
         }
         /**
          * <code>optional string dt_name = 5;</code>
-         *
-         * <pre>
-         * if pProp-&gt;m_Type == DPT_DataTable || IsExcludeProp
-         * </pre>
          */
         public Builder setDtNameBytes(
             com.google.protobuf.ByteString value) {
@@ -28619,30 +26223,18 @@ public final class Netmessages {
         private int numElements_ ;
         /**
          * <code>optional int32 num_elements = 6;</code>
-         *
-         * <pre>
-         * else if pProp-&gt;m_Type == DPT_Array
-         * </pre>
          */
         public boolean hasNumElements() {
           return ((bitField0_ & 0x00000020) == 0x00000020);
         }
         /**
          * <code>optional int32 num_elements = 6;</code>
-         *
-         * <pre>
-         * else if pProp-&gt;m_Type == DPT_Array
-         * </pre>
          */
         public int getNumElements() {
           return numElements_;
         }
         /**
          * <code>optional int32 num_elements = 6;</code>
-         *
-         * <pre>
-         * else if pProp-&gt;m_Type == DPT_Array
-         * </pre>
          */
         public Builder setNumElements(int value) {
           bitField0_ |= 0x00000020;
@@ -28652,10 +26244,6 @@ public final class Netmessages {
         }
         /**
          * <code>optional int32 num_elements = 6;</code>
-         *
-         * <pre>
-         * else if pProp-&gt;m_Type == DPT_Array
-         * </pre>
          */
         public Builder clearNumElements() {
           bitField0_ = (bitField0_ & ~0x00000020);
@@ -28668,30 +26256,18 @@ public final class Netmessages {
         private float lowValue_ ;
         /**
          * <code>optional float low_value = 7;</code>
-         *
-         * <pre>
-         * else ...
-         * </pre>
          */
         public boolean hasLowValue() {
           return ((bitField0_ & 0x00000040) == 0x00000040);
         }
         /**
          * <code>optional float low_value = 7;</code>
-         *
-         * <pre>
-         * else ...
-         * </pre>
          */
         public float getLowValue() {
           return lowValue_;
         }
         /**
          * <code>optional float low_value = 7;</code>
-         *
-         * <pre>
-         * else ...
-         * </pre>
          */
         public Builder setLowValue(float value) {
           bitField0_ |= 0x00000040;
@@ -28701,10 +26277,6 @@ public final class Netmessages {
         }
         /**
          * <code>optional float low_value = 7;</code>
-         *
-         * <pre>
-         * else ...
-         * </pre>
          */
         public Builder clearLowValue() {
           bitField0_ = (bitField0_ & ~0x00000040);
@@ -28717,30 +26289,18 @@ public final class Netmessages {
         private float highValue_ ;
         /**
          * <code>optional float high_value = 8;</code>
-         *
-         * <pre>
-         * 		...
-         * </pre>
          */
         public boolean hasHighValue() {
           return ((bitField0_ & 0x00000080) == 0x00000080);
         }
         /**
          * <code>optional float high_value = 8;</code>
-         *
-         * <pre>
-         * 		...
-         * </pre>
          */
         public float getHighValue() {
           return highValue_;
         }
         /**
          * <code>optional float high_value = 8;</code>
-         *
-         * <pre>
-         * 		...
-         * </pre>
          */
         public Builder setHighValue(float value) {
           bitField0_ |= 0x00000080;
@@ -28750,10 +26310,6 @@ public final class Netmessages {
         }
         /**
          * <code>optional float high_value = 8;</code>
-         *
-         * <pre>
-         * 		...
-         * </pre>
          */
         public Builder clearHighValue() {
           bitField0_ = (bitField0_ & ~0x00000080);
@@ -28766,30 +26322,18 @@ public final class Netmessages {
         private int numBits_ ;
         /**
          * <code>optional int32 num_bits = 9;</code>
-         *
-         * <pre>
-         *		...
-         * </pre>
          */
         public boolean hasNumBits() {
           return ((bitField0_ & 0x00000100) == 0x00000100);
         }
         /**
          * <code>optional int32 num_bits = 9;</code>
-         *
-         * <pre>
-         *		...
-         * </pre>
          */
         public int getNumBits() {
           return numBits_;
         }
         /**
          * <code>optional int32 num_bits = 9;</code>
-         *
-         * <pre>
-         *		...
-         * </pre>
          */
         public Builder setNumBits(int value) {
           bitField0_ |= 0x00000100;
@@ -28799,10 +26343,6 @@ public final class Netmessages {
         }
         /**
          * <code>optional int32 num_bits = 9;</code>
-         *
-         * <pre>
-         *		...
-         * </pre>
          */
         public Builder clearNumBits() {
           bitField0_ = (bitField0_ & ~0x00000100);
@@ -28811,7 +26351,7 @@ public final class Netmessages {
           return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_SendTable.sendprop_t)
+        // @@protoc_insertion_point(builder_scope:CSVCMsg_SendTable.sendprop_t)
       }
 
       static {
@@ -28819,7 +26359,7 @@ public final class Netmessages {
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_SendTable.sendprop_t)
+      // @@protoc_insertion_point(class_scope:CSVCMsg_SendTable.sendprop_t)
     }
 
     private int bitField0_;
@@ -28898,36 +26438,36 @@ public final class Netmessages {
       return needsDecoder_;
     }
 
-    // repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;
+    // repeated .CSVCMsg_SendTable.sendprop_t props = 4;
     public static final int PROPS_FIELD_NUMBER = 4;
     private java.util.List<com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t> props_;
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+     * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
      */
     public java.util.List<com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t> getPropsList() {
       return props_;
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+     * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
      */
     public java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_tOrBuilder> 
         getPropsOrBuilderList() {
       return props_;
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+     * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
      */
     public int getPropsCount() {
       return props_.size();
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+     * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
      */
     public com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t getProps(int index) {
       return props_.get(index);
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+     * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
      */
     public com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_tOrBuilder getPropsOrBuilder(
         int index) {
@@ -29068,19 +26608,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_SendTable}
+     * Protobuf type {@code CSVCMsg_SendTable}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_SendTableOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SendTable_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SendTable_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SendTable_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SendTable_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_SendTable.class, com.valve.dota2.Netmessages.CSVCMsg_SendTable.Builder.class);
       }
@@ -29127,7 +26667,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_SendTable_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_SendTable_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_SendTable getDefaultInstanceForType() {
@@ -29387,7 +26927,7 @@ public final class Netmessages {
         return this;
       }
 
-      // repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;
+      // repeated .CSVCMsg_SendTable.sendprop_t props = 4;
       private java.util.List<com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t> props_ =
         java.util.Collections.emptyList();
       private void ensurePropsIsMutable() {
@@ -29401,7 +26941,7 @@ public final class Netmessages {
           com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t, com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t.Builder, com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_tOrBuilder> propsBuilder_;
 
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+       * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
        */
       public java.util.List<com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t> getPropsList() {
         if (propsBuilder_ == null) {
@@ -29411,7 +26951,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+       * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
        */
       public int getPropsCount() {
         if (propsBuilder_ == null) {
@@ -29421,7 +26961,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+       * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t getProps(int index) {
         if (propsBuilder_ == null) {
@@ -29431,7 +26971,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+       * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
        */
       public Builder setProps(
           int index, com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t value) {
@@ -29448,7 +26988,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+       * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
        */
       public Builder setProps(
           int index, com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t.Builder builderForValue) {
@@ -29462,7 +27002,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+       * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
        */
       public Builder addProps(com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t value) {
         if (propsBuilder_ == null) {
@@ -29478,7 +27018,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+       * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
        */
       public Builder addProps(
           int index, com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t value) {
@@ -29495,7 +27035,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+       * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
        */
       public Builder addProps(
           com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t.Builder builderForValue) {
@@ -29509,7 +27049,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+       * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
        */
       public Builder addProps(
           int index, com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t.Builder builderForValue) {
@@ -29523,7 +27063,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+       * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
        */
       public Builder addAllProps(
           java.lang.Iterable<? extends com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t> values) {
@@ -29537,7 +27077,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+       * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
        */
       public Builder clearProps() {
         if (propsBuilder_ == null) {
@@ -29550,7 +27090,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+       * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
        */
       public Builder removeProps(int index) {
         if (propsBuilder_ == null) {
@@ -29563,14 +27103,14 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+       * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t.Builder getPropsBuilder(
           int index) {
         return getPropsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+       * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_tOrBuilder getPropsOrBuilder(
           int index) {
@@ -29580,7 +27120,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+       * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
        */
       public java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_tOrBuilder> 
            getPropsOrBuilderList() {
@@ -29591,14 +27131,14 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+       * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t.Builder addPropsBuilder() {
         return getPropsFieldBuilder().addBuilder(
             com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+       * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t.Builder addPropsBuilder(
           int index) {
@@ -29606,7 +27146,7 @@ public final class Netmessages {
             index, com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_SendTable.sendprop_t props = 4;</code>
+       * <code>repeated .CSVCMsg_SendTable.sendprop_t props = 4;</code>
        */
       public java.util.List<com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t.Builder> 
            getPropsBuilderList() {
@@ -29627,7 +27167,7 @@ public final class Netmessages {
         return propsBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_SendTable)
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_SendTable)
     }
 
     static {
@@ -29635,2263 +27175,39 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_SendTable)
-  }
-
-  public interface CSVCMsg_GameEventOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-
-    // optional string event_name = 1;
-    /**
-     * <code>optional string event_name = 1;</code>
-     */
-    boolean hasEventName();
-    /**
-     * <code>optional string event_name = 1;</code>
-     */
-    java.lang.String getEventName();
-    /**
-     * <code>optional string event_name = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getEventNameBytes();
-
-    // optional int32 eventid = 2;
-    /**
-     * <code>optional int32 eventid = 2;</code>
-     */
-    boolean hasEventid();
-    /**
-     * <code>optional int32 eventid = 2;</code>
-     */
-    int getEventid();
-
-    // repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;
-    /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-     */
-    java.util.List<com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t> 
-        getKeysList();
-    /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-     */
-    com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t getKeys(int index);
-    /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-     */
-    int getKeysCount();
-    /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-     */
-    java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_tOrBuilder> 
-        getKeysOrBuilderList();
-    /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-     */
-    com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_tOrBuilder getKeysOrBuilder(
-        int index);
-  }
-  /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_GameEvent}
-   */
-  public static final class CSVCMsg_GameEvent extends
-      com.google.protobuf.GeneratedMessage
-      implements CSVCMsg_GameEventOrBuilder {
-    // Use CSVCMsg_GameEvent.newBuilder() to construct.
-    private CSVCMsg_GameEvent(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private CSVCMsg_GameEvent(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final CSVCMsg_GameEvent defaultInstance;
-    public static CSVCMsg_GameEvent getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public CSVCMsg_GameEvent getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private CSVCMsg_GameEvent(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              bitField0_ |= 0x00000001;
-              eventName_ = input.readBytes();
-              break;
-            }
-            case 16: {
-              bitField0_ |= 0x00000002;
-              eventid_ = input.readInt32();
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                keys_ = new java.util.ArrayList<com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              keys_.add(input.readMessage(com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.PARSER, extensionRegistry));
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-          keys_ = java.util.Collections.unmodifiableList(keys_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEvent_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEvent_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.valve.dota2.Netmessages.CSVCMsg_GameEvent.class, com.valve.dota2.Netmessages.CSVCMsg_GameEvent.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<CSVCMsg_GameEvent> PARSER =
-        new com.google.protobuf.AbstractParser<CSVCMsg_GameEvent>() {
-      public CSVCMsg_GameEvent parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CSVCMsg_GameEvent(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<CSVCMsg_GameEvent> getParserForType() {
-      return PARSER;
-    }
-
-    public interface key_tOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
-
-      // optional int32 type = 1;
-      /**
-       * <code>optional int32 type = 1;</code>
-       *
-       * <pre>
-       * type
-       * </pre>
-       */
-      boolean hasType();
-      /**
-       * <code>optional int32 type = 1;</code>
-       *
-       * <pre>
-       * type
-       * </pre>
-       */
-      int getType();
-
-      // optional string val_string = 2;
-      /**
-       * <code>optional string val_string = 2;</code>
-       *
-       * <pre>
-       * TYPE_STRING
-       * </pre>
-       */
-      boolean hasValString();
-      /**
-       * <code>optional string val_string = 2;</code>
-       *
-       * <pre>
-       * TYPE_STRING
-       * </pre>
-       */
-      java.lang.String getValString();
-      /**
-       * <code>optional string val_string = 2;</code>
-       *
-       * <pre>
-       * TYPE_STRING
-       * </pre>
-       */
-      com.google.protobuf.ByteString
-          getValStringBytes();
-
-      // optional float val_float = 3;
-      /**
-       * <code>optional float val_float = 3;</code>
-       *
-       * <pre>
-       * TYPE_FLOAT 
-       * </pre>
-       */
-      boolean hasValFloat();
-      /**
-       * <code>optional float val_float = 3;</code>
-       *
-       * <pre>
-       * TYPE_FLOAT 
-       * </pre>
-       */
-      float getValFloat();
-
-      // optional int32 val_long = 4;
-      /**
-       * <code>optional int32 val_long = 4;</code>
-       *
-       * <pre>
-       * TYPE_LONG  
-       * </pre>
-       */
-      boolean hasValLong();
-      /**
-       * <code>optional int32 val_long = 4;</code>
-       *
-       * <pre>
-       * TYPE_LONG  
-       * </pre>
-       */
-      int getValLong();
-
-      // optional int32 val_short = 5;
-      /**
-       * <code>optional int32 val_short = 5;</code>
-       *
-       * <pre>
-       * TYPE_SHORT 
-       * </pre>
-       */
-      boolean hasValShort();
-      /**
-       * <code>optional int32 val_short = 5;</code>
-       *
-       * <pre>
-       * TYPE_SHORT 
-       * </pre>
-       */
-      int getValShort();
-
-      // optional int32 val_byte = 6;
-      /**
-       * <code>optional int32 val_byte = 6;</code>
-       *
-       * <pre>
-       * TYPE_BYTE  
-       * </pre>
-       */
-      boolean hasValByte();
-      /**
-       * <code>optional int32 val_byte = 6;</code>
-       *
-       * <pre>
-       * TYPE_BYTE  
-       * </pre>
-       */
-      int getValByte();
-
-      // optional bool val_bool = 7;
-      /**
-       * <code>optional bool val_bool = 7;</code>
-       *
-       * <pre>
-       * TYPE_BOOL  
-       * </pre>
-       */
-      boolean hasValBool();
-      /**
-       * <code>optional bool val_bool = 7;</code>
-       *
-       * <pre>
-       * TYPE_BOOL  
-       * </pre>
-       */
-      boolean getValBool();
-
-      // optional uint64 val_uint64 = 8;
-      /**
-       * <code>optional uint64 val_uint64 = 8;</code>
-       *
-       * <pre>
-       * TYPE_UINT64
-       * </pre>
-       */
-      boolean hasValUint64();
-      /**
-       * <code>optional uint64 val_uint64 = 8;</code>
-       *
-       * <pre>
-       * TYPE_UINT64
-       * </pre>
-       */
-      long getValUint64();
-    }
-    /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_GameEvent.key_t}
-     */
-    public static final class key_t extends
-        com.google.protobuf.GeneratedMessage
-        implements key_tOrBuilder {
-      // Use key_t.newBuilder() to construct.
-      private key_t(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-        super(builder);
-        this.unknownFields = builder.getUnknownFields();
-      }
-      private key_t(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-      private static final key_t defaultInstance;
-      public static key_t getDefaultInstance() {
-        return defaultInstance;
-      }
-
-      public key_t getDefaultInstanceForType() {
-        return defaultInstance;
-      }
-
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
-        return this.unknownFields;
-      }
-      private key_t(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        initFields();
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!parseUnknownField(input, unknownFields,
-                                       extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 8: {
-                bitField0_ |= 0x00000001;
-                type_ = input.readInt32();
-                break;
-              }
-              case 18: {
-                bitField0_ |= 0x00000002;
-                valString_ = input.readBytes();
-                break;
-              }
-              case 29: {
-                bitField0_ |= 0x00000004;
-                valFloat_ = input.readFloat();
-                break;
-              }
-              case 32: {
-                bitField0_ |= 0x00000008;
-                valLong_ = input.readInt32();
-                break;
-              }
-              case 40: {
-                bitField0_ |= 0x00000010;
-                valShort_ = input.readInt32();
-                break;
-              }
-              case 48: {
-                bitField0_ |= 0x00000020;
-                valByte_ = input.readInt32();
-                break;
-              }
-              case 56: {
-                bitField0_ |= 0x00000040;
-                valBool_ = input.readBool();
-                break;
-              }
-              case 64: {
-                bitField0_ |= 0x00000080;
-                valUint64_ = input.readUInt64();
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEvent_key_t_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEvent_key_t_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.class, com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.Builder.class);
-      }
-
-      public static com.google.protobuf.Parser<key_t> PARSER =
-          new com.google.protobuf.AbstractParser<key_t>() {
-        public key_t parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new key_t(input, extensionRegistry);
-        }
-      };
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<key_t> getParserForType() {
-        return PARSER;
-      }
-
-      private int bitField0_;
-      // optional int32 type = 1;
-      public static final int TYPE_FIELD_NUMBER = 1;
-      private int type_;
-      /**
-       * <code>optional int32 type = 1;</code>
-       *
-       * <pre>
-       * type
-       * </pre>
-       */
-      public boolean hasType() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>optional int32 type = 1;</code>
-       *
-       * <pre>
-       * type
-       * </pre>
-       */
-      public int getType() {
-        return type_;
-      }
-
-      // optional string val_string = 2;
-      public static final int VAL_STRING_FIELD_NUMBER = 2;
-      private java.lang.Object valString_;
-      /**
-       * <code>optional string val_string = 2;</code>
-       *
-       * <pre>
-       * TYPE_STRING
-       * </pre>
-       */
-      public boolean hasValString() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>optional string val_string = 2;</code>
-       *
-       * <pre>
-       * TYPE_STRING
-       * </pre>
-       */
-      public java.lang.String getValString() {
-        java.lang.Object ref = valString_;
-        if (ref instanceof java.lang.String) {
-          return (java.lang.String) ref;
-        } else {
-          com.google.protobuf.ByteString bs = 
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            valString_ = s;
-          }
-          return s;
-        }
-      }
-      /**
-       * <code>optional string val_string = 2;</code>
-       *
-       * <pre>
-       * TYPE_STRING
-       * </pre>
-       */
-      public com.google.protobuf.ByteString
-          getValStringBytes() {
-        java.lang.Object ref = valString_;
-        if (ref instanceof java.lang.String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          valString_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-
-      // optional float val_float = 3;
-      public static final int VAL_FLOAT_FIELD_NUMBER = 3;
-      private float valFloat_;
-      /**
-       * <code>optional float val_float = 3;</code>
-       *
-       * <pre>
-       * TYPE_FLOAT 
-       * </pre>
-       */
-      public boolean hasValFloat() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
-      }
-      /**
-       * <code>optional float val_float = 3;</code>
-       *
-       * <pre>
-       * TYPE_FLOAT 
-       * </pre>
-       */
-      public float getValFloat() {
-        return valFloat_;
-      }
-
-      // optional int32 val_long = 4;
-      public static final int VAL_LONG_FIELD_NUMBER = 4;
-      private int valLong_;
-      /**
-       * <code>optional int32 val_long = 4;</code>
-       *
-       * <pre>
-       * TYPE_LONG  
-       * </pre>
-       */
-      public boolean hasValLong() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      /**
-       * <code>optional int32 val_long = 4;</code>
-       *
-       * <pre>
-       * TYPE_LONG  
-       * </pre>
-       */
-      public int getValLong() {
-        return valLong_;
-      }
-
-      // optional int32 val_short = 5;
-      public static final int VAL_SHORT_FIELD_NUMBER = 5;
-      private int valShort_;
-      /**
-       * <code>optional int32 val_short = 5;</code>
-       *
-       * <pre>
-       * TYPE_SHORT 
-       * </pre>
-       */
-      public boolean hasValShort() {
-        return ((bitField0_ & 0x00000010) == 0x00000010);
-      }
-      /**
-       * <code>optional int32 val_short = 5;</code>
-       *
-       * <pre>
-       * TYPE_SHORT 
-       * </pre>
-       */
-      public int getValShort() {
-        return valShort_;
-      }
-
-      // optional int32 val_byte = 6;
-      public static final int VAL_BYTE_FIELD_NUMBER = 6;
-      private int valByte_;
-      /**
-       * <code>optional int32 val_byte = 6;</code>
-       *
-       * <pre>
-       * TYPE_BYTE  
-       * </pre>
-       */
-      public boolean hasValByte() {
-        return ((bitField0_ & 0x00000020) == 0x00000020);
-      }
-      /**
-       * <code>optional int32 val_byte = 6;</code>
-       *
-       * <pre>
-       * TYPE_BYTE  
-       * </pre>
-       */
-      public int getValByte() {
-        return valByte_;
-      }
-
-      // optional bool val_bool = 7;
-      public static final int VAL_BOOL_FIELD_NUMBER = 7;
-      private boolean valBool_;
-      /**
-       * <code>optional bool val_bool = 7;</code>
-       *
-       * <pre>
-       * TYPE_BOOL  
-       * </pre>
-       */
-      public boolean hasValBool() {
-        return ((bitField0_ & 0x00000040) == 0x00000040);
-      }
-      /**
-       * <code>optional bool val_bool = 7;</code>
-       *
-       * <pre>
-       * TYPE_BOOL  
-       * </pre>
-       */
-      public boolean getValBool() {
-        return valBool_;
-      }
-
-      // optional uint64 val_uint64 = 8;
-      public static final int VAL_UINT64_FIELD_NUMBER = 8;
-      private long valUint64_;
-      /**
-       * <code>optional uint64 val_uint64 = 8;</code>
-       *
-       * <pre>
-       * TYPE_UINT64
-       * </pre>
-       */
-      public boolean hasValUint64() {
-        return ((bitField0_ & 0x00000080) == 0x00000080);
-      }
-      /**
-       * <code>optional uint64 val_uint64 = 8;</code>
-       *
-       * <pre>
-       * TYPE_UINT64
-       * </pre>
-       */
-      public long getValUint64() {
-        return valUint64_;
-      }
-
-      private void initFields() {
-        type_ = 0;
-        valString_ = "";
-        valFloat_ = 0F;
-        valLong_ = 0;
-        valShort_ = 0;
-        valByte_ = 0;
-        valBool_ = false;
-        valUint64_ = 0L;
-      }
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        getSerializedSize();
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeInt32(1, type_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeBytes(2, getValStringBytes());
-        }
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          output.writeFloat(3, valFloat_);
-        }
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          output.writeInt32(4, valLong_);
-        }
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
-          output.writeInt32(5, valShort_);
-        }
-        if (((bitField0_ & 0x00000020) == 0x00000020)) {
-          output.writeInt32(6, valByte_);
-        }
-        if (((bitField0_ & 0x00000040) == 0x00000040)) {
-          output.writeBool(7, valBool_);
-        }
-        if (((bitField0_ & 0x00000080) == 0x00000080)) {
-          output.writeUInt64(8, valUint64_);
-        }
-        getUnknownFields().writeTo(output);
-      }
-
-      private int memoizedSerializedSize = -1;
-      public int getSerializedSize() {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, type_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBytesSize(2, getValStringBytes());
-        }
-        if (((bitField0_ & 0x00000004) == 0x00000004)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeFloatSize(3, valFloat_);
-        }
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(4, valLong_);
-        }
-        if (((bitField0_ & 0x00000010) == 0x00000010)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(5, valShort_);
-        }
-        if (((bitField0_ & 0x00000020) == 0x00000020)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(6, valByte_);
-        }
-        if (((bitField0_ & 0x00000040) == 0x00000040)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeBoolSize(7, valBool_);
-        }
-        if (((bitField0_ & 0x00000080) == 0x00000080)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeUInt64Size(8, valUint64_);
-        }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
-        return size;
-      }
-
-      private static final long serialVersionUID = 0L;
-      @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
-      }
-
-      public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input, extensionRegistry);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-
-      public static Builder newBuilder() { return Builder.create(); }
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t prototype) {
-        return newBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() { return newBuilder(this); }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code com.valve.dota2.CSVCMsg_GameEvent.key_t}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_tOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEvent_key_t_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEvent_key_t_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.class, com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.Builder.class);
-        }
-
-        // Construct using com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          }
-        }
-        private static Builder create() {
-          return new Builder();
-        }
-
-        public Builder clear() {
-          super.clear();
-          type_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000001);
-          valString_ = "";
-          bitField0_ = (bitField0_ & ~0x00000002);
-          valFloat_ = 0F;
-          bitField0_ = (bitField0_ & ~0x00000004);
-          valLong_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000008);
-          valShort_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000010);
-          valByte_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000020);
-          valBool_ = false;
-          bitField0_ = (bitField0_ & ~0x00000040);
-          valUint64_ = 0L;
-          bitField0_ = (bitField0_ & ~0x00000080);
-          return this;
-        }
-
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEvent_key_t_descriptor;
-        }
-
-        public com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t getDefaultInstanceForType() {
-          return com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.getDefaultInstance();
-        }
-
-        public com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t build() {
-          com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        public com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t buildPartial() {
-          com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t result = new com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t(this);
-          int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
-          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-            to_bitField0_ |= 0x00000001;
-          }
-          result.type_ = type_;
-          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-            to_bitField0_ |= 0x00000002;
-          }
-          result.valString_ = valString_;
-          if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-            to_bitField0_ |= 0x00000004;
-          }
-          result.valFloat_ = valFloat_;
-          if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-            to_bitField0_ |= 0x00000008;
-          }
-          result.valLong_ = valLong_;
-          if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-            to_bitField0_ |= 0x00000010;
-          }
-          result.valShort_ = valShort_;
-          if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-            to_bitField0_ |= 0x00000020;
-          }
-          result.valByte_ = valByte_;
-          if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
-            to_bitField0_ |= 0x00000040;
-          }
-          result.valBool_ = valBool_;
-          if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
-            to_bitField0_ |= 0x00000080;
-          }
-          result.valUint64_ = valUint64_;
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
-        }
-
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t) {
-            return mergeFrom((com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t other) {
-          if (other == com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.getDefaultInstance()) return this;
-          if (other.hasType()) {
-            setType(other.getType());
-          }
-          if (other.hasValString()) {
-            bitField0_ |= 0x00000002;
-            valString_ = other.valString_;
-            onChanged();
-          }
-          if (other.hasValFloat()) {
-            setValFloat(other.getValFloat());
-          }
-          if (other.hasValLong()) {
-            setValLong(other.getValLong());
-          }
-          if (other.hasValShort()) {
-            setValShort(other.getValShort());
-          }
-          if (other.hasValByte()) {
-            setValByte(other.getValByte());
-          }
-          if (other.hasValBool()) {
-            setValBool(other.getValBool());
-          }
-          if (other.hasValUint64()) {
-            setValUint64(other.getValUint64());
-          }
-          this.mergeUnknownFields(other.getUnknownFields());
-          return this;
-        }
-
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t) e.getUnfinishedMessage();
-            throw e;
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-        private int bitField0_;
-
-        // optional int32 type = 1;
-        private int type_ ;
-        /**
-         * <code>optional int32 type = 1;</code>
-         *
-         * <pre>
-         * type
-         * </pre>
-         */
-        public boolean hasType() {
-          return ((bitField0_ & 0x00000001) == 0x00000001);
-        }
-        /**
-         * <code>optional int32 type = 1;</code>
-         *
-         * <pre>
-         * type
-         * </pre>
-         */
-        public int getType() {
-          return type_;
-        }
-        /**
-         * <code>optional int32 type = 1;</code>
-         *
-         * <pre>
-         * type
-         * </pre>
-         */
-        public Builder setType(int value) {
-          bitField0_ |= 0x00000001;
-          type_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>optional int32 type = 1;</code>
-         *
-         * <pre>
-         * type
-         * </pre>
-         */
-        public Builder clearType() {
-          bitField0_ = (bitField0_ & ~0x00000001);
-          type_ = 0;
-          onChanged();
-          return this;
-        }
-
-        // optional string val_string = 2;
-        private java.lang.Object valString_ = "";
-        /**
-         * <code>optional string val_string = 2;</code>
-         *
-         * <pre>
-         * TYPE_STRING
-         * </pre>
-         */
-        public boolean hasValString() {
-          return ((bitField0_ & 0x00000002) == 0x00000002);
-        }
-        /**
-         * <code>optional string val_string = 2;</code>
-         *
-         * <pre>
-         * TYPE_STRING
-         * </pre>
-         */
-        public java.lang.String getValString() {
-          java.lang.Object ref = valString_;
-          if (!(ref instanceof java.lang.String)) {
-            java.lang.String s = ((com.google.protobuf.ByteString) ref)
-                .toStringUtf8();
-            valString_ = s;
-            return s;
-          } else {
-            return (java.lang.String) ref;
-          }
-        }
-        /**
-         * <code>optional string val_string = 2;</code>
-         *
-         * <pre>
-         * TYPE_STRING
-         * </pre>
-         */
-        public com.google.protobuf.ByteString
-            getValStringBytes() {
-          java.lang.Object ref = valString_;
-          if (ref instanceof String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            valString_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
-        }
-        /**
-         * <code>optional string val_string = 2;</code>
-         *
-         * <pre>
-         * TYPE_STRING
-         * </pre>
-         */
-        public Builder setValString(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-          valString_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>optional string val_string = 2;</code>
-         *
-         * <pre>
-         * TYPE_STRING
-         * </pre>
-         */
-        public Builder clearValString() {
-          bitField0_ = (bitField0_ & ~0x00000002);
-          valString_ = getDefaultInstance().getValString();
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>optional string val_string = 2;</code>
-         *
-         * <pre>
-         * TYPE_STRING
-         * </pre>
-         */
-        public Builder setValStringBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-          valString_ = value;
-          onChanged();
-          return this;
-        }
-
-        // optional float val_float = 3;
-        private float valFloat_ ;
-        /**
-         * <code>optional float val_float = 3;</code>
-         *
-         * <pre>
-         * TYPE_FLOAT 
-         * </pre>
-         */
-        public boolean hasValFloat() {
-          return ((bitField0_ & 0x00000004) == 0x00000004);
-        }
-        /**
-         * <code>optional float val_float = 3;</code>
-         *
-         * <pre>
-         * TYPE_FLOAT 
-         * </pre>
-         */
-        public float getValFloat() {
-          return valFloat_;
-        }
-        /**
-         * <code>optional float val_float = 3;</code>
-         *
-         * <pre>
-         * TYPE_FLOAT 
-         * </pre>
-         */
-        public Builder setValFloat(float value) {
-          bitField0_ |= 0x00000004;
-          valFloat_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>optional float val_float = 3;</code>
-         *
-         * <pre>
-         * TYPE_FLOAT 
-         * </pre>
-         */
-        public Builder clearValFloat() {
-          bitField0_ = (bitField0_ & ~0x00000004);
-          valFloat_ = 0F;
-          onChanged();
-          return this;
-        }
-
-        // optional int32 val_long = 4;
-        private int valLong_ ;
-        /**
-         * <code>optional int32 val_long = 4;</code>
-         *
-         * <pre>
-         * TYPE_LONG  
-         * </pre>
-         */
-        public boolean hasValLong() {
-          return ((bitField0_ & 0x00000008) == 0x00000008);
-        }
-        /**
-         * <code>optional int32 val_long = 4;</code>
-         *
-         * <pre>
-         * TYPE_LONG  
-         * </pre>
-         */
-        public int getValLong() {
-          return valLong_;
-        }
-        /**
-         * <code>optional int32 val_long = 4;</code>
-         *
-         * <pre>
-         * TYPE_LONG  
-         * </pre>
-         */
-        public Builder setValLong(int value) {
-          bitField0_ |= 0x00000008;
-          valLong_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>optional int32 val_long = 4;</code>
-         *
-         * <pre>
-         * TYPE_LONG  
-         * </pre>
-         */
-        public Builder clearValLong() {
-          bitField0_ = (bitField0_ & ~0x00000008);
-          valLong_ = 0;
-          onChanged();
-          return this;
-        }
-
-        // optional int32 val_short = 5;
-        private int valShort_ ;
-        /**
-         * <code>optional int32 val_short = 5;</code>
-         *
-         * <pre>
-         * TYPE_SHORT 
-         * </pre>
-         */
-        public boolean hasValShort() {
-          return ((bitField0_ & 0x00000010) == 0x00000010);
-        }
-        /**
-         * <code>optional int32 val_short = 5;</code>
-         *
-         * <pre>
-         * TYPE_SHORT 
-         * </pre>
-         */
-        public int getValShort() {
-          return valShort_;
-        }
-        /**
-         * <code>optional int32 val_short = 5;</code>
-         *
-         * <pre>
-         * TYPE_SHORT 
-         * </pre>
-         */
-        public Builder setValShort(int value) {
-          bitField0_ |= 0x00000010;
-          valShort_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>optional int32 val_short = 5;</code>
-         *
-         * <pre>
-         * TYPE_SHORT 
-         * </pre>
-         */
-        public Builder clearValShort() {
-          bitField0_ = (bitField0_ & ~0x00000010);
-          valShort_ = 0;
-          onChanged();
-          return this;
-        }
-
-        // optional int32 val_byte = 6;
-        private int valByte_ ;
-        /**
-         * <code>optional int32 val_byte = 6;</code>
-         *
-         * <pre>
-         * TYPE_BYTE  
-         * </pre>
-         */
-        public boolean hasValByte() {
-          return ((bitField0_ & 0x00000020) == 0x00000020);
-        }
-        /**
-         * <code>optional int32 val_byte = 6;</code>
-         *
-         * <pre>
-         * TYPE_BYTE  
-         * </pre>
-         */
-        public int getValByte() {
-          return valByte_;
-        }
-        /**
-         * <code>optional int32 val_byte = 6;</code>
-         *
-         * <pre>
-         * TYPE_BYTE  
-         * </pre>
-         */
-        public Builder setValByte(int value) {
-          bitField0_ |= 0x00000020;
-          valByte_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>optional int32 val_byte = 6;</code>
-         *
-         * <pre>
-         * TYPE_BYTE  
-         * </pre>
-         */
-        public Builder clearValByte() {
-          bitField0_ = (bitField0_ & ~0x00000020);
-          valByte_ = 0;
-          onChanged();
-          return this;
-        }
-
-        // optional bool val_bool = 7;
-        private boolean valBool_ ;
-        /**
-         * <code>optional bool val_bool = 7;</code>
-         *
-         * <pre>
-         * TYPE_BOOL  
-         * </pre>
-         */
-        public boolean hasValBool() {
-          return ((bitField0_ & 0x00000040) == 0x00000040);
-        }
-        /**
-         * <code>optional bool val_bool = 7;</code>
-         *
-         * <pre>
-         * TYPE_BOOL  
-         * </pre>
-         */
-        public boolean getValBool() {
-          return valBool_;
-        }
-        /**
-         * <code>optional bool val_bool = 7;</code>
-         *
-         * <pre>
-         * TYPE_BOOL  
-         * </pre>
-         */
-        public Builder setValBool(boolean value) {
-          bitField0_ |= 0x00000040;
-          valBool_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>optional bool val_bool = 7;</code>
-         *
-         * <pre>
-         * TYPE_BOOL  
-         * </pre>
-         */
-        public Builder clearValBool() {
-          bitField0_ = (bitField0_ & ~0x00000040);
-          valBool_ = false;
-          onChanged();
-          return this;
-        }
-
-        // optional uint64 val_uint64 = 8;
-        private long valUint64_ ;
-        /**
-         * <code>optional uint64 val_uint64 = 8;</code>
-         *
-         * <pre>
-         * TYPE_UINT64
-         * </pre>
-         */
-        public boolean hasValUint64() {
-          return ((bitField0_ & 0x00000080) == 0x00000080);
-        }
-        /**
-         * <code>optional uint64 val_uint64 = 8;</code>
-         *
-         * <pre>
-         * TYPE_UINT64
-         * </pre>
-         */
-        public long getValUint64() {
-          return valUint64_;
-        }
-        /**
-         * <code>optional uint64 val_uint64 = 8;</code>
-         *
-         * <pre>
-         * TYPE_UINT64
-         * </pre>
-         */
-        public Builder setValUint64(long value) {
-          bitField0_ |= 0x00000080;
-          valUint64_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>optional uint64 val_uint64 = 8;</code>
-         *
-         * <pre>
-         * TYPE_UINT64
-         * </pre>
-         */
-        public Builder clearValUint64() {
-          bitField0_ = (bitField0_ & ~0x00000080);
-          valUint64_ = 0L;
-          onChanged();
-          return this;
-        }
-
-        // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_GameEvent.key_t)
-      }
-
-      static {
-        defaultInstance = new key_t(true);
-        defaultInstance.initFields();
-      }
-
-      // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_GameEvent.key_t)
-    }
-
-    private int bitField0_;
-    // optional string event_name = 1;
-    public static final int EVENT_NAME_FIELD_NUMBER = 1;
-    private java.lang.Object eventName_;
-    /**
-     * <code>optional string event_name = 1;</code>
-     */
-    public boolean hasEventName() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>optional string event_name = 1;</code>
-     */
-    public java.lang.String getEventName() {
-      java.lang.Object ref = eventName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          eventName_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <code>optional string event_name = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getEventNameBytes() {
-      java.lang.Object ref = eventName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        eventName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    // optional int32 eventid = 2;
-    public static final int EVENTID_FIELD_NUMBER = 2;
-    private int eventid_;
-    /**
-     * <code>optional int32 eventid = 2;</code>
-     */
-    public boolean hasEventid() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>optional int32 eventid = 2;</code>
-     */
-    public int getEventid() {
-      return eventid_;
-    }
-
-    // repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;
-    public static final int KEYS_FIELD_NUMBER = 3;
-    private java.util.List<com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t> keys_;
-    /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-     */
-    public java.util.List<com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t> getKeysList() {
-      return keys_;
-    }
-    /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-     */
-    public java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_tOrBuilder> 
-        getKeysOrBuilderList() {
-      return keys_;
-    }
-    /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-     */
-    public int getKeysCount() {
-      return keys_.size();
-    }
-    /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-     */
-    public com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t getKeys(int index) {
-      return keys_.get(index);
-    }
-    /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-     */
-    public com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_tOrBuilder getKeysOrBuilder(
-        int index) {
-      return keys_.get(index);
-    }
-
-    private void initFields() {
-      eventName_ = "";
-      eventid_ = 0;
-      keys_ = java.util.Collections.emptyList();
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeBytes(1, getEventNameBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeInt32(2, eventid_);
-      }
-      for (int i = 0; i < keys_.size(); i++) {
-        output.writeMessage(3, keys_.get(i));
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, getEventNameBytes());
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, eventid_);
-      }
-      for (int i = 0; i < keys_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, keys_.get(i));
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.valve.dota2.Netmessages.CSVCMsg_GameEvent parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.valve.dota2.Netmessages.CSVCMsg_GameEvent prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_GameEvent}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.valve.dota2.Netmessages.CSVCMsg_GameEventOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEvent_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEvent_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.valve.dota2.Netmessages.CSVCMsg_GameEvent.class, com.valve.dota2.Netmessages.CSVCMsg_GameEvent.Builder.class);
-      }
-
-      // Construct using com.valve.dota2.Netmessages.CSVCMsg_GameEvent.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getKeysFieldBuilder();
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        eventName_ = "";
-        bitField0_ = (bitField0_ & ~0x00000001);
-        eventid_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        if (keysBuilder_ == null) {
-          keys_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
-        } else {
-          keysBuilder_.clear();
-        }
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEvent_descriptor;
-      }
-
-      public com.valve.dota2.Netmessages.CSVCMsg_GameEvent getDefaultInstanceForType() {
-        return com.valve.dota2.Netmessages.CSVCMsg_GameEvent.getDefaultInstance();
-      }
-
-      public com.valve.dota2.Netmessages.CSVCMsg_GameEvent build() {
-        com.valve.dota2.Netmessages.CSVCMsg_GameEvent result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.valve.dota2.Netmessages.CSVCMsg_GameEvent buildPartial() {
-        com.valve.dota2.Netmessages.CSVCMsg_GameEvent result = new com.valve.dota2.Netmessages.CSVCMsg_GameEvent(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.eventName_ = eventName_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.eventid_ = eventid_;
-        if (keysBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004)) {
-            keys_ = java.util.Collections.unmodifiableList(keys_);
-            bitField0_ = (bitField0_ & ~0x00000004);
-          }
-          result.keys_ = keys_;
-        } else {
-          result.keys_ = keysBuilder_.build();
-        }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.valve.dota2.Netmessages.CSVCMsg_GameEvent) {
-          return mergeFrom((com.valve.dota2.Netmessages.CSVCMsg_GameEvent)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.valve.dota2.Netmessages.CSVCMsg_GameEvent other) {
-        if (other == com.valve.dota2.Netmessages.CSVCMsg_GameEvent.getDefaultInstance()) return this;
-        if (other.hasEventName()) {
-          bitField0_ |= 0x00000001;
-          eventName_ = other.eventName_;
-          onChanged();
-        }
-        if (other.hasEventid()) {
-          setEventid(other.getEventid());
-        }
-        if (keysBuilder_ == null) {
-          if (!other.keys_.isEmpty()) {
-            if (keys_.isEmpty()) {
-              keys_ = other.keys_;
-              bitField0_ = (bitField0_ & ~0x00000004);
-            } else {
-              ensureKeysIsMutable();
-              keys_.addAll(other.keys_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.keys_.isEmpty()) {
-            if (keysBuilder_.isEmpty()) {
-              keysBuilder_.dispose();
-              keysBuilder_ = null;
-              keys_ = other.keys_;
-              bitField0_ = (bitField0_ & ~0x00000004);
-              keysBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getKeysFieldBuilder() : null;
-            } else {
-              keysBuilder_.addAllMessages(other.keys_);
-            }
-          }
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.valve.dota2.Netmessages.CSVCMsg_GameEvent parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.valve.dota2.Netmessages.CSVCMsg_GameEvent) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      // optional string event_name = 1;
-      private java.lang.Object eventName_ = "";
-      /**
-       * <code>optional string event_name = 1;</code>
-       */
-      public boolean hasEventName() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>optional string event_name = 1;</code>
-       */
-      public java.lang.String getEventName() {
-        java.lang.Object ref = eventName_;
-        if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          eventName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string event_name = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getEventNameBytes() {
-        java.lang.Object ref = eventName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          eventName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string event_name = 1;</code>
-       */
-      public Builder setEventName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        eventName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string event_name = 1;</code>
-       */
-      public Builder clearEventName() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        eventName_ = getDefaultInstance().getEventName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string event_name = 1;</code>
-       */
-      public Builder setEventNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
-        eventName_ = value;
-        onChanged();
-        return this;
-      }
-
-      // optional int32 eventid = 2;
-      private int eventid_ ;
-      /**
-       * <code>optional int32 eventid = 2;</code>
-       */
-      public boolean hasEventid() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>optional int32 eventid = 2;</code>
-       */
-      public int getEventid() {
-        return eventid_;
-      }
-      /**
-       * <code>optional int32 eventid = 2;</code>
-       */
-      public Builder setEventid(int value) {
-        bitField0_ |= 0x00000002;
-        eventid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 eventid = 2;</code>
-       */
-      public Builder clearEventid() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        eventid_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;
-      private java.util.List<com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t> keys_ =
-        java.util.Collections.emptyList();
-      private void ensureKeysIsMutable() {
-        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-          keys_ = new java.util.ArrayList<com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t>(keys_);
-          bitField0_ |= 0x00000004;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilder<
-          com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t, com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.Builder, com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_tOrBuilder> keysBuilder_;
-
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-       */
-      public java.util.List<com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t> getKeysList() {
-        if (keysBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(keys_);
-        } else {
-          return keysBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-       */
-      public int getKeysCount() {
-        if (keysBuilder_ == null) {
-          return keys_.size();
-        } else {
-          return keysBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-       */
-      public com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t getKeys(int index) {
-        if (keysBuilder_ == null) {
-          return keys_.get(index);
-        } else {
-          return keysBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-       */
-      public Builder setKeys(
-          int index, com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t value) {
-        if (keysBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureKeysIsMutable();
-          keys_.set(index, value);
-          onChanged();
-        } else {
-          keysBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-       */
-      public Builder setKeys(
-          int index, com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.Builder builderForValue) {
-        if (keysBuilder_ == null) {
-          ensureKeysIsMutable();
-          keys_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          keysBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-       */
-      public Builder addKeys(com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t value) {
-        if (keysBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureKeysIsMutable();
-          keys_.add(value);
-          onChanged();
-        } else {
-          keysBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-       */
-      public Builder addKeys(
-          int index, com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t value) {
-        if (keysBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureKeysIsMutable();
-          keys_.add(index, value);
-          onChanged();
-        } else {
-          keysBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-       */
-      public Builder addKeys(
-          com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.Builder builderForValue) {
-        if (keysBuilder_ == null) {
-          ensureKeysIsMutable();
-          keys_.add(builderForValue.build());
-          onChanged();
-        } else {
-          keysBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-       */
-      public Builder addKeys(
-          int index, com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.Builder builderForValue) {
-        if (keysBuilder_ == null) {
-          ensureKeysIsMutable();
-          keys_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          keysBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-       */
-      public Builder addAllKeys(
-          java.lang.Iterable<? extends com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t> values) {
-        if (keysBuilder_ == null) {
-          ensureKeysIsMutable();
-          super.addAll(values, keys_);
-          onChanged();
-        } else {
-          keysBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-       */
-      public Builder clearKeys() {
-        if (keysBuilder_ == null) {
-          keys_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
-          onChanged();
-        } else {
-          keysBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-       */
-      public Builder removeKeys(int index) {
-        if (keysBuilder_ == null) {
-          ensureKeysIsMutable();
-          keys_.remove(index);
-          onChanged();
-        } else {
-          keysBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-       */
-      public com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.Builder getKeysBuilder(
-          int index) {
-        return getKeysFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-       */
-      public com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_tOrBuilder getKeysOrBuilder(
-          int index) {
-        if (keysBuilder_ == null) {
-          return keys_.get(index);  } else {
-          return keysBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-       */
-      public java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_tOrBuilder> 
-           getKeysOrBuilderList() {
-        if (keysBuilder_ != null) {
-          return keysBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(keys_);
-        }
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-       */
-      public com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.Builder addKeysBuilder() {
-        return getKeysFieldBuilder().addBuilder(
-            com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-       */
-      public com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.Builder addKeysBuilder(
-          int index) {
-        return getKeysFieldBuilder().addBuilder(
-            index, com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEvent.key_t keys = 3;</code>
-       */
-      public java.util.List<com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.Builder> 
-           getKeysBuilderList() {
-        return getKeysFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilder<
-          com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t, com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.Builder, com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_tOrBuilder> 
-          getKeysFieldBuilder() {
-        if (keysBuilder_ == null) {
-          keysBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t, com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t.Builder, com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_tOrBuilder>(
-                  keys_,
-                  ((bitField0_ & 0x00000004) == 0x00000004),
-                  getParentForChildren(),
-                  isClean());
-          keys_ = null;
-        }
-        return keysBuilder_;
-      }
-
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_GameEvent)
-    }
-
-    static {
-      defaultInstance = new CSVCMsg_GameEvent(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_GameEvent)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_SendTable)
   }
 
   public interface CSVCMsg_GameEventListOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;
+    // repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+     * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
      */
     java.util.List<com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t> 
         getDescriptorsList();
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+     * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
      */
     com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t getDescriptors(int index);
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+     * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
      */
     int getDescriptorsCount();
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+     * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
      */
     java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_tOrBuilder> 
         getDescriptorsOrBuilderList();
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+     * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
      */
     com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_tOrBuilder getDescriptorsOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_GameEventList}
+   * Protobuf type {@code CSVCMsg_GameEventList}
    */
   public static final class CSVCMsg_GameEventList extends
       com.google.protobuf.GeneratedMessage
@@ -31966,12 +27282,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEventList_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GameEventList_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEventList_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GameEventList_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_GameEventList.class, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.Builder.class);
     }
@@ -32020,7 +27336,7 @@ public final class Netmessages {
           getNameBytes();
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_GameEventList.key_t}
+     * Protobuf type {@code CSVCMsg_GameEventList.key_t}
      */
     public static final class key_t extends
         com.google.protobuf.GeneratedMessage
@@ -32094,12 +27410,12 @@ public final class Netmessages {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEventList_key_t_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GameEventList_key_t_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEventList_key_t_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GameEventList_key_t_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t.class, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t.Builder.class);
       }
@@ -32297,19 +27613,19 @@ public final class Netmessages {
         return builder;
       }
       /**
-       * Protobuf type {@code com.valve.dota2.CSVCMsg_GameEventList.key_t}
+       * Protobuf type {@code CSVCMsg_GameEventList.key_t}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
          implements com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_tOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEventList_key_t_descriptor;
+          return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GameEventList_key_t_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEventList_key_t_fieldAccessorTable
+          return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GameEventList_key_t_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t.class, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t.Builder.class);
         }
@@ -32347,7 +27663,7 @@ public final class Netmessages {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEventList_key_t_descriptor;
+          return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GameEventList_key_t_descriptor;
         }
 
         public com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t getDefaultInstanceForType() {
@@ -32532,7 +27848,7 @@ public final class Netmessages {
           return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_GameEventList.key_t)
+        // @@protoc_insertion_point(builder_scope:CSVCMsg_GameEventList.key_t)
       }
 
       static {
@@ -32540,7 +27856,7 @@ public final class Netmessages {
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_GameEventList.key_t)
+      // @@protoc_insertion_point(class_scope:CSVCMsg_GameEventList.key_t)
     }
 
     public interface descriptor_tOrBuilder
@@ -32571,33 +27887,33 @@ public final class Netmessages {
       com.google.protobuf.ByteString
           getNameBytes();
 
-      // repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;
+      // repeated .CSVCMsg_GameEventList.key_t keys = 3;
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+       * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
        */
       java.util.List<com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t> 
           getKeysList();
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+       * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
        */
       com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t getKeys(int index);
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+       * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
        */
       int getKeysCount();
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+       * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
        */
       java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_tOrBuilder> 
           getKeysOrBuilderList();
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+       * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
        */
       com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_tOrBuilder getKeysOrBuilder(
           int index);
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_GameEventList.descriptor_t}
+     * Protobuf type {@code CSVCMsg_GameEventList.descriptor_t}
      */
     public static final class descriptor_t extends
         com.google.protobuf.GeneratedMessage
@@ -32682,12 +27998,12 @@ public final class Netmessages {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEventList_descriptor_t_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GameEventList_descriptor_t_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEventList_descriptor_t_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GameEventList_descriptor_t_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t.class, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t.Builder.class);
       }
@@ -32767,36 +28083,36 @@ public final class Netmessages {
         }
       }
 
-      // repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;
+      // repeated .CSVCMsg_GameEventList.key_t keys = 3;
       public static final int KEYS_FIELD_NUMBER = 3;
       private java.util.List<com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t> keys_;
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+       * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
        */
       public java.util.List<com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t> getKeysList() {
         return keys_;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+       * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
        */
       public java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_tOrBuilder> 
           getKeysOrBuilderList() {
         return keys_;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+       * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
        */
       public int getKeysCount() {
         return keys_.size();
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+       * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t getKeys(int index) {
         return keys_.get(index);
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+       * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_tOrBuilder getKeysOrBuilder(
           int index) {
@@ -32929,19 +28245,19 @@ public final class Netmessages {
         return builder;
       }
       /**
-       * Protobuf type {@code com.valve.dota2.CSVCMsg_GameEventList.descriptor_t}
+       * Protobuf type {@code CSVCMsg_GameEventList.descriptor_t}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
          implements com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_tOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEventList_descriptor_t_descriptor;
+          return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GameEventList_descriptor_t_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEventList_descriptor_t_fieldAccessorTable
+          return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GameEventList_descriptor_t_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t.class, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t.Builder.class);
         }
@@ -32986,7 +28302,7 @@ public final class Netmessages {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEventList_descriptor_t_descriptor;
+          return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GameEventList_descriptor_t_descriptor;
         }
 
         public com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t getDefaultInstanceForType() {
@@ -33206,7 +28522,7 @@ public final class Netmessages {
           return this;
         }
 
-        // repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;
+        // repeated .CSVCMsg_GameEventList.key_t keys = 3;
         private java.util.List<com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t> keys_ =
           java.util.Collections.emptyList();
         private void ensureKeysIsMutable() {
@@ -33220,7 +28536,7 @@ public final class Netmessages {
             com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t.Builder, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_tOrBuilder> keysBuilder_;
 
         /**
-         * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+         * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
          */
         public java.util.List<com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t> getKeysList() {
           if (keysBuilder_ == null) {
@@ -33230,7 +28546,7 @@ public final class Netmessages {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+         * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
          */
         public int getKeysCount() {
           if (keysBuilder_ == null) {
@@ -33240,7 +28556,7 @@ public final class Netmessages {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+         * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
          */
         public com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t getKeys(int index) {
           if (keysBuilder_ == null) {
@@ -33250,7 +28566,7 @@ public final class Netmessages {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+         * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
          */
         public Builder setKeys(
             int index, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t value) {
@@ -33267,7 +28583,7 @@ public final class Netmessages {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+         * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
          */
         public Builder setKeys(
             int index, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t.Builder builderForValue) {
@@ -33281,7 +28597,7 @@ public final class Netmessages {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+         * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
          */
         public Builder addKeys(com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t value) {
           if (keysBuilder_ == null) {
@@ -33297,7 +28613,7 @@ public final class Netmessages {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+         * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
          */
         public Builder addKeys(
             int index, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t value) {
@@ -33314,7 +28630,7 @@ public final class Netmessages {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+         * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
          */
         public Builder addKeys(
             com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t.Builder builderForValue) {
@@ -33328,7 +28644,7 @@ public final class Netmessages {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+         * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
          */
         public Builder addKeys(
             int index, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t.Builder builderForValue) {
@@ -33342,7 +28658,7 @@ public final class Netmessages {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+         * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
          */
         public Builder addAllKeys(
             java.lang.Iterable<? extends com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t> values) {
@@ -33356,7 +28672,7 @@ public final class Netmessages {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+         * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
          */
         public Builder clearKeys() {
           if (keysBuilder_ == null) {
@@ -33369,7 +28685,7 @@ public final class Netmessages {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+         * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
          */
         public Builder removeKeys(int index) {
           if (keysBuilder_ == null) {
@@ -33382,14 +28698,14 @@ public final class Netmessages {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+         * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
          */
         public com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t.Builder getKeysBuilder(
             int index) {
           return getKeysFieldBuilder().getBuilder(index);
         }
         /**
-         * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+         * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
          */
         public com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_tOrBuilder getKeysOrBuilder(
             int index) {
@@ -33399,7 +28715,7 @@ public final class Netmessages {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+         * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
          */
         public java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_tOrBuilder> 
              getKeysOrBuilderList() {
@@ -33410,14 +28726,14 @@ public final class Netmessages {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+         * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
          */
         public com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t.Builder addKeysBuilder() {
           return getKeysFieldBuilder().addBuilder(
               com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t.getDefaultInstance());
         }
         /**
-         * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+         * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
          */
         public com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t.Builder addKeysBuilder(
             int index) {
@@ -33425,7 +28741,7 @@ public final class Netmessages {
               index, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t.getDefaultInstance());
         }
         /**
-         * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.key_t keys = 3;</code>
+         * <code>repeated .CSVCMsg_GameEventList.key_t keys = 3;</code>
          */
         public java.util.List<com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t.Builder> 
              getKeysBuilderList() {
@@ -33446,7 +28762,7 @@ public final class Netmessages {
           return keysBuilder_;
         }
 
-        // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_GameEventList.descriptor_t)
+        // @@protoc_insertion_point(builder_scope:CSVCMsg_GameEventList.descriptor_t)
       }
 
       static {
@@ -33454,39 +28770,39 @@ public final class Netmessages {
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_GameEventList.descriptor_t)
+      // @@protoc_insertion_point(class_scope:CSVCMsg_GameEventList.descriptor_t)
     }
 
-    // repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;
+    // repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;
     public static final int DESCRIPTORS_FIELD_NUMBER = 1;
     private java.util.List<com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t> descriptors_;
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+     * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
      */
     public java.util.List<com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t> getDescriptorsList() {
       return descriptors_;
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+     * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
      */
     public java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_tOrBuilder> 
         getDescriptorsOrBuilderList() {
       return descriptors_;
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+     * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
      */
     public int getDescriptorsCount() {
       return descriptors_.size();
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+     * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
      */
     public com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t getDescriptors(int index) {
       return descriptors_.get(index);
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+     * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
      */
     public com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_tOrBuilder getDescriptorsOrBuilder(
         int index) {
@@ -33603,19 +28919,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_GameEventList}
+     * Protobuf type {@code CSVCMsg_GameEventList}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_GameEventListOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEventList_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GameEventList_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEventList_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GameEventList_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_GameEventList.class, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.Builder.class);
       }
@@ -33656,7 +28972,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_GameEventList_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_GameEventList_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_GameEventList getDefaultInstanceForType() {
@@ -33751,7 +29067,7 @@ public final class Netmessages {
       }
       private int bitField0_;
 
-      // repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;
+      // repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;
       private java.util.List<com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t> descriptors_ =
         java.util.Collections.emptyList();
       private void ensureDescriptorsIsMutable() {
@@ -33765,7 +29081,7 @@ public final class Netmessages {
           com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t.Builder, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_tOrBuilder> descriptorsBuilder_;
 
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+       * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
        */
       public java.util.List<com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t> getDescriptorsList() {
         if (descriptorsBuilder_ == null) {
@@ -33775,7 +29091,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+       * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
        */
       public int getDescriptorsCount() {
         if (descriptorsBuilder_ == null) {
@@ -33785,7 +29101,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+       * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t getDescriptors(int index) {
         if (descriptorsBuilder_ == null) {
@@ -33795,7 +29111,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+       * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
        */
       public Builder setDescriptors(
           int index, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t value) {
@@ -33812,7 +29128,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+       * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
        */
       public Builder setDescriptors(
           int index, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t.Builder builderForValue) {
@@ -33826,7 +29142,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+       * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
        */
       public Builder addDescriptors(com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t value) {
         if (descriptorsBuilder_ == null) {
@@ -33842,7 +29158,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+       * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
        */
       public Builder addDescriptors(
           int index, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t value) {
@@ -33859,7 +29175,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+       * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
        */
       public Builder addDescriptors(
           com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t.Builder builderForValue) {
@@ -33873,7 +29189,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+       * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
        */
       public Builder addDescriptors(
           int index, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t.Builder builderForValue) {
@@ -33887,7 +29203,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+       * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
        */
       public Builder addAllDescriptors(
           java.lang.Iterable<? extends com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t> values) {
@@ -33901,7 +29217,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+       * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
        */
       public Builder clearDescriptors() {
         if (descriptorsBuilder_ == null) {
@@ -33914,7 +29230,7 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+       * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
        */
       public Builder removeDescriptors(int index) {
         if (descriptorsBuilder_ == null) {
@@ -33927,14 +29243,14 @@ public final class Netmessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+       * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t.Builder getDescriptorsBuilder(
           int index) {
         return getDescriptorsFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+       * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_tOrBuilder getDescriptorsOrBuilder(
           int index) {
@@ -33944,7 +29260,7 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+       * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
        */
       public java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_tOrBuilder> 
            getDescriptorsOrBuilderList() {
@@ -33955,14 +29271,14 @@ public final class Netmessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+       * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t.Builder addDescriptorsBuilder() {
         return getDescriptorsFieldBuilder().addBuilder(
             com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+       * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
        */
       public com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t.Builder addDescriptorsBuilder(
           int index) {
@@ -33970,7 +29286,7 @@ public final class Netmessages {
             index, com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
+       * <code>repeated .CSVCMsg_GameEventList.descriptor_t descriptors = 1;</code>
        */
       public java.util.List<com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t.Builder> 
            getDescriptorsBuilderList() {
@@ -33991,7 +29307,7 @@ public final class Netmessages {
         return descriptorsBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_GameEventList)
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_GameEventList)
     }
 
     static {
@@ -33999,7 +29315,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_GameEventList)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_GameEventList)
   }
 
   public interface CSVCMsg_PacketEntitiesOrBuilder
@@ -34074,9 +29390,19 @@ public final class Netmessages {
      * <code>optional bytes entity_data = 7;</code>
      */
     com.google.protobuf.ByteString getEntityData();
+
+    // optional bool pending_full_frame = 8;
+    /**
+     * <code>optional bool pending_full_frame = 8;</code>
+     */
+    boolean hasPendingFullFrame();
+    /**
+     * <code>optional bool pending_full_frame = 8;</code>
+     */
+    boolean getPendingFullFrame();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_PacketEntities}
+   * Protobuf type {@code CSVCMsg_PacketEntities}
    */
   public static final class CSVCMsg_PacketEntities extends
       com.google.protobuf.GeneratedMessage
@@ -34161,6 +29487,11 @@ public final class Netmessages {
               entityData_ = input.readBytes();
               break;
             }
+            case 64: {
+              bitField0_ |= 0x00000080;
+              pendingFullFrame_ = input.readBool();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -34175,12 +29506,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_PacketEntities_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_PacketEntities_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_PacketEntities_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_PacketEntities_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_PacketEntities.class, com.valve.dota2.Netmessages.CSVCMsg_PacketEntities.Builder.class);
     }
@@ -34313,6 +29644,22 @@ public final class Netmessages {
       return entityData_;
     }
 
+    // optional bool pending_full_frame = 8;
+    public static final int PENDING_FULL_FRAME_FIELD_NUMBER = 8;
+    private boolean pendingFullFrame_;
+    /**
+     * <code>optional bool pending_full_frame = 8;</code>
+     */
+    public boolean hasPendingFullFrame() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>optional bool pending_full_frame = 8;</code>
+     */
+    public boolean getPendingFullFrame() {
+      return pendingFullFrame_;
+    }
+
     private void initFields() {
       maxEntries_ = 0;
       updatedEntries_ = 0;
@@ -34321,6 +29668,7 @@ public final class Netmessages {
       baseline_ = 0;
       deltaFrom_ = 0;
       entityData_ = com.google.protobuf.ByteString.EMPTY;
+      pendingFullFrame_ = false;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -34354,6 +29702,9 @@ public final class Netmessages {
       }
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         output.writeBytes(7, entityData_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeBool(8, pendingFullFrame_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -34391,6 +29742,10 @@ public final class Netmessages {
       if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(7, entityData_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(8, pendingFullFrame_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -34471,19 +29826,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_PacketEntities}
+     * Protobuf type {@code CSVCMsg_PacketEntities}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_PacketEntitiesOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_PacketEntities_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_PacketEntities_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_PacketEntities_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_PacketEntities_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_PacketEntities.class, com.valve.dota2.Netmessages.CSVCMsg_PacketEntities.Builder.class);
       }
@@ -34522,6 +29877,8 @@ public final class Netmessages {
         bitField0_ = (bitField0_ & ~0x00000020);
         entityData_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000040);
+        pendingFullFrame_ = false;
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -34531,7 +29888,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_PacketEntities_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_PacketEntities_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_PacketEntities getDefaultInstanceForType() {
@@ -34578,6 +29935,10 @@ public final class Netmessages {
           to_bitField0_ |= 0x00000040;
         }
         result.entityData_ = entityData_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.pendingFullFrame_ = pendingFullFrame_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -34614,6 +29975,9 @@ public final class Netmessages {
         }
         if (other.hasEntityData()) {
           setEntityData(other.getEntityData());
+        }
+        if (other.hasPendingFullFrame()) {
+          setPendingFullFrame(other.getPendingFullFrame());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -34876,7 +30240,40 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_PacketEntities)
+      // optional bool pending_full_frame = 8;
+      private boolean pendingFullFrame_ ;
+      /**
+       * <code>optional bool pending_full_frame = 8;</code>
+       */
+      public boolean hasPendingFullFrame() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>optional bool pending_full_frame = 8;</code>
+       */
+      public boolean getPendingFullFrame() {
+        return pendingFullFrame_;
+      }
+      /**
+       * <code>optional bool pending_full_frame = 8;</code>
+       */
+      public Builder setPendingFullFrame(boolean value) {
+        bitField0_ |= 0x00000080;
+        pendingFullFrame_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool pending_full_frame = 8;</code>
+       */
+      public Builder clearPendingFullFrame() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        pendingFullFrame_ = false;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_PacketEntities)
     }
 
     static {
@@ -34884,7 +30281,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_PacketEntities)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_PacketEntities)
   }
 
   public interface CSVCMsg_TempEntitiesOrBuilder
@@ -34921,7 +30318,7 @@ public final class Netmessages {
     com.google.protobuf.ByteString getEntityData();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_TempEntities}
+   * Protobuf type {@code CSVCMsg_TempEntities}
    */
   public static final class CSVCMsg_TempEntities extends
       com.google.protobuf.GeneratedMessage
@@ -35000,12 +30397,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_TempEntities_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_TempEntities_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_TempEntities_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_TempEntities_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_TempEntities.class, com.valve.dota2.Netmessages.CSVCMsg_TempEntities.Builder.class);
     }
@@ -35200,19 +30597,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_TempEntities}
+     * Protobuf type {@code CSVCMsg_TempEntities}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_TempEntitiesOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_TempEntities_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_TempEntities_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_TempEntities_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_TempEntities_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_TempEntities.class, com.valve.dota2.Netmessages.CSVCMsg_TempEntities.Builder.class);
       }
@@ -35252,7 +30649,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_TempEntities_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_TempEntities_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_TempEntities getDefaultInstanceForType() {
@@ -35437,7 +30834,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_TempEntities)
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_TempEntities)
     }
 
     static {
@@ -35445,7 +30842,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_TempEntities)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_TempEntities)
   }
 
   public interface CSVCMsg_CreateStringTableOrBuilder
@@ -35537,7 +30934,7 @@ public final class Netmessages {
     com.google.protobuf.ByteString getStringData();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_CreateStringTable}
+   * Protobuf type {@code CSVCMsg_CreateStringTable}
    */
   public static final class CSVCMsg_CreateStringTable extends
       com.google.protobuf.GeneratedMessage
@@ -35641,12 +31038,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_CreateStringTable_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_CreateStringTable_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_CreateStringTable_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_CreateStringTable_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_CreateStringTable.class, com.valve.dota2.Netmessages.CSVCMsg_CreateStringTable.Builder.class);
     }
@@ -35988,19 +31385,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_CreateStringTable}
+     * Protobuf type {@code CSVCMsg_CreateStringTable}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_CreateStringTableOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_CreateStringTable_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_CreateStringTable_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_CreateStringTable_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_CreateStringTable_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_CreateStringTable.class, com.valve.dota2.Netmessages.CSVCMsg_CreateStringTable.Builder.class);
       }
@@ -36050,7 +31447,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_CreateStringTable_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_CreateStringTable_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_CreateStringTable getDefaultInstanceForType() {
@@ -36478,7 +31875,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_CreateStringTable)
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_CreateStringTable)
     }
 
     static {
@@ -36486,7 +31883,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_CreateStringTable)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_CreateStringTable)
   }
 
   public interface CSVCMsg_UpdateStringTableOrBuilder
@@ -36523,7 +31920,7 @@ public final class Netmessages {
     com.google.protobuf.ByteString getStringData();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_UpdateStringTable}
+   * Protobuf type {@code CSVCMsg_UpdateStringTable}
    */
   public static final class CSVCMsg_UpdateStringTable extends
       com.google.protobuf.GeneratedMessage
@@ -36602,12 +31999,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_UpdateStringTable_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_UpdateStringTable_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_UpdateStringTable_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_UpdateStringTable_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_UpdateStringTable.class, com.valve.dota2.Netmessages.CSVCMsg_UpdateStringTable.Builder.class);
     }
@@ -36802,19 +32199,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_UpdateStringTable}
+     * Protobuf type {@code CSVCMsg_UpdateStringTable}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_UpdateStringTableOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_UpdateStringTable_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_UpdateStringTable_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_UpdateStringTable_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_UpdateStringTable_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_UpdateStringTable.class, com.valve.dota2.Netmessages.CSVCMsg_UpdateStringTable.Builder.class);
       }
@@ -36854,7 +32251,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_UpdateStringTable_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_UpdateStringTable_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_UpdateStringTable getDefaultInstanceForType() {
@@ -37039,7 +32436,7 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_UpdateStringTable)
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_UpdateStringTable)
     }
 
     static {
@@ -37047,487 +32444,7 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_UpdateStringTable)
-  }
-
-  public interface CSVCMsg_UserMessageOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
-
-    // optional int32 msg_type = 1;
-    /**
-     * <code>optional int32 msg_type = 1;</code>
-     */
-    boolean hasMsgType();
-    /**
-     * <code>optional int32 msg_type = 1;</code>
-     */
-    int getMsgType();
-
-    // optional bytes msg_data = 2;
-    /**
-     * <code>optional bytes msg_data = 2;</code>
-     */
-    boolean hasMsgData();
-    /**
-     * <code>optional bytes msg_data = 2;</code>
-     */
-    com.google.protobuf.ByteString getMsgData();
-  }
-  /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_UserMessage}
-   */
-  public static final class CSVCMsg_UserMessage extends
-      com.google.protobuf.GeneratedMessage
-      implements CSVCMsg_UserMessageOrBuilder {
-    // Use CSVCMsg_UserMessage.newBuilder() to construct.
-    private CSVCMsg_UserMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-      super(builder);
-      this.unknownFields = builder.getUnknownFields();
-    }
-    private CSVCMsg_UserMessage(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-    private static final CSVCMsg_UserMessage defaultInstance;
-    public static CSVCMsg_UserMessage getDefaultInstance() {
-      return defaultInstance;
-    }
-
-    public CSVCMsg_UserMessage getDefaultInstanceForType() {
-      return defaultInstance;
-    }
-
-    private final com.google.protobuf.UnknownFieldSet unknownFields;
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-      return this.unknownFields;
-    }
-    private CSVCMsg_UserMessage(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      initFields();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-              bitField0_ |= 0x00000001;
-              msgType_ = input.readInt32();
-              break;
-            }
-            case 18: {
-              bitField0_ |= 0x00000002;
-              msgData_ = input.readBytes();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e.getMessage()).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_UserMessage_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_UserMessage_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.valve.dota2.Netmessages.CSVCMsg_UserMessage.class, com.valve.dota2.Netmessages.CSVCMsg_UserMessage.Builder.class);
-    }
-
-    public static com.google.protobuf.Parser<CSVCMsg_UserMessage> PARSER =
-        new com.google.protobuf.AbstractParser<CSVCMsg_UserMessage>() {
-      public CSVCMsg_UserMessage parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CSVCMsg_UserMessage(input, extensionRegistry);
-      }
-    };
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<CSVCMsg_UserMessage> getParserForType() {
-      return PARSER;
-    }
-
-    private int bitField0_;
-    // optional int32 msg_type = 1;
-    public static final int MSG_TYPE_FIELD_NUMBER = 1;
-    private int msgType_;
-    /**
-     * <code>optional int32 msg_type = 1;</code>
-     */
-    public boolean hasMsgType() {
-      return ((bitField0_ & 0x00000001) == 0x00000001);
-    }
-    /**
-     * <code>optional int32 msg_type = 1;</code>
-     */
-    public int getMsgType() {
-      return msgType_;
-    }
-
-    // optional bytes msg_data = 2;
-    public static final int MSG_DATA_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString msgData_;
-    /**
-     * <code>optional bytes msg_data = 2;</code>
-     */
-    public boolean hasMsgData() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
-    }
-    /**
-     * <code>optional bytes msg_data = 2;</code>
-     */
-    public com.google.protobuf.ByteString getMsgData() {
-      return msgData_;
-    }
-
-    private void initFields() {
-      msgType_ = 0;
-      msgData_ = com.google.protobuf.ByteString.EMPTY;
-    }
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      getSerializedSize();
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, msgType_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeBytes(2, msgData_);
-      }
-      getUnknownFields().writeTo(output);
-    }
-
-    private int memoizedSerializedSize = -1;
-    public int getSerializedSize() {
-      int size = memoizedSerializedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, msgType_);
-      }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(2, msgData_);
-      }
-      size += getUnknownFields().getSerializedSize();
-      memoizedSerializedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    protected java.lang.Object writeReplace()
-        throws java.io.ObjectStreamException {
-      return super.writeReplace();
-    }
-
-    public static com.valve.dota2.Netmessages.CSVCMsg_UserMessage parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.valve.dota2.Netmessages.CSVCMsg_UserMessage parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CSVCMsg_UserMessage parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.valve.dota2.Netmessages.CSVCMsg_UserMessage parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CSVCMsg_UserMessage parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.valve.dota2.Netmessages.CSVCMsg_UserMessage parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CSVCMsg_UserMessage parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input);
-    }
-    public static com.valve.dota2.Netmessages.CSVCMsg_UserMessage parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseDelimitedFrom(input, extensionRegistry);
-    }
-    public static com.valve.dota2.Netmessages.CSVCMsg_UserMessage parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input);
-    }
-    public static com.valve.dota2.Netmessages.CSVCMsg_UserMessage parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return PARSER.parseFrom(input, extensionRegistry);
-    }
-
-    public static Builder newBuilder() { return Builder.create(); }
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.valve.dota2.Netmessages.CSVCMsg_UserMessage prototype) {
-      return newBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() { return newBuilder(this); }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_UserMessage}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.valve.dota2.Netmessages.CSVCMsg_UserMessageOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_UserMessage_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_UserMessage_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.valve.dota2.Netmessages.CSVCMsg_UserMessage.class, com.valve.dota2.Netmessages.CSVCMsg_UserMessage.Builder.class);
-      }
-
-      // Construct using com.valve.dota2.Netmessages.CSVCMsg_UserMessage.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-        }
-      }
-      private static Builder create() {
-        return new Builder();
-      }
-
-      public Builder clear() {
-        super.clear();
-        msgType_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        msgData_ = com.google.protobuf.ByteString.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        return this;
-      }
-
-      public Builder clone() {
-        return create().mergeFrom(buildPartial());
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_UserMessage_descriptor;
-      }
-
-      public com.valve.dota2.Netmessages.CSVCMsg_UserMessage getDefaultInstanceForType() {
-        return com.valve.dota2.Netmessages.CSVCMsg_UserMessage.getDefaultInstance();
-      }
-
-      public com.valve.dota2.Netmessages.CSVCMsg_UserMessage build() {
-        com.valve.dota2.Netmessages.CSVCMsg_UserMessage result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.valve.dota2.Netmessages.CSVCMsg_UserMessage buildPartial() {
-        com.valve.dota2.Netmessages.CSVCMsg_UserMessage result = new com.valve.dota2.Netmessages.CSVCMsg_UserMessage(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.msgType_ = msgType_;
-        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-          to_bitField0_ |= 0x00000002;
-        }
-        result.msgData_ = msgData_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.valve.dota2.Netmessages.CSVCMsg_UserMessage) {
-          return mergeFrom((com.valve.dota2.Netmessages.CSVCMsg_UserMessage)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.valve.dota2.Netmessages.CSVCMsg_UserMessage other) {
-        if (other == com.valve.dota2.Netmessages.CSVCMsg_UserMessage.getDefaultInstance()) return this;
-        if (other.hasMsgType()) {
-          setMsgType(other.getMsgType());
-        }
-        if (other.hasMsgData()) {
-          setMsgData(other.getMsgData());
-        }
-        this.mergeUnknownFields(other.getUnknownFields());
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.valve.dota2.Netmessages.CSVCMsg_UserMessage parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.valve.dota2.Netmessages.CSVCMsg_UserMessage) e.getUnfinishedMessage();
-          throw e;
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      // optional int32 msg_type = 1;
-      private int msgType_ ;
-      /**
-       * <code>optional int32 msg_type = 1;</code>
-       */
-      public boolean hasMsgType() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>optional int32 msg_type = 1;</code>
-       */
-      public int getMsgType() {
-        return msgType_;
-      }
-      /**
-       * <code>optional int32 msg_type = 1;</code>
-       */
-      public Builder setMsgType(int value) {
-        bitField0_ |= 0x00000001;
-        msgType_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int32 msg_type = 1;</code>
-       */
-      public Builder clearMsgType() {
-        bitField0_ = (bitField0_ & ~0x00000001);
-        msgType_ = 0;
-        onChanged();
-        return this;
-      }
-
-      // optional bytes msg_data = 2;
-      private com.google.protobuf.ByteString msgData_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>optional bytes msg_data = 2;</code>
-       */
-      public boolean hasMsgData() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>optional bytes msg_data = 2;</code>
-       */
-      public com.google.protobuf.ByteString getMsgData() {
-        return msgData_;
-      }
-      /**
-       * <code>optional bytes msg_data = 2;</code>
-       */
-      public Builder setMsgData(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
-        msgData_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional bytes msg_data = 2;</code>
-       */
-      public Builder clearMsgData() {
-        bitField0_ = (bitField0_ & ~0x00000002);
-        msgData_ = getDefaultInstance().getMsgData();
-        onChanged();
-        return this;
-      }
-
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_UserMessage)
-    }
-
-    static {
-      defaultInstance = new CSVCMsg_UserMessage(true);
-      defaultInstance.initFields();
-    }
-
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_UserMessage)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_UpdateStringTable)
   }
 
   public interface CSVCMsg_VoiceDataOrBuilder
@@ -37582,9 +32499,49 @@ public final class Netmessages {
      * <code>optional bytes voice_data = 5;</code>
      */
     com.google.protobuf.ByteString getVoiceData();
+
+    // optional .VoiceDataFormat_t format = 6 [default = VOICEDATA_FORMAT_STEAM];
+    /**
+     * <code>optional .VoiceDataFormat_t format = 6 [default = VOICEDATA_FORMAT_STEAM];</code>
+     */
+    boolean hasFormat();
+    /**
+     * <code>optional .VoiceDataFormat_t format = 6 [default = VOICEDATA_FORMAT_STEAM];</code>
+     */
+    com.valve.dota2.Netmessages.VoiceDataFormat_t getFormat();
+
+    // optional int32 sequence_bytes = 7;
+    /**
+     * <code>optional int32 sequence_bytes = 7;</code>
+     */
+    boolean hasSequenceBytes();
+    /**
+     * <code>optional int32 sequence_bytes = 7;</code>
+     */
+    int getSequenceBytes();
+
+    // optional uint32 section_number = 8;
+    /**
+     * <code>optional uint32 section_number = 8;</code>
+     */
+    boolean hasSectionNumber();
+    /**
+     * <code>optional uint32 section_number = 8;</code>
+     */
+    int getSectionNumber();
+
+    // optional uint32 uncompressed_sample_offset = 9;
+    /**
+     * <code>optional uint32 uncompressed_sample_offset = 9;</code>
+     */
+    boolean hasUncompressedSampleOffset();
+    /**
+     * <code>optional uint32 uncompressed_sample_offset = 9;</code>
+     */
+    int getUncompressedSampleOffset();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsg_VoiceData}
+   * Protobuf type {@code CSVCMsg_VoiceData}
    */
   public static final class CSVCMsg_VoiceData extends
       com.google.protobuf.GeneratedMessage
@@ -37659,6 +32616,32 @@ public final class Netmessages {
               voiceData_ = input.readBytes();
               break;
             }
+            case 48: {
+              int rawValue = input.readEnum();
+              com.valve.dota2.Netmessages.VoiceDataFormat_t value = com.valve.dota2.Netmessages.VoiceDataFormat_t.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(6, rawValue);
+              } else {
+                bitField0_ |= 0x00000020;
+                format_ = value;
+              }
+              break;
+            }
+            case 56: {
+              bitField0_ |= 0x00000040;
+              sequenceBytes_ = input.readInt32();
+              break;
+            }
+            case 64: {
+              bitField0_ |= 0x00000080;
+              sectionNumber_ = input.readUInt32();
+              break;
+            }
+            case 72: {
+              bitField0_ |= 0x00000100;
+              uncompressedSampleOffset_ = input.readUInt32();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -37673,12 +32656,12 @@ public final class Netmessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_VoiceData_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_VoiceData_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_VoiceData_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_VoiceData_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Netmessages.CSVCMsg_VoiceData.class, com.valve.dota2.Netmessages.CSVCMsg_VoiceData.Builder.class);
     }
@@ -37779,12 +32762,80 @@ public final class Netmessages {
       return voiceData_;
     }
 
+    // optional .VoiceDataFormat_t format = 6 [default = VOICEDATA_FORMAT_STEAM];
+    public static final int FORMAT_FIELD_NUMBER = 6;
+    private com.valve.dota2.Netmessages.VoiceDataFormat_t format_;
+    /**
+     * <code>optional .VoiceDataFormat_t format = 6 [default = VOICEDATA_FORMAT_STEAM];</code>
+     */
+    public boolean hasFormat() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>optional .VoiceDataFormat_t format = 6 [default = VOICEDATA_FORMAT_STEAM];</code>
+     */
+    public com.valve.dota2.Netmessages.VoiceDataFormat_t getFormat() {
+      return format_;
+    }
+
+    // optional int32 sequence_bytes = 7;
+    public static final int SEQUENCE_BYTES_FIELD_NUMBER = 7;
+    private int sequenceBytes_;
+    /**
+     * <code>optional int32 sequence_bytes = 7;</code>
+     */
+    public boolean hasSequenceBytes() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>optional int32 sequence_bytes = 7;</code>
+     */
+    public int getSequenceBytes() {
+      return sequenceBytes_;
+    }
+
+    // optional uint32 section_number = 8;
+    public static final int SECTION_NUMBER_FIELD_NUMBER = 8;
+    private int sectionNumber_;
+    /**
+     * <code>optional uint32 section_number = 8;</code>
+     */
+    public boolean hasSectionNumber() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>optional uint32 section_number = 8;</code>
+     */
+    public int getSectionNumber() {
+      return sectionNumber_;
+    }
+
+    // optional uint32 uncompressed_sample_offset = 9;
+    public static final int UNCOMPRESSED_SAMPLE_OFFSET_FIELD_NUMBER = 9;
+    private int uncompressedSampleOffset_;
+    /**
+     * <code>optional uint32 uncompressed_sample_offset = 9;</code>
+     */
+    public boolean hasUncompressedSampleOffset() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <code>optional uint32 uncompressed_sample_offset = 9;</code>
+     */
+    public int getUncompressedSampleOffset() {
+      return uncompressedSampleOffset_;
+    }
+
     private void initFields() {
       client_ = 0;
       proximity_ = false;
       xuid_ = 0L;
       audibleMask_ = 0;
       voiceData_ = com.google.protobuf.ByteString.EMPTY;
+      format_ = com.valve.dota2.Netmessages.VoiceDataFormat_t.VOICEDATA_FORMAT_STEAM;
+      sequenceBytes_ = 0;
+      sectionNumber_ = 0;
+      uncompressedSampleOffset_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -37812,6 +32863,18 @@ public final class Netmessages {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeBytes(5, voiceData_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeEnum(6, format_.getNumber());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeInt32(7, sequenceBytes_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeUInt32(8, sectionNumber_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeUInt32(9, uncompressedSampleOffset_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -37841,6 +32904,22 @@ public final class Netmessages {
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(5, voiceData_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(6, format_.getNumber());
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, sequenceBytes_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(8, sectionNumber_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(9, uncompressedSampleOffset_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -37921,19 +33000,19 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsg_VoiceData}
+     * Protobuf type {@code CSVCMsg_VoiceData}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Netmessages.CSVCMsg_VoiceDataOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_VoiceData_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_VoiceData_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_VoiceData_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_VoiceData_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Netmessages.CSVCMsg_VoiceData.class, com.valve.dota2.Netmessages.CSVCMsg_VoiceData.Builder.class);
       }
@@ -37968,6 +33047,14 @@ public final class Netmessages {
         bitField0_ = (bitField0_ & ~0x00000008);
         voiceData_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000010);
+        format_ = com.valve.dota2.Netmessages.VoiceDataFormat_t.VOICEDATA_FORMAT_STEAM;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        sequenceBytes_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        sectionNumber_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        uncompressedSampleOffset_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
 
@@ -37977,7 +33064,7 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsg_VoiceData_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_VoiceData_descriptor;
       }
 
       public com.valve.dota2.Netmessages.CSVCMsg_VoiceData getDefaultInstanceForType() {
@@ -38016,6 +33103,22 @@ public final class Netmessages {
           to_bitField0_ |= 0x00000010;
         }
         result.voiceData_ = voiceData_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.format_ = format_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.sequenceBytes_ = sequenceBytes_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.sectionNumber_ = sectionNumber_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.uncompressedSampleOffset_ = uncompressedSampleOffset_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -38046,6 +33149,18 @@ public final class Netmessages {
         }
         if (other.hasVoiceData()) {
           setVoiceData(other.getVoiceData());
+        }
+        if (other.hasFormat()) {
+          setFormat(other.getFormat());
+        }
+        if (other.hasSequenceBytes()) {
+          setSequenceBytes(other.getSequenceBytes());
+        }
+        if (other.hasSectionNumber()) {
+          setSectionNumber(other.getSectionNumber());
+        }
+        if (other.hasUncompressedSampleOffset()) {
+          setUncompressedSampleOffset(other.getUncompressedSampleOffset());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -38242,7 +33357,142 @@ public final class Netmessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsg_VoiceData)
+      // optional .VoiceDataFormat_t format = 6 [default = VOICEDATA_FORMAT_STEAM];
+      private com.valve.dota2.Netmessages.VoiceDataFormat_t format_ = com.valve.dota2.Netmessages.VoiceDataFormat_t.VOICEDATA_FORMAT_STEAM;
+      /**
+       * <code>optional .VoiceDataFormat_t format = 6 [default = VOICEDATA_FORMAT_STEAM];</code>
+       */
+      public boolean hasFormat() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional .VoiceDataFormat_t format = 6 [default = VOICEDATA_FORMAT_STEAM];</code>
+       */
+      public com.valve.dota2.Netmessages.VoiceDataFormat_t getFormat() {
+        return format_;
+      }
+      /**
+       * <code>optional .VoiceDataFormat_t format = 6 [default = VOICEDATA_FORMAT_STEAM];</code>
+       */
+      public Builder setFormat(com.valve.dota2.Netmessages.VoiceDataFormat_t value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000020;
+        format_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional .VoiceDataFormat_t format = 6 [default = VOICEDATA_FORMAT_STEAM];</code>
+       */
+      public Builder clearFormat() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        format_ = com.valve.dota2.Netmessages.VoiceDataFormat_t.VOICEDATA_FORMAT_STEAM;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 sequence_bytes = 7;
+      private int sequenceBytes_ ;
+      /**
+       * <code>optional int32 sequence_bytes = 7;</code>
+       */
+      public boolean hasSequenceBytes() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>optional int32 sequence_bytes = 7;</code>
+       */
+      public int getSequenceBytes() {
+        return sequenceBytes_;
+      }
+      /**
+       * <code>optional int32 sequence_bytes = 7;</code>
+       */
+      public Builder setSequenceBytes(int value) {
+        bitField0_ |= 0x00000040;
+        sequenceBytes_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 sequence_bytes = 7;</code>
+       */
+      public Builder clearSequenceBytes() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        sequenceBytes_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional uint32 section_number = 8;
+      private int sectionNumber_ ;
+      /**
+       * <code>optional uint32 section_number = 8;</code>
+       */
+      public boolean hasSectionNumber() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>optional uint32 section_number = 8;</code>
+       */
+      public int getSectionNumber() {
+        return sectionNumber_;
+      }
+      /**
+       * <code>optional uint32 section_number = 8;</code>
+       */
+      public Builder setSectionNumber(int value) {
+        bitField0_ |= 0x00000080;
+        sectionNumber_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 section_number = 8;</code>
+       */
+      public Builder clearSectionNumber() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        sectionNumber_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional uint32 uncompressed_sample_offset = 9;
+      private int uncompressedSampleOffset_ ;
+      /**
+       * <code>optional uint32 uncompressed_sample_offset = 9;</code>
+       */
+      public boolean hasUncompressedSampleOffset() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <code>optional uint32 uncompressed_sample_offset = 9;</code>
+       */
+      public int getUncompressedSampleOffset() {
+        return uncompressedSampleOffset_;
+      }
+      /**
+       * <code>optional uint32 uncompressed_sample_offset = 9;</code>
+       */
+      public Builder setUncompressedSampleOffset(int value) {
+        bitField0_ |= 0x00000100;
+        uncompressedSampleOffset_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 uncompressed_sample_offset = 9;</code>
+       */
+      public Builder clearUncompressedSampleOffset() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        uncompressedSampleOffset_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_VoiceData)
     }
 
     static {
@@ -38250,56 +33500,51 @@ public final class Netmessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsg_VoiceData)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_VoiceData)
   }
 
-  public interface CSVCMsgList_GameEventsOrBuilder
+  public interface CSVCMsg_PacketReliableOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;
+    // optional int32 tick = 1;
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
+     * <code>optional int32 tick = 1;</code>
      */
-    java.util.List<com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t> 
-        getEventsList();
+    boolean hasTick();
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
+     * <code>optional int32 tick = 1;</code>
      */
-    com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t getEvents(int index);
+    int getTick();
+
+    // optional int32 messagessize = 2;
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
+     * <code>optional int32 messagessize = 2;</code>
      */
-    int getEventsCount();
+    boolean hasMessagessize();
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
+     * <code>optional int32 messagessize = 2;</code>
      */
-    java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_tOrBuilder> 
-        getEventsOrBuilderList();
-    /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
-     */
-    com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_tOrBuilder getEventsOrBuilder(
-        int index);
+    int getMessagessize();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsgList_GameEvents}
+   * Protobuf type {@code CSVCMsg_PacketReliable}
    */
-  public static final class CSVCMsgList_GameEvents extends
+  public static final class CSVCMsg_PacketReliable extends
       com.google.protobuf.GeneratedMessage
-      implements CSVCMsgList_GameEventsOrBuilder {
-    // Use CSVCMsgList_GameEvents.newBuilder() to construct.
-    private CSVCMsgList_GameEvents(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements CSVCMsg_PacketReliableOrBuilder {
+    // Use CSVCMsg_PacketReliable.newBuilder() to construct.
+    private CSVCMsg_PacketReliable(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private CSVCMsgList_GameEvents(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private CSVCMsg_PacketReliable(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final CSVCMsgList_GameEvents defaultInstance;
-    public static CSVCMsgList_GameEvents getDefaultInstance() {
+    private static final CSVCMsg_PacketReliable defaultInstance;
+    public static CSVCMsg_PacketReliable getDefaultInstance() {
       return defaultInstance;
     }
 
-    public CSVCMsgList_GameEvents getDefaultInstanceForType() {
+    public CSVCMsg_PacketReliable getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -38309,7 +33554,7 @@ public final class Netmessages {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private CSVCMsgList_GameEvents(
+    private CSVCMsg_PacketReliable(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -38332,12 +33577,14 @@ public final class Netmessages {
               }
               break;
             }
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                events_ = new java.util.ArrayList<com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              events_.add(input.readMessage(com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.PARSER, extensionRegistry));
+            case 8: {
+              bitField0_ |= 0x00000001;
+              tick_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              messagessize_ = input.readInt32();
               break;
             }
           }
@@ -38348,666 +33595,73 @@ public final class Netmessages {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          events_ = java.util.Collections.unmodifiableList(events_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_GameEvents_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_PacketReliable_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_GameEvents_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_PacketReliable_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.class, com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.Builder.class);
+              com.valve.dota2.Netmessages.CSVCMsg_PacketReliable.class, com.valve.dota2.Netmessages.CSVCMsg_PacketReliable.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<CSVCMsgList_GameEvents> PARSER =
-        new com.google.protobuf.AbstractParser<CSVCMsgList_GameEvents>() {
-      public CSVCMsgList_GameEvents parsePartialFrom(
+    public static com.google.protobuf.Parser<CSVCMsg_PacketReliable> PARSER =
+        new com.google.protobuf.AbstractParser<CSVCMsg_PacketReliable>() {
+      public CSVCMsg_PacketReliable parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CSVCMsgList_GameEvents(input, extensionRegistry);
+        return new CSVCMsg_PacketReliable(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<CSVCMsgList_GameEvents> getParserForType() {
+    public com.google.protobuf.Parser<CSVCMsg_PacketReliable> getParserForType() {
       return PARSER;
     }
 
-    public interface event_tOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
-
-      // optional int32 tick = 1;
-      /**
-       * <code>optional int32 tick = 1;</code>
-       */
-      boolean hasTick();
-      /**
-       * <code>optional int32 tick = 1;</code>
-       */
-      int getTick();
-
-      // optional .com.valve.dota2.CSVCMsg_GameEvent event = 2;
-      /**
-       * <code>optional .com.valve.dota2.CSVCMsg_GameEvent event = 2;</code>
-       */
-      boolean hasEvent();
-      /**
-       * <code>optional .com.valve.dota2.CSVCMsg_GameEvent event = 2;</code>
-       */
-      com.valve.dota2.Netmessages.CSVCMsg_GameEvent getEvent();
-      /**
-       * <code>optional .com.valve.dota2.CSVCMsg_GameEvent event = 2;</code>
-       */
-      com.valve.dota2.Netmessages.CSVCMsg_GameEventOrBuilder getEventOrBuilder();
+    private int bitField0_;
+    // optional int32 tick = 1;
+    public static final int TICK_FIELD_NUMBER = 1;
+    private int tick_;
+    /**
+     * <code>optional int32 tick = 1;</code>
+     */
+    public boolean hasTick() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsgList_GameEvents.event_t}
+     * <code>optional int32 tick = 1;</code>
      */
-    public static final class event_t extends
-        com.google.protobuf.GeneratedMessage
-        implements event_tOrBuilder {
-      // Use event_t.newBuilder() to construct.
-      private event_t(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-        super(builder);
-        this.unknownFields = builder.getUnknownFields();
-      }
-      private event_t(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-      private static final event_t defaultInstance;
-      public static event_t getDefaultInstance() {
-        return defaultInstance;
-      }
-
-      public event_t getDefaultInstanceForType() {
-        return defaultInstance;
-      }
-
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
-        return this.unknownFields;
-      }
-      private event_t(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        initFields();
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!parseUnknownField(input, unknownFields,
-                                       extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 8: {
-                bitField0_ |= 0x00000001;
-                tick_ = input.readInt32();
-                break;
-              }
-              case 18: {
-                com.valve.dota2.Netmessages.CSVCMsg_GameEvent.Builder subBuilder = null;
-                if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                  subBuilder = event_.toBuilder();
-                }
-                event_ = input.readMessage(com.valve.dota2.Netmessages.CSVCMsg_GameEvent.PARSER, extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(event_);
-                  event_ = subBuilder.buildPartial();
-                }
-                bitField0_ |= 0x00000002;
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_GameEvents_event_t_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_GameEvents_event_t_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.class, com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.Builder.class);
-      }
-
-      public static com.google.protobuf.Parser<event_t> PARSER =
-          new com.google.protobuf.AbstractParser<event_t>() {
-        public event_t parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new event_t(input, extensionRegistry);
-        }
-      };
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<event_t> getParserForType() {
-        return PARSER;
-      }
-
-      private int bitField0_;
-      // optional int32 tick = 1;
-      public static final int TICK_FIELD_NUMBER = 1;
-      private int tick_;
-      /**
-       * <code>optional int32 tick = 1;</code>
-       */
-      public boolean hasTick() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>optional int32 tick = 1;</code>
-       */
-      public int getTick() {
-        return tick_;
-      }
-
-      // optional .com.valve.dota2.CSVCMsg_GameEvent event = 2;
-      public static final int EVENT_FIELD_NUMBER = 2;
-      private com.valve.dota2.Netmessages.CSVCMsg_GameEvent event_;
-      /**
-       * <code>optional .com.valve.dota2.CSVCMsg_GameEvent event = 2;</code>
-       */
-      public boolean hasEvent() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>optional .com.valve.dota2.CSVCMsg_GameEvent event = 2;</code>
-       */
-      public com.valve.dota2.Netmessages.CSVCMsg_GameEvent getEvent() {
-        return event_;
-      }
-      /**
-       * <code>optional .com.valve.dota2.CSVCMsg_GameEvent event = 2;</code>
-       */
-      public com.valve.dota2.Netmessages.CSVCMsg_GameEventOrBuilder getEventOrBuilder() {
-        return event_;
-      }
-
-      private void initFields() {
-        tick_ = 0;
-        event_ = com.valve.dota2.Netmessages.CSVCMsg_GameEvent.getDefaultInstance();
-      }
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        getSerializedSize();
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeInt32(1, tick_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeMessage(2, event_);
-        }
-        getUnknownFields().writeTo(output);
-      }
-
-      private int memoizedSerializedSize = -1;
-      public int getSerializedSize() {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, tick_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(2, event_);
-        }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
-        return size;
-      }
-
-      private static final long serialVersionUID = 0L;
-      @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
-      }
-
-      public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input, extensionRegistry);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-
-      public static Builder newBuilder() { return Builder.create(); }
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t prototype) {
-        return newBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() { return newBuilder(this); }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code com.valve.dota2.CSVCMsgList_GameEvents.event_t}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_tOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_GameEvents_event_t_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_GameEvents_event_t_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.class, com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.Builder.class);
-        }
-
-        // Construct using com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-            getEventFieldBuilder();
-          }
-        }
-        private static Builder create() {
-          return new Builder();
-        }
-
-        public Builder clear() {
-          super.clear();
-          tick_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000001);
-          if (eventBuilder_ == null) {
-            event_ = com.valve.dota2.Netmessages.CSVCMsg_GameEvent.getDefaultInstance();
-          } else {
-            eventBuilder_.clear();
-          }
-          bitField0_ = (bitField0_ & ~0x00000002);
-          return this;
-        }
-
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_GameEvents_event_t_descriptor;
-        }
-
-        public com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t getDefaultInstanceForType() {
-          return com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.getDefaultInstance();
-        }
-
-        public com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t build() {
-          com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        public com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t buildPartial() {
-          com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t result = new com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t(this);
-          int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
-          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-            to_bitField0_ |= 0x00000001;
-          }
-          result.tick_ = tick_;
-          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-            to_bitField0_ |= 0x00000002;
-          }
-          if (eventBuilder_ == null) {
-            result.event_ = event_;
-          } else {
-            result.event_ = eventBuilder_.build();
-          }
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
-        }
-
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t) {
-            return mergeFrom((com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t other) {
-          if (other == com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.getDefaultInstance()) return this;
-          if (other.hasTick()) {
-            setTick(other.getTick());
-          }
-          if (other.hasEvent()) {
-            mergeEvent(other.getEvent());
-          }
-          this.mergeUnknownFields(other.getUnknownFields());
-          return this;
-        }
-
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t) e.getUnfinishedMessage();
-            throw e;
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-        private int bitField0_;
-
-        // optional int32 tick = 1;
-        private int tick_ ;
-        /**
-         * <code>optional int32 tick = 1;</code>
-         */
-        public boolean hasTick() {
-          return ((bitField0_ & 0x00000001) == 0x00000001);
-        }
-        /**
-         * <code>optional int32 tick = 1;</code>
-         */
-        public int getTick() {
-          return tick_;
-        }
-        /**
-         * <code>optional int32 tick = 1;</code>
-         */
-        public Builder setTick(int value) {
-          bitField0_ |= 0x00000001;
-          tick_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>optional int32 tick = 1;</code>
-         */
-        public Builder clearTick() {
-          bitField0_ = (bitField0_ & ~0x00000001);
-          tick_ = 0;
-          onChanged();
-          return this;
-        }
-
-        // optional .com.valve.dota2.CSVCMsg_GameEvent event = 2;
-        private com.valve.dota2.Netmessages.CSVCMsg_GameEvent event_ = com.valve.dota2.Netmessages.CSVCMsg_GameEvent.getDefaultInstance();
-        private com.google.protobuf.SingleFieldBuilder<
-            com.valve.dota2.Netmessages.CSVCMsg_GameEvent, com.valve.dota2.Netmessages.CSVCMsg_GameEvent.Builder, com.valve.dota2.Netmessages.CSVCMsg_GameEventOrBuilder> eventBuilder_;
-        /**
-         * <code>optional .com.valve.dota2.CSVCMsg_GameEvent event = 2;</code>
-         */
-        public boolean hasEvent() {
-          return ((bitField0_ & 0x00000002) == 0x00000002);
-        }
-        /**
-         * <code>optional .com.valve.dota2.CSVCMsg_GameEvent event = 2;</code>
-         */
-        public com.valve.dota2.Netmessages.CSVCMsg_GameEvent getEvent() {
-          if (eventBuilder_ == null) {
-            return event_;
-          } else {
-            return eventBuilder_.getMessage();
-          }
-        }
-        /**
-         * <code>optional .com.valve.dota2.CSVCMsg_GameEvent event = 2;</code>
-         */
-        public Builder setEvent(com.valve.dota2.Netmessages.CSVCMsg_GameEvent value) {
-          if (eventBuilder_ == null) {
-            if (value == null) {
-              throw new NullPointerException();
-            }
-            event_ = value;
-            onChanged();
-          } else {
-            eventBuilder_.setMessage(value);
-          }
-          bitField0_ |= 0x00000002;
-          return this;
-        }
-        /**
-         * <code>optional .com.valve.dota2.CSVCMsg_GameEvent event = 2;</code>
-         */
-        public Builder setEvent(
-            com.valve.dota2.Netmessages.CSVCMsg_GameEvent.Builder builderForValue) {
-          if (eventBuilder_ == null) {
-            event_ = builderForValue.build();
-            onChanged();
-          } else {
-            eventBuilder_.setMessage(builderForValue.build());
-          }
-          bitField0_ |= 0x00000002;
-          return this;
-        }
-        /**
-         * <code>optional .com.valve.dota2.CSVCMsg_GameEvent event = 2;</code>
-         */
-        public Builder mergeEvent(com.valve.dota2.Netmessages.CSVCMsg_GameEvent value) {
-          if (eventBuilder_ == null) {
-            if (((bitField0_ & 0x00000002) == 0x00000002) &&
-                event_ != com.valve.dota2.Netmessages.CSVCMsg_GameEvent.getDefaultInstance()) {
-              event_ =
-                com.valve.dota2.Netmessages.CSVCMsg_GameEvent.newBuilder(event_).mergeFrom(value).buildPartial();
-            } else {
-              event_ = value;
-            }
-            onChanged();
-          } else {
-            eventBuilder_.mergeFrom(value);
-          }
-          bitField0_ |= 0x00000002;
-          return this;
-        }
-        /**
-         * <code>optional .com.valve.dota2.CSVCMsg_GameEvent event = 2;</code>
-         */
-        public Builder clearEvent() {
-          if (eventBuilder_ == null) {
-            event_ = com.valve.dota2.Netmessages.CSVCMsg_GameEvent.getDefaultInstance();
-            onChanged();
-          } else {
-            eventBuilder_.clear();
-          }
-          bitField0_ = (bitField0_ & ~0x00000002);
-          return this;
-        }
-        /**
-         * <code>optional .com.valve.dota2.CSVCMsg_GameEvent event = 2;</code>
-         */
-        public com.valve.dota2.Netmessages.CSVCMsg_GameEvent.Builder getEventBuilder() {
-          bitField0_ |= 0x00000002;
-          onChanged();
-          return getEventFieldBuilder().getBuilder();
-        }
-        /**
-         * <code>optional .com.valve.dota2.CSVCMsg_GameEvent event = 2;</code>
-         */
-        public com.valve.dota2.Netmessages.CSVCMsg_GameEventOrBuilder getEventOrBuilder() {
-          if (eventBuilder_ != null) {
-            return eventBuilder_.getMessageOrBuilder();
-          } else {
-            return event_;
-          }
-        }
-        /**
-         * <code>optional .com.valve.dota2.CSVCMsg_GameEvent event = 2;</code>
-         */
-        private com.google.protobuf.SingleFieldBuilder<
-            com.valve.dota2.Netmessages.CSVCMsg_GameEvent, com.valve.dota2.Netmessages.CSVCMsg_GameEvent.Builder, com.valve.dota2.Netmessages.CSVCMsg_GameEventOrBuilder> 
-            getEventFieldBuilder() {
-          if (eventBuilder_ == null) {
-            eventBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-                com.valve.dota2.Netmessages.CSVCMsg_GameEvent, com.valve.dota2.Netmessages.CSVCMsg_GameEvent.Builder, com.valve.dota2.Netmessages.CSVCMsg_GameEventOrBuilder>(
-                    event_,
-                    getParentForChildren(),
-                    isClean());
-            event_ = null;
-          }
-          return eventBuilder_;
-        }
-
-        // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsgList_GameEvents.event_t)
-      }
-
-      static {
-        defaultInstance = new event_t(true);
-        defaultInstance.initFields();
-      }
-
-      // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsgList_GameEvents.event_t)
+    public int getTick() {
+      return tick_;
     }
 
-    // repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;
-    public static final int EVENTS_FIELD_NUMBER = 1;
-    private java.util.List<com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t> events_;
+    // optional int32 messagessize = 2;
+    public static final int MESSAGESSIZE_FIELD_NUMBER = 2;
+    private int messagessize_;
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
+     * <code>optional int32 messagessize = 2;</code>
      */
-    public java.util.List<com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t> getEventsList() {
-      return events_;
+    public boolean hasMessagessize() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
+     * <code>optional int32 messagessize = 2;</code>
      */
-    public java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_tOrBuilder> 
-        getEventsOrBuilderList() {
-      return events_;
-    }
-    /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
-     */
-    public int getEventsCount() {
-      return events_.size();
-    }
-    /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
-     */
-    public com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t getEvents(int index) {
-      return events_.get(index);
-    }
-    /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
-     */
-    public com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_tOrBuilder getEventsOrBuilder(
-        int index) {
-      return events_.get(index);
+    public int getMessagessize() {
+      return messagessize_;
     }
 
     private void initFields() {
-      events_ = java.util.Collections.emptyList();
+      tick_ = 0;
+      messagessize_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -39021,8 +33675,11 @@ public final class Netmessages {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      for (int i = 0; i < events_.size(); i++) {
-        output.writeMessage(1, events_.get(i));
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, tick_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, messagessize_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -39033,9 +33690,13 @@ public final class Netmessages {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < events_.size(); i++) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, events_.get(i));
+          .computeInt32Size(1, tick_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, messagessize_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -39049,53 +33710,53 @@ public final class Netmessages {
       return super.writeReplace();
     }
 
-    public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents parseFrom(
+    public static com.valve.dota2.Netmessages.CSVCMsg_PacketReliable parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents parseFrom(
+    public static com.valve.dota2.Netmessages.CSVCMsg_PacketReliable parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents parseFrom(byte[] data)
+    public static com.valve.dota2.Netmessages.CSVCMsg_PacketReliable parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents parseFrom(
+    public static com.valve.dota2.Netmessages.CSVCMsg_PacketReliable parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents parseFrom(java.io.InputStream input)
+    public static com.valve.dota2.Netmessages.CSVCMsg_PacketReliable parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents parseFrom(
+    public static com.valve.dota2.Netmessages.CSVCMsg_PacketReliable parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents parseDelimitedFrom(java.io.InputStream input)
+    public static com.valve.dota2.Netmessages.CSVCMsg_PacketReliable parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents parseDelimitedFrom(
+    public static com.valve.dota2.Netmessages.CSVCMsg_PacketReliable parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents parseFrom(
+    public static com.valve.dota2.Netmessages.CSVCMsg_PacketReliable parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.valve.dota2.Netmessages.CSVCMsgList_GameEvents parseFrom(
+    public static com.valve.dota2.Netmessages.CSVCMsg_PacketReliable parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -39104,7 +33765,7 @@ public final class Netmessages {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.valve.dota2.Netmessages.CSVCMsgList_GameEvents prototype) {
+    public static Builder newBuilder(com.valve.dota2.Netmessages.CSVCMsg_PacketReliable prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -39116,24 +33777,24 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsgList_GameEvents}
+     * Protobuf type {@code CSVCMsg_PacketReliable}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.valve.dota2.Netmessages.CSVCMsgList_GameEventsOrBuilder {
+       implements com.valve.dota2.Netmessages.CSVCMsg_PacketReliableOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_GameEvents_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_PacketReliable_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_GameEvents_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_PacketReliable_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.class, com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.Builder.class);
+                com.valve.dota2.Netmessages.CSVCMsg_PacketReliable.class, com.valve.dota2.Netmessages.CSVCMsg_PacketReliable.Builder.class);
       }
 
-      // Construct using com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.newBuilder()
+      // Construct using com.valve.dota2.Netmessages.CSVCMsg_PacketReliable.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -39145,7 +33806,6 @@ public final class Netmessages {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getEventsFieldBuilder();
         }
       }
       private static Builder create() {
@@ -39154,12 +33814,10 @@ public final class Netmessages {
 
       public Builder clear() {
         super.clear();
-        if (eventsBuilder_ == null) {
-          events_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          eventsBuilder_.clear();
-        }
+        tick_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        messagessize_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -39169,73 +33827,54 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_GameEvents_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_PacketReliable_descriptor;
       }
 
-      public com.valve.dota2.Netmessages.CSVCMsgList_GameEvents getDefaultInstanceForType() {
-        return com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.getDefaultInstance();
+      public com.valve.dota2.Netmessages.CSVCMsg_PacketReliable getDefaultInstanceForType() {
+        return com.valve.dota2.Netmessages.CSVCMsg_PacketReliable.getDefaultInstance();
       }
 
-      public com.valve.dota2.Netmessages.CSVCMsgList_GameEvents build() {
-        com.valve.dota2.Netmessages.CSVCMsgList_GameEvents result = buildPartial();
+      public com.valve.dota2.Netmessages.CSVCMsg_PacketReliable build() {
+        com.valve.dota2.Netmessages.CSVCMsg_PacketReliable result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.valve.dota2.Netmessages.CSVCMsgList_GameEvents buildPartial() {
-        com.valve.dota2.Netmessages.CSVCMsgList_GameEvents result = new com.valve.dota2.Netmessages.CSVCMsgList_GameEvents(this);
+      public com.valve.dota2.Netmessages.CSVCMsg_PacketReliable buildPartial() {
+        com.valve.dota2.Netmessages.CSVCMsg_PacketReliable result = new com.valve.dota2.Netmessages.CSVCMsg_PacketReliable(this);
         int from_bitField0_ = bitField0_;
-        if (eventsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            events_ = java.util.Collections.unmodifiableList(events_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.events_ = events_;
-        } else {
-          result.events_ = eventsBuilder_.build();
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
         }
+        result.tick_ = tick_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.messagessize_ = messagessize_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.valve.dota2.Netmessages.CSVCMsgList_GameEvents) {
-          return mergeFrom((com.valve.dota2.Netmessages.CSVCMsgList_GameEvents)other);
+        if (other instanceof com.valve.dota2.Netmessages.CSVCMsg_PacketReliable) {
+          return mergeFrom((com.valve.dota2.Netmessages.CSVCMsg_PacketReliable)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.valve.dota2.Netmessages.CSVCMsgList_GameEvents other) {
-        if (other == com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.getDefaultInstance()) return this;
-        if (eventsBuilder_ == null) {
-          if (!other.events_.isEmpty()) {
-            if (events_.isEmpty()) {
-              events_ = other.events_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureEventsIsMutable();
-              events_.addAll(other.events_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.events_.isEmpty()) {
-            if (eventsBuilder_.isEmpty()) {
-              eventsBuilder_.dispose();
-              eventsBuilder_ = null;
-              events_ = other.events_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              eventsBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getEventsFieldBuilder() : null;
-            } else {
-              eventsBuilder_.addAllMessages(other.events_);
-            }
-          }
+      public Builder mergeFrom(com.valve.dota2.Netmessages.CSVCMsg_PacketReliable other) {
+        if (other == com.valve.dota2.Netmessages.CSVCMsg_PacketReliable.getDefaultInstance()) return this;
+        if (other.hasTick()) {
+          setTick(other.getTick());
+        }
+        if (other.hasMessagessize()) {
+          setMessagessize(other.getMessagessize());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -39249,11 +33888,11 @@ public final class Netmessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.valve.dota2.Netmessages.CSVCMsgList_GameEvents parsedMessage = null;
+        com.valve.dota2.Netmessages.CSVCMsg_PacketReliable parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.valve.dota2.Netmessages.CSVCMsgList_GameEvents) e.getUnfinishedMessage();
+          parsedMessage = (com.valve.dota2.Netmessages.CSVCMsg_PacketReliable) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -39264,304 +33903,145 @@ public final class Netmessages {
       }
       private int bitField0_;
 
-      // repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;
-      private java.util.List<com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t> events_ =
-        java.util.Collections.emptyList();
-      private void ensureEventsIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          events_ = new java.util.ArrayList<com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t>(events_);
-          bitField0_ |= 0x00000001;
-         }
+      // optional int32 tick = 1;
+      private int tick_ ;
+      /**
+       * <code>optional int32 tick = 1;</code>
+       */
+      public boolean hasTick() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 tick = 1;</code>
+       */
+      public int getTick() {
+        return tick_;
+      }
+      /**
+       * <code>optional int32 tick = 1;</code>
+       */
+      public Builder setTick(int value) {
+        bitField0_ |= 0x00000001;
+        tick_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 tick = 1;</code>
+       */
+      public Builder clearTick() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        tick_ = 0;
+        onChanged();
+        return this;
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
-          com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t, com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.Builder, com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_tOrBuilder> eventsBuilder_;
-
+      // optional int32 messagessize = 2;
+      private int messagessize_ ;
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
+       * <code>optional int32 messagessize = 2;</code>
        */
-      public java.util.List<com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t> getEventsList() {
-        if (eventsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(events_);
-        } else {
-          return eventsBuilder_.getMessageList();
-        }
+      public boolean hasMessagessize() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
+       * <code>optional int32 messagessize = 2;</code>
        */
-      public int getEventsCount() {
-        if (eventsBuilder_ == null) {
-          return events_.size();
-        } else {
-          return eventsBuilder_.getCount();
-        }
+      public int getMessagessize() {
+        return messagessize_;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
+       * <code>optional int32 messagessize = 2;</code>
        */
-      public com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t getEvents(int index) {
-        if (eventsBuilder_ == null) {
-          return events_.get(index);
-        } else {
-          return eventsBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
-       */
-      public Builder setEvents(
-          int index, com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t value) {
-        if (eventsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureEventsIsMutable();
-          events_.set(index, value);
-          onChanged();
-        } else {
-          eventsBuilder_.setMessage(index, value);
-        }
+      public Builder setMessagessize(int value) {
+        bitField0_ |= 0x00000002;
+        messagessize_ = value;
+        onChanged();
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
+       * <code>optional int32 messagessize = 2;</code>
        */
-      public Builder setEvents(
-          int index, com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.Builder builderForValue) {
-        if (eventsBuilder_ == null) {
-          ensureEventsIsMutable();
-          events_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          eventsBuilder_.setMessage(index, builderForValue.build());
-        }
+      public Builder clearMessagessize() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        messagessize_ = 0;
+        onChanged();
         return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
-       */
-      public Builder addEvents(com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t value) {
-        if (eventsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureEventsIsMutable();
-          events_.add(value);
-          onChanged();
-        } else {
-          eventsBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
-       */
-      public Builder addEvents(
-          int index, com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t value) {
-        if (eventsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureEventsIsMutable();
-          events_.add(index, value);
-          onChanged();
-        } else {
-          eventsBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
-       */
-      public Builder addEvents(
-          com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.Builder builderForValue) {
-        if (eventsBuilder_ == null) {
-          ensureEventsIsMutable();
-          events_.add(builderForValue.build());
-          onChanged();
-        } else {
-          eventsBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
-       */
-      public Builder addEvents(
-          int index, com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.Builder builderForValue) {
-        if (eventsBuilder_ == null) {
-          ensureEventsIsMutable();
-          events_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          eventsBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
-       */
-      public Builder addAllEvents(
-          java.lang.Iterable<? extends com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t> values) {
-        if (eventsBuilder_ == null) {
-          ensureEventsIsMutable();
-          super.addAll(values, events_);
-          onChanged();
-        } else {
-          eventsBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
-       */
-      public Builder clearEvents() {
-        if (eventsBuilder_ == null) {
-          events_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          eventsBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
-       */
-      public Builder removeEvents(int index) {
-        if (eventsBuilder_ == null) {
-          ensureEventsIsMutable();
-          events_.remove(index);
-          onChanged();
-        } else {
-          eventsBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
-       */
-      public com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.Builder getEventsBuilder(
-          int index) {
-        return getEventsFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
-       */
-      public com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_tOrBuilder getEventsOrBuilder(
-          int index) {
-        if (eventsBuilder_ == null) {
-          return events_.get(index);  } else {
-          return eventsBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
-       */
-      public java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_tOrBuilder> 
-           getEventsOrBuilderList() {
-        if (eventsBuilder_ != null) {
-          return eventsBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(events_);
-        }
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
-       */
-      public com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.Builder addEventsBuilder() {
-        return getEventsFieldBuilder().addBuilder(
-            com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
-       */
-      public com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.Builder addEventsBuilder(
-          int index) {
-        return getEventsFieldBuilder().addBuilder(
-            index, com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_GameEvents.event_t events = 1;</code>
-       */
-      public java.util.List<com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.Builder> 
-           getEventsBuilderList() {
-        return getEventsFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilder<
-          com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t, com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.Builder, com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_tOrBuilder> 
-          getEventsFieldBuilder() {
-        if (eventsBuilder_ == null) {
-          eventsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t, com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_t.Builder, com.valve.dota2.Netmessages.CSVCMsgList_GameEvents.event_tOrBuilder>(
-                  events_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
-                  getParentForChildren(),
-                  isClean());
-          events_ = null;
-        }
-        return eventsBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsgList_GameEvents)
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_PacketReliable)
     }
 
     static {
-      defaultInstance = new CSVCMsgList_GameEvents(true);
+      defaultInstance = new CSVCMsg_PacketReliable(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsgList_GameEvents)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_PacketReliable)
   }
 
-  public interface CSVCMsgList_UserMessagesOrBuilder
+  public interface CSVCMsg_FullFrameSplitOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;
+    // optional int32 tick = 1;
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
+     * <code>optional int32 tick = 1;</code>
      */
-    java.util.List<com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t> 
-        getUsermsgsList();
+    boolean hasTick();
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
+     * <code>optional int32 tick = 1;</code>
      */
-    com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t getUsermsgs(int index);
+    int getTick();
+
+    // optional int32 section = 2;
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
+     * <code>optional int32 section = 2;</code>
      */
-    int getUsermsgsCount();
+    boolean hasSection();
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
+     * <code>optional int32 section = 2;</code>
      */
-    java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_tOrBuilder> 
-        getUsermsgsOrBuilderList();
+    int getSection();
+
+    // optional int32 total = 3;
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
+     * <code>optional int32 total = 3;</code>
      */
-    com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_tOrBuilder getUsermsgsOrBuilder(
-        int index);
+    boolean hasTotal();
+    /**
+     * <code>optional int32 total = 3;</code>
+     */
+    int getTotal();
+
+    // optional bytes data = 4;
+    /**
+     * <code>optional bytes data = 4;</code>
+     */
+    boolean hasData();
+    /**
+     * <code>optional bytes data = 4;</code>
+     */
+    com.google.protobuf.ByteString getData();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CSVCMsgList_UserMessages}
+   * Protobuf type {@code CSVCMsg_FullFrameSplit}
    */
-  public static final class CSVCMsgList_UserMessages extends
+  public static final class CSVCMsg_FullFrameSplit extends
       com.google.protobuf.GeneratedMessage
-      implements CSVCMsgList_UserMessagesOrBuilder {
-    // Use CSVCMsgList_UserMessages.newBuilder() to construct.
-    private CSVCMsgList_UserMessages(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      implements CSVCMsg_FullFrameSplitOrBuilder {
+    // Use CSVCMsg_FullFrameSplit.newBuilder() to construct.
+    private CSVCMsg_FullFrameSplit(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
       this.unknownFields = builder.getUnknownFields();
     }
-    private CSVCMsgList_UserMessages(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+    private CSVCMsg_FullFrameSplit(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
 
-    private static final CSVCMsgList_UserMessages defaultInstance;
-    public static CSVCMsgList_UserMessages getDefaultInstance() {
+    private static final CSVCMsg_FullFrameSplit defaultInstance;
+    public static CSVCMsg_FullFrameSplit getDefaultInstance() {
       return defaultInstance;
     }
 
-    public CSVCMsgList_UserMessages getDefaultInstanceForType() {
+    public CSVCMsg_FullFrameSplit getDefaultInstanceForType() {
       return defaultInstance;
     }
 
@@ -39571,7 +34051,7 @@ public final class Netmessages {
         getUnknownFields() {
       return this.unknownFields;
     }
-    private CSVCMsgList_UserMessages(
+    private CSVCMsg_FullFrameSplit(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -39594,12 +34074,24 @@ public final class Netmessages {
               }
               break;
             }
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                usermsgs_ = new java.util.ArrayList<com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              usermsgs_.add(input.readMessage(com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.PARSER, extensionRegistry));
+            case 8: {
+              bitField0_ |= 0x00000001;
+              tick_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              section_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              total_ = input.readInt32();
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000008;
+              data_ = input.readBytes();
               break;
             }
           }
@@ -39610,666 +34102,107 @@ public final class Netmessages {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e.getMessage()).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          usermsgs_ = java.util.Collections.unmodifiableList(usermsgs_);
-        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_UserMessages_descriptor;
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_FullFrameSplit_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_UserMessages_fieldAccessorTable
+      return com.valve.dota2.Netmessages.internal_static_CSVCMsg_FullFrameSplit_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.class, com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.Builder.class);
+              com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit.class, com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit.Builder.class);
     }
 
-    public static com.google.protobuf.Parser<CSVCMsgList_UserMessages> PARSER =
-        new com.google.protobuf.AbstractParser<CSVCMsgList_UserMessages>() {
-      public CSVCMsgList_UserMessages parsePartialFrom(
+    public static com.google.protobuf.Parser<CSVCMsg_FullFrameSplit> PARSER =
+        new com.google.protobuf.AbstractParser<CSVCMsg_FullFrameSplit>() {
+      public CSVCMsg_FullFrameSplit parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CSVCMsgList_UserMessages(input, extensionRegistry);
+        return new CSVCMsg_FullFrameSplit(input, extensionRegistry);
       }
     };
 
     @java.lang.Override
-    public com.google.protobuf.Parser<CSVCMsgList_UserMessages> getParserForType() {
+    public com.google.protobuf.Parser<CSVCMsg_FullFrameSplit> getParserForType() {
       return PARSER;
     }
 
-    public interface usermsg_tOrBuilder
-        extends com.google.protobuf.MessageOrBuilder {
-
-      // optional int32 tick = 1;
-      /**
-       * <code>optional int32 tick = 1;</code>
-       */
-      boolean hasTick();
-      /**
-       * <code>optional int32 tick = 1;</code>
-       */
-      int getTick();
-
-      // optional .com.valve.dota2.CSVCMsg_UserMessage msg = 2;
-      /**
-       * <code>optional .com.valve.dota2.CSVCMsg_UserMessage msg = 2;</code>
-       */
-      boolean hasMsg();
-      /**
-       * <code>optional .com.valve.dota2.CSVCMsg_UserMessage msg = 2;</code>
-       */
-      com.valve.dota2.Netmessages.CSVCMsg_UserMessage getMsg();
-      /**
-       * <code>optional .com.valve.dota2.CSVCMsg_UserMessage msg = 2;</code>
-       */
-      com.valve.dota2.Netmessages.CSVCMsg_UserMessageOrBuilder getMsgOrBuilder();
+    private int bitField0_;
+    // optional int32 tick = 1;
+    public static final int TICK_FIELD_NUMBER = 1;
+    private int tick_;
+    /**
+     * <code>optional int32 tick = 1;</code>
+     */
+    public boolean hasTick() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t}
+     * <code>optional int32 tick = 1;</code>
      */
-    public static final class usermsg_t extends
-        com.google.protobuf.GeneratedMessage
-        implements usermsg_tOrBuilder {
-      // Use usermsg_t.newBuilder() to construct.
-      private usermsg_t(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
-        super(builder);
-        this.unknownFields = builder.getUnknownFields();
-      }
-      private usermsg_t(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
-
-      private static final usermsg_t defaultInstance;
-      public static usermsg_t getDefaultInstance() {
-        return defaultInstance;
-      }
-
-      public usermsg_t getDefaultInstanceForType() {
-        return defaultInstance;
-      }
-
-      private final com.google.protobuf.UnknownFieldSet unknownFields;
-      @java.lang.Override
-      public final com.google.protobuf.UnknownFieldSet
-          getUnknownFields() {
-        return this.unknownFields;
-      }
-      private usermsg_t(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        initFields();
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!parseUnknownField(input, unknownFields,
-                                       extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-              case 8: {
-                bitField0_ |= 0x00000001;
-                tick_ = input.readInt32();
-                break;
-              }
-              case 18: {
-                com.valve.dota2.Netmessages.CSVCMsg_UserMessage.Builder subBuilder = null;
-                if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                  subBuilder = msg_.toBuilder();
-                }
-                msg_ = input.readMessage(com.valve.dota2.Netmessages.CSVCMsg_UserMessage.PARSER, extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(msg_);
-                  msg_ = subBuilder.buildPartial();
-                }
-                bitField0_ |= 0x00000002;
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e.getMessage()).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_UserMessages_usermsg_t_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_UserMessages_usermsg_t_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.class, com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.Builder.class);
-      }
-
-      public static com.google.protobuf.Parser<usermsg_t> PARSER =
-          new com.google.protobuf.AbstractParser<usermsg_t>() {
-        public usermsg_t parsePartialFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          return new usermsg_t(input, extensionRegistry);
-        }
-      };
-
-      @java.lang.Override
-      public com.google.protobuf.Parser<usermsg_t> getParserForType() {
-        return PARSER;
-      }
-
-      private int bitField0_;
-      // optional int32 tick = 1;
-      public static final int TICK_FIELD_NUMBER = 1;
-      private int tick_;
-      /**
-       * <code>optional int32 tick = 1;</code>
-       */
-      public boolean hasTick() {
-        return ((bitField0_ & 0x00000001) == 0x00000001);
-      }
-      /**
-       * <code>optional int32 tick = 1;</code>
-       */
-      public int getTick() {
-        return tick_;
-      }
-
-      // optional .com.valve.dota2.CSVCMsg_UserMessage msg = 2;
-      public static final int MSG_FIELD_NUMBER = 2;
-      private com.valve.dota2.Netmessages.CSVCMsg_UserMessage msg_;
-      /**
-       * <code>optional .com.valve.dota2.CSVCMsg_UserMessage msg = 2;</code>
-       */
-      public boolean hasMsg() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
-      }
-      /**
-       * <code>optional .com.valve.dota2.CSVCMsg_UserMessage msg = 2;</code>
-       */
-      public com.valve.dota2.Netmessages.CSVCMsg_UserMessage getMsg() {
-        return msg_;
-      }
-      /**
-       * <code>optional .com.valve.dota2.CSVCMsg_UserMessage msg = 2;</code>
-       */
-      public com.valve.dota2.Netmessages.CSVCMsg_UserMessageOrBuilder getMsgOrBuilder() {
-        return msg_;
-      }
-
-      private void initFields() {
-        tick_ = 0;
-        msg_ = com.valve.dota2.Netmessages.CSVCMsg_UserMessage.getDefaultInstance();
-      }
-      private byte memoizedIsInitialized = -1;
-      public final boolean isInitialized() {
-        byte isInitialized = memoizedIsInitialized;
-        if (isInitialized != -1) return isInitialized == 1;
-
-        memoizedIsInitialized = 1;
-        return true;
-      }
-
-      public void writeTo(com.google.protobuf.CodedOutputStream output)
-                          throws java.io.IOException {
-        getSerializedSize();
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          output.writeInt32(1, tick_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          output.writeMessage(2, msg_);
-        }
-        getUnknownFields().writeTo(output);
-      }
-
-      private int memoizedSerializedSize = -1;
-      public int getSerializedSize() {
-        int size = memoizedSerializedSize;
-        if (size != -1) return size;
-
-        size = 0;
-        if (((bitField0_ & 0x00000001) == 0x00000001)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, tick_);
-        }
-        if (((bitField0_ & 0x00000002) == 0x00000002)) {
-          size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(2, msg_);
-        }
-        size += getUnknownFields().getSerializedSize();
-        memoizedSerializedSize = size;
-        return size;
-      }
-
-      private static final long serialVersionUID = 0L;
-      @java.lang.Override
-      protected java.lang.Object writeReplace()
-          throws java.io.ObjectStreamException {
-        return super.writeReplace();
-      }
-
-      public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t parseFrom(
-          com.google.protobuf.ByteString data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t parseFrom(
-          com.google.protobuf.ByteString data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t parseFrom(byte[] data)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t parseFrom(
-          byte[] data,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return PARSER.parseFrom(data, extensionRegistry);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t parseFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t parseFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t parseDelimitedFrom(java.io.InputStream input)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t parseDelimitedFrom(
-          java.io.InputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseDelimitedFrom(input, extensionRegistry);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t parseFrom(
-          com.google.protobuf.CodedInputStream input)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input);
-      }
-      public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t parseFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        return PARSER.parseFrom(input, extensionRegistry);
-      }
-
-      public static Builder newBuilder() { return Builder.create(); }
-      public Builder newBuilderForType() { return newBuilder(); }
-      public static Builder newBuilder(com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t prototype) {
-        return newBuilder().mergeFrom(prototype);
-      }
-      public Builder toBuilder() { return newBuilder(this); }
-
-      @java.lang.Override
-      protected Builder newBuilderForType(
-          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-        Builder builder = new Builder(parent);
-        return builder;
-      }
-      /**
-       * Protobuf type {@code com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t}
-       */
-      public static final class Builder extends
-          com.google.protobuf.GeneratedMessage.Builder<Builder>
-         implements com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_tOrBuilder {
-        public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_UserMessages_usermsg_t_descriptor;
-        }
-
-        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_UserMessages_usermsg_t_fieldAccessorTable
-              .ensureFieldAccessorsInitialized(
-                  com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.class, com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.Builder.class);
-        }
-
-        // Construct using com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.newBuilder()
-        private Builder() {
-          maybeForceBuilderInitialization();
-        }
-
-        private Builder(
-            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
-          super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-            getMsgFieldBuilder();
-          }
-        }
-        private static Builder create() {
-          return new Builder();
-        }
-
-        public Builder clear() {
-          super.clear();
-          tick_ = 0;
-          bitField0_ = (bitField0_ & ~0x00000001);
-          if (msgBuilder_ == null) {
-            msg_ = com.valve.dota2.Netmessages.CSVCMsg_UserMessage.getDefaultInstance();
-          } else {
-            msgBuilder_.clear();
-          }
-          bitField0_ = (bitField0_ & ~0x00000002);
-          return this;
-        }
-
-        public Builder clone() {
-          return create().mergeFrom(buildPartial());
-        }
-
-        public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-          return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_UserMessages_usermsg_t_descriptor;
-        }
-
-        public com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t getDefaultInstanceForType() {
-          return com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.getDefaultInstance();
-        }
-
-        public com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t build() {
-          com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t result = buildPartial();
-          if (!result.isInitialized()) {
-            throw newUninitializedMessageException(result);
-          }
-          return result;
-        }
-
-        public com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t buildPartial() {
-          com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t result = new com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t(this);
-          int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
-          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-            to_bitField0_ |= 0x00000001;
-          }
-          result.tick_ = tick_;
-          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-            to_bitField0_ |= 0x00000002;
-          }
-          if (msgBuilder_ == null) {
-            result.msg_ = msg_;
-          } else {
-            result.msg_ = msgBuilder_.build();
-          }
-          result.bitField0_ = to_bitField0_;
-          onBuilt();
-          return result;
-        }
-
-        public Builder mergeFrom(com.google.protobuf.Message other) {
-          if (other instanceof com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t) {
-            return mergeFrom((com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t)other);
-          } else {
-            super.mergeFrom(other);
-            return this;
-          }
-        }
-
-        public Builder mergeFrom(com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t other) {
-          if (other == com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.getDefaultInstance()) return this;
-          if (other.hasTick()) {
-            setTick(other.getTick());
-          }
-          if (other.hasMsg()) {
-            mergeMsg(other.getMsg());
-          }
-          this.mergeUnknownFields(other.getUnknownFields());
-          return this;
-        }
-
-        public final boolean isInitialized() {
-          return true;
-        }
-
-        public Builder mergeFrom(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws java.io.IOException {
-          com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t parsedMessage = null;
-          try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t) e.getUnfinishedMessage();
-            throw e;
-          } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
-          return this;
-        }
-        private int bitField0_;
-
-        // optional int32 tick = 1;
-        private int tick_ ;
-        /**
-         * <code>optional int32 tick = 1;</code>
-         */
-        public boolean hasTick() {
-          return ((bitField0_ & 0x00000001) == 0x00000001);
-        }
-        /**
-         * <code>optional int32 tick = 1;</code>
-         */
-        public int getTick() {
-          return tick_;
-        }
-        /**
-         * <code>optional int32 tick = 1;</code>
-         */
-        public Builder setTick(int value) {
-          bitField0_ |= 0x00000001;
-          tick_ = value;
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>optional int32 tick = 1;</code>
-         */
-        public Builder clearTick() {
-          bitField0_ = (bitField0_ & ~0x00000001);
-          tick_ = 0;
-          onChanged();
-          return this;
-        }
-
-        // optional .com.valve.dota2.CSVCMsg_UserMessage msg = 2;
-        private com.valve.dota2.Netmessages.CSVCMsg_UserMessage msg_ = com.valve.dota2.Netmessages.CSVCMsg_UserMessage.getDefaultInstance();
-        private com.google.protobuf.SingleFieldBuilder<
-            com.valve.dota2.Netmessages.CSVCMsg_UserMessage, com.valve.dota2.Netmessages.CSVCMsg_UserMessage.Builder, com.valve.dota2.Netmessages.CSVCMsg_UserMessageOrBuilder> msgBuilder_;
-        /**
-         * <code>optional .com.valve.dota2.CSVCMsg_UserMessage msg = 2;</code>
-         */
-        public boolean hasMsg() {
-          return ((bitField0_ & 0x00000002) == 0x00000002);
-        }
-        /**
-         * <code>optional .com.valve.dota2.CSVCMsg_UserMessage msg = 2;</code>
-         */
-        public com.valve.dota2.Netmessages.CSVCMsg_UserMessage getMsg() {
-          if (msgBuilder_ == null) {
-            return msg_;
-          } else {
-            return msgBuilder_.getMessage();
-          }
-        }
-        /**
-         * <code>optional .com.valve.dota2.CSVCMsg_UserMessage msg = 2;</code>
-         */
-        public Builder setMsg(com.valve.dota2.Netmessages.CSVCMsg_UserMessage value) {
-          if (msgBuilder_ == null) {
-            if (value == null) {
-              throw new NullPointerException();
-            }
-            msg_ = value;
-            onChanged();
-          } else {
-            msgBuilder_.setMessage(value);
-          }
-          bitField0_ |= 0x00000002;
-          return this;
-        }
-        /**
-         * <code>optional .com.valve.dota2.CSVCMsg_UserMessage msg = 2;</code>
-         */
-        public Builder setMsg(
-            com.valve.dota2.Netmessages.CSVCMsg_UserMessage.Builder builderForValue) {
-          if (msgBuilder_ == null) {
-            msg_ = builderForValue.build();
-            onChanged();
-          } else {
-            msgBuilder_.setMessage(builderForValue.build());
-          }
-          bitField0_ |= 0x00000002;
-          return this;
-        }
-        /**
-         * <code>optional .com.valve.dota2.CSVCMsg_UserMessage msg = 2;</code>
-         */
-        public Builder mergeMsg(com.valve.dota2.Netmessages.CSVCMsg_UserMessage value) {
-          if (msgBuilder_ == null) {
-            if (((bitField0_ & 0x00000002) == 0x00000002) &&
-                msg_ != com.valve.dota2.Netmessages.CSVCMsg_UserMessage.getDefaultInstance()) {
-              msg_ =
-                com.valve.dota2.Netmessages.CSVCMsg_UserMessage.newBuilder(msg_).mergeFrom(value).buildPartial();
-            } else {
-              msg_ = value;
-            }
-            onChanged();
-          } else {
-            msgBuilder_.mergeFrom(value);
-          }
-          bitField0_ |= 0x00000002;
-          return this;
-        }
-        /**
-         * <code>optional .com.valve.dota2.CSVCMsg_UserMessage msg = 2;</code>
-         */
-        public Builder clearMsg() {
-          if (msgBuilder_ == null) {
-            msg_ = com.valve.dota2.Netmessages.CSVCMsg_UserMessage.getDefaultInstance();
-            onChanged();
-          } else {
-            msgBuilder_.clear();
-          }
-          bitField0_ = (bitField0_ & ~0x00000002);
-          return this;
-        }
-        /**
-         * <code>optional .com.valve.dota2.CSVCMsg_UserMessage msg = 2;</code>
-         */
-        public com.valve.dota2.Netmessages.CSVCMsg_UserMessage.Builder getMsgBuilder() {
-          bitField0_ |= 0x00000002;
-          onChanged();
-          return getMsgFieldBuilder().getBuilder();
-        }
-        /**
-         * <code>optional .com.valve.dota2.CSVCMsg_UserMessage msg = 2;</code>
-         */
-        public com.valve.dota2.Netmessages.CSVCMsg_UserMessageOrBuilder getMsgOrBuilder() {
-          if (msgBuilder_ != null) {
-            return msgBuilder_.getMessageOrBuilder();
-          } else {
-            return msg_;
-          }
-        }
-        /**
-         * <code>optional .com.valve.dota2.CSVCMsg_UserMessage msg = 2;</code>
-         */
-        private com.google.protobuf.SingleFieldBuilder<
-            com.valve.dota2.Netmessages.CSVCMsg_UserMessage, com.valve.dota2.Netmessages.CSVCMsg_UserMessage.Builder, com.valve.dota2.Netmessages.CSVCMsg_UserMessageOrBuilder> 
-            getMsgFieldBuilder() {
-          if (msgBuilder_ == null) {
-            msgBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-                com.valve.dota2.Netmessages.CSVCMsg_UserMessage, com.valve.dota2.Netmessages.CSVCMsg_UserMessage.Builder, com.valve.dota2.Netmessages.CSVCMsg_UserMessageOrBuilder>(
-                    msg_,
-                    getParentForChildren(),
-                    isClean());
-            msg_ = null;
-          }
-          return msgBuilder_;
-        }
-
-        // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t)
-      }
-
-      static {
-        defaultInstance = new usermsg_t(true);
-        defaultInstance.initFields();
-      }
-
-      // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t)
+    public int getTick() {
+      return tick_;
     }
 
-    // repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;
-    public static final int USERMSGS_FIELD_NUMBER = 1;
-    private java.util.List<com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t> usermsgs_;
+    // optional int32 section = 2;
+    public static final int SECTION_FIELD_NUMBER = 2;
+    private int section_;
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
+     * <code>optional int32 section = 2;</code>
      */
-    public java.util.List<com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t> getUsermsgsList() {
-      return usermsgs_;
+    public boolean hasSection() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
+     * <code>optional int32 section = 2;</code>
      */
-    public java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_tOrBuilder> 
-        getUsermsgsOrBuilderList() {
-      return usermsgs_;
+    public int getSection() {
+      return section_;
+    }
+
+    // optional int32 total = 3;
+    public static final int TOTAL_FIELD_NUMBER = 3;
+    private int total_;
+    /**
+     * <code>optional int32 total = 3;</code>
+     */
+    public boolean hasTotal() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
+     * <code>optional int32 total = 3;</code>
      */
-    public int getUsermsgsCount() {
-      return usermsgs_.size();
+    public int getTotal() {
+      return total_;
+    }
+
+    // optional bytes data = 4;
+    public static final int DATA_FIELD_NUMBER = 4;
+    private com.google.protobuf.ByteString data_;
+    /**
+     * <code>optional bytes data = 4;</code>
+     */
+    public boolean hasData() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
+     * <code>optional bytes data = 4;</code>
      */
-    public com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t getUsermsgs(int index) {
-      return usermsgs_.get(index);
-    }
-    /**
-     * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
-     */
-    public com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_tOrBuilder getUsermsgsOrBuilder(
-        int index) {
-      return usermsgs_.get(index);
+    public com.google.protobuf.ByteString getData() {
+      return data_;
     }
 
     private void initFields() {
-      usermsgs_ = java.util.Collections.emptyList();
+      tick_ = 0;
+      section_ = 0;
+      total_ = 0;
+      data_ = com.google.protobuf.ByteString.EMPTY;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -40283,8 +34216,17 @@ public final class Netmessages {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       getSerializedSize();
-      for (int i = 0; i < usermsgs_.size(); i++) {
-        output.writeMessage(1, usermsgs_.get(i));
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, tick_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, section_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, total_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeBytes(4, data_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -40295,9 +34237,21 @@ public final class Netmessages {
       if (size != -1) return size;
 
       size = 0;
-      for (int i = 0; i < usermsgs_.size(); i++) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, usermsgs_.get(i));
+          .computeInt32Size(1, tick_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, section_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, total_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(4, data_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -40311,53 +34265,53 @@ public final class Netmessages {
       return super.writeReplace();
     }
 
-    public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages parseFrom(
+    public static com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages parseFrom(
+    public static com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages parseFrom(byte[] data)
+    public static com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages parseFrom(
+    public static com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages parseFrom(java.io.InputStream input)
+    public static com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages parseFrom(
+    public static com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseFrom(input, extensionRegistry);
     }
-    public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages parseDelimitedFrom(java.io.InputStream input)
+    public static com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input);
     }
-    public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages parseDelimitedFrom(
+    public static com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return PARSER.parseDelimitedFrom(input, extensionRegistry);
     }
-    public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages parseFrom(
+    public static com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return PARSER.parseFrom(input);
     }
-    public static com.valve.dota2.Netmessages.CSVCMsgList_UserMessages parseFrom(
+    public static com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -40366,7 +34320,7 @@ public final class Netmessages {
 
     public static Builder newBuilder() { return Builder.create(); }
     public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder(com.valve.dota2.Netmessages.CSVCMsgList_UserMessages prototype) {
+    public static Builder newBuilder(com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit prototype) {
       return newBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() { return newBuilder(this); }
@@ -40378,24 +34332,24 @@ public final class Netmessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CSVCMsgList_UserMessages}
+     * Protobuf type {@code CSVCMsg_FullFrameSplit}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.valve.dota2.Netmessages.CSVCMsgList_UserMessagesOrBuilder {
+       implements com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplitOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_UserMessages_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_FullFrameSplit_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_UserMessages_fieldAccessorTable
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_FullFrameSplit_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.class, com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.Builder.class);
+                com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit.class, com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit.Builder.class);
       }
 
-      // Construct using com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.newBuilder()
+      // Construct using com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -40407,7 +34361,6 @@ public final class Netmessages {
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
-          getUsermsgsFieldBuilder();
         }
       }
       private static Builder create() {
@@ -40416,12 +34369,14 @@ public final class Netmessages {
 
       public Builder clear() {
         super.clear();
-        if (usermsgsBuilder_ == null) {
-          usermsgs_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          usermsgsBuilder_.clear();
-        }
+        tick_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        section_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        total_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        data_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -40431,73 +34386,68 @@ public final class Netmessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Netmessages.internal_static_com_valve_dota2_CSVCMsgList_UserMessages_descriptor;
+        return com.valve.dota2.Netmessages.internal_static_CSVCMsg_FullFrameSplit_descriptor;
       }
 
-      public com.valve.dota2.Netmessages.CSVCMsgList_UserMessages getDefaultInstanceForType() {
-        return com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.getDefaultInstance();
+      public com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit getDefaultInstanceForType() {
+        return com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit.getDefaultInstance();
       }
 
-      public com.valve.dota2.Netmessages.CSVCMsgList_UserMessages build() {
-        com.valve.dota2.Netmessages.CSVCMsgList_UserMessages result = buildPartial();
+      public com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit build() {
+        com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.valve.dota2.Netmessages.CSVCMsgList_UserMessages buildPartial() {
-        com.valve.dota2.Netmessages.CSVCMsgList_UserMessages result = new com.valve.dota2.Netmessages.CSVCMsgList_UserMessages(this);
+      public com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit buildPartial() {
+        com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit result = new com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit(this);
         int from_bitField0_ = bitField0_;
-        if (usermsgsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            usermsgs_ = java.util.Collections.unmodifiableList(usermsgs_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.usermsgs_ = usermsgs_;
-        } else {
-          result.usermsgs_ = usermsgsBuilder_.build();
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
         }
+        result.tick_ = tick_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.section_ = section_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.total_ = total_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.data_ = data_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
 
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.valve.dota2.Netmessages.CSVCMsgList_UserMessages) {
-          return mergeFrom((com.valve.dota2.Netmessages.CSVCMsgList_UserMessages)other);
+        if (other instanceof com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit) {
+          return mergeFrom((com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.valve.dota2.Netmessages.CSVCMsgList_UserMessages other) {
-        if (other == com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.getDefaultInstance()) return this;
-        if (usermsgsBuilder_ == null) {
-          if (!other.usermsgs_.isEmpty()) {
-            if (usermsgs_.isEmpty()) {
-              usermsgs_ = other.usermsgs_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureUsermsgsIsMutable();
-              usermsgs_.addAll(other.usermsgs_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.usermsgs_.isEmpty()) {
-            if (usermsgsBuilder_.isEmpty()) {
-              usermsgsBuilder_.dispose();
-              usermsgsBuilder_ = null;
-              usermsgs_ = other.usermsgs_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              usermsgsBuilder_ = 
-                com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
-                   getUsermsgsFieldBuilder() : null;
-            } else {
-              usermsgsBuilder_.addAllMessages(other.usermsgs_);
-            }
-          }
+      public Builder mergeFrom(com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit other) {
+        if (other == com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit.getDefaultInstance()) return this;
+        if (other.hasTick()) {
+          setTick(other.getTick());
+        }
+        if (other.hasSection()) {
+          setSection(other.getSection());
+        }
+        if (other.hasTotal()) {
+          setTotal(other.getTotal());
+        }
+        if (other.hasData()) {
+          setData(other.getData());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -40511,11 +34461,11 @@ public final class Netmessages {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.valve.dota2.Netmessages.CSVCMsgList_UserMessages parsedMessage = null;
+        com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.valve.dota2.Netmessages.CSVCMsgList_UserMessages) e.getUnfinishedMessage();
+          parsedMessage = (com.valve.dota2.Netmessages.CSVCMsg_FullFrameSplit) e.getUnfinishedMessage();
           throw e;
         } finally {
           if (parsedMessage != null) {
@@ -40526,537 +34476,392 @@ public final class Netmessages {
       }
       private int bitField0_;
 
-      // repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;
-      private java.util.List<com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t> usermsgs_ =
-        java.util.Collections.emptyList();
-      private void ensureUsermsgsIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          usermsgs_ = new java.util.ArrayList<com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t>(usermsgs_);
-          bitField0_ |= 0x00000001;
-         }
+      // optional int32 tick = 1;
+      private int tick_ ;
+      /**
+       * <code>optional int32 tick = 1;</code>
+       */
+      public boolean hasTick() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional int32 tick = 1;</code>
+       */
+      public int getTick() {
+        return tick_;
+      }
+      /**
+       * <code>optional int32 tick = 1;</code>
+       */
+      public Builder setTick(int value) {
+        bitField0_ |= 0x00000001;
+        tick_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 tick = 1;</code>
+       */
+      public Builder clearTick() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        tick_ = 0;
+        onChanged();
+        return this;
       }
 
-      private com.google.protobuf.RepeatedFieldBuilder<
-          com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t, com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.Builder, com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_tOrBuilder> usermsgsBuilder_;
-
+      // optional int32 section = 2;
+      private int section_ ;
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
+       * <code>optional int32 section = 2;</code>
        */
-      public java.util.List<com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t> getUsermsgsList() {
-        if (usermsgsBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(usermsgs_);
-        } else {
-          return usermsgsBuilder_.getMessageList();
-        }
+      public boolean hasSection() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
+       * <code>optional int32 section = 2;</code>
        */
-      public int getUsermsgsCount() {
-        if (usermsgsBuilder_ == null) {
-          return usermsgs_.size();
-        } else {
-          return usermsgsBuilder_.getCount();
-        }
+      public int getSection() {
+        return section_;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
+       * <code>optional int32 section = 2;</code>
        */
-      public com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t getUsermsgs(int index) {
-        if (usermsgsBuilder_ == null) {
-          return usermsgs_.get(index);
-        } else {
-          return usermsgsBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
-       */
-      public Builder setUsermsgs(
-          int index, com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t value) {
-        if (usermsgsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureUsermsgsIsMutable();
-          usermsgs_.set(index, value);
-          onChanged();
-        } else {
-          usermsgsBuilder_.setMessage(index, value);
-        }
+      public Builder setSection(int value) {
+        bitField0_ |= 0x00000002;
+        section_ = value;
+        onChanged();
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
+       * <code>optional int32 section = 2;</code>
        */
-      public Builder setUsermsgs(
-          int index, com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.Builder builderForValue) {
-        if (usermsgsBuilder_ == null) {
-          ensureUsermsgsIsMutable();
-          usermsgs_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          usermsgsBuilder_.setMessage(index, builderForValue.build());
-        }
+      public Builder clearSection() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        section_ = 0;
+        onChanged();
         return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
-       */
-      public Builder addUsermsgs(com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t value) {
-        if (usermsgsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureUsermsgsIsMutable();
-          usermsgs_.add(value);
-          onChanged();
-        } else {
-          usermsgsBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
-       */
-      public Builder addUsermsgs(
-          int index, com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t value) {
-        if (usermsgsBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureUsermsgsIsMutable();
-          usermsgs_.add(index, value);
-          onChanged();
-        } else {
-          usermsgsBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
-       */
-      public Builder addUsermsgs(
-          com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.Builder builderForValue) {
-        if (usermsgsBuilder_ == null) {
-          ensureUsermsgsIsMutable();
-          usermsgs_.add(builderForValue.build());
-          onChanged();
-        } else {
-          usermsgsBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
-       */
-      public Builder addUsermsgs(
-          int index, com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.Builder builderForValue) {
-        if (usermsgsBuilder_ == null) {
-          ensureUsermsgsIsMutable();
-          usermsgs_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          usermsgsBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
-       */
-      public Builder addAllUsermsgs(
-          java.lang.Iterable<? extends com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t> values) {
-        if (usermsgsBuilder_ == null) {
-          ensureUsermsgsIsMutable();
-          super.addAll(values, usermsgs_);
-          onChanged();
-        } else {
-          usermsgsBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
-       */
-      public Builder clearUsermsgs() {
-        if (usermsgsBuilder_ == null) {
-          usermsgs_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          usermsgsBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
-       */
-      public Builder removeUsermsgs(int index) {
-        if (usermsgsBuilder_ == null) {
-          ensureUsermsgsIsMutable();
-          usermsgs_.remove(index);
-          onChanged();
-        } else {
-          usermsgsBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
-       */
-      public com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.Builder getUsermsgsBuilder(
-          int index) {
-        return getUsermsgsFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
-       */
-      public com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_tOrBuilder getUsermsgsOrBuilder(
-          int index) {
-        if (usermsgsBuilder_ == null) {
-          return usermsgs_.get(index);  } else {
-          return usermsgsBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
-       */
-      public java.util.List<? extends com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_tOrBuilder> 
-           getUsermsgsOrBuilderList() {
-        if (usermsgsBuilder_ != null) {
-          return usermsgsBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(usermsgs_);
-        }
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
-       */
-      public com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.Builder addUsermsgsBuilder() {
-        return getUsermsgsFieldBuilder().addBuilder(
-            com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
-       */
-      public com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.Builder addUsermsgsBuilder(
-          int index) {
-        return getUsermsgsFieldBuilder().addBuilder(
-            index, com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .com.valve.dota2.CSVCMsgList_UserMessages.usermsg_t usermsgs = 1;</code>
-       */
-      public java.util.List<com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.Builder> 
-           getUsermsgsBuilderList() {
-        return getUsermsgsFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilder<
-          com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t, com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.Builder, com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_tOrBuilder> 
-          getUsermsgsFieldBuilder() {
-        if (usermsgsBuilder_ == null) {
-          usermsgsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
-              com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t, com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_t.Builder, com.valve.dota2.Netmessages.CSVCMsgList_UserMessages.usermsg_tOrBuilder>(
-                  usermsgs_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
-                  getParentForChildren(),
-                  isClean());
-          usermsgs_ = null;
-        }
-        return usermsgsBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CSVCMsgList_UserMessages)
+      // optional int32 total = 3;
+      private int total_ ;
+      /**
+       * <code>optional int32 total = 3;</code>
+       */
+      public boolean hasTotal() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional int32 total = 3;</code>
+       */
+      public int getTotal() {
+        return total_;
+      }
+      /**
+       * <code>optional int32 total = 3;</code>
+       */
+      public Builder setTotal(int value) {
+        bitField0_ |= 0x00000004;
+        total_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 total = 3;</code>
+       */
+      public Builder clearTotal() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        total_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional bytes data = 4;
+      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes data = 4;</code>
+       */
+      public boolean hasData() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional bytes data = 4;</code>
+       */
+      public com.google.protobuf.ByteString getData() {
+        return data_;
+      }
+      /**
+       * <code>optional bytes data = 4;</code>
+       */
+      public Builder setData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        data_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bytes data = 4;</code>
+       */
+      public Builder clearData() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        data_ = getDefaultInstance().getData();
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:CSVCMsg_FullFrameSplit)
     }
 
     static {
-      defaultInstance = new CSVCMsgList_UserMessages(true);
+      defaultInstance = new CSVCMsg_FullFrameSplit(true);
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CSVCMsgList_UserMessages)
+    // @@protoc_insertion_point(class_scope:CSVCMsg_FullFrameSplit)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CMsgVector_descriptor;
+    internal_static_CMsg_CVars_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CMsgVector_fieldAccessorTable;
+      internal_static_CMsg_CVars_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CMsgVector2D_descriptor;
+    internal_static_CMsg_CVars_CVar_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CMsgVector2D_fieldAccessorTable;
+      internal_static_CMsg_CVars_CVar_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CMsgQAngle_descriptor;
+    internal_static_CNETMsg_NOP_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CMsgQAngle_fieldAccessorTable;
+      internal_static_CNETMsg_NOP_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CMsg_CVars_descriptor;
+    internal_static_CNETMsg_Disconnect_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CMsg_CVars_fieldAccessorTable;
+      internal_static_CNETMsg_Disconnect_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CMsg_CVars_CVar_descriptor;
+    internal_static_CNETMsg_File_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CMsg_CVars_CVar_fieldAccessorTable;
+      internal_static_CNETMsg_File_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CNETMsg_NOP_descriptor;
+    internal_static_CNETMsg_SplitScreenUser_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CNETMsg_NOP_fieldAccessorTable;
+      internal_static_CNETMsg_SplitScreenUser_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CNETMsg_Disconnect_descriptor;
+    internal_static_CNETMsg_Tick_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CNETMsg_Disconnect_fieldAccessorTable;
+      internal_static_CNETMsg_Tick_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CNETMsg_File_descriptor;
+    internal_static_CNETMsg_StringCmd_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CNETMsg_File_fieldAccessorTable;
+      internal_static_CNETMsg_StringCmd_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CNETMsg_SplitScreenUser_descriptor;
+    internal_static_CNETMsg_SetConVar_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CNETMsg_SplitScreenUser_fieldAccessorTable;
+      internal_static_CNETMsg_SetConVar_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CNETMsg_Tick_descriptor;
+    internal_static_CNETMsg_SignonState_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CNETMsg_Tick_fieldAccessorTable;
+      internal_static_CNETMsg_SignonState_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CNETMsg_StringCmd_descriptor;
+    internal_static_CCLCMsg_ClientInfo_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CNETMsg_StringCmd_fieldAccessorTable;
+      internal_static_CCLCMsg_ClientInfo_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CNETMsg_SetConVar_descriptor;
+    internal_static_CCLCMsg_Move_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CNETMsg_SetConVar_fieldAccessorTable;
+      internal_static_CCLCMsg_Move_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CNETMsg_SignonState_descriptor;
+    internal_static_CCLCMsg_VoiceData_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CNETMsg_SignonState_fieldAccessorTable;
+      internal_static_CCLCMsg_VoiceData_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CCLCMsg_ClientInfo_descriptor;
+    internal_static_CCLCMsg_BaselineAck_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CCLCMsg_ClientInfo_fieldAccessorTable;
+      internal_static_CCLCMsg_BaselineAck_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CCLCMsg_Move_descriptor;
+    internal_static_CCLCMsg_ListenEvents_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CCLCMsg_Move_fieldAccessorTable;
+      internal_static_CCLCMsg_ListenEvents_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CCLCMsg_VoiceData_descriptor;
+    internal_static_CCLCMsg_RespondCvarValue_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CCLCMsg_VoiceData_fieldAccessorTable;
+      internal_static_CCLCMsg_RespondCvarValue_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CCLCMsg_BaselineAck_descriptor;
+    internal_static_CCLCMsg_FileCRCCheck_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CCLCMsg_BaselineAck_fieldAccessorTable;
+      internal_static_CCLCMsg_FileCRCCheck_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CCLCMsg_ListenEvents_descriptor;
+    internal_static_CCLCMsg_LoadingProgress_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CCLCMsg_ListenEvents_fieldAccessorTable;
+      internal_static_CCLCMsg_LoadingProgress_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CCLCMsg_RespondCvarValue_descriptor;
+    internal_static_CCLCMsg_SplitPlayerConnect_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CCLCMsg_RespondCvarValue_fieldAccessorTable;
+      internal_static_CCLCMsg_SplitPlayerConnect_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CCLCMsg_FileCRCCheck_descriptor;
+    internal_static_CCLCMsg_ClientMessage_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CCLCMsg_FileCRCCheck_fieldAccessorTable;
+      internal_static_CCLCMsg_ClientMessage_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CCLCMsg_LoadingProgress_descriptor;
+    internal_static_CSVCMsg_ServerInfo_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CCLCMsg_LoadingProgress_fieldAccessorTable;
+      internal_static_CSVCMsg_ServerInfo_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CCLCMsg_SplitPlayerConnect_descriptor;
+    internal_static_CSVCMsg_ClassInfo_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CCLCMsg_SplitPlayerConnect_fieldAccessorTable;
+      internal_static_CSVCMsg_ClassInfo_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CCLCMsg_ClientMessage_descriptor;
+    internal_static_CSVCMsg_ClassInfo_class_t_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CCLCMsg_ClientMessage_fieldAccessorTable;
+      internal_static_CSVCMsg_ClassInfo_class_t_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_ServerInfo_descriptor;
+    internal_static_CSVCMsg_SetPause_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_ServerInfo_fieldAccessorTable;
+      internal_static_CSVCMsg_SetPause_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_ClassInfo_descriptor;
+    internal_static_CSVCMsg_VoiceInit_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_ClassInfo_fieldAccessorTable;
+      internal_static_CSVCMsg_VoiceInit_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_ClassInfo_class_t_descriptor;
+    internal_static_CSVCMsg_Print_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_ClassInfo_class_t_fieldAccessorTable;
+      internal_static_CSVCMsg_Print_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_SetPause_descriptor;
+    internal_static_CSVCMsg_Sounds_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_SetPause_fieldAccessorTable;
+      internal_static_CSVCMsg_Sounds_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_VoiceInit_descriptor;
+    internal_static_CSVCMsg_Sounds_sounddata_t_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_VoiceInit_fieldAccessorTable;
+      internal_static_CSVCMsg_Sounds_sounddata_t_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_Print_descriptor;
+    internal_static_CSVCMsg_Prefetch_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_Print_fieldAccessorTable;
+      internal_static_CSVCMsg_Prefetch_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_Sounds_descriptor;
+    internal_static_CSVCMsg_SetView_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_Sounds_fieldAccessorTable;
+      internal_static_CSVCMsg_SetView_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_Sounds_sounddata_t_descriptor;
+    internal_static_CSVCMsg_FixAngle_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_Sounds_sounddata_t_fieldAccessorTable;
+      internal_static_CSVCMsg_FixAngle_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_Prefetch_descriptor;
+    internal_static_CSVCMsg_CrosshairAngle_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_Prefetch_fieldAccessorTable;
+      internal_static_CSVCMsg_CrosshairAngle_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_SetView_descriptor;
+    internal_static_CSVCMsg_BSPDecal_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_SetView_fieldAccessorTable;
+      internal_static_CSVCMsg_BSPDecal_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_FixAngle_descriptor;
+    internal_static_CSVCMsg_SplitScreen_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_FixAngle_fieldAccessorTable;
+      internal_static_CSVCMsg_SplitScreen_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_CrosshairAngle_descriptor;
+    internal_static_CSVCMsg_GetCvarValue_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_CrosshairAngle_fieldAccessorTable;
+      internal_static_CSVCMsg_GetCvarValue_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_BSPDecal_descriptor;
+    internal_static_CSVCMsg_Menu_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_BSPDecal_fieldAccessorTable;
+      internal_static_CSVCMsg_Menu_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_SplitScreen_descriptor;
+    internal_static_CSVCMsg_SendTable_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_SplitScreen_fieldAccessorTable;
+      internal_static_CSVCMsg_SendTable_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_GetCvarValue_descriptor;
+    internal_static_CSVCMsg_SendTable_sendprop_t_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_GetCvarValue_fieldAccessorTable;
+      internal_static_CSVCMsg_SendTable_sendprop_t_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_Menu_descriptor;
+    internal_static_CSVCMsg_GameEventList_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_Menu_fieldAccessorTable;
+      internal_static_CSVCMsg_GameEventList_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_SendTable_descriptor;
+    internal_static_CSVCMsg_GameEventList_key_t_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_SendTable_fieldAccessorTable;
+      internal_static_CSVCMsg_GameEventList_key_t_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_SendTable_sendprop_t_descriptor;
+    internal_static_CSVCMsg_GameEventList_descriptor_t_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_SendTable_sendprop_t_fieldAccessorTable;
+      internal_static_CSVCMsg_GameEventList_descriptor_t_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_GameEvent_descriptor;
+    internal_static_CSVCMsg_PacketEntities_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_GameEvent_fieldAccessorTable;
+      internal_static_CSVCMsg_PacketEntities_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_GameEvent_key_t_descriptor;
+    internal_static_CSVCMsg_TempEntities_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_GameEvent_key_t_fieldAccessorTable;
+      internal_static_CSVCMsg_TempEntities_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_GameEventList_descriptor;
+    internal_static_CSVCMsg_CreateStringTable_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_GameEventList_fieldAccessorTable;
+      internal_static_CSVCMsg_CreateStringTable_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_GameEventList_key_t_descriptor;
+    internal_static_CSVCMsg_UpdateStringTable_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_GameEventList_key_t_fieldAccessorTable;
+      internal_static_CSVCMsg_UpdateStringTable_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_GameEventList_descriptor_t_descriptor;
+    internal_static_CSVCMsg_VoiceData_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_GameEventList_descriptor_t_fieldAccessorTable;
+      internal_static_CSVCMsg_VoiceData_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_PacketEntities_descriptor;
+    internal_static_CSVCMsg_PacketReliable_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_PacketEntities_fieldAccessorTable;
+      internal_static_CSVCMsg_PacketReliable_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_TempEntities_descriptor;
+    internal_static_CSVCMsg_FullFrameSplit_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_TempEntities_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_CreateStringTable_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_CreateStringTable_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_UpdateStringTable_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_UpdateStringTable_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_UserMessage_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_UserMessage_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsg_VoiceData_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsg_VoiceData_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsgList_GameEvents_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsgList_GameEvents_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsgList_GameEvents_event_t_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsgList_GameEvents_event_t_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsgList_UserMessages_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsgList_UserMessages_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CSVCMsgList_UserMessages_usermsg_t_descriptor;
-  private static
-    com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CSVCMsgList_UserMessages_usermsg_t_fieldAccessorTable;
+      internal_static_CSVCMsg_FullFrameSplit_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -41066,512 +34871,456 @@ public final class Netmessages {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021netmessages.proto\022\017com.valve.dota2\032 go" +
-      "ogle/protobuf/descriptor.proto\"-\n\nCMsgVe" +
-      "ctor\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\"$\n" +
-      "\014CMsgVector2D\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\"-\n\nC" +
-      "MsgQAngle\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001" +
-      "(\002\"b\n\nCMsg_CVars\022/\n\005cvars\030\001 \003(\0132 .com.va" +
-      "lve.dota2.CMsg_CVars.CVar\032#\n\004CVar\022\014\n\004nam" +
-      "e\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\r\n\013CNETMsg_NOP\"\"\n" +
-      "\022CNETMsg_Disconnect\022\014\n\004text\030\001 \001(\t\"a\n\014CNE" +
-      "TMsg_File\022\023\n\013transfer_id\030\001 \001(\005\022\021\n\tfile_n",
-      "ame\030\002 \001(\t\022\033\n\023is_replay_demo_file\030\003 \001(\010\022\014" +
-      "\n\004deny\030\004 \001(\010\"\'\n\027CNETMsg_SplitScreenUser\022" +
-      "\014\n\004slot\030\001 \001(\005\"Z\n\014CNETMsg_Tick\022\014\n\004tick\030\001 " +
-      "\001(\r\022\026\n\016host_frametime\030\002 \001(\r\022$\n\034host_fram" +
-      "etime_std_deviation\030\003 \001(\r\"$\n\021CNETMsg_Str" +
-      "ingCmd\022\017\n\007command\030\001 \001(\t\"A\n\021CNETMsg_SetCo" +
-      "nVar\022,\n\007convars\030\001 \001(\0132\033.com.valve.dota2." +
-      "CMsg_CVars\"\212\001\n\023CNETMsg_SignonState\022\024\n\014si" +
-      "gnon_state\030\001 \001(\r\022\023\n\013spawn_count\030\002 \001(\r\022\032\n" +
-      "\022num_server_players\030\003 \001(\r\022\032\n\022players_net",
-      "workids\030\004 \003(\t\022\020\n\010map_name\030\005 \001(\t\"\246\001\n\022CCLC" +
-      "Msg_ClientInfo\022\026\n\016send_table_crc\030\001 \001(\007\022\024" +
-      "\n\014server_count\030\002 \001(\r\022\017\n\007is_hltv\030\003 \001(\010\022\021\n" +
-      "\tis_replay\030\004 \001(\010\022\022\n\nfriends_id\030\005 \001(\r\022\024\n\014" +
-      "friends_name\030\006 \001(\t\022\024\n\014custom_files\030\007 \003(\007" +
-      "\"S\n\014CCLCMsg_Move\022\033\n\023num_backup_commands\030" +
-      "\001 \001(\r\022\030\n\020num_new_commands\030\002 \001(\r\022\014\n\004data\030" +
-      "\003 \001(\014\"/\n\021CCLCMsg_VoiceData\022\014\n\004data\030\001 \001(\014" +
-      "\022\014\n\004xuid\030\002 \001(\006\"A\n\023CCLCMsg_BaselineAck\022\025\n" +
-      "\rbaseline_tick\030\001 \001(\005\022\023\n\013baseline_nr\030\002 \001(",
-      "\005\"*\n\024CCLCMsg_ListenEvents\022\022\n\nevent_mask\030" +
-      "\001 \003(\007\"\\\n\030CCLCMsg_RespondCvarValue\022\016\n\006coo" +
-      "kie\030\001 \001(\005\022\023\n\013status_code\030\002 \001(\005\022\014\n\004name\030\003" +
-      " \001(\t\022\r\n\005value\030\004 \001(\t\"m\n\024CCLCMsg_FileCRCCh" +
-      "eck\022\021\n\tcode_path\030\001 \001(\005\022\014\n\004path\030\002 \001(\t\022\025\n\r" +
-      "code_filename\030\003 \001(\005\022\020\n\010filename\030\004 \001(\t\022\013\n" +
-      "\003crc\030\005 \001(\007\"+\n\027CCLCMsg_LoadingProgress\022\020\n" +
-      "\010progress\030\001 \001(\005\"J\n\032CCLCMsg_SplitPlayerCo" +
-      "nnect\022,\n\007convars\030\001 \001(\0132\033.com.valve.dota2" +
-      ".CMsg_CVars\"7\n\025CCLCMsg_ClientMessage\022\020\n\010",
-      "msg_type\030\001 \001(\005\022\014\n\004data\030\002 \001(\014\"\342\002\n\022CSVCMsg" +
-      "_ServerInfo\022\020\n\010protocol\030\001 \001(\005\022\024\n\014server_" +
-      "count\030\002 \001(\005\022\024\n\014is_dedicated\030\003 \001(\010\022\017\n\007is_" +
-      "hltv\030\004 \001(\010\022\021\n\tis_replay\030\005 \001(\010\022\014\n\004c_os\030\006 " +
-      "\001(\005\022\017\n\007map_crc\030\007 \001(\007\022\022\n\nclient_crc\030\010 \001(\007" +
-      "\022\030\n\020string_table_crc\030\t \001(\007\022\023\n\013max_client" +
-      "s\030\n \001(\005\022\023\n\013max_classes\030\013 \001(\005\022\023\n\013player_s" +
-      "lot\030\014 \001(\005\022\025\n\rtick_interval\030\r \001(\002\022\020\n\010game" +
-      "_dir\030\016 \001(\t\022\020\n\010map_name\030\017 \001(\t\022\020\n\010sky_name" +
-      "\030\020 \001(\t\022\021\n\thost_name\030\021 \001(\t\"\264\001\n\021CSVCMsg_Cl",
-      "assInfo\022\030\n\020create_on_client\030\001 \001(\010\022;\n\007cla" +
-      "sses\030\002 \003(\0132*.com.valve.dota2.CSVCMsg_Cla" +
-      "ssInfo.class_t\032H\n\007class_t\022\020\n\010class_id\030\001 " +
-      "\001(\005\022\027\n\017data_table_name\030\002 \001(\t\022\022\n\nclass_na" +
-      "me\030\003 \001(\t\"\"\n\020CSVCMsg_SetPause\022\016\n\006paused\030\001" +
-      " \001(\010\"3\n\021CSVCMsg_VoiceInit\022\017\n\007quality\030\001 \001" +
-      "(\005\022\r\n\005codec\030\002 \001(\t\"\035\n\rCSVCMsg_Print\022\014\n\004te" +
-      "xt\030\001 \001(\t\"\306\003\n\016CSVCMsg_Sounds\022\026\n\016reliable_" +
-      "sound\030\001 \001(\010\022;\n\006sounds\030\002 \003(\0132+.com.valve." +
-      "dota2.CSVCMsg_Sounds.sounddata_t\032\336\002\n\013sou",
-      "nddata_t\022\020\n\010origin_x\030\001 \001(\021\022\020\n\010origin_y\030\002" +
-      " \001(\021\022\020\n\010origin_z\030\003 \001(\021\022\016\n\006volume\030\004 \001(\r\022\023" +
-      "\n\013delay_value\030\005 \001(\002\022\027\n\017sequence_number\030\006" +
-      " \001(\005\022\024\n\014entity_index\030\007 \001(\005\022\017\n\007channel\030\010 " +
-      "\001(\005\022\r\n\005pitch\030\t \001(\005\022\r\n\005flags\030\n \001(\005\022\021\n\tsou" +
-      "nd_num\030\013 \001(\r\022\030\n\020sound_num_handle\030\014 \001(\007\022\026" +
-      "\n\016speaker_entity\030\r \001(\005\022\023\n\013random_seed\030\016 " +
-      "\001(\005\022\023\n\013sound_level\030\017 \001(\005\022\023\n\013is_sentence\030" +
-      "\020 \001(\010\022\022\n\nis_ambient\030\021 \001(\010\"\'\n\020CSVCMsg_Pre" +
-      "fetch\022\023\n\013sound_index\030\001 \001(\005\"\'\n\017CSVCMsg_Se",
-      "tView\022\024\n\014entity_index\030\001 \001(\005\"P\n\020CSVCMsg_F" +
-      "ixAngle\022\020\n\010relative\030\001 \001(\010\022*\n\005angle\030\002 \001(\013" +
-      "2\033.com.valve.dota2.CMsgQAngle\"D\n\026CSVCMsg" +
-      "_CrosshairAngle\022*\n\005angle\030\001 \001(\0132\033.com.val" +
-      "ve.dota2.CMsgQAngle\"\232\001\n\020CSVCMsg_BSPDecal" +
-      "\022(\n\003pos\030\001 \001(\0132\033.com.valve.dota2.CMsgVect" +
-      "or\022\033\n\023decal_texture_index\030\002 \001(\005\022\024\n\014entit" +
-      "y_index\030\003 \001(\005\022\023\n\013model_index\030\004 \001(\005\022\024\n\014lo" +
-      "w_priority\030\005 \001(\010\"q\n\023CSVCMsg_SplitScreen\022" +
-      "6\n\004type\030\001 \001(\0162(.com.valve.dota2.ESplitSc",
-      "reenMessageType\022\014\n\004slot\030\002 \001(\005\022\024\n\014player_" +
-      "index\030\003 \001(\005\"9\n\024CSVCMsg_GetCvarValue\022\016\n\006c" +
-      "ookie\030\001 \001(\005\022\021\n\tcvar_name\030\002 \001(\t\"<\n\014CSVCMs" +
-      "g_Menu\022\023\n\013dialog_type\030\001 \001(\005\022\027\n\017menu_key_" +
-      "values\030\002 \001(\014\"\300\002\n\021CSVCMsg_SendTable\022\016\n\006is" +
-      "_end\030\001 \001(\010\022\026\n\016net_table_name\030\002 \001(\t\022\025\n\rne" +
-      "eds_decoder\030\003 \001(\010\022<\n\005props\030\004 \003(\0132-.com.v" +
-      "alve.dota2.CSVCMsg_SendTable.sendprop_t\032" +
-      "\255\001\n\nsendprop_t\022\014\n\004type\030\001 \001(\005\022\020\n\010var_name" +
-      "\030\002 \001(\t\022\r\n\005flags\030\003 \001(\005\022\020\n\010priority\030\004 \001(\005\022",
-      "\017\n\007dt_name\030\005 \001(\t\022\024\n\014num_elements\030\006 \001(\005\022\021" +
-      "\n\tlow_value\030\007 \001(\002\022\022\n\nhigh_value\030\010 \001(\002\022\020\n" +
-      "\010num_bits\030\t \001(\005\"\214\002\n\021CSVCMsg_GameEvent\022\022\n" +
-      "\nevent_name\030\001 \001(\t\022\017\n\007eventid\030\002 \001(\005\0226\n\004ke" +
-      "ys\030\003 \003(\0132(.com.valve.dota2.CSVCMsg_GameE" +
-      "vent.key_t\032\231\001\n\005key_t\022\014\n\004type\030\001 \001(\005\022\022\n\nva" +
-      "l_string\030\002 \001(\t\022\021\n\tval_float\030\003 \001(\002\022\020\n\010val" +
-      "_long\030\004 \001(\005\022\021\n\tval_short\030\005 \001(\005\022\020\n\010val_by" +
-      "te\030\006 \001(\005\022\020\n\010val_bool\030\007 \001(\010\022\022\n\nval_uint64" +
-      "\030\010 \001(\004\"\361\001\n\025CSVCMsg_GameEventList\022H\n\013desc",
-      "riptors\030\001 \003(\01323.com.valve.dota2.CSVCMsg_" +
-      "GameEventList.descriptor_t\032#\n\005key_t\022\014\n\004t" +
-      "ype\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\032i\n\014descriptor_t\022" +
-      "\017\n\007eventid\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022:\n\004keys\030\003" +
-      " \003(\0132,.com.valve.dota2.CSVCMsg_GameEvent" +
-      "List.key_t\"\254\001\n\026CSVCMsg_PacketEntities\022\023\n" +
-      "\013max_entries\030\001 \001(\005\022\027\n\017updated_entries\030\002 " +
-      "\001(\005\022\020\n\010is_delta\030\003 \001(\010\022\027\n\017update_baseline" +
-      "\030\004 \001(\010\022\020\n\010baseline\030\005 \001(\005\022\022\n\ndelta_from\030\006" +
-      " \001(\005\022\023\n\013entity_data\030\007 \001(\014\"R\n\024CSVCMsg_Tem",
-      "pEntities\022\020\n\010reliable\030\001 \001(\010\022\023\n\013num_entri" +
-      "es\030\002 \001(\005\022\023\n\013entity_data\030\003 \001(\014\"\312\001\n\031CSVCMs" +
-      "g_CreateStringTable\022\014\n\004name\030\001 \001(\t\022\023\n\013max" +
-      "_entries\030\002 \001(\005\022\023\n\013num_entries\030\003 \001(\005\022\034\n\024u" +
-      "ser_data_fixed_size\030\004 \001(\010\022\026\n\016user_data_s" +
-      "ize\030\005 \001(\005\022\033\n\023user_data_size_bits\030\006 \001(\005\022\r" +
-      "\n\005flags\030\007 \001(\005\022\023\n\013string_data\030\010 \001(\014\"_\n\031CS" +
-      "VCMsg_UpdateStringTable\022\020\n\010table_id\030\001 \001(" +
-      "\005\022\033\n\023num_changed_entries\030\002 \001(\005\022\023\n\013string" +
-      "_data\030\003 \001(\014\"9\n\023CSVCMsg_UserMessage\022\020\n\010ms",
-      "g_type\030\001 \001(\005\022\020\n\010msg_data\030\002 \001(\014\"n\n\021CSVCMs" +
-      "g_VoiceData\022\016\n\006client\030\001 \001(\005\022\021\n\tproximity" +
-      "\030\002 \001(\010\022\014\n\004xuid\030\003 \001(\006\022\024\n\014audible_mask\030\004 \001" +
-      "(\005\022\022\n\nvoice_data\030\005 \001(\014\"\245\001\n\026CSVCMsgList_G" +
-      "ameEvents\022?\n\006events\030\001 \003(\0132/.com.valve.do" +
-      "ta2.CSVCMsgList_GameEvents.event_t\032J\n\007ev" +
-      "ent_t\022\014\n\004tick\030\001 \001(\005\0221\n\005event\030\002 \001(\0132\".com" +
-      ".valve.dota2.CSVCMsg_GameEvent\"\257\001\n\030CSVCM" +
-      "sgList_UserMessages\022E\n\010usermsgs\030\001 \003(\01323." +
-      "com.valve.dota2.CSVCMsgList_UserMessages",
-      ".usermsg_t\032L\n\tusermsg_t\022\014\n\004tick\030\001 \001(\005\0221\n" +
-      "\003msg\030\002 \001(\0132$.com.valve.dota2.CSVCMsg_Use" +
-      "rMessage*\237\001\n\014NET_Messages\022\013\n\007net_NOP\020\000\022\022" +
-      "\n\016net_Disconnect\020\001\022\014\n\010net_File\020\002\022\027\n\023net_" +
-      "SplitScreenUser\020\003\022\014\n\010net_Tick\020\004\022\021\n\rnet_S" +
-      "tringCmd\020\005\022\021\n\rnet_SetConVar\020\006\022\023\n\017net_Sig" +
-      "nonState\020\007*\322\001\n\013SIGNONSTATE\022\024\n\020SIGNONSTAT" +
-      "E_NONE\020\000\022\031\n\025SIGNONSTATE_CHALLENGE\020\001\022\031\n\025S" +
-      "IGNONSTATE_CONNECTED\020\002\022\023\n\017SIGNONSTATE_NE" +
-      "W\020\003\022\030\n\024SIGNONSTATE_PRESPAWN\020\004\022\025\n\021SIGNONS",
-      "TATE_SPAWN\020\005\022\024\n\020SIGNONSTATE_FULL\020\006\022\033\n\027SI" +
-      "GNONSTATE_CHANGELEVEL\020\007*\352\001\n\014CLC_Messages" +
-      "\022\022\n\016clc_ClientInfo\020\010\022\014\n\010clc_Move\020\t\022\021\n\rcl" +
-      "c_VoiceData\020\n\022\023\n\017clc_BaselineAck\020\013\022\024\n\020cl" +
-      "c_ListenEvents\020\014\022\030\n\024clc_RespondCvarValue" +
-      "\020\r\022\024\n\020clc_FileCRCCheck\020\016\022\027\n\023clc_LoadingP" +
-      "rogress\020\017\022\032\n\026clc_SplitPlayerConnect\020\020\022\025\n" +
-      "\021clc_ClientMessage\020\021*\361\003\n\014SVC_Messages\022\022\n" +
-      "\016svc_ServerInfo\020\010\022\021\n\rsvc_SendTable\020\t\022\021\n\r" +
-      "svc_ClassInfo\020\n\022\020\n\014svc_SetPause\020\013\022\031\n\025svc",
-      "_CreateStringTable\020\014\022\031\n\025svc_UpdateString" +
-      "Table\020\r\022\021\n\rsvc_VoiceInit\020\016\022\021\n\rsvc_VoiceD" +
-      "ata\020\017\022\r\n\tsvc_Print\020\020\022\016\n\nsvc_Sounds\020\021\022\017\n\013" +
-      "svc_SetView\020\022\022\020\n\014svc_FixAngle\020\023\022\026\n\022svc_C" +
-      "rosshairAngle\020\024\022\020\n\014svc_BSPDecal\020\025\022\023\n\017svc" +
-      "_SplitScreen\020\026\022\023\n\017svc_UserMessage\020\027\022\025\n\021s" +
-      "vc_EntityMessage\020\030\022\021\n\rsvc_GameEvent\020\031\022\026\n" +
-      "\022svc_PacketEntities\020\032\022\024\n\020svc_TempEntitie" +
-      "s\020\033\022\020\n\014svc_Prefetch\020\034\022\014\n\010svc_Menu\020\035\022\025\n\021s" +
-      "vc_GameEventList\020\036\022\024\n\020svc_GetCvarValue\020\037",
-      "*u\n\027ESplitScreenMessageType\022\033\n\027MSG_SPLIT" +
-      "SCREEN_ADDUSER\020\000\022\036\n\032MSG_SPLITSCREEN_REMO" +
-      "VEUSER\020\001\022\035\n\031MSG_SPLITSCREEN_TYPE_BITS\020\001B" +
-      "\003\200\001\000"
+      "\n\021netmessages.proto\032 google/protobuf/des" +
+      "criptor.proto\032\026networkbasetypes.proto\032\030n" +
+      "etwork_connection.proto\"R\n\nCMsg_CVars\022\037\n" +
+      "\005cvars\030\001 \003(\0132\020.CMsg_CVars.CVar\032#\n\004CVar\022\014" +
+      "\n\004name\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\"\r\n\013CNETMsg_N" +
+      "OP\"w\n\022CNETMsg_Disconnect\022\027\n\017text_depreca" +
+      "ted\030\001 \001(\t\022H\n\006reason\030\002 \001(\0162\034.ENetworkDisc" +
+      "onnectionReason:\032NETWORK_DISCONNECT_INVA" +
+      "LID\"a\n\014CNETMsg_File\022\023\n\013transfer_id\030\001 \001(\005" +
+      "\022\021\n\tfile_name\030\002 \001(\t\022\033\n\023is_replay_demo_fi",
+      "le\030\003 \001(\010\022\014\n\004deny\030\004 \001(\010\"\'\n\027CNETMsg_SplitS" +
+      "creenUser\022\014\n\004slot\030\001 \001(\005\"\345\001\n\014CNETMsg_Tick" +
+      "\022\014\n\004tick\030\001 \001(\r\022!\n\031host_frametime_depreca" +
+      "ted\030\002 \001(\r\022/\n\'host_frametime_std_deviatio" +
+      "n_deprecated\030\003 \001(\r\022\034\n\024host_computationti" +
+      "me\030\004 \001(\r\022*\n\"host_computationtime_std_dev" +
+      "iation\030\005 \001(\r\022)\n!host_framestarttime_std_" +
+      "deviation\030\006 \001(\r\"$\n\021CNETMsg_StringCmd\022\017\n\007" +
+      "command\030\001 \001(\t\"1\n\021CNETMsg_SetConVar\022\034\n\007co" +
+      "nvars\030\001 \001(\0132\013.CMsg_CVars\"\212\001\n\023CNETMsg_Sig",
+      "nonState\022\024\n\014signon_state\030\001 \001(\r\022\023\n\013spawn_" +
+      "count\030\002 \001(\r\022\032\n\022num_server_players\030\003 \001(\r\022" +
+      "\032\n\022players_networkids\030\004 \003(\t\022\020\n\010map_name\030" +
+      "\005 \001(\t\"\246\001\n\022CCLCMsg_ClientInfo\022\026\n\016send_tab" +
+      "le_crc\030\001 \001(\007\022\024\n\014server_count\030\002 \001(\r\022\017\n\007is" +
+      "_hltv\030\003 \001(\010\022\021\n\tis_replay\030\004 \001(\010\022\022\n\nfriend" +
+      "s_id\030\005 \001(\r\022\024\n\014friends_name\030\006 \001(\t\022\024\n\014cust" +
+      "om_files\030\007 \003(\007\"S\n\014CCLCMsg_Move\022\033\n\023num_ba" +
+      "ckup_commands\030\001 \001(\r\022\030\n\020num_new_commands\030" +
+      "\002 \001(\r\022\014\n\004data\030\003 \001(\014\"\277\001\n\021CCLCMsg_VoiceDat",
+      "a\022\014\n\004data\030\001 \001(\014\022\014\n\004xuid\030\002 \001(\006\022:\n\006format\030" +
+      "\003 \001(\0162\022.VoiceDataFormat_t:\026VOICEDATA_FOR" +
+      "MAT_STEAM\022\026\n\016sequence_bytes\030\004 \001(\005\022\026\n\016sec" +
+      "tion_number\030\005 \001(\r\022\"\n\032uncompressed_sample" +
+      "_offset\030\006 \001(\r\"A\n\023CCLCMsg_BaselineAck\022\025\n\r" +
+      "baseline_tick\030\001 \001(\005\022\023\n\013baseline_nr\030\002 \001(\005" +
+      "\"*\n\024CCLCMsg_ListenEvents\022\022\n\nevent_mask\030\001" +
+      " \003(\007\"\\\n\030CCLCMsg_RespondCvarValue\022\016\n\006cook" +
+      "ie\030\001 \001(\005\022\023\n\013status_code\030\002 \001(\005\022\014\n\004name\030\003 " +
+      "\001(\t\022\r\n\005value\030\004 \001(\t\"m\n\024CCLCMsg_FileCRCChe",
+      "ck\022\021\n\tcode_path\030\001 \001(\005\022\014\n\004path\030\002 \001(\t\022\025\n\rc" +
+      "ode_filename\030\003 \001(\005\022\020\n\010filename\030\004 \001(\t\022\013\n\003" +
+      "crc\030\005 \001(\007\"+\n\027CCLCMsg_LoadingProgress\022\020\n\010" +
+      "progress\030\001 \001(\005\":\n\032CCLCMsg_SplitPlayerCon" +
+      "nect\022\034\n\007convars\030\001 \001(\0132\013.CMsg_CVars\"7\n\025CC" +
+      "LCMsg_ClientMessage\022\020\n\010msg_type\030\001 \001(\005\022\014\n" +
+      "\004data\030\002 \001(\014\"\366\002\n\022CSVCMsg_ServerInfo\022\020\n\010pr" +
+      "otocol\030\001 \001(\005\022\024\n\014server_count\030\002 \001(\005\022\024\n\014is" +
+      "_dedicated\030\003 \001(\010\022\017\n\007is_hltv\030\004 \001(\010\022\021\n\tis_" +
+      "replay\030\005 \001(\010\022\014\n\004c_os\030\006 \001(\005\022\017\n\007map_crc\030\007 ",
+      "\001(\007\022\022\n\nclient_crc\030\010 \001(\007\022\030\n\020string_table_" +
+      "crc\030\t \001(\007\022\023\n\013max_clients\030\n \001(\005\022\023\n\013max_cl" +
+      "asses\030\013 \001(\005\022\023\n\013player_slot\030\014 \001(\005\022\025\n\rtick" +
+      "_interval\030\r \001(\002\022\020\n\010game_dir\030\016 \001(\t\022\020\n\010map" +
+      "_name\030\017 \001(\t\022\020\n\010sky_name\030\020 \001(\t\022\021\n\thost_na" +
+      "me\030\021 \001(\t\022\022\n\naddon_name\030\022 \001(\t\"\244\001\n\021CSVCMsg" +
+      "_ClassInfo\022\030\n\020create_on_client\030\001 \001(\010\022+\n\007" +
+      "classes\030\002 \003(\0132\032.CSVCMsg_ClassInfo.class_" +
+      "t\032H\n\007class_t\022\020\n\010class_id\030\001 \001(\005\022\027\n\017data_t" +
+      "able_name\030\002 \001(\t\022\022\n\nclass_name\030\003 \001(\t\"\"\n\020C",
+      "SVCMsg_SetPause\022\016\n\006paused\030\001 \001(\010\"G\n\021CSVCM" +
+      "sg_VoiceInit\022\017\n\007quality\030\001 \001(\005\022\r\n\005codec\030\002" +
+      " \001(\t\022\022\n\007version\030\003 \001(\005:\0010\"\035\n\rCSVCMsg_Prin" +
+      "t\022\014\n\004text\030\001 \001(\t\"\266\003\n\016CSVCMsg_Sounds\022\026\n\016re" +
+      "liable_sound\030\001 \001(\010\022+\n\006sounds\030\002 \003(\0132\033.CSV" +
+      "CMsg_Sounds.sounddata_t\032\336\002\n\013sounddata_t\022" +
+      "\020\n\010origin_x\030\001 \001(\021\022\020\n\010origin_y\030\002 \001(\021\022\020\n\010o" +
+      "rigin_z\030\003 \001(\021\022\016\n\006volume\030\004 \001(\r\022\023\n\013delay_v" +
+      "alue\030\005 \001(\002\022\027\n\017sequence_number\030\006 \001(\005\022\024\n\014e" +
+      "ntity_index\030\007 \001(\005\022\017\n\007channel\030\010 \001(\005\022\r\n\005pi",
+      "tch\030\t \001(\005\022\r\n\005flags\030\n \001(\005\022\021\n\tsound_num\030\013 " +
+      "\001(\r\022\030\n\020sound_num_handle\030\014 \001(\007\022\026\n\016speaker" +
+      "_entity\030\r \001(\005\022\023\n\013random_seed\030\016 \001(\005\022\023\n\013so" +
+      "und_level\030\017 \001(\005\022\023\n\013is_sentence\030\020 \001(\010\022\022\n\n" +
+      "is_ambient\030\021 \001(\010\"\'\n\020CSVCMsg_Prefetch\022\023\n\013" +
+      "sound_index\030\001 \001(\005\"\'\n\017CSVCMsg_SetView\022\024\n\014" +
+      "entity_index\030\001 \001(\005\"@\n\020CSVCMsg_FixAngle\022\020" +
+      "\n\010relative\030\001 \001(\010\022\032\n\005angle\030\002 \001(\0132\013.CMsgQA" +
+      "ngle\"4\n\026CSVCMsg_CrosshairAngle\022\032\n\005angle\030" +
+      "\001 \001(\0132\013.CMsgQAngle\"\212\001\n\020CSVCMsg_BSPDecal\022",
+      "\030\n\003pos\030\001 \001(\0132\013.CMsgVector\022\033\n\023decal_textu" +
+      "re_index\030\002 \001(\005\022\024\n\014entity_index\030\003 \001(\005\022\023\n\013" +
+      "model_index\030\004 \001(\005\022\024\n\014low_priority\030\005 \001(\010\"" +
+      "z\n\023CSVCMsg_SplitScreen\022?\n\004type\030\001 \001(\0162\030.E" +
+      "SplitScreenMessageType:\027MSG_SPLITSCREEN_" +
+      "ADDUSER\022\014\n\004slot\030\002 \001(\005\022\024\n\014player_index\030\003 " +
+      "\001(\005\"9\n\024CSVCMsg_GetCvarValue\022\016\n\006cookie\030\001 " +
+      "\001(\005\022\021\n\tcvar_name\030\002 \001(\t\"<\n\014CSVCMsg_Menu\022\023" +
+      "\n\013dialog_type\030\001 \001(\005\022\027\n\017menu_key_values\030\002" +
+      " \001(\014\"\260\002\n\021CSVCMsg_SendTable\022\016\n\006is_end\030\001 \001",
+      "(\010\022\026\n\016net_table_name\030\002 \001(\t\022\025\n\rneeds_deco" +
+      "der\030\003 \001(\010\022,\n\005props\030\004 \003(\0132\035.CSVCMsg_SendT" +
+      "able.sendprop_t\032\255\001\n\nsendprop_t\022\014\n\004type\030\001" +
+      " \001(\005\022\020\n\010var_name\030\002 \001(\t\022\r\n\005flags\030\003 \001(\005\022\020\n" +
+      "\010priority\030\004 \001(\005\022\017\n\007dt_name\030\005 \001(\t\022\024\n\014num_" +
+      "elements\030\006 \001(\005\022\021\n\tlow_value\030\007 \001(\002\022\022\n\nhig" +
+      "h_value\030\010 \001(\002\022\020\n\010num_bits\030\t \001(\005\"\321\001\n\025CSVC" +
+      "Msg_GameEventList\0228\n\013descriptors\030\001 \003(\0132#" +
+      ".CSVCMsg_GameEventList.descriptor_t\032#\n\005k" +
+      "ey_t\022\014\n\004type\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\032Y\n\014desc",
+      "riptor_t\022\017\n\007eventid\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022" +
+      "*\n\004keys\030\003 \003(\0132\034.CSVCMsg_GameEventList.ke" +
+      "y_t\"\310\001\n\026CSVCMsg_PacketEntities\022\023\n\013max_en" +
+      "tries\030\001 \001(\005\022\027\n\017updated_entries\030\002 \001(\005\022\020\n\010" +
+      "is_delta\030\003 \001(\010\022\027\n\017update_baseline\030\004 \001(\010\022" +
+      "\020\n\010baseline\030\005 \001(\005\022\022\n\ndelta_from\030\006 \001(\005\022\023\n" +
+      "\013entity_data\030\007 \001(\014\022\032\n\022pending_full_frame" +
+      "\030\010 \001(\010\"R\n\024CSVCMsg_TempEntities\022\020\n\010reliab" +
+      "le\030\001 \001(\010\022\023\n\013num_entries\030\002 \001(\005\022\023\n\013entity_" +
+      "data\030\003 \001(\014\"\312\001\n\031CSVCMsg_CreateStringTable",
+      "\022\014\n\004name\030\001 \001(\t\022\023\n\013max_entries\030\002 \001(\005\022\023\n\013n" +
+      "um_entries\030\003 \001(\005\022\034\n\024user_data_fixed_size" +
+      "\030\004 \001(\010\022\026\n\016user_data_size\030\005 \001(\005\022\033\n\023user_d" +
+      "ata_size_bits\030\006 \001(\005\022\r\n\005flags\030\007 \001(\005\022\023\n\013st" +
+      "ring_data\030\010 \001(\014\"_\n\031CSVCMsg_UpdateStringT" +
+      "able\022\020\n\010table_id\030\001 \001(\005\022\033\n\023num_changed_en" +
+      "tries\030\002 \001(\005\022\023\n\013string_data\030\003 \001(\014\"\376\001\n\021CSV" +
+      "CMsg_VoiceData\022\016\n\006client\030\001 \001(\005\022\021\n\tproxim" +
+      "ity\030\002 \001(\010\022\014\n\004xuid\030\003 \001(\006\022\024\n\014audible_mask\030" +
+      "\004 \001(\005\022\022\n\nvoice_data\030\005 \001(\014\022:\n\006format\030\006 \001(",
+      "\0162\022.VoiceDataFormat_t:\026VOICEDATA_FORMAT_" +
+      "STEAM\022\026\n\016sequence_bytes\030\007 \001(\005\022\026\n\016section" +
+      "_number\030\010 \001(\r\022\"\n\032uncompressed_sample_off" +
+      "set\030\t \001(\r\"<\n\026CSVCMsg_PacketReliable\022\014\n\004t" +
+      "ick\030\001 \001(\005\022\024\n\014messagessize\030\002 \001(\005\"T\n\026CSVCM" +
+      "sg_FullFrameSplit\022\014\n\004tick\030\001 \001(\005\022\017\n\007secti" +
+      "on\030\002 \001(\005\022\r\n\005total\030\003 \001(\005\022\014\n\004data\030\004 \001(\014*\237\001" +
+      "\n\014NET_Messages\022\013\n\007net_NOP\020\000\022\022\n\016net_Disco" +
+      "nnect\020\001\022\014\n\010net_File\020\002\022\027\n\023net_SplitScreen" +
+      "User\020\003\022\014\n\010net_Tick\020\004\022\021\n\rnet_StringCmd\020\005\022",
+      "\021\n\rnet_SetConVar\020\006\022\023\n\017net_SignonState\020\007*" +
+      "\352\001\n\014CLC_Messages\022\022\n\016clc_ClientInfo\020\010\022\014\n\010" +
+      "clc_Move\020\t\022\021\n\rclc_VoiceData\020\n\022\023\n\017clc_Bas" +
+      "elineAck\020\013\022\024\n\020clc_ListenEvents\020\014\022\030\n\024clc_" +
+      "RespondCvarValue\020\r\022\024\n\020clc_FileCRCCheck\020\016" +
+      "\022\027\n\023clc_LoadingProgress\020\017\022\032\n\026clc_SplitPl" +
+      "ayerConnect\020\020\022\025\n\021clc_ClientMessage\020\021*L\n\021" +
+      "VoiceDataFormat_t\022\032\n\026VOICEDATA_FORMAT_ST" +
+      "EAM\020\000\022\033\n\027VOICEDATA_FORMAT_ENGINE\020\001*\241\004\n\014S" +
+      "VC_Messages\022\022\n\016svc_ServerInfo\020\010\022\021\n\rsvc_S",
+      "endTable\020\t\022\021\n\rsvc_ClassInfo\020\n\022\020\n\014svc_Set" +
+      "Pause\020\013\022\031\n\025svc_CreateStringTable\020\014\022\031\n\025sv" +
+      "c_UpdateStringTable\020\r\022\021\n\rsvc_VoiceInit\020\016" +
+      "\022\021\n\rsvc_VoiceData\020\017\022\r\n\tsvc_Print\020\020\022\016\n\nsv" +
+      "c_Sounds\020\021\022\017\n\013svc_SetView\020\022\022\020\n\014svc_FixAn" +
+      "gle\020\023\022\026\n\022svc_CrosshairAngle\020\024\022\020\n\014svc_BSP" +
+      "Decal\020\025\022\023\n\017svc_SplitScreen\020\026\022\023\n\017svc_User" +
+      "Message\020\027\022\025\n\021svc_EntityMessage\020\030\022\021\n\rsvc_" +
+      "GameEvent\020\031\022\026\n\022svc_PacketEntities\020\032\022\024\n\020s" +
+      "vc_TempEntities\020\033\022\020\n\014svc_Prefetch\020\034\022\014\n\010s",
+      "vc_Menu\020\035\022\025\n\021svc_GameEventList\020\036\022\024\n\020svc_" +
+      "GetCvarValue\020\037\022\026\n\022svc_PacketReliable\020 \022\026" +
+      "\n\022svc_FullFrameSplit\020!*V\n\027ESplitScreenMe" +
+      "ssageType\022\033\n\027MSG_SPLITSCREEN_ADDUSER\020\000\022\036" +
+      "\n\032MSG_SPLITSCREEN_REMOVEUSER\020\001B\021\n\017com.va" +
+      "lve.dota2"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
         public com.google.protobuf.ExtensionRegistry assignDescriptors(
             com.google.protobuf.Descriptors.FileDescriptor root) {
           descriptor = root;
-          internal_static_com_valve_dota2_CMsgVector_descriptor =
+          internal_static_CMsg_CVars_descriptor =
             getDescriptor().getMessageTypes().get(0);
-          internal_static_com_valve_dota2_CMsgVector_fieldAccessorTable = new
+          internal_static_CMsg_CVars_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CMsgVector_descriptor,
-              new java.lang.String[] { "X", "Y", "Z", });
-          internal_static_com_valve_dota2_CMsgVector2D_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_com_valve_dota2_CMsgVector2D_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CMsgVector2D_descriptor,
-              new java.lang.String[] { "X", "Y", });
-          internal_static_com_valve_dota2_CMsgQAngle_descriptor =
-            getDescriptor().getMessageTypes().get(2);
-          internal_static_com_valve_dota2_CMsgQAngle_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CMsgQAngle_descriptor,
-              new java.lang.String[] { "X", "Y", "Z", });
-          internal_static_com_valve_dota2_CMsg_CVars_descriptor =
-            getDescriptor().getMessageTypes().get(3);
-          internal_static_com_valve_dota2_CMsg_CVars_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CMsg_CVars_descriptor,
+              internal_static_CMsg_CVars_descriptor,
               new java.lang.String[] { "Cvars", });
-          internal_static_com_valve_dota2_CMsg_CVars_CVar_descriptor =
-            internal_static_com_valve_dota2_CMsg_CVars_descriptor.getNestedTypes().get(0);
-          internal_static_com_valve_dota2_CMsg_CVars_CVar_fieldAccessorTable = new
+          internal_static_CMsg_CVars_CVar_descriptor =
+            internal_static_CMsg_CVars_descriptor.getNestedTypes().get(0);
+          internal_static_CMsg_CVars_CVar_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CMsg_CVars_CVar_descriptor,
+              internal_static_CMsg_CVars_CVar_descriptor,
               new java.lang.String[] { "Name", "Value", });
-          internal_static_com_valve_dota2_CNETMsg_NOP_descriptor =
-            getDescriptor().getMessageTypes().get(4);
-          internal_static_com_valve_dota2_CNETMsg_NOP_fieldAccessorTable = new
+          internal_static_CNETMsg_NOP_descriptor =
+            getDescriptor().getMessageTypes().get(1);
+          internal_static_CNETMsg_NOP_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CNETMsg_NOP_descriptor,
+              internal_static_CNETMsg_NOP_descriptor,
               new java.lang.String[] { });
-          internal_static_com_valve_dota2_CNETMsg_Disconnect_descriptor =
-            getDescriptor().getMessageTypes().get(5);
-          internal_static_com_valve_dota2_CNETMsg_Disconnect_fieldAccessorTable = new
+          internal_static_CNETMsg_Disconnect_descriptor =
+            getDescriptor().getMessageTypes().get(2);
+          internal_static_CNETMsg_Disconnect_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CNETMsg_Disconnect_descriptor,
-              new java.lang.String[] { "Text", });
-          internal_static_com_valve_dota2_CNETMsg_File_descriptor =
-            getDescriptor().getMessageTypes().get(6);
-          internal_static_com_valve_dota2_CNETMsg_File_fieldAccessorTable = new
+              internal_static_CNETMsg_Disconnect_descriptor,
+              new java.lang.String[] { "TextDeprecated", "Reason", });
+          internal_static_CNETMsg_File_descriptor =
+            getDescriptor().getMessageTypes().get(3);
+          internal_static_CNETMsg_File_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CNETMsg_File_descriptor,
+              internal_static_CNETMsg_File_descriptor,
               new java.lang.String[] { "TransferId", "FileName", "IsReplayDemoFile", "Deny", });
-          internal_static_com_valve_dota2_CNETMsg_SplitScreenUser_descriptor =
-            getDescriptor().getMessageTypes().get(7);
-          internal_static_com_valve_dota2_CNETMsg_SplitScreenUser_fieldAccessorTable = new
+          internal_static_CNETMsg_SplitScreenUser_descriptor =
+            getDescriptor().getMessageTypes().get(4);
+          internal_static_CNETMsg_SplitScreenUser_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CNETMsg_SplitScreenUser_descriptor,
+              internal_static_CNETMsg_SplitScreenUser_descriptor,
               new java.lang.String[] { "Slot", });
-          internal_static_com_valve_dota2_CNETMsg_Tick_descriptor =
-            getDescriptor().getMessageTypes().get(8);
-          internal_static_com_valve_dota2_CNETMsg_Tick_fieldAccessorTable = new
+          internal_static_CNETMsg_Tick_descriptor =
+            getDescriptor().getMessageTypes().get(5);
+          internal_static_CNETMsg_Tick_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CNETMsg_Tick_descriptor,
-              new java.lang.String[] { "Tick", "HostFrametime", "HostFrametimeStdDeviation", });
-          internal_static_com_valve_dota2_CNETMsg_StringCmd_descriptor =
-            getDescriptor().getMessageTypes().get(9);
-          internal_static_com_valve_dota2_CNETMsg_StringCmd_fieldAccessorTable = new
+              internal_static_CNETMsg_Tick_descriptor,
+              new java.lang.String[] { "Tick", "HostFrametimeDeprecated", "HostFrametimeStdDeviationDeprecated", "HostComputationtime", "HostComputationtimeStdDeviation", "HostFramestarttimeStdDeviation", });
+          internal_static_CNETMsg_StringCmd_descriptor =
+            getDescriptor().getMessageTypes().get(6);
+          internal_static_CNETMsg_StringCmd_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CNETMsg_StringCmd_descriptor,
+              internal_static_CNETMsg_StringCmd_descriptor,
               new java.lang.String[] { "Command", });
-          internal_static_com_valve_dota2_CNETMsg_SetConVar_descriptor =
-            getDescriptor().getMessageTypes().get(10);
-          internal_static_com_valve_dota2_CNETMsg_SetConVar_fieldAccessorTable = new
+          internal_static_CNETMsg_SetConVar_descriptor =
+            getDescriptor().getMessageTypes().get(7);
+          internal_static_CNETMsg_SetConVar_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CNETMsg_SetConVar_descriptor,
+              internal_static_CNETMsg_SetConVar_descriptor,
               new java.lang.String[] { "Convars", });
-          internal_static_com_valve_dota2_CNETMsg_SignonState_descriptor =
-            getDescriptor().getMessageTypes().get(11);
-          internal_static_com_valve_dota2_CNETMsg_SignonState_fieldAccessorTable = new
+          internal_static_CNETMsg_SignonState_descriptor =
+            getDescriptor().getMessageTypes().get(8);
+          internal_static_CNETMsg_SignonState_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CNETMsg_SignonState_descriptor,
+              internal_static_CNETMsg_SignonState_descriptor,
               new java.lang.String[] { "SignonState", "SpawnCount", "NumServerPlayers", "PlayersNetworkids", "MapName", });
-          internal_static_com_valve_dota2_CCLCMsg_ClientInfo_descriptor =
-            getDescriptor().getMessageTypes().get(12);
-          internal_static_com_valve_dota2_CCLCMsg_ClientInfo_fieldAccessorTable = new
+          internal_static_CCLCMsg_ClientInfo_descriptor =
+            getDescriptor().getMessageTypes().get(9);
+          internal_static_CCLCMsg_ClientInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CCLCMsg_ClientInfo_descriptor,
+              internal_static_CCLCMsg_ClientInfo_descriptor,
               new java.lang.String[] { "SendTableCrc", "ServerCount", "IsHltv", "IsReplay", "FriendsId", "FriendsName", "CustomFiles", });
-          internal_static_com_valve_dota2_CCLCMsg_Move_descriptor =
-            getDescriptor().getMessageTypes().get(13);
-          internal_static_com_valve_dota2_CCLCMsg_Move_fieldAccessorTable = new
+          internal_static_CCLCMsg_Move_descriptor =
+            getDescriptor().getMessageTypes().get(10);
+          internal_static_CCLCMsg_Move_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CCLCMsg_Move_descriptor,
+              internal_static_CCLCMsg_Move_descriptor,
               new java.lang.String[] { "NumBackupCommands", "NumNewCommands", "Data", });
-          internal_static_com_valve_dota2_CCLCMsg_VoiceData_descriptor =
-            getDescriptor().getMessageTypes().get(14);
-          internal_static_com_valve_dota2_CCLCMsg_VoiceData_fieldAccessorTable = new
+          internal_static_CCLCMsg_VoiceData_descriptor =
+            getDescriptor().getMessageTypes().get(11);
+          internal_static_CCLCMsg_VoiceData_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CCLCMsg_VoiceData_descriptor,
-              new java.lang.String[] { "Data", "Xuid", });
-          internal_static_com_valve_dota2_CCLCMsg_BaselineAck_descriptor =
-            getDescriptor().getMessageTypes().get(15);
-          internal_static_com_valve_dota2_CCLCMsg_BaselineAck_fieldAccessorTable = new
+              internal_static_CCLCMsg_VoiceData_descriptor,
+              new java.lang.String[] { "Data", "Xuid", "Format", "SequenceBytes", "SectionNumber", "UncompressedSampleOffset", });
+          internal_static_CCLCMsg_BaselineAck_descriptor =
+            getDescriptor().getMessageTypes().get(12);
+          internal_static_CCLCMsg_BaselineAck_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CCLCMsg_BaselineAck_descriptor,
+              internal_static_CCLCMsg_BaselineAck_descriptor,
               new java.lang.String[] { "BaselineTick", "BaselineNr", });
-          internal_static_com_valve_dota2_CCLCMsg_ListenEvents_descriptor =
-            getDescriptor().getMessageTypes().get(16);
-          internal_static_com_valve_dota2_CCLCMsg_ListenEvents_fieldAccessorTable = new
+          internal_static_CCLCMsg_ListenEvents_descriptor =
+            getDescriptor().getMessageTypes().get(13);
+          internal_static_CCLCMsg_ListenEvents_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CCLCMsg_ListenEvents_descriptor,
+              internal_static_CCLCMsg_ListenEvents_descriptor,
               new java.lang.String[] { "EventMask", });
-          internal_static_com_valve_dota2_CCLCMsg_RespondCvarValue_descriptor =
-            getDescriptor().getMessageTypes().get(17);
-          internal_static_com_valve_dota2_CCLCMsg_RespondCvarValue_fieldAccessorTable = new
+          internal_static_CCLCMsg_RespondCvarValue_descriptor =
+            getDescriptor().getMessageTypes().get(14);
+          internal_static_CCLCMsg_RespondCvarValue_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CCLCMsg_RespondCvarValue_descriptor,
+              internal_static_CCLCMsg_RespondCvarValue_descriptor,
               new java.lang.String[] { "Cookie", "StatusCode", "Name", "Value", });
-          internal_static_com_valve_dota2_CCLCMsg_FileCRCCheck_descriptor =
-            getDescriptor().getMessageTypes().get(18);
-          internal_static_com_valve_dota2_CCLCMsg_FileCRCCheck_fieldAccessorTable = new
+          internal_static_CCLCMsg_FileCRCCheck_descriptor =
+            getDescriptor().getMessageTypes().get(15);
+          internal_static_CCLCMsg_FileCRCCheck_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CCLCMsg_FileCRCCheck_descriptor,
+              internal_static_CCLCMsg_FileCRCCheck_descriptor,
               new java.lang.String[] { "CodePath", "Path", "CodeFilename", "Filename", "Crc", });
-          internal_static_com_valve_dota2_CCLCMsg_LoadingProgress_descriptor =
-            getDescriptor().getMessageTypes().get(19);
-          internal_static_com_valve_dota2_CCLCMsg_LoadingProgress_fieldAccessorTable = new
+          internal_static_CCLCMsg_LoadingProgress_descriptor =
+            getDescriptor().getMessageTypes().get(16);
+          internal_static_CCLCMsg_LoadingProgress_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CCLCMsg_LoadingProgress_descriptor,
+              internal_static_CCLCMsg_LoadingProgress_descriptor,
               new java.lang.String[] { "Progress", });
-          internal_static_com_valve_dota2_CCLCMsg_SplitPlayerConnect_descriptor =
-            getDescriptor().getMessageTypes().get(20);
-          internal_static_com_valve_dota2_CCLCMsg_SplitPlayerConnect_fieldAccessorTable = new
+          internal_static_CCLCMsg_SplitPlayerConnect_descriptor =
+            getDescriptor().getMessageTypes().get(17);
+          internal_static_CCLCMsg_SplitPlayerConnect_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CCLCMsg_SplitPlayerConnect_descriptor,
+              internal_static_CCLCMsg_SplitPlayerConnect_descriptor,
               new java.lang.String[] { "Convars", });
-          internal_static_com_valve_dota2_CCLCMsg_ClientMessage_descriptor =
-            getDescriptor().getMessageTypes().get(21);
-          internal_static_com_valve_dota2_CCLCMsg_ClientMessage_fieldAccessorTable = new
+          internal_static_CCLCMsg_ClientMessage_descriptor =
+            getDescriptor().getMessageTypes().get(18);
+          internal_static_CCLCMsg_ClientMessage_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CCLCMsg_ClientMessage_descriptor,
+              internal_static_CCLCMsg_ClientMessage_descriptor,
               new java.lang.String[] { "MsgType", "Data", });
-          internal_static_com_valve_dota2_CSVCMsg_ServerInfo_descriptor =
-            getDescriptor().getMessageTypes().get(22);
-          internal_static_com_valve_dota2_CSVCMsg_ServerInfo_fieldAccessorTable = new
+          internal_static_CSVCMsg_ServerInfo_descriptor =
+            getDescriptor().getMessageTypes().get(19);
+          internal_static_CSVCMsg_ServerInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_ServerInfo_descriptor,
-              new java.lang.String[] { "Protocol", "ServerCount", "IsDedicated", "IsHltv", "IsReplay", "COs", "MapCrc", "ClientCrc", "StringTableCrc", "MaxClients", "MaxClasses", "PlayerSlot", "TickInterval", "GameDir", "MapName", "SkyName", "HostName", });
-          internal_static_com_valve_dota2_CSVCMsg_ClassInfo_descriptor =
-            getDescriptor().getMessageTypes().get(23);
-          internal_static_com_valve_dota2_CSVCMsg_ClassInfo_fieldAccessorTable = new
+              internal_static_CSVCMsg_ServerInfo_descriptor,
+              new java.lang.String[] { "Protocol", "ServerCount", "IsDedicated", "IsHltv", "IsReplay", "COs", "MapCrc", "ClientCrc", "StringTableCrc", "MaxClients", "MaxClasses", "PlayerSlot", "TickInterval", "GameDir", "MapName", "SkyName", "HostName", "AddonName", });
+          internal_static_CSVCMsg_ClassInfo_descriptor =
+            getDescriptor().getMessageTypes().get(20);
+          internal_static_CSVCMsg_ClassInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_ClassInfo_descriptor,
+              internal_static_CSVCMsg_ClassInfo_descriptor,
               new java.lang.String[] { "CreateOnClient", "Classes", });
-          internal_static_com_valve_dota2_CSVCMsg_ClassInfo_class_t_descriptor =
-            internal_static_com_valve_dota2_CSVCMsg_ClassInfo_descriptor.getNestedTypes().get(0);
-          internal_static_com_valve_dota2_CSVCMsg_ClassInfo_class_t_fieldAccessorTable = new
+          internal_static_CSVCMsg_ClassInfo_class_t_descriptor =
+            internal_static_CSVCMsg_ClassInfo_descriptor.getNestedTypes().get(0);
+          internal_static_CSVCMsg_ClassInfo_class_t_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_ClassInfo_class_t_descriptor,
+              internal_static_CSVCMsg_ClassInfo_class_t_descriptor,
               new java.lang.String[] { "ClassId", "DataTableName", "ClassName", });
-          internal_static_com_valve_dota2_CSVCMsg_SetPause_descriptor =
-            getDescriptor().getMessageTypes().get(24);
-          internal_static_com_valve_dota2_CSVCMsg_SetPause_fieldAccessorTable = new
+          internal_static_CSVCMsg_SetPause_descriptor =
+            getDescriptor().getMessageTypes().get(21);
+          internal_static_CSVCMsg_SetPause_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_SetPause_descriptor,
+              internal_static_CSVCMsg_SetPause_descriptor,
               new java.lang.String[] { "Paused", });
-          internal_static_com_valve_dota2_CSVCMsg_VoiceInit_descriptor =
-            getDescriptor().getMessageTypes().get(25);
-          internal_static_com_valve_dota2_CSVCMsg_VoiceInit_fieldAccessorTable = new
+          internal_static_CSVCMsg_VoiceInit_descriptor =
+            getDescriptor().getMessageTypes().get(22);
+          internal_static_CSVCMsg_VoiceInit_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_VoiceInit_descriptor,
-              new java.lang.String[] { "Quality", "Codec", });
-          internal_static_com_valve_dota2_CSVCMsg_Print_descriptor =
-            getDescriptor().getMessageTypes().get(26);
-          internal_static_com_valve_dota2_CSVCMsg_Print_fieldAccessorTable = new
+              internal_static_CSVCMsg_VoiceInit_descriptor,
+              new java.lang.String[] { "Quality", "Codec", "Version", });
+          internal_static_CSVCMsg_Print_descriptor =
+            getDescriptor().getMessageTypes().get(23);
+          internal_static_CSVCMsg_Print_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_Print_descriptor,
+              internal_static_CSVCMsg_Print_descriptor,
               new java.lang.String[] { "Text", });
-          internal_static_com_valve_dota2_CSVCMsg_Sounds_descriptor =
-            getDescriptor().getMessageTypes().get(27);
-          internal_static_com_valve_dota2_CSVCMsg_Sounds_fieldAccessorTable = new
+          internal_static_CSVCMsg_Sounds_descriptor =
+            getDescriptor().getMessageTypes().get(24);
+          internal_static_CSVCMsg_Sounds_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_Sounds_descriptor,
+              internal_static_CSVCMsg_Sounds_descriptor,
               new java.lang.String[] { "ReliableSound", "Sounds", });
-          internal_static_com_valve_dota2_CSVCMsg_Sounds_sounddata_t_descriptor =
-            internal_static_com_valve_dota2_CSVCMsg_Sounds_descriptor.getNestedTypes().get(0);
-          internal_static_com_valve_dota2_CSVCMsg_Sounds_sounddata_t_fieldAccessorTable = new
+          internal_static_CSVCMsg_Sounds_sounddata_t_descriptor =
+            internal_static_CSVCMsg_Sounds_descriptor.getNestedTypes().get(0);
+          internal_static_CSVCMsg_Sounds_sounddata_t_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_Sounds_sounddata_t_descriptor,
+              internal_static_CSVCMsg_Sounds_sounddata_t_descriptor,
               new java.lang.String[] { "OriginX", "OriginY", "OriginZ", "Volume", "DelayValue", "SequenceNumber", "EntityIndex", "Channel", "Pitch", "Flags", "SoundNum", "SoundNumHandle", "SpeakerEntity", "RandomSeed", "SoundLevel", "IsSentence", "IsAmbient", });
-          internal_static_com_valve_dota2_CSVCMsg_Prefetch_descriptor =
-            getDescriptor().getMessageTypes().get(28);
-          internal_static_com_valve_dota2_CSVCMsg_Prefetch_fieldAccessorTable = new
+          internal_static_CSVCMsg_Prefetch_descriptor =
+            getDescriptor().getMessageTypes().get(25);
+          internal_static_CSVCMsg_Prefetch_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_Prefetch_descriptor,
+              internal_static_CSVCMsg_Prefetch_descriptor,
               new java.lang.String[] { "SoundIndex", });
-          internal_static_com_valve_dota2_CSVCMsg_SetView_descriptor =
-            getDescriptor().getMessageTypes().get(29);
-          internal_static_com_valve_dota2_CSVCMsg_SetView_fieldAccessorTable = new
+          internal_static_CSVCMsg_SetView_descriptor =
+            getDescriptor().getMessageTypes().get(26);
+          internal_static_CSVCMsg_SetView_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_SetView_descriptor,
+              internal_static_CSVCMsg_SetView_descriptor,
               new java.lang.String[] { "EntityIndex", });
-          internal_static_com_valve_dota2_CSVCMsg_FixAngle_descriptor =
-            getDescriptor().getMessageTypes().get(30);
-          internal_static_com_valve_dota2_CSVCMsg_FixAngle_fieldAccessorTable = new
+          internal_static_CSVCMsg_FixAngle_descriptor =
+            getDescriptor().getMessageTypes().get(27);
+          internal_static_CSVCMsg_FixAngle_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_FixAngle_descriptor,
+              internal_static_CSVCMsg_FixAngle_descriptor,
               new java.lang.String[] { "Relative", "Angle", });
-          internal_static_com_valve_dota2_CSVCMsg_CrosshairAngle_descriptor =
-            getDescriptor().getMessageTypes().get(31);
-          internal_static_com_valve_dota2_CSVCMsg_CrosshairAngle_fieldAccessorTable = new
+          internal_static_CSVCMsg_CrosshairAngle_descriptor =
+            getDescriptor().getMessageTypes().get(28);
+          internal_static_CSVCMsg_CrosshairAngle_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_CrosshairAngle_descriptor,
+              internal_static_CSVCMsg_CrosshairAngle_descriptor,
               new java.lang.String[] { "Angle", });
-          internal_static_com_valve_dota2_CSVCMsg_BSPDecal_descriptor =
-            getDescriptor().getMessageTypes().get(32);
-          internal_static_com_valve_dota2_CSVCMsg_BSPDecal_fieldAccessorTable = new
+          internal_static_CSVCMsg_BSPDecal_descriptor =
+            getDescriptor().getMessageTypes().get(29);
+          internal_static_CSVCMsg_BSPDecal_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_BSPDecal_descriptor,
+              internal_static_CSVCMsg_BSPDecal_descriptor,
               new java.lang.String[] { "Pos", "DecalTextureIndex", "EntityIndex", "ModelIndex", "LowPriority", });
-          internal_static_com_valve_dota2_CSVCMsg_SplitScreen_descriptor =
-            getDescriptor().getMessageTypes().get(33);
-          internal_static_com_valve_dota2_CSVCMsg_SplitScreen_fieldAccessorTable = new
+          internal_static_CSVCMsg_SplitScreen_descriptor =
+            getDescriptor().getMessageTypes().get(30);
+          internal_static_CSVCMsg_SplitScreen_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_SplitScreen_descriptor,
+              internal_static_CSVCMsg_SplitScreen_descriptor,
               new java.lang.String[] { "Type", "Slot", "PlayerIndex", });
-          internal_static_com_valve_dota2_CSVCMsg_GetCvarValue_descriptor =
-            getDescriptor().getMessageTypes().get(34);
-          internal_static_com_valve_dota2_CSVCMsg_GetCvarValue_fieldAccessorTable = new
+          internal_static_CSVCMsg_GetCvarValue_descriptor =
+            getDescriptor().getMessageTypes().get(31);
+          internal_static_CSVCMsg_GetCvarValue_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_GetCvarValue_descriptor,
+              internal_static_CSVCMsg_GetCvarValue_descriptor,
               new java.lang.String[] { "Cookie", "CvarName", });
-          internal_static_com_valve_dota2_CSVCMsg_Menu_descriptor =
-            getDescriptor().getMessageTypes().get(35);
-          internal_static_com_valve_dota2_CSVCMsg_Menu_fieldAccessorTable = new
+          internal_static_CSVCMsg_Menu_descriptor =
+            getDescriptor().getMessageTypes().get(32);
+          internal_static_CSVCMsg_Menu_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_Menu_descriptor,
+              internal_static_CSVCMsg_Menu_descriptor,
               new java.lang.String[] { "DialogType", "MenuKeyValues", });
-          internal_static_com_valve_dota2_CSVCMsg_SendTable_descriptor =
-            getDescriptor().getMessageTypes().get(36);
-          internal_static_com_valve_dota2_CSVCMsg_SendTable_fieldAccessorTable = new
+          internal_static_CSVCMsg_SendTable_descriptor =
+            getDescriptor().getMessageTypes().get(33);
+          internal_static_CSVCMsg_SendTable_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_SendTable_descriptor,
+              internal_static_CSVCMsg_SendTable_descriptor,
               new java.lang.String[] { "IsEnd", "NetTableName", "NeedsDecoder", "Props", });
-          internal_static_com_valve_dota2_CSVCMsg_SendTable_sendprop_t_descriptor =
-            internal_static_com_valve_dota2_CSVCMsg_SendTable_descriptor.getNestedTypes().get(0);
-          internal_static_com_valve_dota2_CSVCMsg_SendTable_sendprop_t_fieldAccessorTable = new
+          internal_static_CSVCMsg_SendTable_sendprop_t_descriptor =
+            internal_static_CSVCMsg_SendTable_descriptor.getNestedTypes().get(0);
+          internal_static_CSVCMsg_SendTable_sendprop_t_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_SendTable_sendprop_t_descriptor,
+              internal_static_CSVCMsg_SendTable_sendprop_t_descriptor,
               new java.lang.String[] { "Type", "VarName", "Flags", "Priority", "DtName", "NumElements", "LowValue", "HighValue", "NumBits", });
-          internal_static_com_valve_dota2_CSVCMsg_GameEvent_descriptor =
-            getDescriptor().getMessageTypes().get(37);
-          internal_static_com_valve_dota2_CSVCMsg_GameEvent_fieldAccessorTable = new
+          internal_static_CSVCMsg_GameEventList_descriptor =
+            getDescriptor().getMessageTypes().get(34);
+          internal_static_CSVCMsg_GameEventList_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_GameEvent_descriptor,
-              new java.lang.String[] { "EventName", "Eventid", "Keys", });
-          internal_static_com_valve_dota2_CSVCMsg_GameEvent_key_t_descriptor =
-            internal_static_com_valve_dota2_CSVCMsg_GameEvent_descriptor.getNestedTypes().get(0);
-          internal_static_com_valve_dota2_CSVCMsg_GameEvent_key_t_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_GameEvent_key_t_descriptor,
-              new java.lang.String[] { "Type", "ValString", "ValFloat", "ValLong", "ValShort", "ValByte", "ValBool", "ValUint64", });
-          internal_static_com_valve_dota2_CSVCMsg_GameEventList_descriptor =
-            getDescriptor().getMessageTypes().get(38);
-          internal_static_com_valve_dota2_CSVCMsg_GameEventList_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_GameEventList_descriptor,
+              internal_static_CSVCMsg_GameEventList_descriptor,
               new java.lang.String[] { "Descriptors", });
-          internal_static_com_valve_dota2_CSVCMsg_GameEventList_key_t_descriptor =
-            internal_static_com_valve_dota2_CSVCMsg_GameEventList_descriptor.getNestedTypes().get(0);
-          internal_static_com_valve_dota2_CSVCMsg_GameEventList_key_t_fieldAccessorTable = new
+          internal_static_CSVCMsg_GameEventList_key_t_descriptor =
+            internal_static_CSVCMsg_GameEventList_descriptor.getNestedTypes().get(0);
+          internal_static_CSVCMsg_GameEventList_key_t_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_GameEventList_key_t_descriptor,
+              internal_static_CSVCMsg_GameEventList_key_t_descriptor,
               new java.lang.String[] { "Type", "Name", });
-          internal_static_com_valve_dota2_CSVCMsg_GameEventList_descriptor_t_descriptor =
-            internal_static_com_valve_dota2_CSVCMsg_GameEventList_descriptor.getNestedTypes().get(1);
-          internal_static_com_valve_dota2_CSVCMsg_GameEventList_descriptor_t_fieldAccessorTable = new
+          internal_static_CSVCMsg_GameEventList_descriptor_t_descriptor =
+            internal_static_CSVCMsg_GameEventList_descriptor.getNestedTypes().get(1);
+          internal_static_CSVCMsg_GameEventList_descriptor_t_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_GameEventList_descriptor_t_descriptor,
+              internal_static_CSVCMsg_GameEventList_descriptor_t_descriptor,
               new java.lang.String[] { "Eventid", "Name", "Keys", });
-          internal_static_com_valve_dota2_CSVCMsg_PacketEntities_descriptor =
-            getDescriptor().getMessageTypes().get(39);
-          internal_static_com_valve_dota2_CSVCMsg_PacketEntities_fieldAccessorTable = new
+          internal_static_CSVCMsg_PacketEntities_descriptor =
+            getDescriptor().getMessageTypes().get(35);
+          internal_static_CSVCMsg_PacketEntities_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_PacketEntities_descriptor,
-              new java.lang.String[] { "MaxEntries", "UpdatedEntries", "IsDelta", "UpdateBaseline", "Baseline", "DeltaFrom", "EntityData", });
-          internal_static_com_valve_dota2_CSVCMsg_TempEntities_descriptor =
-            getDescriptor().getMessageTypes().get(40);
-          internal_static_com_valve_dota2_CSVCMsg_TempEntities_fieldAccessorTable = new
+              internal_static_CSVCMsg_PacketEntities_descriptor,
+              new java.lang.String[] { "MaxEntries", "UpdatedEntries", "IsDelta", "UpdateBaseline", "Baseline", "DeltaFrom", "EntityData", "PendingFullFrame", });
+          internal_static_CSVCMsg_TempEntities_descriptor =
+            getDescriptor().getMessageTypes().get(36);
+          internal_static_CSVCMsg_TempEntities_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_TempEntities_descriptor,
+              internal_static_CSVCMsg_TempEntities_descriptor,
               new java.lang.String[] { "Reliable", "NumEntries", "EntityData", });
-          internal_static_com_valve_dota2_CSVCMsg_CreateStringTable_descriptor =
-            getDescriptor().getMessageTypes().get(41);
-          internal_static_com_valve_dota2_CSVCMsg_CreateStringTable_fieldAccessorTable = new
+          internal_static_CSVCMsg_CreateStringTable_descriptor =
+            getDescriptor().getMessageTypes().get(37);
+          internal_static_CSVCMsg_CreateStringTable_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_CreateStringTable_descriptor,
+              internal_static_CSVCMsg_CreateStringTable_descriptor,
               new java.lang.String[] { "Name", "MaxEntries", "NumEntries", "UserDataFixedSize", "UserDataSize", "UserDataSizeBits", "Flags", "StringData", });
-          internal_static_com_valve_dota2_CSVCMsg_UpdateStringTable_descriptor =
-            getDescriptor().getMessageTypes().get(42);
-          internal_static_com_valve_dota2_CSVCMsg_UpdateStringTable_fieldAccessorTable = new
+          internal_static_CSVCMsg_UpdateStringTable_descriptor =
+            getDescriptor().getMessageTypes().get(38);
+          internal_static_CSVCMsg_UpdateStringTable_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_UpdateStringTable_descriptor,
+              internal_static_CSVCMsg_UpdateStringTable_descriptor,
               new java.lang.String[] { "TableId", "NumChangedEntries", "StringData", });
-          internal_static_com_valve_dota2_CSVCMsg_UserMessage_descriptor =
-            getDescriptor().getMessageTypes().get(43);
-          internal_static_com_valve_dota2_CSVCMsg_UserMessage_fieldAccessorTable = new
+          internal_static_CSVCMsg_VoiceData_descriptor =
+            getDescriptor().getMessageTypes().get(39);
+          internal_static_CSVCMsg_VoiceData_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_UserMessage_descriptor,
-              new java.lang.String[] { "MsgType", "MsgData", });
-          internal_static_com_valve_dota2_CSVCMsg_VoiceData_descriptor =
-            getDescriptor().getMessageTypes().get(44);
-          internal_static_com_valve_dota2_CSVCMsg_VoiceData_fieldAccessorTable = new
+              internal_static_CSVCMsg_VoiceData_descriptor,
+              new java.lang.String[] { "Client", "Proximity", "Xuid", "AudibleMask", "VoiceData", "Format", "SequenceBytes", "SectionNumber", "UncompressedSampleOffset", });
+          internal_static_CSVCMsg_PacketReliable_descriptor =
+            getDescriptor().getMessageTypes().get(40);
+          internal_static_CSVCMsg_PacketReliable_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsg_VoiceData_descriptor,
-              new java.lang.String[] { "Client", "Proximity", "Xuid", "AudibleMask", "VoiceData", });
-          internal_static_com_valve_dota2_CSVCMsgList_GameEvents_descriptor =
-            getDescriptor().getMessageTypes().get(45);
-          internal_static_com_valve_dota2_CSVCMsgList_GameEvents_fieldAccessorTable = new
+              internal_static_CSVCMsg_PacketReliable_descriptor,
+              new java.lang.String[] { "Tick", "Messagessize", });
+          internal_static_CSVCMsg_FullFrameSplit_descriptor =
+            getDescriptor().getMessageTypes().get(41);
+          internal_static_CSVCMsg_FullFrameSplit_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsgList_GameEvents_descriptor,
-              new java.lang.String[] { "Events", });
-          internal_static_com_valve_dota2_CSVCMsgList_GameEvents_event_t_descriptor =
-            internal_static_com_valve_dota2_CSVCMsgList_GameEvents_descriptor.getNestedTypes().get(0);
-          internal_static_com_valve_dota2_CSVCMsgList_GameEvents_event_t_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsgList_GameEvents_event_t_descriptor,
-              new java.lang.String[] { "Tick", "Event", });
-          internal_static_com_valve_dota2_CSVCMsgList_UserMessages_descriptor =
-            getDescriptor().getMessageTypes().get(46);
-          internal_static_com_valve_dota2_CSVCMsgList_UserMessages_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsgList_UserMessages_descriptor,
-              new java.lang.String[] { "Usermsgs", });
-          internal_static_com_valve_dota2_CSVCMsgList_UserMessages_usermsg_t_descriptor =
-            internal_static_com_valve_dota2_CSVCMsgList_UserMessages_descriptor.getNestedTypes().get(0);
-          internal_static_com_valve_dota2_CSVCMsgList_UserMessages_usermsg_t_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CSVCMsgList_UserMessages_usermsg_t_descriptor,
-              new java.lang.String[] { "Tick", "Msg", });
+              internal_static_CSVCMsg_FullFrameSplit_descriptor,
+              new java.lang.String[] { "Tick", "Section", "Total", "Data", });
           return null;
         }
       };
@@ -41579,6 +35328,8 @@ public final class Netmessages {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.DescriptorProtos.getDescriptor(),
+          com.valve.dota2.Networkbasetypes.getDescriptor(),
+          com.valve.dota2.NetworkConnection.getDescriptor(),
         }, assigner);
   }
 

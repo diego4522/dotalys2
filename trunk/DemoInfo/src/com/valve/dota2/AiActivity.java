@@ -9,24 +9,16 @@ public final class AiActivity {
       com.google.protobuf.ExtensionRegistry registry) {
   }
   /**
-   * Protobuf enum {@code com.valve.dota2.Activity}
+   * Protobuf enum {@code Activity}
    */
   public enum Activity
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <code>ACT_INVALID = -1;</code>
-     *
-     * <pre>
-     * So we have something more succint to check for than '-1'
-     * </pre>
      */
     ACT_INVALID(0, -1),
     /**
      * <code>ACT_RESET = 0;</code>
-     *
-     * <pre>
-     * Set m_Activity to this invalid value to force a reset to m_IdealActivity
-     * </pre>
      */
     ACT_RESET(1, 0),
     /**
@@ -39,26 +31,14 @@ public final class AiActivity {
     ACT_TRANSITION(3, 2),
     /**
      * <code>ACT_COVER = 3;</code>
-     *
-     * <pre>
-     * FIXME: obsolete? redundant with ACT_COVER_LOW?
-     * </pre>
      */
     ACT_COVER(4, 3),
     /**
      * <code>ACT_COVER_MED = 4;</code>
-     *
-     * <pre>
-     * FIXME: unsupported?
-     * </pre>
      */
     ACT_COVER_MED(5, 4),
     /**
      * <code>ACT_COVER_LOW = 5;</code>
-     *
-     * <pre>
-     * FIXME: rename ACT_IDLE_CROUCH?
-     * </pre>
      */
     ACT_COVER_LOW(6, 5),
     /**
@@ -111,18 +91,10 @@ public final class AiActivity {
     ACT_RANGE_ATTACK2(18, 17),
     /**
      * <code>ACT_RANGE_ATTACK1_LOW = 18;</code>
-     *
-     * <pre>
-     * FIXME: not used yet crouched versions of the range attack
-     * </pre>
      */
     ACT_RANGE_ATTACK1_LOW(19, 18),
     /**
      * <code>ACT_RANGE_ATTACK2_LOW = 19;</code>
-     *
-     * <pre>
-     * FIXME: not used yet crouched versions of the range attack
-     * </pre>
      */
     ACT_RANGE_ATTACK2_LOW(20, 19),
     /**
@@ -147,10 +119,6 @@ public final class AiActivity {
     ACT_DIERAGDOLL(25, 24),
     /**
      * <code>ACT_FLY = 25;</code>
-     *
-     * <pre>
-     * Fly (and flap if appropriate)
-     * </pre>
      */
     ACT_FLY(26, 25),
     /**
@@ -171,18 +139,10 @@ public final class AiActivity {
     ACT_JUMP(30, 29),
     /**
      * <code>ACT_HOP = 30;</code>
-     *
-     * <pre>
-     * vertical jump
-     * </pre>
      */
     ACT_HOP(31, 30),
     /**
      * <code>ACT_LEAP = 31;</code>
-     *
-     * <pre>
-     * long forward jump
-     * </pre>
      */
     ACT_LEAP(32, 31),
     /**
@@ -219,58 +179,30 @@ public final class AiActivity {
     ACT_STRAFE_RIGHT(40, 39),
     /**
      * <code>ACT_ROLL_LEFT = 40;</code>
-     *
-     * <pre>
-     * tuck and roll left
-     * </pre>
      */
     ACT_ROLL_LEFT(41, 40),
     /**
      * <code>ACT_ROLL_RIGHT = 41;</code>
-     *
-     * <pre>
-     * tuck and roll right
-     * </pre>
      */
     ACT_ROLL_RIGHT(42, 41),
     /**
      * <code>ACT_TURN_LEFT = 42;</code>
-     *
-     * <pre>
-     * turn quickly left (stationary)
-     * </pre>
      */
     ACT_TURN_LEFT(43, 42),
     /**
      * <code>ACT_TURN_RIGHT = 43;</code>
-     *
-     * <pre>
-     * turn quickly right (stationary)
-     * </pre>
      */
     ACT_TURN_RIGHT(44, 43),
     /**
      * <code>ACT_CROUCH = 44;</code>
-     *
-     * <pre>
-     * FIXME: obsolete? only used be soldier (the act of crouching down from a standing position)
-     * </pre>
      */
     ACT_CROUCH(45, 44),
     /**
      * <code>ACT_CROUCHIDLE = 45;</code>
-     *
-     * <pre>
-     * FIXME: obsolete? only used be soldier (holding body in crouched position (loops))
-     * </pre>
      */
     ACT_CROUCHIDLE(46, 45),
     /**
      * <code>ACT_STAND = 46;</code>
-     *
-     * <pre>
-     * FIXME: obsolete? should be transition (the act of standing from a crouched position)
-     * </pre>
      */
     ACT_STAND(47, 46),
     /**
@@ -299,10 +231,6 @@ public final class AiActivity {
     ACT_SIGNAL3(53, 52),
     /**
      * <code>ACT_SIGNAL_ADVANCE = 53;</code>
-     *
-     * <pre>
-     * Squad handsignals specific.
-     * </pre>
      */
     ACT_SIGNAL_ADVANCE(54, 53),
     /**
@@ -331,10 +259,6 @@ public final class AiActivity {
     ACT_SIGNAL_TAKECOVER(60, 59),
     /**
      * <code>ACT_LOOKBACK_RIGHT = 60;</code>
-     *
-     * <pre>
-     * look back over shoulder without turning around.
-     * </pre>
      */
     ACT_LOOKBACK_RIGHT(61, 60),
     /**
@@ -343,18 +267,10 @@ public final class AiActivity {
     ACT_LOOKBACK_LEFT(62, 61),
     /**
      * <code>ACT_COWER = 62;</code>
-     *
-     * <pre>
-     * FIXME: unused should be more extreme version of crouching
-     * </pre>
      */
     ACT_COWER(63, 62),
     /**
      * <code>ACT_SMALL_FLINCH = 63;</code>
-     *
-     * <pre>
-     * FIXME: needed? shouldn't flinching be down with overlays?
-     * </pre>
      */
     ACT_SMALL_FLINCH(64, 63),
     /**
@@ -387,18 +303,10 @@ public final class AiActivity {
     ACT_RELOAD_LOW(71, 70),
     /**
      * <code>ACT_ARM = 71;</code>
-     *
-     * <pre>
-     * pull out gun for instance
-     * </pre>
      */
     ACT_ARM(72, 71),
     /**
      * <code>ACT_DISARM = 72;</code>
-     *
-     * <pre>
-     * reholster gun
-     * </pre>
      */
     ACT_DISARM(73, 72),
     /**
@@ -411,26 +319,14 @@ public final class AiActivity {
     ACT_DROP_WEAPON_SHOTGUN(75, 74),
     /**
      * <code>ACT_PICKUP_GROUND = 75;</code>
-     *
-     * <pre>
-     * pick up something in front of you on the ground
-     * </pre>
      */
     ACT_PICKUP_GROUND(76, 75),
     /**
      * <code>ACT_PICKUP_RACK = 76;</code>
-     *
-     * <pre>
-     * pick up something from a rack or shelf in front of you.
-     * </pre>
      */
     ACT_PICKUP_RACK(77, 76),
     /**
      * <code>ACT_IDLE_ANGRY = 77;</code>
-     *
-     * <pre>
-     * FIXME: being used as an combat ready idle?  alternate idle animation in which the monster is clearly agitated. (loop)
-     * </pre>
      */
     ACT_IDLE_ANGRY(78, 77),
     /**
@@ -547,26 +443,14 @@ public final class AiActivity {
     ACT_CROUCHIDLE_AGITATED(106, 105),
     /**
      * <code>ACT_WALK_HURT = 106;</code>
-     *
-     * <pre>
-     * limp  (loop)
-     * </pre>
      */
     ACT_WALK_HURT(107, 106),
     /**
      * <code>ACT_RUN_HURT = 107;</code>
-     *
-     * <pre>
-     * limp  (loop)
-     * </pre>
      */
     ACT_RUN_HURT(108, 107),
     /**
      * <code>ACT_SPECIAL_ATTACK1 = 108;</code>
-     *
-     * <pre>
-     * very monster specific special attacks.
-     * </pre>
      */
     ACT_SPECIAL_ATTACK1(109, 108),
     /**
@@ -575,10 +459,6 @@ public final class AiActivity {
     ACT_SPECIAL_ATTACK2(110, 109),
     /**
      * <code>ACT_COMBAT_IDLE = 110;</code>
-     *
-     * <pre>
-     * FIXME: unused?  agitated idle.
-     * </pre>
      */
     ACT_COMBAT_IDLE(111, 110),
     /**
@@ -591,42 +471,22 @@ public final class AiActivity {
     ACT_RUN_SCARED(113, 112),
     /**
      * <code>ACT_VICTORY_DANCE = 113;</code>
-     *
-     * <pre>
-     * killed a player do a victory dance.
-     * </pre>
      */
     ACT_VICTORY_DANCE(114, 113),
     /**
      * <code>ACT_DIE_HEADSHOT = 114;</code>
-     *
-     * <pre>
-     * die hit in head.
-     * </pre>
      */
     ACT_DIE_HEADSHOT(115, 114),
     /**
      * <code>ACT_DIE_CHESTSHOT = 115;</code>
-     *
-     * <pre>
-     * die hit in chest
-     * </pre>
      */
     ACT_DIE_CHESTSHOT(116, 115),
     /**
      * <code>ACT_DIE_GUTSHOT = 116;</code>
-     *
-     * <pre>
-     * die hit in gut
-     * </pre>
      */
     ACT_DIE_GUTSHOT(117, 116),
     /**
      * <code>ACT_DIE_BACKSHOT = 117;</code>
-     *
-     * <pre>
-     * die hit in back
-     * </pre>
      */
     ACT_DIE_BACKSHOT(118, 117),
     /**
@@ -691,10 +551,6 @@ public final class AiActivity {
     ACT_FLINCH_CROUCH_RIGHT(133, 132),
     /**
      * <code>ACT_IDLE_ON_FIRE = 133;</code>
-     *
-     * <pre>
-     * ON FIRE animations
-     * </pre>
      */
     ACT_IDLE_ON_FIRE(134, 133),
     /**
@@ -707,18 +563,10 @@ public final class AiActivity {
     ACT_RUN_ON_FIRE(136, 135),
     /**
      * <code>ACT_RAPPEL_LOOP = 136;</code>
-     *
-     * <pre>
-     * Rappel down a rope!
-     * </pre>
      */
     ACT_RAPPEL_LOOP(137, 136),
     /**
      * <code>ACT_180_LEFT = 137;</code>
-     *
-     * <pre>
-     * 180 degree left turn
-     * </pre>
      */
     ACT_180_LEFT(138, 137),
     /**
@@ -727,10 +575,6 @@ public final class AiActivity {
     ACT_180_RIGHT(139, 138),
     /**
      * <code>ACT_90_LEFT = 139;</code>
-     *
-     * <pre>
-     * 90 degree turns
-     * </pre>
      */
     ACT_90_LEFT(140, 139),
     /**
@@ -739,10 +583,6 @@ public final class AiActivity {
     ACT_90_RIGHT(141, 140),
     /**
      * <code>ACT_STEP_LEFT = 141;</code>
-     *
-     * <pre>
-     * Single steps
-     * </pre>
      */
     ACT_STEP_LEFT(142, 141),
     /**
@@ -775,18 +615,10 @@ public final class AiActivity {
     ACT_GESTURE_MELEE_ATTACK2(149, 148),
     /**
      * <code>ACT_GESTURE_RANGE_ATTACK1_LOW = 149;</code>
-     *
-     * <pre>
-     * FIXME: not used yet crouched versions of the range attack
-     * </pre>
      */
     ACT_GESTURE_RANGE_ATTACK1_LOW(150, 149),
     /**
      * <code>ACT_GESTURE_RANGE_ATTACK2_LOW = 150;</code>
-     *
-     * <pre>
-     * FIXME: not used yet crouched versions of the range attack
-     * </pre>
      */
     ACT_GESTURE_RANGE_ATTACK2_LOW(151, 150),
     /**
@@ -803,10 +635,6 @@ public final class AiActivity {
     ACT_GESTURE_BIG_FLINCH(154, 153),
     /**
      * <code>ACT_GESTURE_FLINCH_BLAST = 154;</code>
-     *
-     * <pre>
-     * Startled by an explosion
-     * </pre>
      */
     ACT_GESTURE_FLINCH_BLAST(155, 154),
     /**
@@ -815,10 +643,6 @@ public final class AiActivity {
     ACT_GESTURE_FLINCH_BLAST_SHOTGUN(156, 155),
     /**
      * <code>ACT_GESTURE_FLINCH_BLAST_DAMAGED = 156;</code>
-     *
-     * <pre>
-     * Damaged by an explosion
-     * </pre>
      */
     ACT_GESTURE_FLINCH_BLAST_DAMAGED(157, 156),
     /**
@@ -895,45 +719,22 @@ public final class AiActivity {
     ACT_GESTURE_TURN_RIGHT90_FLAT(175, 174),
     /**
      * <code>ACT_BARNACLE_HIT = 175;</code>
-     *
-     * <pre>
-     * HALF-LIFE 1 compatability stuff goes here. Temporary!
-     * </pre>
      */
     ACT_BARNACLE_HIT(176, 175),
     /**
      * <code>ACT_BARNACLE_PULL = 176;</code>
-     *
-     * <pre>
-     * barnacle is lifting the monster ( loop )
-     * </pre>
      */
     ACT_BARNACLE_PULL(177, 176),
     /**
      * <code>ACT_BARNACLE_CHOMP = 177;</code>
-     *
-     * <pre>
-     * barnacle latches on to the monster
-     * </pre>
      */
     ACT_BARNACLE_CHOMP(178, 177),
     /**
      * <code>ACT_BARNACLE_CHEW = 178;</code>
-     *
-     * <pre>
-     * barnacle is holding the monster in its mouth ( loop )
-     * </pre>
      */
     ACT_BARNACLE_CHEW(179, 178),
     /**
      * <code>ACT_DO_NOT_DISTURB = 179;</code>
-     *
-     * <pre>
-     * Sometimes you just want to set an NPC's sequence to a sequence that doesn't actually
-     * have an activity. The AI will reset the NPC's sequence to whatever its IDEAL activity
-     * is though. So if you set ideal activity to DO_NOT_DISTURB the AI will not interfere
-     * with the NPC's current sequence. (SJB)
-     * </pre>
      */
     ACT_DO_NOT_DISTURB(180, 179),
     /**
@@ -942,11 +743,6 @@ public final class AiActivity {
     ACT_SPECIFIC_SEQUENCE(181, 180),
     /**
      * <code>ACT_VM_DRAW = 181;</code>
-     *
-     * <pre>
-     * viewmodel (weapon) activities
-     * FIXME: move these to the specific viewmodels no need to make global
-     * </pre>
      */
     ACT_VM_DRAW(182, 181),
     /**
@@ -983,18 +779,10 @@ public final class AiActivity {
     ACT_VM_PULLPIN(190, 189),
     /**
      * <code>ACT_VM_PRIMARYATTACK = 190;</code>
-     *
-     * <pre>
-     * fire
-     * </pre>
      */
     ACT_VM_PRIMARYATTACK(191, 190),
     /**
      * <code>ACT_VM_SECONDARYATTACK = 191;</code>
-     *
-     * <pre>
-     * alt. fire
-     * </pre>
      */
     ACT_VM_SECONDARYATTACK(192, 191),
     /**
@@ -1003,122 +791,62 @@ public final class AiActivity {
     ACT_VM_RELOAD(193, 192),
     /**
      * <code>ACT_VM_DRYFIRE = 193;</code>
-     *
-     * <pre>
-     * fire with no ammo loaded.
-     * </pre>
      */
     ACT_VM_DRYFIRE(194, 193),
     /**
      * <code>ACT_VM_HITLEFT = 194;</code>
-     *
-     * <pre>
-     * bludgeon swing to left - hit (primary attk)
-     * </pre>
      */
     ACT_VM_HITLEFT(195, 194),
     /**
      * <code>ACT_VM_HITLEFT2 = 195;</code>
-     *
-     * <pre>
-     * bludgeon swing to left - hit (secondary attk)
-     * </pre>
      */
     ACT_VM_HITLEFT2(196, 195),
     /**
      * <code>ACT_VM_HITRIGHT = 196;</code>
-     *
-     * <pre>
-     * bludgeon swing to right - hit (primary attk)
-     * </pre>
      */
     ACT_VM_HITRIGHT(197, 196),
     /**
      * <code>ACT_VM_HITRIGHT2 = 197;</code>
-     *
-     * <pre>
-     * bludgeon swing to right - hit (secondary attk)
-     * </pre>
      */
     ACT_VM_HITRIGHT2(198, 197),
     /**
      * <code>ACT_VM_HITCENTER = 198;</code>
-     *
-     * <pre>
-     * bludgeon swing center - hit (primary attk)
-     * </pre>
      */
     ACT_VM_HITCENTER(199, 198),
     /**
      * <code>ACT_VM_HITCENTER2 = 199;</code>
-     *
-     * <pre>
-     * bludgeon swing center - hit (secondary attk)
-     * </pre>
      */
     ACT_VM_HITCENTER2(200, 199),
     /**
      * <code>ACT_VM_MISSLEFT = 200;</code>
-     *
-     * <pre>
-     * bludgeon swing to left - miss (primary attk)
-     * </pre>
      */
     ACT_VM_MISSLEFT(201, 200),
     /**
      * <code>ACT_VM_MISSLEFT2 = 201;</code>
-     *
-     * <pre>
-     * bludgeon swing to left - miss (secondary attk)
-     * </pre>
      */
     ACT_VM_MISSLEFT2(202, 201),
     /**
      * <code>ACT_VM_MISSRIGHT = 202;</code>
-     *
-     * <pre>
-     * bludgeon swing to right - miss (primary attk)
-     * </pre>
      */
     ACT_VM_MISSRIGHT(203, 202),
     /**
      * <code>ACT_VM_MISSRIGHT2 = 203;</code>
-     *
-     * <pre>
-     * bludgeon swing to right - miss (secondary attk)
-     * </pre>
      */
     ACT_VM_MISSRIGHT2(204, 203),
     /**
      * <code>ACT_VM_MISSCENTER = 204;</code>
-     *
-     * <pre>
-     * bludgeon swing center - miss (primary attk)
-     * </pre>
      */
     ACT_VM_MISSCENTER(205, 204),
     /**
      * <code>ACT_VM_MISSCENTER2 = 205;</code>
-     *
-     * <pre>
-     * bludgeon swing center - miss (secondary attk)
-     * </pre>
      */
     ACT_VM_MISSCENTER2(206, 205),
     /**
      * <code>ACT_VM_HAULBACK = 206;</code>
-     *
-     * <pre>
-     * bludgeon haul the weapon back for a hard strike (secondary attk)
-     * </pre>
      */
     ACT_VM_HAULBACK(207, 206),
     /**
      * <code>ACT_VM_SWINGHARD = 207;</code>
-     *
-     * <pre>
-     * bludgeon release the hard strike (secondary attk)
-     * </pre>
      */
     ACT_VM_SWINGHARD(208, 207),
     /**
@@ -1171,13 +899,6 @@ public final class AiActivity {
     ACT_VM_DETACH_SILENCER(220, 219),
     /**
      * <code>ACT_SLAM_STICKWALL_IDLE = 220;</code>
-     *
-     * <pre>
-     *===========================
-     * HL2 Specific Activities
-     *===========================
-     * SLAM Specialty Activities
-     * </pre>
      */
     ACT_SLAM_STICKWALL_IDLE(221, 220),
     /**
@@ -1330,10 +1051,6 @@ public final class AiActivity {
     ACT_SLAM_DETONATOR_THROW_DRAW(258, 257),
     /**
      * <code>ACT_SHOTGUN_RELOAD_START = 258;</code>
-     *
-     * <pre>
-     * Shotgun Specialty Activities
-     * </pre>
      */
     ACT_SHOTGUN_RELOAD_START(259, 258),
     /**
@@ -1346,10 +1063,6 @@ public final class AiActivity {
     ACT_SHOTGUN_PUMP(261, 260),
     /**
      * <code>ACT_SMG2_IDLE2 = 261;</code>
-     *
-     * <pre>
-     * SMG2 special activities
-     * </pre>
      */
     ACT_SMG2_IDLE2(262, 261),
     /**
@@ -1378,18 +1091,10 @@ public final class AiActivity {
     ACT_SMG2_TOBURST(268, 267),
     /**
      * <code>ACT_PHYSCANNON_UPGRADE = 268;</code>
-     *
-     * <pre>
-     * Physcannon special activities
-     * </pre>
      */
     ACT_PHYSCANNON_UPGRADE(269, 268),
     /**
      * <code>ACT_RANGE_ATTACK_AR1 = 269;</code>
-     *
-     * <pre>
-     * weapon override activities
-     * </pre>
      */
     ACT_RANGE_ATTACK_AR1(270, 269),
     /**
@@ -1490,10 +1195,6 @@ public final class AiActivity {
     ACT_COVER_SMG1_LOW(294, 293),
     /**
      * <code>ACT_GESTURE_RANGE_ATTACK_AR1 = 294;</code>
-     *
-     * <pre>
-     * weapon override activities
-     * </pre>
      */
     ACT_GESTURE_RANGE_ATTACK_AR1(295, 294),
     /**
@@ -1650,10 +1351,6 @@ public final class AiActivity {
     ACT_IDLE_SHOTGUN_AGITATED(333, 332),
     /**
      * <code>ACT_WALK_ANGRY = 333;</code>
-     *
-     * <pre>
-     * Policing activities
-     * </pre>
      */
     ACT_WALK_ANGRY(334, 333),
     /**
@@ -1666,18 +1363,10 @@ public final class AiActivity {
     ACT_POLICE_HARASS2(336, 335),
     /**
      * <code>ACT_IDLE_MANNEDGUN = 336;</code>
-     *
-     * <pre>
-     * Manned guns
-     * </pre>
      */
     ACT_IDLE_MANNEDGUN(337, 336),
     /**
      * <code>ACT_IDLE_MELEE = 337;</code>
-     *
-     * <pre>
-     * Melee weapon
-     * </pre>
      */
     ACT_IDLE_MELEE(338, 337),
     /**
@@ -1686,10 +1375,6 @@ public final class AiActivity {
     ACT_IDLE_ANGRY_MELEE(339, 338),
     /**
      * <code>ACT_IDLE_RPG_RELAXED = 339;</code>
-     *
-     * <pre>
-     * RPG activities
-     * </pre>
      */
     ACT_IDLE_RPG_RELAXED(340, 339),
     /**
@@ -1802,10 +1487,6 @@ public final class AiActivity {
     ACT_RUN_AIM_STEALTH_PISTOL(367, 366),
     /**
      * <code>ACT_RELOAD_PISTOL = 367;</code>
-     *
-     * <pre>
-     * Reloads
-     * </pre>
      */
     ACT_RELOAD_PISTOL(368, 367),
     /**
@@ -1846,10 +1527,6 @@ public final class AiActivity {
     ACT_GESTURE_RELOAD_SHOTGUN(377, 376),
     /**
      * <code>ACT_BUSY_LEAN_LEFT = 377;</code>
-     *
-     * <pre>
-     * Busy animations
-     * </pre>
      */
     ACT_BUSY_LEAN_LEFT(378, 377),
     /**
@@ -1906,59 +1583,30 @@ public final class AiActivity {
     ACT_BUSY_QUEUE(391, 390),
     /**
      * <code>ACT_DUCK_DODGE = 391;</code>
-     *
-     * <pre>
-     * Dodge animations
-     * </pre>
      */
     ACT_DUCK_DODGE(392, 391),
     /**
      * <code>ACT_DIE_BARNACLE_SWALLOW = 392;</code>
-     *
-     * <pre>
-     * For NPCs being lifted/eaten by barnacles:
-     * being swallowed by a barnacle
-     * </pre>
      */
     ACT_DIE_BARNACLE_SWALLOW(393, 392),
     /**
      * <code>ACT_GESTURE_BARNACLE_STRANGLE = 393;</code>
-     *
-     * <pre>
-     * being lifted by a barnacle
-     * </pre>
      */
     ACT_GESTURE_BARNACLE_STRANGLE(394, 393),
     /**
      * <code>ACT_PHYSCANNON_DETACH = 394;</code>
-     *
-     * <pre>
-     * An activity to be played if we're picking this up with the physcannon
-     * </pre>
      */
     ACT_PHYSCANNON_DETACH(395, 394),
     /**
      * <code>ACT_PHYSCANNON_ANIMATE = 395;</code>
-     *
-     * <pre>
-     * An activity to be played by an object being picked up with the physcannon but has different behavior to DETACH
-     * </pre>
      */
     ACT_PHYSCANNON_ANIMATE(396, 395),
     /**
      * <code>ACT_PHYSCANNON_ANIMATE_PRE = 396;</code>
-     *
-     * <pre>
-     * An activity to be played by an object being picked up with the physcannon before playing the ACT_PHYSCANNON_ANIMATE
-     * </pre>
      */
     ACT_PHYSCANNON_ANIMATE_PRE(397, 396),
     /**
      * <code>ACT_PHYSCANNON_ANIMATE_POST = 397;</code>
-     *
-     * <pre>
-     * An activity to be played by an object being picked up with the physcannon after playing the ACT_PHYSCANNON_ANIMATE
-     * </pre>
      */
     ACT_PHYSCANNON_ANIMATE_POST(398, 397),
     /**
@@ -1983,10 +1631,6 @@ public final class AiActivity {
     ACT_OPEN_DOOR(403, 402),
     /**
      * <code>ACT_DI_ALYX_ZOMBIE_MELEE = 403;</code>
-     *
-     * <pre>
-     * Dynamic interactions
-     * </pre>
      */
     ACT_DI_ALYX_ZOMBIE_MELEE(404, 403),
     /**
@@ -2055,10 +1699,6 @@ public final class AiActivity {
     ACT_DOTA_IDLE(420, 419),
     /**
      * <code>ACT_DOTA_IDLE_RARE = 421;</code>
-     *
-     * <pre>
-     *REMOVED	ACT_DOTA_IDLE_ALT   								= 420;
-     * </pre>
      */
     ACT_DOTA_IDLE_RARE(421, 421),
     /**
@@ -2067,10 +1707,6 @@ public final class AiActivity {
     ACT_DOTA_RUN(422, 422),
     /**
      * <code>ACT_DOTA_ATTACK = 424;</code>
-     *
-     * <pre>
-     *REMOVED	ACT_DOTA_RUN_ALT									= 423;
-     * </pre>
      */
     ACT_DOTA_ATTACK(423, 424),
     /**
@@ -2207,10 +1843,6 @@ public final class AiActivity {
     ACT_DOTA_TAUNT(456, 457),
     /**
      * <code>ACT_DOTA_THIRST = 458;</code>
-     *
-     * <pre>
-     *Hero specific (I hate my life)
-     * </pre>
      */
     ACT_DOTA_THIRST(457, 458),
     /**
@@ -2449,22 +2081,354 @@ public final class AiActivity {
      * <code>ACT_DOTA_TELEPORT_END = 517;</code>
      */
     ACT_DOTA_TELEPORT_END(516, 517),
+    /**
+     * <code>ACT_DOTA_CAST_REFRACTION = 518;</code>
+     */
+    ACT_DOTA_CAST_REFRACTION(517, 518),
+    /**
+     * <code>ACT_DOTA_CAST_ABILITY_7 = 519;</code>
+     */
+    ACT_DOTA_CAST_ABILITY_7(518, 519),
+    /**
+     * <code>ACT_DOTA_CANCEL_SIREN_SONG = 520;</code>
+     */
+    ACT_DOTA_CANCEL_SIREN_SONG(519, 520),
+    /**
+     * <code>ACT_DOTA_CHANNEL_ABILITY_7 = 521;</code>
+     */
+    ACT_DOTA_CHANNEL_ABILITY_7(520, 521),
+    /**
+     * <code>ACT_DOTA_LOADOUT = 522;</code>
+     */
+    ACT_DOTA_LOADOUT(521, 522),
+    /**
+     * <code>ACT_DOTA_FORCESTAFF_END = 523;</code>
+     */
+    ACT_DOTA_FORCESTAFF_END(522, 523),
+    /**
+     * <code>ACT_DOTA_POOF_END = 524;</code>
+     */
+    ACT_DOTA_POOF_END(523, 524),
+    /**
+     * <code>ACT_DOTA_SLARK_POUNCE = 525;</code>
+     */
+    ACT_DOTA_SLARK_POUNCE(524, 525),
+    /**
+     * <code>ACT_DOTA_MAGNUS_SKEWER_START = 526;</code>
+     */
+    ACT_DOTA_MAGNUS_SKEWER_START(525, 526),
+    /**
+     * <code>ACT_DOTA_MAGNUS_SKEWER_END = 527;</code>
+     */
+    ACT_DOTA_MAGNUS_SKEWER_END(526, 527),
+    /**
+     * <code>ACT_DOTA_MEDUSA_STONE_GAZE = 528;</code>
+     */
+    ACT_DOTA_MEDUSA_STONE_GAZE(527, 528),
+    /**
+     * <code>ACT_DOTA_RELAX_START = 529;</code>
+     */
+    ACT_DOTA_RELAX_START(528, 529),
+    /**
+     * <code>ACT_DOTA_RELAX_LOOP = 530;</code>
+     */
+    ACT_DOTA_RELAX_LOOP(529, 530),
+    /**
+     * <code>ACT_DOTA_RELAX_END = 531;</code>
+     */
+    ACT_DOTA_RELAX_END(530, 531),
+    /**
+     * <code>ACT_DOTA_CENTAUR_STAMPEDE = 532;</code>
+     */
+    ACT_DOTA_CENTAUR_STAMPEDE(531, 532),
+    /**
+     * <code>ACT_DOTA_BELLYACHE_START = 533;</code>
+     */
+    ACT_DOTA_BELLYACHE_START(532, 533),
+    /**
+     * <code>ACT_DOTA_BELLYACHE_LOOP = 534;</code>
+     */
+    ACT_DOTA_BELLYACHE_LOOP(533, 534),
+    /**
+     * <code>ACT_DOTA_BELLYACHE_END = 535;</code>
+     */
+    ACT_DOTA_BELLYACHE_END(534, 535),
+    /**
+     * <code>ACT_DOTA_ROQUELAIRE_LAND = 536;</code>
+     */
+    ACT_DOTA_ROQUELAIRE_LAND(535, 536),
+    /**
+     * <code>ACT_DOTA_ROQUELAIRE_LAND_IDLE = 537;</code>
+     */
+    ACT_DOTA_ROQUELAIRE_LAND_IDLE(536, 537),
+    /**
+     * <code>ACT_DOTA_GREEVIL_CAST = 538;</code>
+     */
+    ACT_DOTA_GREEVIL_CAST(537, 538),
+    /**
+     * <code>ACT_DOTA_GREEVIL_OVERRIDE_ABILITY = 539;</code>
+     */
+    ACT_DOTA_GREEVIL_OVERRIDE_ABILITY(538, 539),
+    /**
+     * <code>ACT_DOTA_GREEVIL_HOOK_START = 540;</code>
+     */
+    ACT_DOTA_GREEVIL_HOOK_START(539, 540),
+    /**
+     * <code>ACT_DOTA_GREEVIL_HOOK_END = 541;</code>
+     */
+    ACT_DOTA_GREEVIL_HOOK_END(540, 541),
+    /**
+     * <code>ACT_DOTA_GREEVIL_BLINK_BONE = 542;</code>
+     */
+    ACT_DOTA_GREEVIL_BLINK_BONE(541, 542),
+    /**
+     * <code>ACT_DOTA_IDLE_SLEEPING = 543;</code>
+     */
+    ACT_DOTA_IDLE_SLEEPING(542, 543),
+    /**
+     * <code>ACT_DOTA_INTRO = 544;</code>
+     */
+    ACT_DOTA_INTRO(543, 544),
+    /**
+     * <code>ACT_DOTA_GESTURE_POINT = 545;</code>
+     */
+    ACT_DOTA_GESTURE_POINT(544, 545),
+    /**
+     * <code>ACT_DOTA_GESTURE_ACCENT = 546;</code>
+     */
+    ACT_DOTA_GESTURE_ACCENT(545, 546),
+    /**
+     * <code>ACT_DOTA_SLEEPING_END = 547;</code>
+     */
+    ACT_DOTA_SLEEPING_END(546, 547),
+    /**
+     * <code>ACT_DOTA_AMBUSH = 548;</code>
+     */
+    ACT_DOTA_AMBUSH(547, 548),
+    /**
+     * <code>ACT_DOTA_ITEM_LOOK = 549;</code>
+     */
+    ACT_DOTA_ITEM_LOOK(548, 549),
+    /**
+     * <code>ACT_DOTA_STARTLE = 550;</code>
+     */
+    ACT_DOTA_STARTLE(549, 550),
+    /**
+     * <code>ACT_DOTA_FRUSTRATION = 551;</code>
+     */
+    ACT_DOTA_FRUSTRATION(550, 551),
+    /**
+     * <code>ACT_DOTA_TELEPORT_REACT = 552;</code>
+     */
+    ACT_DOTA_TELEPORT_REACT(551, 552),
+    /**
+     * <code>ACT_DOTA_TELEPORT_END_REACT = 553;</code>
+     */
+    ACT_DOTA_TELEPORT_END_REACT(552, 553),
+    /**
+     * <code>ACT_DOTA_SHRUG = 554;</code>
+     */
+    ACT_DOTA_SHRUG(553, 554),
+    /**
+     * <code>ACT_DOTA_RELAX_LOOP_END = 555;</code>
+     */
+    ACT_DOTA_RELAX_LOOP_END(554, 555),
+    /**
+     * <code>ACT_DOTA_PRESENT_ITEM = 556;</code>
+     */
+    ACT_DOTA_PRESENT_ITEM(555, 556),
+    /**
+     * <code>ACT_DOTA_IDLE_IMPATIENT = 557;</code>
+     */
+    ACT_DOTA_IDLE_IMPATIENT(556, 557),
+    /**
+     * <code>ACT_DOTA_SHARPEN_WEAPON = 558;</code>
+     */
+    ACT_DOTA_SHARPEN_WEAPON(557, 558),
+    /**
+     * <code>ACT_DOTA_SHARPEN_WEAPON_OUT = 559;</code>
+     */
+    ACT_DOTA_SHARPEN_WEAPON_OUT(558, 559),
+    /**
+     * <code>ACT_DOTA_IDLE_SLEEPING_END = 560;</code>
+     */
+    ACT_DOTA_IDLE_SLEEPING_END(559, 560),
+    /**
+     * <code>ACT_DOTA_BRIDGE_DESTROY = 561;</code>
+     */
+    ACT_DOTA_BRIDGE_DESTROY(560, 561),
+    /**
+     * <code>ACT_DOTA_TAUNT_SNIPER = 562;</code>
+     */
+    ACT_DOTA_TAUNT_SNIPER(561, 562),
+    /**
+     * <code>ACT_DOTA_DEATH_BY_SNIPER = 563;</code>
+     */
+    ACT_DOTA_DEATH_BY_SNIPER(562, 563),
+    /**
+     * <code>ACT_DOTA_LOOK_AROUND = 564;</code>
+     */
+    ACT_DOTA_LOOK_AROUND(563, 564),
+    /**
+     * <code>ACT_DOTA_CAGED_CREEP_RAGE = 565;</code>
+     */
+    ACT_DOTA_CAGED_CREEP_RAGE(564, 565),
+    /**
+     * <code>ACT_DOTA_CAGED_CREEP_RAGE_OUT = 566;</code>
+     */
+    ACT_DOTA_CAGED_CREEP_RAGE_OUT(565, 566),
+    /**
+     * <code>ACT_DOTA_CAGED_CREEP_SMASH = 567;</code>
+     */
+    ACT_DOTA_CAGED_CREEP_SMASH(566, 567),
+    /**
+     * <code>ACT_DOTA_CAGED_CREEP_SMASH_OUT = 568;</code>
+     */
+    ACT_DOTA_CAGED_CREEP_SMASH_OUT(567, 568),
+    /**
+     * <code>ACT_DOTA_IDLE_IMPATIENT_SWORD_TAP = 569;</code>
+     */
+    ACT_DOTA_IDLE_IMPATIENT_SWORD_TAP(568, 569),
+    /**
+     * <code>ACT_DOTA_INTRO_LOOP = 570;</code>
+     */
+    ACT_DOTA_INTRO_LOOP(569, 570),
+    /**
+     * <code>ACT_DOTA_BRIDGE_THREAT = 571;</code>
+     */
+    ACT_DOTA_BRIDGE_THREAT(570, 571),
+    /**
+     * <code>ACT_DOTA_DAGON = 572;</code>
+     */
+    ACT_DOTA_DAGON(571, 572),
+    /**
+     * <code>ACT_DOTA_CAST_ABILITY_2_ES_ROLL_START = 573;</code>
+     */
+    ACT_DOTA_CAST_ABILITY_2_ES_ROLL_START(572, 573),
+    /**
+     * <code>ACT_DOTA_CAST_ABILITY_2_ES_ROLL = 574;</code>
+     */
+    ACT_DOTA_CAST_ABILITY_2_ES_ROLL(573, 574),
+    /**
+     * <code>ACT_DOTA_CAST_ABILITY_2_ES_ROLL_END = 575;</code>
+     */
+    ACT_DOTA_CAST_ABILITY_2_ES_ROLL_END(574, 575),
+    /**
+     * <code>ACT_DOTA_NIAN_PIN_START = 576;</code>
+     */
+    ACT_DOTA_NIAN_PIN_START(575, 576),
+    /**
+     * <code>ACT_DOTA_NIAN_PIN_LOOP = 577;</code>
+     */
+    ACT_DOTA_NIAN_PIN_LOOP(576, 577),
+    /**
+     * <code>ACT_DOTA_NIAN_PIN_END = 578;</code>
+     */
+    ACT_DOTA_NIAN_PIN_END(577, 578),
+    /**
+     * <code>ACT_DOTA_LEAP_STUN = 579;</code>
+     */
+    ACT_DOTA_LEAP_STUN(578, 579),
+    /**
+     * <code>ACT_DOTA_LEAP_SWIPE = 580;</code>
+     */
+    ACT_DOTA_LEAP_SWIPE(579, 580),
+    /**
+     * <code>ACT_DOTA_NIAN_INTRO_LEAP = 581;</code>
+     */
+    ACT_DOTA_NIAN_INTRO_LEAP(580, 581),
+    /**
+     * <code>ACT_DOTA_AREA_DENY = 582;</code>
+     */
+    ACT_DOTA_AREA_DENY(581, 582),
+    /**
+     * <code>ACT_DOTA_NIAN_PIN_TO_STUN = 583;</code>
+     */
+    ACT_DOTA_NIAN_PIN_TO_STUN(582, 583),
+    /**
+     * <code>ACT_DOTA_RAZE_1 = 584;</code>
+     */
+    ACT_DOTA_RAZE_1(583, 584),
+    /**
+     * <code>ACT_DOTA_RAZE_2 = 585;</code>
+     */
+    ACT_DOTA_RAZE_2(584, 585),
+    /**
+     * <code>ACT_DOTA_RAZE_3 = 586;</code>
+     */
+    ACT_DOTA_RAZE_3(585, 586),
+    /**
+     * <code>ACT_DOTA_UNDYING_DECAY = 587;</code>
+     */
+    ACT_DOTA_UNDYING_DECAY(586, 587),
+    /**
+     * <code>ACT_DOTA_UNDYING_SOUL_RIP = 588;</code>
+     */
+    ACT_DOTA_UNDYING_SOUL_RIP(587, 588),
+    /**
+     * <code>ACT_DOTA_UNDYING_TOMBSTONE = 589;</code>
+     */
+    ACT_DOTA_UNDYING_TOMBSTONE(588, 589),
+    /**
+     * <code>ACT_DOTA_WHIRLING_AXES_RANGED = 590;</code>
+     */
+    ACT_DOTA_WHIRLING_AXES_RANGED(589, 590),
+    /**
+     * <code>ACT_DOTA_SHALLOW_GRAVE = 591;</code>
+     */
+    ACT_DOTA_SHALLOW_GRAVE(590, 591),
+    /**
+     * <code>ACT_DOTA_COLD_FEET = 592;</code>
+     */
+    ACT_DOTA_COLD_FEET(591, 592),
+    /**
+     * <code>ACT_DOTA_ICE_VORTEX = 593;</code>
+     */
+    ACT_DOTA_ICE_VORTEX(592, 593),
+    /**
+     * <code>ACT_DOTA_CHILLING_TOUCH = 594;</code>
+     */
+    ACT_DOTA_CHILLING_TOUCH(593, 594),
+    /**
+     * <code>ACT_DOTA_ENFEEBLE = 595;</code>
+     */
+    ACT_DOTA_ENFEEBLE(594, 595),
+    /**
+     * <code>ACT_DOTA_FATAL_BONDS = 596;</code>
+     */
+    ACT_DOTA_FATAL_BONDS(595, 596),
+    /**
+     * <code>ACT_DOTA_MIDNIGHT_PULSE = 597;</code>
+     */
+    ACT_DOTA_MIDNIGHT_PULSE(596, 597),
+    /**
+     * <code>ACT_DOTA_ANCESTRAL_SPIRIT = 598;</code>
+     */
+    ACT_DOTA_ANCESTRAL_SPIRIT(597, 598),
+    /**
+     * <code>ACT_DOTA_THUNDER_STRIKE = 599;</code>
+     */
+    ACT_DOTA_THUNDER_STRIKE(598, 599),
+    /**
+     * <code>ACT_DOTA_KINETIC_FIELD = 600;</code>
+     */
+    ACT_DOTA_KINETIC_FIELD(599, 600),
+    /**
+     * <code>ACT_DOTA_STATIC_STORM = 601;</code>
+     */
+    ACT_DOTA_STATIC_STORM(600, 601),
+    /**
+     * <code>ACT_DOTA_MINI_TAUNT = 602;</code>
+     */
+    ACT_DOTA_MINI_TAUNT(601, 602),
     ;
 
     /**
      * <code>ACT_INVALID = -1;</code>
-     *
-     * <pre>
-     * So we have something more succint to check for than '-1'
-     * </pre>
      */
     public static final int ACT_INVALID_VALUE = -1;
     /**
      * <code>ACT_RESET = 0;</code>
-     *
-     * <pre>
-     * Set m_Activity to this invalid value to force a reset to m_IdealActivity
-     * </pre>
      */
     public static final int ACT_RESET_VALUE = 0;
     /**
@@ -2477,26 +2441,14 @@ public final class AiActivity {
     public static final int ACT_TRANSITION_VALUE = 2;
     /**
      * <code>ACT_COVER = 3;</code>
-     *
-     * <pre>
-     * FIXME: obsolete? redundant with ACT_COVER_LOW?
-     * </pre>
      */
     public static final int ACT_COVER_VALUE = 3;
     /**
      * <code>ACT_COVER_MED = 4;</code>
-     *
-     * <pre>
-     * FIXME: unsupported?
-     * </pre>
      */
     public static final int ACT_COVER_MED_VALUE = 4;
     /**
      * <code>ACT_COVER_LOW = 5;</code>
-     *
-     * <pre>
-     * FIXME: rename ACT_IDLE_CROUCH?
-     * </pre>
      */
     public static final int ACT_COVER_LOW_VALUE = 5;
     /**
@@ -2549,18 +2501,10 @@ public final class AiActivity {
     public static final int ACT_RANGE_ATTACK2_VALUE = 17;
     /**
      * <code>ACT_RANGE_ATTACK1_LOW = 18;</code>
-     *
-     * <pre>
-     * FIXME: not used yet crouched versions of the range attack
-     * </pre>
      */
     public static final int ACT_RANGE_ATTACK1_LOW_VALUE = 18;
     /**
      * <code>ACT_RANGE_ATTACK2_LOW = 19;</code>
-     *
-     * <pre>
-     * FIXME: not used yet crouched versions of the range attack
-     * </pre>
      */
     public static final int ACT_RANGE_ATTACK2_LOW_VALUE = 19;
     /**
@@ -2585,10 +2529,6 @@ public final class AiActivity {
     public static final int ACT_DIERAGDOLL_VALUE = 24;
     /**
      * <code>ACT_FLY = 25;</code>
-     *
-     * <pre>
-     * Fly (and flap if appropriate)
-     * </pre>
      */
     public static final int ACT_FLY_VALUE = 25;
     /**
@@ -2609,18 +2549,10 @@ public final class AiActivity {
     public static final int ACT_JUMP_VALUE = 29;
     /**
      * <code>ACT_HOP = 30;</code>
-     *
-     * <pre>
-     * vertical jump
-     * </pre>
      */
     public static final int ACT_HOP_VALUE = 30;
     /**
      * <code>ACT_LEAP = 31;</code>
-     *
-     * <pre>
-     * long forward jump
-     * </pre>
      */
     public static final int ACT_LEAP_VALUE = 31;
     /**
@@ -2657,58 +2589,30 @@ public final class AiActivity {
     public static final int ACT_STRAFE_RIGHT_VALUE = 39;
     /**
      * <code>ACT_ROLL_LEFT = 40;</code>
-     *
-     * <pre>
-     * tuck and roll left
-     * </pre>
      */
     public static final int ACT_ROLL_LEFT_VALUE = 40;
     /**
      * <code>ACT_ROLL_RIGHT = 41;</code>
-     *
-     * <pre>
-     * tuck and roll right
-     * </pre>
      */
     public static final int ACT_ROLL_RIGHT_VALUE = 41;
     /**
      * <code>ACT_TURN_LEFT = 42;</code>
-     *
-     * <pre>
-     * turn quickly left (stationary)
-     * </pre>
      */
     public static final int ACT_TURN_LEFT_VALUE = 42;
     /**
      * <code>ACT_TURN_RIGHT = 43;</code>
-     *
-     * <pre>
-     * turn quickly right (stationary)
-     * </pre>
      */
     public static final int ACT_TURN_RIGHT_VALUE = 43;
     /**
      * <code>ACT_CROUCH = 44;</code>
-     *
-     * <pre>
-     * FIXME: obsolete? only used be soldier (the act of crouching down from a standing position)
-     * </pre>
      */
     public static final int ACT_CROUCH_VALUE = 44;
     /**
      * <code>ACT_CROUCHIDLE = 45;</code>
-     *
-     * <pre>
-     * FIXME: obsolete? only used be soldier (holding body in crouched position (loops))
-     * </pre>
      */
     public static final int ACT_CROUCHIDLE_VALUE = 45;
     /**
      * <code>ACT_STAND = 46;</code>
-     *
-     * <pre>
-     * FIXME: obsolete? should be transition (the act of standing from a crouched position)
-     * </pre>
      */
     public static final int ACT_STAND_VALUE = 46;
     /**
@@ -2737,10 +2641,6 @@ public final class AiActivity {
     public static final int ACT_SIGNAL3_VALUE = 52;
     /**
      * <code>ACT_SIGNAL_ADVANCE = 53;</code>
-     *
-     * <pre>
-     * Squad handsignals specific.
-     * </pre>
      */
     public static final int ACT_SIGNAL_ADVANCE_VALUE = 53;
     /**
@@ -2769,10 +2669,6 @@ public final class AiActivity {
     public static final int ACT_SIGNAL_TAKECOVER_VALUE = 59;
     /**
      * <code>ACT_LOOKBACK_RIGHT = 60;</code>
-     *
-     * <pre>
-     * look back over shoulder without turning around.
-     * </pre>
      */
     public static final int ACT_LOOKBACK_RIGHT_VALUE = 60;
     /**
@@ -2781,18 +2677,10 @@ public final class AiActivity {
     public static final int ACT_LOOKBACK_LEFT_VALUE = 61;
     /**
      * <code>ACT_COWER = 62;</code>
-     *
-     * <pre>
-     * FIXME: unused should be more extreme version of crouching
-     * </pre>
      */
     public static final int ACT_COWER_VALUE = 62;
     /**
      * <code>ACT_SMALL_FLINCH = 63;</code>
-     *
-     * <pre>
-     * FIXME: needed? shouldn't flinching be down with overlays?
-     * </pre>
      */
     public static final int ACT_SMALL_FLINCH_VALUE = 63;
     /**
@@ -2825,18 +2713,10 @@ public final class AiActivity {
     public static final int ACT_RELOAD_LOW_VALUE = 70;
     /**
      * <code>ACT_ARM = 71;</code>
-     *
-     * <pre>
-     * pull out gun for instance
-     * </pre>
      */
     public static final int ACT_ARM_VALUE = 71;
     /**
      * <code>ACT_DISARM = 72;</code>
-     *
-     * <pre>
-     * reholster gun
-     * </pre>
      */
     public static final int ACT_DISARM_VALUE = 72;
     /**
@@ -2849,26 +2729,14 @@ public final class AiActivity {
     public static final int ACT_DROP_WEAPON_SHOTGUN_VALUE = 74;
     /**
      * <code>ACT_PICKUP_GROUND = 75;</code>
-     *
-     * <pre>
-     * pick up something in front of you on the ground
-     * </pre>
      */
     public static final int ACT_PICKUP_GROUND_VALUE = 75;
     /**
      * <code>ACT_PICKUP_RACK = 76;</code>
-     *
-     * <pre>
-     * pick up something from a rack or shelf in front of you.
-     * </pre>
      */
     public static final int ACT_PICKUP_RACK_VALUE = 76;
     /**
      * <code>ACT_IDLE_ANGRY = 77;</code>
-     *
-     * <pre>
-     * FIXME: being used as an combat ready idle?  alternate idle animation in which the monster is clearly agitated. (loop)
-     * </pre>
      */
     public static final int ACT_IDLE_ANGRY_VALUE = 77;
     /**
@@ -2985,26 +2853,14 @@ public final class AiActivity {
     public static final int ACT_CROUCHIDLE_AGITATED_VALUE = 105;
     /**
      * <code>ACT_WALK_HURT = 106;</code>
-     *
-     * <pre>
-     * limp  (loop)
-     * </pre>
      */
     public static final int ACT_WALK_HURT_VALUE = 106;
     /**
      * <code>ACT_RUN_HURT = 107;</code>
-     *
-     * <pre>
-     * limp  (loop)
-     * </pre>
      */
     public static final int ACT_RUN_HURT_VALUE = 107;
     /**
      * <code>ACT_SPECIAL_ATTACK1 = 108;</code>
-     *
-     * <pre>
-     * very monster specific special attacks.
-     * </pre>
      */
     public static final int ACT_SPECIAL_ATTACK1_VALUE = 108;
     /**
@@ -3013,10 +2869,6 @@ public final class AiActivity {
     public static final int ACT_SPECIAL_ATTACK2_VALUE = 109;
     /**
      * <code>ACT_COMBAT_IDLE = 110;</code>
-     *
-     * <pre>
-     * FIXME: unused?  agitated idle.
-     * </pre>
      */
     public static final int ACT_COMBAT_IDLE_VALUE = 110;
     /**
@@ -3029,42 +2881,22 @@ public final class AiActivity {
     public static final int ACT_RUN_SCARED_VALUE = 112;
     /**
      * <code>ACT_VICTORY_DANCE = 113;</code>
-     *
-     * <pre>
-     * killed a player do a victory dance.
-     * </pre>
      */
     public static final int ACT_VICTORY_DANCE_VALUE = 113;
     /**
      * <code>ACT_DIE_HEADSHOT = 114;</code>
-     *
-     * <pre>
-     * die hit in head.
-     * </pre>
      */
     public static final int ACT_DIE_HEADSHOT_VALUE = 114;
     /**
      * <code>ACT_DIE_CHESTSHOT = 115;</code>
-     *
-     * <pre>
-     * die hit in chest
-     * </pre>
      */
     public static final int ACT_DIE_CHESTSHOT_VALUE = 115;
     /**
      * <code>ACT_DIE_GUTSHOT = 116;</code>
-     *
-     * <pre>
-     * die hit in gut
-     * </pre>
      */
     public static final int ACT_DIE_GUTSHOT_VALUE = 116;
     /**
      * <code>ACT_DIE_BACKSHOT = 117;</code>
-     *
-     * <pre>
-     * die hit in back
-     * </pre>
      */
     public static final int ACT_DIE_BACKSHOT_VALUE = 117;
     /**
@@ -3129,10 +2961,6 @@ public final class AiActivity {
     public static final int ACT_FLINCH_CROUCH_RIGHT_VALUE = 132;
     /**
      * <code>ACT_IDLE_ON_FIRE = 133;</code>
-     *
-     * <pre>
-     * ON FIRE animations
-     * </pre>
      */
     public static final int ACT_IDLE_ON_FIRE_VALUE = 133;
     /**
@@ -3145,18 +2973,10 @@ public final class AiActivity {
     public static final int ACT_RUN_ON_FIRE_VALUE = 135;
     /**
      * <code>ACT_RAPPEL_LOOP = 136;</code>
-     *
-     * <pre>
-     * Rappel down a rope!
-     * </pre>
      */
     public static final int ACT_RAPPEL_LOOP_VALUE = 136;
     /**
      * <code>ACT_180_LEFT = 137;</code>
-     *
-     * <pre>
-     * 180 degree left turn
-     * </pre>
      */
     public static final int ACT_180_LEFT_VALUE = 137;
     /**
@@ -3165,10 +2985,6 @@ public final class AiActivity {
     public static final int ACT_180_RIGHT_VALUE = 138;
     /**
      * <code>ACT_90_LEFT = 139;</code>
-     *
-     * <pre>
-     * 90 degree turns
-     * </pre>
      */
     public static final int ACT_90_LEFT_VALUE = 139;
     /**
@@ -3177,10 +2993,6 @@ public final class AiActivity {
     public static final int ACT_90_RIGHT_VALUE = 140;
     /**
      * <code>ACT_STEP_LEFT = 141;</code>
-     *
-     * <pre>
-     * Single steps
-     * </pre>
      */
     public static final int ACT_STEP_LEFT_VALUE = 141;
     /**
@@ -3213,18 +3025,10 @@ public final class AiActivity {
     public static final int ACT_GESTURE_MELEE_ATTACK2_VALUE = 148;
     /**
      * <code>ACT_GESTURE_RANGE_ATTACK1_LOW = 149;</code>
-     *
-     * <pre>
-     * FIXME: not used yet crouched versions of the range attack
-     * </pre>
      */
     public static final int ACT_GESTURE_RANGE_ATTACK1_LOW_VALUE = 149;
     /**
      * <code>ACT_GESTURE_RANGE_ATTACK2_LOW = 150;</code>
-     *
-     * <pre>
-     * FIXME: not used yet crouched versions of the range attack
-     * </pre>
      */
     public static final int ACT_GESTURE_RANGE_ATTACK2_LOW_VALUE = 150;
     /**
@@ -3241,10 +3045,6 @@ public final class AiActivity {
     public static final int ACT_GESTURE_BIG_FLINCH_VALUE = 153;
     /**
      * <code>ACT_GESTURE_FLINCH_BLAST = 154;</code>
-     *
-     * <pre>
-     * Startled by an explosion
-     * </pre>
      */
     public static final int ACT_GESTURE_FLINCH_BLAST_VALUE = 154;
     /**
@@ -3253,10 +3053,6 @@ public final class AiActivity {
     public static final int ACT_GESTURE_FLINCH_BLAST_SHOTGUN_VALUE = 155;
     /**
      * <code>ACT_GESTURE_FLINCH_BLAST_DAMAGED = 156;</code>
-     *
-     * <pre>
-     * Damaged by an explosion
-     * </pre>
      */
     public static final int ACT_GESTURE_FLINCH_BLAST_DAMAGED_VALUE = 156;
     /**
@@ -3333,45 +3129,22 @@ public final class AiActivity {
     public static final int ACT_GESTURE_TURN_RIGHT90_FLAT_VALUE = 174;
     /**
      * <code>ACT_BARNACLE_HIT = 175;</code>
-     *
-     * <pre>
-     * HALF-LIFE 1 compatability stuff goes here. Temporary!
-     * </pre>
      */
     public static final int ACT_BARNACLE_HIT_VALUE = 175;
     /**
      * <code>ACT_BARNACLE_PULL = 176;</code>
-     *
-     * <pre>
-     * barnacle is lifting the monster ( loop )
-     * </pre>
      */
     public static final int ACT_BARNACLE_PULL_VALUE = 176;
     /**
      * <code>ACT_BARNACLE_CHOMP = 177;</code>
-     *
-     * <pre>
-     * barnacle latches on to the monster
-     * </pre>
      */
     public static final int ACT_BARNACLE_CHOMP_VALUE = 177;
     /**
      * <code>ACT_BARNACLE_CHEW = 178;</code>
-     *
-     * <pre>
-     * barnacle is holding the monster in its mouth ( loop )
-     * </pre>
      */
     public static final int ACT_BARNACLE_CHEW_VALUE = 178;
     /**
      * <code>ACT_DO_NOT_DISTURB = 179;</code>
-     *
-     * <pre>
-     * Sometimes you just want to set an NPC's sequence to a sequence that doesn't actually
-     * have an activity. The AI will reset the NPC's sequence to whatever its IDEAL activity
-     * is though. So if you set ideal activity to DO_NOT_DISTURB the AI will not interfere
-     * with the NPC's current sequence. (SJB)
-     * </pre>
      */
     public static final int ACT_DO_NOT_DISTURB_VALUE = 179;
     /**
@@ -3380,11 +3153,6 @@ public final class AiActivity {
     public static final int ACT_SPECIFIC_SEQUENCE_VALUE = 180;
     /**
      * <code>ACT_VM_DRAW = 181;</code>
-     *
-     * <pre>
-     * viewmodel (weapon) activities
-     * FIXME: move these to the specific viewmodels no need to make global
-     * </pre>
      */
     public static final int ACT_VM_DRAW_VALUE = 181;
     /**
@@ -3421,18 +3189,10 @@ public final class AiActivity {
     public static final int ACT_VM_PULLPIN_VALUE = 189;
     /**
      * <code>ACT_VM_PRIMARYATTACK = 190;</code>
-     *
-     * <pre>
-     * fire
-     * </pre>
      */
     public static final int ACT_VM_PRIMARYATTACK_VALUE = 190;
     /**
      * <code>ACT_VM_SECONDARYATTACK = 191;</code>
-     *
-     * <pre>
-     * alt. fire
-     * </pre>
      */
     public static final int ACT_VM_SECONDARYATTACK_VALUE = 191;
     /**
@@ -3441,122 +3201,62 @@ public final class AiActivity {
     public static final int ACT_VM_RELOAD_VALUE = 192;
     /**
      * <code>ACT_VM_DRYFIRE = 193;</code>
-     *
-     * <pre>
-     * fire with no ammo loaded.
-     * </pre>
      */
     public static final int ACT_VM_DRYFIRE_VALUE = 193;
     /**
      * <code>ACT_VM_HITLEFT = 194;</code>
-     *
-     * <pre>
-     * bludgeon swing to left - hit (primary attk)
-     * </pre>
      */
     public static final int ACT_VM_HITLEFT_VALUE = 194;
     /**
      * <code>ACT_VM_HITLEFT2 = 195;</code>
-     *
-     * <pre>
-     * bludgeon swing to left - hit (secondary attk)
-     * </pre>
      */
     public static final int ACT_VM_HITLEFT2_VALUE = 195;
     /**
      * <code>ACT_VM_HITRIGHT = 196;</code>
-     *
-     * <pre>
-     * bludgeon swing to right - hit (primary attk)
-     * </pre>
      */
     public static final int ACT_VM_HITRIGHT_VALUE = 196;
     /**
      * <code>ACT_VM_HITRIGHT2 = 197;</code>
-     *
-     * <pre>
-     * bludgeon swing to right - hit (secondary attk)
-     * </pre>
      */
     public static final int ACT_VM_HITRIGHT2_VALUE = 197;
     /**
      * <code>ACT_VM_HITCENTER = 198;</code>
-     *
-     * <pre>
-     * bludgeon swing center - hit (primary attk)
-     * </pre>
      */
     public static final int ACT_VM_HITCENTER_VALUE = 198;
     /**
      * <code>ACT_VM_HITCENTER2 = 199;</code>
-     *
-     * <pre>
-     * bludgeon swing center - hit (secondary attk)
-     * </pre>
      */
     public static final int ACT_VM_HITCENTER2_VALUE = 199;
     /**
      * <code>ACT_VM_MISSLEFT = 200;</code>
-     *
-     * <pre>
-     * bludgeon swing to left - miss (primary attk)
-     * </pre>
      */
     public static final int ACT_VM_MISSLEFT_VALUE = 200;
     /**
      * <code>ACT_VM_MISSLEFT2 = 201;</code>
-     *
-     * <pre>
-     * bludgeon swing to left - miss (secondary attk)
-     * </pre>
      */
     public static final int ACT_VM_MISSLEFT2_VALUE = 201;
     /**
      * <code>ACT_VM_MISSRIGHT = 202;</code>
-     *
-     * <pre>
-     * bludgeon swing to right - miss (primary attk)
-     * </pre>
      */
     public static final int ACT_VM_MISSRIGHT_VALUE = 202;
     /**
      * <code>ACT_VM_MISSRIGHT2 = 203;</code>
-     *
-     * <pre>
-     * bludgeon swing to right - miss (secondary attk)
-     * </pre>
      */
     public static final int ACT_VM_MISSRIGHT2_VALUE = 203;
     /**
      * <code>ACT_VM_MISSCENTER = 204;</code>
-     *
-     * <pre>
-     * bludgeon swing center - miss (primary attk)
-     * </pre>
      */
     public static final int ACT_VM_MISSCENTER_VALUE = 204;
     /**
      * <code>ACT_VM_MISSCENTER2 = 205;</code>
-     *
-     * <pre>
-     * bludgeon swing center - miss (secondary attk)
-     * </pre>
      */
     public static final int ACT_VM_MISSCENTER2_VALUE = 205;
     /**
      * <code>ACT_VM_HAULBACK = 206;</code>
-     *
-     * <pre>
-     * bludgeon haul the weapon back for a hard strike (secondary attk)
-     * </pre>
      */
     public static final int ACT_VM_HAULBACK_VALUE = 206;
     /**
      * <code>ACT_VM_SWINGHARD = 207;</code>
-     *
-     * <pre>
-     * bludgeon release the hard strike (secondary attk)
-     * </pre>
      */
     public static final int ACT_VM_SWINGHARD_VALUE = 207;
     /**
@@ -3609,13 +3309,6 @@ public final class AiActivity {
     public static final int ACT_VM_DETACH_SILENCER_VALUE = 219;
     /**
      * <code>ACT_SLAM_STICKWALL_IDLE = 220;</code>
-     *
-     * <pre>
-     *===========================
-     * HL2 Specific Activities
-     *===========================
-     * SLAM Specialty Activities
-     * </pre>
      */
     public static final int ACT_SLAM_STICKWALL_IDLE_VALUE = 220;
     /**
@@ -3768,10 +3461,6 @@ public final class AiActivity {
     public static final int ACT_SLAM_DETONATOR_THROW_DRAW_VALUE = 257;
     /**
      * <code>ACT_SHOTGUN_RELOAD_START = 258;</code>
-     *
-     * <pre>
-     * Shotgun Specialty Activities
-     * </pre>
      */
     public static final int ACT_SHOTGUN_RELOAD_START_VALUE = 258;
     /**
@@ -3784,10 +3473,6 @@ public final class AiActivity {
     public static final int ACT_SHOTGUN_PUMP_VALUE = 260;
     /**
      * <code>ACT_SMG2_IDLE2 = 261;</code>
-     *
-     * <pre>
-     * SMG2 special activities
-     * </pre>
      */
     public static final int ACT_SMG2_IDLE2_VALUE = 261;
     /**
@@ -3816,18 +3501,10 @@ public final class AiActivity {
     public static final int ACT_SMG2_TOBURST_VALUE = 267;
     /**
      * <code>ACT_PHYSCANNON_UPGRADE = 268;</code>
-     *
-     * <pre>
-     * Physcannon special activities
-     * </pre>
      */
     public static final int ACT_PHYSCANNON_UPGRADE_VALUE = 268;
     /**
      * <code>ACT_RANGE_ATTACK_AR1 = 269;</code>
-     *
-     * <pre>
-     * weapon override activities
-     * </pre>
      */
     public static final int ACT_RANGE_ATTACK_AR1_VALUE = 269;
     /**
@@ -3928,10 +3605,6 @@ public final class AiActivity {
     public static final int ACT_COVER_SMG1_LOW_VALUE = 293;
     /**
      * <code>ACT_GESTURE_RANGE_ATTACK_AR1 = 294;</code>
-     *
-     * <pre>
-     * weapon override activities
-     * </pre>
      */
     public static final int ACT_GESTURE_RANGE_ATTACK_AR1_VALUE = 294;
     /**
@@ -4088,10 +3761,6 @@ public final class AiActivity {
     public static final int ACT_IDLE_SHOTGUN_AGITATED_VALUE = 332;
     /**
      * <code>ACT_WALK_ANGRY = 333;</code>
-     *
-     * <pre>
-     * Policing activities
-     * </pre>
      */
     public static final int ACT_WALK_ANGRY_VALUE = 333;
     /**
@@ -4104,18 +3773,10 @@ public final class AiActivity {
     public static final int ACT_POLICE_HARASS2_VALUE = 335;
     /**
      * <code>ACT_IDLE_MANNEDGUN = 336;</code>
-     *
-     * <pre>
-     * Manned guns
-     * </pre>
      */
     public static final int ACT_IDLE_MANNEDGUN_VALUE = 336;
     /**
      * <code>ACT_IDLE_MELEE = 337;</code>
-     *
-     * <pre>
-     * Melee weapon
-     * </pre>
      */
     public static final int ACT_IDLE_MELEE_VALUE = 337;
     /**
@@ -4124,10 +3785,6 @@ public final class AiActivity {
     public static final int ACT_IDLE_ANGRY_MELEE_VALUE = 338;
     /**
      * <code>ACT_IDLE_RPG_RELAXED = 339;</code>
-     *
-     * <pre>
-     * RPG activities
-     * </pre>
      */
     public static final int ACT_IDLE_RPG_RELAXED_VALUE = 339;
     /**
@@ -4240,10 +3897,6 @@ public final class AiActivity {
     public static final int ACT_RUN_AIM_STEALTH_PISTOL_VALUE = 366;
     /**
      * <code>ACT_RELOAD_PISTOL = 367;</code>
-     *
-     * <pre>
-     * Reloads
-     * </pre>
      */
     public static final int ACT_RELOAD_PISTOL_VALUE = 367;
     /**
@@ -4284,10 +3937,6 @@ public final class AiActivity {
     public static final int ACT_GESTURE_RELOAD_SHOTGUN_VALUE = 376;
     /**
      * <code>ACT_BUSY_LEAN_LEFT = 377;</code>
-     *
-     * <pre>
-     * Busy animations
-     * </pre>
      */
     public static final int ACT_BUSY_LEAN_LEFT_VALUE = 377;
     /**
@@ -4344,59 +3993,30 @@ public final class AiActivity {
     public static final int ACT_BUSY_QUEUE_VALUE = 390;
     /**
      * <code>ACT_DUCK_DODGE = 391;</code>
-     *
-     * <pre>
-     * Dodge animations
-     * </pre>
      */
     public static final int ACT_DUCK_DODGE_VALUE = 391;
     /**
      * <code>ACT_DIE_BARNACLE_SWALLOW = 392;</code>
-     *
-     * <pre>
-     * For NPCs being lifted/eaten by barnacles:
-     * being swallowed by a barnacle
-     * </pre>
      */
     public static final int ACT_DIE_BARNACLE_SWALLOW_VALUE = 392;
     /**
      * <code>ACT_GESTURE_BARNACLE_STRANGLE = 393;</code>
-     *
-     * <pre>
-     * being lifted by a barnacle
-     * </pre>
      */
     public static final int ACT_GESTURE_BARNACLE_STRANGLE_VALUE = 393;
     /**
      * <code>ACT_PHYSCANNON_DETACH = 394;</code>
-     *
-     * <pre>
-     * An activity to be played if we're picking this up with the physcannon
-     * </pre>
      */
     public static final int ACT_PHYSCANNON_DETACH_VALUE = 394;
     /**
      * <code>ACT_PHYSCANNON_ANIMATE = 395;</code>
-     *
-     * <pre>
-     * An activity to be played by an object being picked up with the physcannon but has different behavior to DETACH
-     * </pre>
      */
     public static final int ACT_PHYSCANNON_ANIMATE_VALUE = 395;
     /**
      * <code>ACT_PHYSCANNON_ANIMATE_PRE = 396;</code>
-     *
-     * <pre>
-     * An activity to be played by an object being picked up with the physcannon before playing the ACT_PHYSCANNON_ANIMATE
-     * </pre>
      */
     public static final int ACT_PHYSCANNON_ANIMATE_PRE_VALUE = 396;
     /**
      * <code>ACT_PHYSCANNON_ANIMATE_POST = 397;</code>
-     *
-     * <pre>
-     * An activity to be played by an object being picked up with the physcannon after playing the ACT_PHYSCANNON_ANIMATE
-     * </pre>
      */
     public static final int ACT_PHYSCANNON_ANIMATE_POST_VALUE = 397;
     /**
@@ -4421,10 +4041,6 @@ public final class AiActivity {
     public static final int ACT_OPEN_DOOR_VALUE = 402;
     /**
      * <code>ACT_DI_ALYX_ZOMBIE_MELEE = 403;</code>
-     *
-     * <pre>
-     * Dynamic interactions
-     * </pre>
      */
     public static final int ACT_DI_ALYX_ZOMBIE_MELEE_VALUE = 403;
     /**
@@ -4493,10 +4109,6 @@ public final class AiActivity {
     public static final int ACT_DOTA_IDLE_VALUE = 419;
     /**
      * <code>ACT_DOTA_IDLE_RARE = 421;</code>
-     *
-     * <pre>
-     *REMOVED	ACT_DOTA_IDLE_ALT   								= 420;
-     * </pre>
      */
     public static final int ACT_DOTA_IDLE_RARE_VALUE = 421;
     /**
@@ -4505,10 +4117,6 @@ public final class AiActivity {
     public static final int ACT_DOTA_RUN_VALUE = 422;
     /**
      * <code>ACT_DOTA_ATTACK = 424;</code>
-     *
-     * <pre>
-     *REMOVED	ACT_DOTA_RUN_ALT									= 423;
-     * </pre>
      */
     public static final int ACT_DOTA_ATTACK_VALUE = 424;
     /**
@@ -4645,10 +4253,6 @@ public final class AiActivity {
     public static final int ACT_DOTA_TAUNT_VALUE = 457;
     /**
      * <code>ACT_DOTA_THIRST = 458;</code>
-     *
-     * <pre>
-     *Hero specific (I hate my life)
-     * </pre>
      */
     public static final int ACT_DOTA_THIRST_VALUE = 458;
     /**
@@ -4887,6 +4491,346 @@ public final class AiActivity {
      * <code>ACT_DOTA_TELEPORT_END = 517;</code>
      */
     public static final int ACT_DOTA_TELEPORT_END_VALUE = 517;
+    /**
+     * <code>ACT_DOTA_CAST_REFRACTION = 518;</code>
+     */
+    public static final int ACT_DOTA_CAST_REFRACTION_VALUE = 518;
+    /**
+     * <code>ACT_DOTA_CAST_ABILITY_7 = 519;</code>
+     */
+    public static final int ACT_DOTA_CAST_ABILITY_7_VALUE = 519;
+    /**
+     * <code>ACT_DOTA_CANCEL_SIREN_SONG = 520;</code>
+     */
+    public static final int ACT_DOTA_CANCEL_SIREN_SONG_VALUE = 520;
+    /**
+     * <code>ACT_DOTA_CHANNEL_ABILITY_7 = 521;</code>
+     */
+    public static final int ACT_DOTA_CHANNEL_ABILITY_7_VALUE = 521;
+    /**
+     * <code>ACT_DOTA_LOADOUT = 522;</code>
+     */
+    public static final int ACT_DOTA_LOADOUT_VALUE = 522;
+    /**
+     * <code>ACT_DOTA_FORCESTAFF_END = 523;</code>
+     */
+    public static final int ACT_DOTA_FORCESTAFF_END_VALUE = 523;
+    /**
+     * <code>ACT_DOTA_POOF_END = 524;</code>
+     */
+    public static final int ACT_DOTA_POOF_END_VALUE = 524;
+    /**
+     * <code>ACT_DOTA_SLARK_POUNCE = 525;</code>
+     */
+    public static final int ACT_DOTA_SLARK_POUNCE_VALUE = 525;
+    /**
+     * <code>ACT_DOTA_MAGNUS_SKEWER_START = 526;</code>
+     */
+    public static final int ACT_DOTA_MAGNUS_SKEWER_START_VALUE = 526;
+    /**
+     * <code>ACT_DOTA_MAGNUS_SKEWER_END = 527;</code>
+     */
+    public static final int ACT_DOTA_MAGNUS_SKEWER_END_VALUE = 527;
+    /**
+     * <code>ACT_DOTA_MEDUSA_STONE_GAZE = 528;</code>
+     */
+    public static final int ACT_DOTA_MEDUSA_STONE_GAZE_VALUE = 528;
+    /**
+     * <code>ACT_DOTA_RELAX_START = 529;</code>
+     */
+    public static final int ACT_DOTA_RELAX_START_VALUE = 529;
+    /**
+     * <code>ACT_DOTA_RELAX_LOOP = 530;</code>
+     */
+    public static final int ACT_DOTA_RELAX_LOOP_VALUE = 530;
+    /**
+     * <code>ACT_DOTA_RELAX_END = 531;</code>
+     */
+    public static final int ACT_DOTA_RELAX_END_VALUE = 531;
+    /**
+     * <code>ACT_DOTA_CENTAUR_STAMPEDE = 532;</code>
+     */
+    public static final int ACT_DOTA_CENTAUR_STAMPEDE_VALUE = 532;
+    /**
+     * <code>ACT_DOTA_BELLYACHE_START = 533;</code>
+     */
+    public static final int ACT_DOTA_BELLYACHE_START_VALUE = 533;
+    /**
+     * <code>ACT_DOTA_BELLYACHE_LOOP = 534;</code>
+     */
+    public static final int ACT_DOTA_BELLYACHE_LOOP_VALUE = 534;
+    /**
+     * <code>ACT_DOTA_BELLYACHE_END = 535;</code>
+     */
+    public static final int ACT_DOTA_BELLYACHE_END_VALUE = 535;
+    /**
+     * <code>ACT_DOTA_ROQUELAIRE_LAND = 536;</code>
+     */
+    public static final int ACT_DOTA_ROQUELAIRE_LAND_VALUE = 536;
+    /**
+     * <code>ACT_DOTA_ROQUELAIRE_LAND_IDLE = 537;</code>
+     */
+    public static final int ACT_DOTA_ROQUELAIRE_LAND_IDLE_VALUE = 537;
+    /**
+     * <code>ACT_DOTA_GREEVIL_CAST = 538;</code>
+     */
+    public static final int ACT_DOTA_GREEVIL_CAST_VALUE = 538;
+    /**
+     * <code>ACT_DOTA_GREEVIL_OVERRIDE_ABILITY = 539;</code>
+     */
+    public static final int ACT_DOTA_GREEVIL_OVERRIDE_ABILITY_VALUE = 539;
+    /**
+     * <code>ACT_DOTA_GREEVIL_HOOK_START = 540;</code>
+     */
+    public static final int ACT_DOTA_GREEVIL_HOOK_START_VALUE = 540;
+    /**
+     * <code>ACT_DOTA_GREEVIL_HOOK_END = 541;</code>
+     */
+    public static final int ACT_DOTA_GREEVIL_HOOK_END_VALUE = 541;
+    /**
+     * <code>ACT_DOTA_GREEVIL_BLINK_BONE = 542;</code>
+     */
+    public static final int ACT_DOTA_GREEVIL_BLINK_BONE_VALUE = 542;
+    /**
+     * <code>ACT_DOTA_IDLE_SLEEPING = 543;</code>
+     */
+    public static final int ACT_DOTA_IDLE_SLEEPING_VALUE = 543;
+    /**
+     * <code>ACT_DOTA_INTRO = 544;</code>
+     */
+    public static final int ACT_DOTA_INTRO_VALUE = 544;
+    /**
+     * <code>ACT_DOTA_GESTURE_POINT = 545;</code>
+     */
+    public static final int ACT_DOTA_GESTURE_POINT_VALUE = 545;
+    /**
+     * <code>ACT_DOTA_GESTURE_ACCENT = 546;</code>
+     */
+    public static final int ACT_DOTA_GESTURE_ACCENT_VALUE = 546;
+    /**
+     * <code>ACT_DOTA_SLEEPING_END = 547;</code>
+     */
+    public static final int ACT_DOTA_SLEEPING_END_VALUE = 547;
+    /**
+     * <code>ACT_DOTA_AMBUSH = 548;</code>
+     */
+    public static final int ACT_DOTA_AMBUSH_VALUE = 548;
+    /**
+     * <code>ACT_DOTA_ITEM_LOOK = 549;</code>
+     */
+    public static final int ACT_DOTA_ITEM_LOOK_VALUE = 549;
+    /**
+     * <code>ACT_DOTA_STARTLE = 550;</code>
+     */
+    public static final int ACT_DOTA_STARTLE_VALUE = 550;
+    /**
+     * <code>ACT_DOTA_FRUSTRATION = 551;</code>
+     */
+    public static final int ACT_DOTA_FRUSTRATION_VALUE = 551;
+    /**
+     * <code>ACT_DOTA_TELEPORT_REACT = 552;</code>
+     */
+    public static final int ACT_DOTA_TELEPORT_REACT_VALUE = 552;
+    /**
+     * <code>ACT_DOTA_TELEPORT_END_REACT = 553;</code>
+     */
+    public static final int ACT_DOTA_TELEPORT_END_REACT_VALUE = 553;
+    /**
+     * <code>ACT_DOTA_SHRUG = 554;</code>
+     */
+    public static final int ACT_DOTA_SHRUG_VALUE = 554;
+    /**
+     * <code>ACT_DOTA_RELAX_LOOP_END = 555;</code>
+     */
+    public static final int ACT_DOTA_RELAX_LOOP_END_VALUE = 555;
+    /**
+     * <code>ACT_DOTA_PRESENT_ITEM = 556;</code>
+     */
+    public static final int ACT_DOTA_PRESENT_ITEM_VALUE = 556;
+    /**
+     * <code>ACT_DOTA_IDLE_IMPATIENT = 557;</code>
+     */
+    public static final int ACT_DOTA_IDLE_IMPATIENT_VALUE = 557;
+    /**
+     * <code>ACT_DOTA_SHARPEN_WEAPON = 558;</code>
+     */
+    public static final int ACT_DOTA_SHARPEN_WEAPON_VALUE = 558;
+    /**
+     * <code>ACT_DOTA_SHARPEN_WEAPON_OUT = 559;</code>
+     */
+    public static final int ACT_DOTA_SHARPEN_WEAPON_OUT_VALUE = 559;
+    /**
+     * <code>ACT_DOTA_IDLE_SLEEPING_END = 560;</code>
+     */
+    public static final int ACT_DOTA_IDLE_SLEEPING_END_VALUE = 560;
+    /**
+     * <code>ACT_DOTA_BRIDGE_DESTROY = 561;</code>
+     */
+    public static final int ACT_DOTA_BRIDGE_DESTROY_VALUE = 561;
+    /**
+     * <code>ACT_DOTA_TAUNT_SNIPER = 562;</code>
+     */
+    public static final int ACT_DOTA_TAUNT_SNIPER_VALUE = 562;
+    /**
+     * <code>ACT_DOTA_DEATH_BY_SNIPER = 563;</code>
+     */
+    public static final int ACT_DOTA_DEATH_BY_SNIPER_VALUE = 563;
+    /**
+     * <code>ACT_DOTA_LOOK_AROUND = 564;</code>
+     */
+    public static final int ACT_DOTA_LOOK_AROUND_VALUE = 564;
+    /**
+     * <code>ACT_DOTA_CAGED_CREEP_RAGE = 565;</code>
+     */
+    public static final int ACT_DOTA_CAGED_CREEP_RAGE_VALUE = 565;
+    /**
+     * <code>ACT_DOTA_CAGED_CREEP_RAGE_OUT = 566;</code>
+     */
+    public static final int ACT_DOTA_CAGED_CREEP_RAGE_OUT_VALUE = 566;
+    /**
+     * <code>ACT_DOTA_CAGED_CREEP_SMASH = 567;</code>
+     */
+    public static final int ACT_DOTA_CAGED_CREEP_SMASH_VALUE = 567;
+    /**
+     * <code>ACT_DOTA_CAGED_CREEP_SMASH_OUT = 568;</code>
+     */
+    public static final int ACT_DOTA_CAGED_CREEP_SMASH_OUT_VALUE = 568;
+    /**
+     * <code>ACT_DOTA_IDLE_IMPATIENT_SWORD_TAP = 569;</code>
+     */
+    public static final int ACT_DOTA_IDLE_IMPATIENT_SWORD_TAP_VALUE = 569;
+    /**
+     * <code>ACT_DOTA_INTRO_LOOP = 570;</code>
+     */
+    public static final int ACT_DOTA_INTRO_LOOP_VALUE = 570;
+    /**
+     * <code>ACT_DOTA_BRIDGE_THREAT = 571;</code>
+     */
+    public static final int ACT_DOTA_BRIDGE_THREAT_VALUE = 571;
+    /**
+     * <code>ACT_DOTA_DAGON = 572;</code>
+     */
+    public static final int ACT_DOTA_DAGON_VALUE = 572;
+    /**
+     * <code>ACT_DOTA_CAST_ABILITY_2_ES_ROLL_START = 573;</code>
+     */
+    public static final int ACT_DOTA_CAST_ABILITY_2_ES_ROLL_START_VALUE = 573;
+    /**
+     * <code>ACT_DOTA_CAST_ABILITY_2_ES_ROLL = 574;</code>
+     */
+    public static final int ACT_DOTA_CAST_ABILITY_2_ES_ROLL_VALUE = 574;
+    /**
+     * <code>ACT_DOTA_CAST_ABILITY_2_ES_ROLL_END = 575;</code>
+     */
+    public static final int ACT_DOTA_CAST_ABILITY_2_ES_ROLL_END_VALUE = 575;
+    /**
+     * <code>ACT_DOTA_NIAN_PIN_START = 576;</code>
+     */
+    public static final int ACT_DOTA_NIAN_PIN_START_VALUE = 576;
+    /**
+     * <code>ACT_DOTA_NIAN_PIN_LOOP = 577;</code>
+     */
+    public static final int ACT_DOTA_NIAN_PIN_LOOP_VALUE = 577;
+    /**
+     * <code>ACT_DOTA_NIAN_PIN_END = 578;</code>
+     */
+    public static final int ACT_DOTA_NIAN_PIN_END_VALUE = 578;
+    /**
+     * <code>ACT_DOTA_LEAP_STUN = 579;</code>
+     */
+    public static final int ACT_DOTA_LEAP_STUN_VALUE = 579;
+    /**
+     * <code>ACT_DOTA_LEAP_SWIPE = 580;</code>
+     */
+    public static final int ACT_DOTA_LEAP_SWIPE_VALUE = 580;
+    /**
+     * <code>ACT_DOTA_NIAN_INTRO_LEAP = 581;</code>
+     */
+    public static final int ACT_DOTA_NIAN_INTRO_LEAP_VALUE = 581;
+    /**
+     * <code>ACT_DOTA_AREA_DENY = 582;</code>
+     */
+    public static final int ACT_DOTA_AREA_DENY_VALUE = 582;
+    /**
+     * <code>ACT_DOTA_NIAN_PIN_TO_STUN = 583;</code>
+     */
+    public static final int ACT_DOTA_NIAN_PIN_TO_STUN_VALUE = 583;
+    /**
+     * <code>ACT_DOTA_RAZE_1 = 584;</code>
+     */
+    public static final int ACT_DOTA_RAZE_1_VALUE = 584;
+    /**
+     * <code>ACT_DOTA_RAZE_2 = 585;</code>
+     */
+    public static final int ACT_DOTA_RAZE_2_VALUE = 585;
+    /**
+     * <code>ACT_DOTA_RAZE_3 = 586;</code>
+     */
+    public static final int ACT_DOTA_RAZE_3_VALUE = 586;
+    /**
+     * <code>ACT_DOTA_UNDYING_DECAY = 587;</code>
+     */
+    public static final int ACT_DOTA_UNDYING_DECAY_VALUE = 587;
+    /**
+     * <code>ACT_DOTA_UNDYING_SOUL_RIP = 588;</code>
+     */
+    public static final int ACT_DOTA_UNDYING_SOUL_RIP_VALUE = 588;
+    /**
+     * <code>ACT_DOTA_UNDYING_TOMBSTONE = 589;</code>
+     */
+    public static final int ACT_DOTA_UNDYING_TOMBSTONE_VALUE = 589;
+    /**
+     * <code>ACT_DOTA_WHIRLING_AXES_RANGED = 590;</code>
+     */
+    public static final int ACT_DOTA_WHIRLING_AXES_RANGED_VALUE = 590;
+    /**
+     * <code>ACT_DOTA_SHALLOW_GRAVE = 591;</code>
+     */
+    public static final int ACT_DOTA_SHALLOW_GRAVE_VALUE = 591;
+    /**
+     * <code>ACT_DOTA_COLD_FEET = 592;</code>
+     */
+    public static final int ACT_DOTA_COLD_FEET_VALUE = 592;
+    /**
+     * <code>ACT_DOTA_ICE_VORTEX = 593;</code>
+     */
+    public static final int ACT_DOTA_ICE_VORTEX_VALUE = 593;
+    /**
+     * <code>ACT_DOTA_CHILLING_TOUCH = 594;</code>
+     */
+    public static final int ACT_DOTA_CHILLING_TOUCH_VALUE = 594;
+    /**
+     * <code>ACT_DOTA_ENFEEBLE = 595;</code>
+     */
+    public static final int ACT_DOTA_ENFEEBLE_VALUE = 595;
+    /**
+     * <code>ACT_DOTA_FATAL_BONDS = 596;</code>
+     */
+    public static final int ACT_DOTA_FATAL_BONDS_VALUE = 596;
+    /**
+     * <code>ACT_DOTA_MIDNIGHT_PULSE = 597;</code>
+     */
+    public static final int ACT_DOTA_MIDNIGHT_PULSE_VALUE = 597;
+    /**
+     * <code>ACT_DOTA_ANCESTRAL_SPIRIT = 598;</code>
+     */
+    public static final int ACT_DOTA_ANCESTRAL_SPIRIT_VALUE = 598;
+    /**
+     * <code>ACT_DOTA_THUNDER_STRIKE = 599;</code>
+     */
+    public static final int ACT_DOTA_THUNDER_STRIKE_VALUE = 599;
+    /**
+     * <code>ACT_DOTA_KINETIC_FIELD = 600;</code>
+     */
+    public static final int ACT_DOTA_KINETIC_FIELD_VALUE = 600;
+    /**
+     * <code>ACT_DOTA_STATIC_STORM = 601;</code>
+     */
+    public static final int ACT_DOTA_STATIC_STORM_VALUE = 601;
+    /**
+     * <code>ACT_DOTA_MINI_TAUNT = 602;</code>
+     */
+    public static final int ACT_DOTA_MINI_TAUNT_VALUE = 602;
 
 
     public final int getNumber() { return value; }
@@ -5410,6 +5354,91 @@ public final class AiActivity {
         case 515: return ACT_DOTA_SPIRIT_BREAKER_CHARGE_END;
         case 516: return ACT_DOTA_TELEPORT;
         case 517: return ACT_DOTA_TELEPORT_END;
+        case 518: return ACT_DOTA_CAST_REFRACTION;
+        case 519: return ACT_DOTA_CAST_ABILITY_7;
+        case 520: return ACT_DOTA_CANCEL_SIREN_SONG;
+        case 521: return ACT_DOTA_CHANNEL_ABILITY_7;
+        case 522: return ACT_DOTA_LOADOUT;
+        case 523: return ACT_DOTA_FORCESTAFF_END;
+        case 524: return ACT_DOTA_POOF_END;
+        case 525: return ACT_DOTA_SLARK_POUNCE;
+        case 526: return ACT_DOTA_MAGNUS_SKEWER_START;
+        case 527: return ACT_DOTA_MAGNUS_SKEWER_END;
+        case 528: return ACT_DOTA_MEDUSA_STONE_GAZE;
+        case 529: return ACT_DOTA_RELAX_START;
+        case 530: return ACT_DOTA_RELAX_LOOP;
+        case 531: return ACT_DOTA_RELAX_END;
+        case 532: return ACT_DOTA_CENTAUR_STAMPEDE;
+        case 533: return ACT_DOTA_BELLYACHE_START;
+        case 534: return ACT_DOTA_BELLYACHE_LOOP;
+        case 535: return ACT_DOTA_BELLYACHE_END;
+        case 536: return ACT_DOTA_ROQUELAIRE_LAND;
+        case 537: return ACT_DOTA_ROQUELAIRE_LAND_IDLE;
+        case 538: return ACT_DOTA_GREEVIL_CAST;
+        case 539: return ACT_DOTA_GREEVIL_OVERRIDE_ABILITY;
+        case 540: return ACT_DOTA_GREEVIL_HOOK_START;
+        case 541: return ACT_DOTA_GREEVIL_HOOK_END;
+        case 542: return ACT_DOTA_GREEVIL_BLINK_BONE;
+        case 543: return ACT_DOTA_IDLE_SLEEPING;
+        case 544: return ACT_DOTA_INTRO;
+        case 545: return ACT_DOTA_GESTURE_POINT;
+        case 546: return ACT_DOTA_GESTURE_ACCENT;
+        case 547: return ACT_DOTA_SLEEPING_END;
+        case 548: return ACT_DOTA_AMBUSH;
+        case 549: return ACT_DOTA_ITEM_LOOK;
+        case 550: return ACT_DOTA_STARTLE;
+        case 551: return ACT_DOTA_FRUSTRATION;
+        case 552: return ACT_DOTA_TELEPORT_REACT;
+        case 553: return ACT_DOTA_TELEPORT_END_REACT;
+        case 554: return ACT_DOTA_SHRUG;
+        case 555: return ACT_DOTA_RELAX_LOOP_END;
+        case 556: return ACT_DOTA_PRESENT_ITEM;
+        case 557: return ACT_DOTA_IDLE_IMPATIENT;
+        case 558: return ACT_DOTA_SHARPEN_WEAPON;
+        case 559: return ACT_DOTA_SHARPEN_WEAPON_OUT;
+        case 560: return ACT_DOTA_IDLE_SLEEPING_END;
+        case 561: return ACT_DOTA_BRIDGE_DESTROY;
+        case 562: return ACT_DOTA_TAUNT_SNIPER;
+        case 563: return ACT_DOTA_DEATH_BY_SNIPER;
+        case 564: return ACT_DOTA_LOOK_AROUND;
+        case 565: return ACT_DOTA_CAGED_CREEP_RAGE;
+        case 566: return ACT_DOTA_CAGED_CREEP_RAGE_OUT;
+        case 567: return ACT_DOTA_CAGED_CREEP_SMASH;
+        case 568: return ACT_DOTA_CAGED_CREEP_SMASH_OUT;
+        case 569: return ACT_DOTA_IDLE_IMPATIENT_SWORD_TAP;
+        case 570: return ACT_DOTA_INTRO_LOOP;
+        case 571: return ACT_DOTA_BRIDGE_THREAT;
+        case 572: return ACT_DOTA_DAGON;
+        case 573: return ACT_DOTA_CAST_ABILITY_2_ES_ROLL_START;
+        case 574: return ACT_DOTA_CAST_ABILITY_2_ES_ROLL;
+        case 575: return ACT_DOTA_CAST_ABILITY_2_ES_ROLL_END;
+        case 576: return ACT_DOTA_NIAN_PIN_START;
+        case 577: return ACT_DOTA_NIAN_PIN_LOOP;
+        case 578: return ACT_DOTA_NIAN_PIN_END;
+        case 579: return ACT_DOTA_LEAP_STUN;
+        case 580: return ACT_DOTA_LEAP_SWIPE;
+        case 581: return ACT_DOTA_NIAN_INTRO_LEAP;
+        case 582: return ACT_DOTA_AREA_DENY;
+        case 583: return ACT_DOTA_NIAN_PIN_TO_STUN;
+        case 584: return ACT_DOTA_RAZE_1;
+        case 585: return ACT_DOTA_RAZE_2;
+        case 586: return ACT_DOTA_RAZE_3;
+        case 587: return ACT_DOTA_UNDYING_DECAY;
+        case 588: return ACT_DOTA_UNDYING_SOUL_RIP;
+        case 589: return ACT_DOTA_UNDYING_TOMBSTONE;
+        case 590: return ACT_DOTA_WHIRLING_AXES_RANGED;
+        case 591: return ACT_DOTA_SHALLOW_GRAVE;
+        case 592: return ACT_DOTA_COLD_FEET;
+        case 593: return ACT_DOTA_ICE_VORTEX;
+        case 594: return ACT_DOTA_CHILLING_TOUCH;
+        case 595: return ACT_DOTA_ENFEEBLE;
+        case 596: return ACT_DOTA_FATAL_BONDS;
+        case 597: return ACT_DOTA_MIDNIGHT_PULSE;
+        case 598: return ACT_DOTA_ANCESTRAL_SPIRIT;
+        case 599: return ACT_DOTA_THUNDER_STRIKE;
+        case 600: return ACT_DOTA_KINETIC_FIELD;
+        case 601: return ACT_DOTA_STATIC_STORM;
+        case 602: return ACT_DOTA_MINI_TAUNT;
         default: return null;
       }
     }
@@ -5458,7 +5487,7 @@ public final class AiActivity {
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:com.valve.dota2.Activity)
+    // @@protoc_insertion_point(enum_scope:Activity)
   }
 
 
@@ -5470,364 +5499,427 @@ public final class AiActivity {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021ai_activity.proto\022\017com.valve.dota2*\264o\n" +
-      "\010Activity\022\030\n\013ACT_INVALID\020\377\377\377\377\377\377\377\377\377\001\022\r\n\tA" +
-      "CT_RESET\020\000\022\014\n\010ACT_IDLE\020\001\022\022\n\016ACT_TRANSITI" +
-      "ON\020\002\022\r\n\tACT_COVER\020\003\022\021\n\rACT_COVER_MED\020\004\022\021" +
-      "\n\rACT_COVER_LOW\020\005\022\014\n\010ACT_WALK\020\006\022\020\n\014ACT_W" +
-      "ALK_AIM\020\007\022\023\n\017ACT_WALK_CROUCH\020\010\022\027\n\023ACT_WA" +
-      "LK_CROUCH_AIM\020\t\022\013\n\007ACT_RUN\020\n\022\017\n\013ACT_RUN_" +
-      "AIM\020\013\022\022\n\016ACT_RUN_CROUCH\020\014\022\026\n\022ACT_RUN_CRO" +
-      "UCH_AIM\020\r\022\025\n\021ACT_RUN_PROTECTED\020\016\022\032\n\026ACT_" +
-      "SCRIPT_CUSTOM_MOVE\020\017\022\025\n\021ACT_RANGE_ATTACK",
-      "1\020\020\022\025\n\021ACT_RANGE_ATTACK2\020\021\022\031\n\025ACT_RANGE_" +
-      "ATTACK1_LOW\020\022\022\031\n\025ACT_RANGE_ATTACK2_LOW\020\023" +
-      "\022\021\n\rACT_DIESIMPLE\020\024\022\023\n\017ACT_DIEBACKWARD\020\025" +
-      "\022\022\n\016ACT_DIEFORWARD\020\026\022\022\n\016ACT_DIEVIOLENT\020\027" +
-      "\022\022\n\016ACT_DIERAGDOLL\020\030\022\013\n\007ACT_FLY\020\031\022\r\n\tACT" +
-      "_HOVER\020\032\022\r\n\tACT_GLIDE\020\033\022\014\n\010ACT_SWIM\020\034\022\014\n" +
-      "\010ACT_JUMP\020\035\022\013\n\007ACT_HOP\020\036\022\014\n\010ACT_LEAP\020\037\022\014" +
-      "\n\010ACT_LAND\020 \022\020\n\014ACT_CLIMB_UP\020!\022\022\n\016ACT_CL" +
-      "IMB_DOWN\020\"\022\026\n\022ACT_CLIMB_DISMOUNT\020#\022\025\n\021AC" +
-      "T_SHIPLADDER_UP\020$\022\027\n\023ACT_SHIPLADDER_DOWN",
-      "\020%\022\023\n\017ACT_STRAFE_LEFT\020&\022\024\n\020ACT_STRAFE_RI" +
-      "GHT\020\'\022\021\n\rACT_ROLL_LEFT\020(\022\022\n\016ACT_ROLL_RIG" +
-      "HT\020)\022\021\n\rACT_TURN_LEFT\020*\022\022\n\016ACT_TURN_RIGH" +
-      "T\020+\022\016\n\nACT_CROUCH\020,\022\022\n\016ACT_CROUCHIDLE\020-\022" +
-      "\r\n\tACT_STAND\020.\022\013\n\007ACT_USE\020/\022\031\n\025ACT_ALIEN" +
-      "_BURROW_IDLE\0200\022\030\n\024ACT_ALIEN_BURROW_OUT\0201" +
-      "\022\017\n\013ACT_SIGNAL1\0202\022\017\n\013ACT_SIGNAL2\0203\022\017\n\013AC" +
-      "T_SIGNAL3\0204\022\026\n\022ACT_SIGNAL_ADVANCE\0205\022\026\n\022A" +
-      "CT_SIGNAL_FORWARD\0206\022\024\n\020ACT_SIGNAL_GROUP\020" +
-      "7\022\023\n\017ACT_SIGNAL_HALT\0208\022\023\n\017ACT_SIGNAL_LEF",
-      "T\0209\022\024\n\020ACT_SIGNAL_RIGHT\020:\022\030\n\024ACT_SIGNAL_" +
-      "TAKECOVER\020;\022\026\n\022ACT_LOOKBACK_RIGHT\020<\022\025\n\021A" +
-      "CT_LOOKBACK_LEFT\020=\022\r\n\tACT_COWER\020>\022\024\n\020ACT" +
-      "_SMALL_FLINCH\020?\022\022\n\016ACT_BIG_FLINCH\020@\022\025\n\021A" +
-      "CT_MELEE_ATTACK1\020A\022\025\n\021ACT_MELEE_ATTACK2\020" +
-      "B\022\016\n\nACT_RELOAD\020C\022\024\n\020ACT_RELOAD_START\020D\022" +
-      "\025\n\021ACT_RELOAD_FINISH\020E\022\022\n\016ACT_RELOAD_LOW" +
-      "\020F\022\013\n\007ACT_ARM\020G\022\016\n\nACT_DISARM\020H\022\023\n\017ACT_D" +
-      "ROP_WEAPON\020I\022\033\n\027ACT_DROP_WEAPON_SHOTGUN\020" +
-      "J\022\025\n\021ACT_PICKUP_GROUND\020K\022\023\n\017ACT_PICKUP_R",
-      "ACK\020L\022\022\n\016ACT_IDLE_ANGRY\020M\022\024\n\020ACT_IDLE_RE" +
-      "LAXED\020N\022\027\n\023ACT_IDLE_STIMULATED\020O\022\025\n\021ACT_" +
-      "IDLE_AGITATED\020P\022\024\n\020ACT_IDLE_STEALTH\020Q\022\021\n" +
-      "\rACT_IDLE_HURT\020R\022\024\n\020ACT_WALK_RELAXED\020S\022\027" +
-      "\n\023ACT_WALK_STIMULATED\020T\022\025\n\021ACT_WALK_AGIT" +
-      "ATED\020U\022\024\n\020ACT_WALK_STEALTH\020V\022\023\n\017ACT_RUN_" +
-      "RELAXED\020W\022\026\n\022ACT_RUN_STIMULATED\020X\022\024\n\020ACT" +
-      "_RUN_AGITATED\020Y\022\023\n\017ACT_RUN_STEALTH\020Z\022\030\n\024" +
-      "ACT_IDLE_AIM_RELAXED\020[\022\033\n\027ACT_IDLE_AIM_S" +
-      "TIMULATED\020\\\022\031\n\025ACT_IDLE_AIM_AGITATED\020]\022\030",
-      "\n\024ACT_IDLE_AIM_STEALTH\020^\022\030\n\024ACT_WALK_AIM" +
-      "_RELAXED\020_\022\033\n\027ACT_WALK_AIM_STIMULATED\020`\022" +
-      "\031\n\025ACT_WALK_AIM_AGITATED\020a\022\030\n\024ACT_WALK_A" +
-      "IM_STEALTH\020b\022\027\n\023ACT_RUN_AIM_RELAXED\020c\022\032\n" +
-      "\026ACT_RUN_AIM_STIMULATED\020d\022\030\n\024ACT_RUN_AIM" +
-      "_AGITATED\020e\022\027\n\023ACT_RUN_AIM_STEALTH\020f\022\035\n\031" +
-      "ACT_CROUCHIDLE_STIMULATED\020g\022!\n\035ACT_CROUC" +
-      "HIDLE_AIM_STIMULATED\020h\022\033\n\027ACT_CROUCHIDLE" +
-      "_AGITATED\020i\022\021\n\rACT_WALK_HURT\020j\022\020\n\014ACT_RU" +
-      "N_HURT\020k\022\027\n\023ACT_SPECIAL_ATTACK1\020l\022\027\n\023ACT",
-      "_SPECIAL_ATTACK2\020m\022\023\n\017ACT_COMBAT_IDLE\020n\022" +
-      "\023\n\017ACT_WALK_SCARED\020o\022\022\n\016ACT_RUN_SCARED\020p" +
-      "\022\025\n\021ACT_VICTORY_DANCE\020q\022\024\n\020ACT_DIE_HEADS" +
-      "HOT\020r\022\025\n\021ACT_DIE_CHESTSHOT\020s\022\023\n\017ACT_DIE_" +
-      "GUTSHOT\020t\022\024\n\020ACT_DIE_BACKSHOT\020u\022\023\n\017ACT_F" +
-      "LINCH_HEAD\020v\022\024\n\020ACT_FLINCH_CHEST\020w\022\026\n\022AC" +
-      "T_FLINCH_STOMACH\020x\022\026\n\022ACT_FLINCH_LEFTARM" +
-      "\020y\022\027\n\023ACT_FLINCH_RIGHTARM\020z\022\026\n\022ACT_FLINC" +
-      "H_LEFTLEG\020{\022\027\n\023ACT_FLINCH_RIGHTLEG\020|\022\026\n\022" +
-      "ACT_FLINCH_PHYSICS\020}\022\030\n\024ACT_FLINCH_HEAD_",
-      "BACK\020~\022\031\n\025ACT_FLINCH_CHEST_BACK\020\177\022\034\n\027ACT" +
-      "_FLINCH_STOMACH_BACK\020\200\001\022\034\n\027ACT_FLINCH_CR" +
-      "OUCH_FRONT\020\201\001\022\033\n\026ACT_FLINCH_CROUCH_BACK\020" +
-      "\202\001\022\033\n\026ACT_FLINCH_CROUCH_LEFT\020\203\001\022\034\n\027ACT_F" +
-      "LINCH_CROUCH_RIGHT\020\204\001\022\025\n\020ACT_IDLE_ON_FIR" +
-      "E\020\205\001\022\025\n\020ACT_WALK_ON_FIRE\020\206\001\022\024\n\017ACT_RUN_O" +
-      "N_FIRE\020\207\001\022\024\n\017ACT_RAPPEL_LOOP\020\210\001\022\021\n\014ACT_1" +
-      "80_LEFT\020\211\001\022\022\n\rACT_180_RIGHT\020\212\001\022\020\n\013ACT_90" +
-      "_LEFT\020\213\001\022\021\n\014ACT_90_RIGHT\020\214\001\022\022\n\rACT_STEP_" +
-      "LEFT\020\215\001\022\023\n\016ACT_STEP_RIGHT\020\216\001\022\022\n\rACT_STEP",
-      "_BACK\020\217\001\022\022\n\rACT_STEP_FORE\020\220\001\022\036\n\031ACT_GEST" +
-      "URE_RANGE_ATTACK1\020\221\001\022\036\n\031ACT_GESTURE_RANG" +
-      "E_ATTACK2\020\222\001\022\036\n\031ACT_GESTURE_MELEE_ATTACK" +
-      "1\020\223\001\022\036\n\031ACT_GESTURE_MELEE_ATTACK2\020\224\001\022\"\n\035" +
-      "ACT_GESTURE_RANGE_ATTACK1_LOW\020\225\001\022\"\n\035ACT_" +
-      "GESTURE_RANGE_ATTACK2_LOW\020\226\001\022#\n\036ACT_MELE" +
-      "E_ATTACK_SWING_GESTURE\020\227\001\022\035\n\030ACT_GESTURE" +
-      "_SMALL_FLINCH\020\230\001\022\033\n\026ACT_GESTURE_BIG_FLIN" +
-      "CH\020\231\001\022\035\n\030ACT_GESTURE_FLINCH_BLAST\020\232\001\022%\n " +
-      "ACT_GESTURE_FLINCH_BLAST_SHOTGUN\020\233\001\022%\n A",
-      "CT_GESTURE_FLINCH_BLAST_DAMAGED\020\234\001\022-\n(AC" +
-      "T_GESTURE_FLINCH_BLAST_DAMAGED_SHOTGUN\020\235" +
-      "\001\022\034\n\027ACT_GESTURE_FLINCH_HEAD\020\236\001\022\035\n\030ACT_G" +
-      "ESTURE_FLINCH_CHEST\020\237\001\022\037\n\032ACT_GESTURE_FL" +
-      "INCH_STOMACH\020\240\001\022\037\n\032ACT_GESTURE_FLINCH_LE" +
-      "FTARM\020\241\001\022 \n\033ACT_GESTURE_FLINCH_RIGHTARM\020" +
-      "\242\001\022\037\n\032ACT_GESTURE_FLINCH_LEFTLEG\020\243\001\022 \n\033A" +
-      "CT_GESTURE_FLINCH_RIGHTLEG\020\244\001\022\032\n\025ACT_GES" +
-      "TURE_TURN_LEFT\020\245\001\022\033\n\026ACT_GESTURE_TURN_RI" +
-      "GHT\020\246\001\022\034\n\027ACT_GESTURE_TURN_LEFT45\020\247\001\022\035\n\030",
-      "ACT_GESTURE_TURN_RIGHT45\020\250\001\022\034\n\027ACT_GESTU" +
-      "RE_TURN_LEFT90\020\251\001\022\035\n\030ACT_GESTURE_TURN_RI" +
-      "GHT90\020\252\001\022!\n\034ACT_GESTURE_TURN_LEFT45_FLAT" +
-      "\020\253\001\022\"\n\035ACT_GESTURE_TURN_RIGHT45_FLAT\020\254\001\022" +
-      "!\n\034ACT_GESTURE_TURN_LEFT90_FLAT\020\255\001\022\"\n\035AC" +
-      "T_GESTURE_TURN_RIGHT90_FLAT\020\256\001\022\025\n\020ACT_BA" +
-      "RNACLE_HIT\020\257\001\022\026\n\021ACT_BARNACLE_PULL\020\260\001\022\027\n" +
-      "\022ACT_BARNACLE_CHOMP\020\261\001\022\026\n\021ACT_BARNACLE_C" +
-      "HEW\020\262\001\022\027\n\022ACT_DO_NOT_DISTURB\020\263\001\022\032\n\025ACT_S" +
-      "PECIFIC_SEQUENCE\020\264\001\022\020\n\013ACT_VM_DRAW\020\265\001\022\023\n",
-      "\016ACT_VM_HOLSTER\020\266\001\022\020\n\013ACT_VM_IDLE\020\267\001\022\022\n\r" +
-      "ACT_VM_FIDGET\020\270\001\022\024\n\017ACT_VM_PULLBACK\020\271\001\022\031" +
-      "\n\024ACT_VM_PULLBACK_HIGH\020\272\001\022\030\n\023ACT_VM_PULL" +
-      "BACK_LOW\020\273\001\022\021\n\014ACT_VM_THROW\020\274\001\022\023\n\016ACT_VM" +
-      "_PULLPIN\020\275\001\022\031\n\024ACT_VM_PRIMARYATTACK\020\276\001\022\033" +
-      "\n\026ACT_VM_SECONDARYATTACK\020\277\001\022\022\n\rACT_VM_RE" +
-      "LOAD\020\300\001\022\023\n\016ACT_VM_DRYFIRE\020\301\001\022\023\n\016ACT_VM_H" +
-      "ITLEFT\020\302\001\022\024\n\017ACT_VM_HITLEFT2\020\303\001\022\024\n\017ACT_V" +
-      "M_HITRIGHT\020\304\001\022\025\n\020ACT_VM_HITRIGHT2\020\305\001\022\025\n\020" +
-      "ACT_VM_HITCENTER\020\306\001\022\026\n\021ACT_VM_HITCENTER2",
-      "\020\307\001\022\024\n\017ACT_VM_MISSLEFT\020\310\001\022\025\n\020ACT_VM_MISS" +
-      "LEFT2\020\311\001\022\025\n\020ACT_VM_MISSRIGHT\020\312\001\022\026\n\021ACT_V" +
-      "M_MISSRIGHT2\020\313\001\022\026\n\021ACT_VM_MISSCENTER\020\314\001\022" +
-      "\027\n\022ACT_VM_MISSCENTER2\020\315\001\022\024\n\017ACT_VM_HAULB" +
-      "ACK\020\316\001\022\025\n\020ACT_VM_SWINGHARD\020\317\001\022\025\n\020ACT_VM_" +
-      "SWINGMISS\020\320\001\022\024\n\017ACT_VM_SWINGHIT\020\321\001\022\033\n\026AC" +
-      "T_VM_IDLE_TO_LOWERED\020\322\001\022\030\n\023ACT_VM_IDLE_L" +
-      "OWERED\020\323\001\022\033\n\026ACT_VM_LOWERED_TO_IDLE\020\324\001\022\023" +
-      "\n\016ACT_VM_RECOIL1\020\325\001\022\023\n\016ACT_VM_RECOIL2\020\326\001" +
-      "\022\023\n\016ACT_VM_RECOIL3\020\327\001\022\022\n\rACT_VM_PICKUP\020\330",
-      "\001\022\023\n\016ACT_VM_RELEASE\020\331\001\022\033\n\026ACT_VM_ATTACH_" +
-      "SILENCER\020\332\001\022\033\n\026ACT_VM_DETACH_SILENCER\020\333\001" +
-      "\022\034\n\027ACT_SLAM_STICKWALL_IDLE\020\334\001\022\037\n\032ACT_SL" +
-      "AM_STICKWALL_ND_IDLE\020\335\001\022\036\n\031ACT_SLAM_STIC" +
-      "KWALL_ATTACH\020\336\001\022\037\n\032ACT_SLAM_STICKWALL_AT" +
-      "TACH2\020\337\001\022!\n\034ACT_SLAM_STICKWALL_ND_ATTACH" +
-      "\020\340\001\022\"\n\035ACT_SLAM_STICKWALL_ND_ATTACH2\020\341\001\022" +
-      " \n\033ACT_SLAM_STICKWALL_DETONATE\020\342\001\022)\n$ACT" +
-      "_SLAM_STICKWALL_DETONATOR_HOLSTER\020\343\001\022\034\n\027" +
-      "ACT_SLAM_STICKWALL_DRAW\020\344\001\022\037\n\032ACT_SLAM_S",
-      "TICKWALL_ND_DRAW\020\345\001\022 \n\033ACT_SLAM_STICKWAL" +
-      "L_TO_THROW\020\346\001\022#\n\036ACT_SLAM_STICKWALL_TO_T" +
-      "HROW_ND\020\347\001\022&\n!ACT_SLAM_STICKWALL_TO_TRIP" +
-      "MINE_ND\020\350\001\022\030\n\023ACT_SLAM_THROW_IDLE\020\351\001\022\033\n\026" +
-      "ACT_SLAM_THROW_ND_IDLE\020\352\001\022\031\n\024ACT_SLAM_TH" +
-      "ROW_THROW\020\353\001\022\032\n\025ACT_SLAM_THROW_THROW2\020\354\001" +
-      "\022\034\n\027ACT_SLAM_THROW_THROW_ND\020\355\001\022\035\n\030ACT_SL" +
-      "AM_THROW_THROW_ND2\020\356\001\022\030\n\023ACT_SLAM_THROW_" +
-      "DRAW\020\357\001\022\033\n\026ACT_SLAM_THROW_ND_DRAW\020\360\001\022 \n\033" +
-      "ACT_SLAM_THROW_TO_STICKWALL\020\361\001\022#\n\036ACT_SL",
-      "AM_THROW_TO_STICKWALL_ND\020\362\001\022\034\n\027ACT_SLAM_" +
-      "THROW_DETONATE\020\363\001\022%\n ACT_SLAM_THROW_DETO" +
-      "NATOR_HOLSTER\020\364\001\022\"\n\035ACT_SLAM_THROW_TO_TR" +
-      "IPMINE_ND\020\365\001\022\033\n\026ACT_SLAM_TRIPMINE_IDLE\020\366" +
-      "\001\022\033\n\026ACT_SLAM_TRIPMINE_DRAW\020\367\001\022\035\n\030ACT_SL" +
-      "AM_TRIPMINE_ATTACH\020\370\001\022\036\n\031ACT_SLAM_TRIPMI" +
-      "NE_ATTACH2\020\371\001\022&\n!ACT_SLAM_TRIPMINE_TO_ST" +
-      "ICKWALL_ND\020\372\001\022\"\n\035ACT_SLAM_TRIPMINE_TO_TH" +
-      "ROW_ND\020\373\001\022\034\n\027ACT_SLAM_DETONATOR_IDLE\020\374\001\022" +
-      "\034\n\027ACT_SLAM_DETONATOR_DRAW\020\375\001\022 \n\033ACT_SLA",
-      "M_DETONATOR_DETONATE\020\376\001\022\037\n\032ACT_SLAM_DETO" +
-      "NATOR_HOLSTER\020\377\001\022&\n!ACT_SLAM_DETONATOR_S" +
-      "TICKWALL_DRAW\020\200\002\022\"\n\035ACT_SLAM_DETONATOR_T" +
-      "HROW_DRAW\020\201\002\022\035\n\030ACT_SHOTGUN_RELOAD_START" +
-      "\020\202\002\022\036\n\031ACT_SHOTGUN_RELOAD_FINISH\020\203\002\022\025\n\020A" +
-      "CT_SHOTGUN_PUMP\020\204\002\022\023\n\016ACT_SMG2_IDLE2\020\205\002\022" +
-      "\023\n\016ACT_SMG2_FIRE2\020\206\002\022\023\n\016ACT_SMG2_DRAW2\020\207" +
-      "\002\022\025\n\020ACT_SMG2_RELOAD2\020\210\002\022\026\n\021ACT_SMG2_DRY" +
-      "FIRE2\020\211\002\022\024\n\017ACT_SMG2_TOAUTO\020\212\002\022\025\n\020ACT_SM" +
-      "G2_TOBURST\020\213\002\022\033\n\026ACT_PHYSCANNON_UPGRADE\020",
-      "\214\002\022\031\n\024ACT_RANGE_ATTACK_AR1\020\215\002\022\031\n\024ACT_RAN" +
-      "GE_ATTACK_AR2\020\216\002\022\035\n\030ACT_RANGE_ATTACK_AR2" +
-      "_LOW\020\217\002\022!\n\034ACT_RANGE_ATTACK_AR2_GRENADE\020" +
-      "\220\002\022\032\n\025ACT_RANGE_ATTACK_HMG1\020\221\002\022\030\n\023ACT_RA" +
-      "NGE_ATTACK_ML\020\222\002\022\032\n\025ACT_RANGE_ATTACK_SMG" +
-      "1\020\223\002\022\036\n\031ACT_RANGE_ATTACK_SMG1_LOW\020\224\002\022\032\n\025" +
-      "ACT_RANGE_ATTACK_SMG2\020\225\002\022\035\n\030ACT_RANGE_AT" +
-      "TACK_SHOTGUN\020\226\002\022!\n\034ACT_RANGE_ATTACK_SHOT" +
-      "GUN_LOW\020\227\002\022\034\n\027ACT_RANGE_ATTACK_PISTOL\020\230\002" +
-      "\022 \n\033ACT_RANGE_ATTACK_PISTOL_LOW\020\231\002\022\032\n\025AC",
-      "T_RANGE_ATTACK_SLAM\020\232\002\022\036\n\031ACT_RANGE_ATTA" +
-      "CK_TRIPWIRE\020\233\002\022\033\n\026ACT_RANGE_ATTACK_THROW" +
-      "\020\234\002\022\"\n\035ACT_RANGE_ATTACK_SNIPER_RIFLE\020\235\002\022" +
-      "\031\n\024ACT_RANGE_ATTACK_RPG\020\236\002\022\033\n\026ACT_MELEE_" +
-      "ATTACK_SWING\020\237\002\022\026\n\021ACT_RANGE_AIM_LOW\020\240\002\022" +
-      "\033\n\026ACT_RANGE_AIM_SMG1_LOW\020\241\002\022\035\n\030ACT_RANG" +
-      "E_AIM_PISTOL_LOW\020\242\002\022\032\n\025ACT_RANGE_AIM_AR2" +
-      "_LOW\020\243\002\022\031\n\024ACT_COVER_PISTOL_LOW\020\244\002\022\027\n\022AC" +
-      "T_COVER_SMG1_LOW\020\245\002\022!\n\034ACT_GESTURE_RANGE" +
-      "_ATTACK_AR1\020\246\002\022!\n\034ACT_GESTURE_RANGE_ATTA",
-      "CK_AR2\020\247\002\022)\n$ACT_GESTURE_RANGE_ATTACK_AR" +
-      "2_GRENADE\020\250\002\022\"\n\035ACT_GESTURE_RANGE_ATTACK" +
-      "_HMG1\020\251\002\022 \n\033ACT_GESTURE_RANGE_ATTACK_ML\020" +
-      "\252\002\022\"\n\035ACT_GESTURE_RANGE_ATTACK_SMG1\020\253\002\022&" +
-      "\n!ACT_GESTURE_RANGE_ATTACK_SMG1_LOW\020\254\002\022\"" +
-      "\n\035ACT_GESTURE_RANGE_ATTACK_SMG2\020\255\002\022%\n AC" +
-      "T_GESTURE_RANGE_ATTACK_SHOTGUN\020\256\002\022$\n\037ACT" +
-      "_GESTURE_RANGE_ATTACK_PISTOL\020\257\002\022(\n#ACT_G" +
-      "ESTURE_RANGE_ATTACK_PISTOL_LOW\020\260\002\022\"\n\035ACT" +
-      "_GESTURE_RANGE_ATTACK_SLAM\020\261\002\022&\n!ACT_GES",
-      "TURE_RANGE_ATTACK_TRIPWIRE\020\262\002\022#\n\036ACT_GES" +
-      "TURE_RANGE_ATTACK_THROW\020\263\002\022*\n%ACT_GESTUR" +
-      "E_RANGE_ATTACK_SNIPER_RIFLE\020\264\002\022#\n\036ACT_GE" +
-      "STURE_MELEE_ATTACK_SWING\020\265\002\022\023\n\016ACT_IDLE_" +
-      "RIFLE\020\266\002\022\022\n\rACT_IDLE_SMG1\020\267\002\022\030\n\023ACT_IDLE" +
-      "_ANGRY_SMG1\020\270\002\022\024\n\017ACT_IDLE_PISTOL\020\271\002\022\032\n\025" +
-      "ACT_IDLE_ANGRY_PISTOL\020\272\002\022\033\n\026ACT_IDLE_ANG" +
-      "RY_SHOTGUN\020\273\002\022\034\n\027ACT_IDLE_STEALTH_PISTOL" +
-      "\020\274\002\022\025\n\020ACT_IDLE_PACKAGE\020\275\002\022\025\n\020ACT_WALK_P" +
-      "ACKAGE\020\276\002\022\026\n\021ACT_IDLE_SUITCASE\020\277\002\022\026\n\021ACT",
-      "_WALK_SUITCASE\020\300\002\022\032\n\025ACT_IDLE_SMG1_RELAX" +
-      "ED\020\301\002\022\035\n\030ACT_IDLE_SMG1_STIMULATED\020\302\002\022\033\n\026" +
-      "ACT_WALK_RIFLE_RELAXED\020\303\002\022\032\n\025ACT_RUN_RIF" +
-      "LE_RELAXED\020\304\002\022\036\n\031ACT_WALK_RIFLE_STIMULAT" +
-      "ED\020\305\002\022\035\n\030ACT_RUN_RIFLE_STIMULATED\020\306\002\022\"\n\035" +
-      "ACT_IDLE_AIM_RIFLE_STIMULATED\020\307\002\022\"\n\035ACT_" +
-      "WALK_AIM_RIFLE_STIMULATED\020\310\002\022!\n\034ACT_RUN_" +
-      "AIM_RIFLE_STIMULATED\020\311\002\022\035\n\030ACT_IDLE_SHOT" +
-      "GUN_RELAXED\020\312\002\022 \n\033ACT_IDLE_SHOTGUN_STIMU" +
-      "LATED\020\313\002\022\036\n\031ACT_IDLE_SHOTGUN_AGITATED\020\314\002",
-      "\022\023\n\016ACT_WALK_ANGRY\020\315\002\022\027\n\022ACT_POLICE_HARA" +
-      "SS1\020\316\002\022\027\n\022ACT_POLICE_HARASS2\020\317\002\022\027\n\022ACT_I" +
-      "DLE_MANNEDGUN\020\320\002\022\023\n\016ACT_IDLE_MELEE\020\321\002\022\031\n" +
-      "\024ACT_IDLE_ANGRY_MELEE\020\322\002\022\031\n\024ACT_IDLE_RPG" +
-      "_RELAXED\020\323\002\022\021\n\014ACT_IDLE_RPG\020\324\002\022\027\n\022ACT_ID" +
-      "LE_ANGRY_RPG\020\325\002\022\026\n\021ACT_COVER_LOW_RPG\020\326\002\022" +
-      "\021\n\014ACT_WALK_RPG\020\327\002\022\020\n\013ACT_RUN_RPG\020\330\002\022\030\n\023" +
-      "ACT_WALK_CROUCH_RPG\020\331\002\022\027\n\022ACT_RUN_CROUCH" +
-      "_RPG\020\332\002\022\031\n\024ACT_WALK_RPG_RELAXED\020\333\002\022\030\n\023AC" +
-      "T_RUN_RPG_RELAXED\020\334\002\022\023\n\016ACT_WALK_RIFLE\020\335",
-      "\002\022\027\n\022ACT_WALK_AIM_RIFLE\020\336\002\022\032\n\025ACT_WALK_C" +
-      "ROUCH_RIFLE\020\337\002\022\036\n\031ACT_WALK_CROUCH_AIM_RI" +
-      "FLE\020\340\002\022\022\n\rACT_RUN_RIFLE\020\341\002\022\026\n\021ACT_RUN_AI" +
-      "M_RIFLE\020\342\002\022\031\n\024ACT_RUN_CROUCH_RIFLE\020\343\002\022\035\n" +
-      "\030ACT_RUN_CROUCH_AIM_RIFLE\020\344\002\022\033\n\026ACT_RUN_" +
-      "STEALTH_PISTOL\020\345\002\022\031\n\024ACT_WALK_AIM_SHOTGU" +
-      "N\020\346\002\022\030\n\023ACT_RUN_AIM_SHOTGUN\020\347\002\022\024\n\017ACT_WA" +
-      "LK_PISTOL\020\350\002\022\023\n\016ACT_RUN_PISTOL\020\351\002\022\030\n\023ACT" +
-      "_WALK_AIM_PISTOL\020\352\002\022\027\n\022ACT_RUN_AIM_PISTO" +
-      "L\020\353\002\022\034\n\027ACT_WALK_STEALTH_PISTOL\020\354\002\022 \n\033AC",
-      "T_WALK_AIM_STEALTH_PISTOL\020\355\002\022\037\n\032ACT_RUN_" +
-      "AIM_STEALTH_PISTOL\020\356\002\022\026\n\021ACT_RELOAD_PIST" +
-      "OL\020\357\002\022\032\n\025ACT_RELOAD_PISTOL_LOW\020\360\002\022\024\n\017ACT" +
-      "_RELOAD_SMG1\020\361\002\022\030\n\023ACT_RELOAD_SMG1_LOW\020\362" +
-      "\002\022\027\n\022ACT_RELOAD_SHOTGUN\020\363\002\022\033\n\026ACT_RELOAD" +
-      "_SHOTGUN_LOW\020\364\002\022\027\n\022ACT_GESTURE_RELOAD\020\365\002" +
-      "\022\036\n\031ACT_GESTURE_RELOAD_PISTOL\020\366\002\022\034\n\027ACT_" +
-      "GESTURE_RELOAD_SMG1\020\367\002\022\037\n\032ACT_GESTURE_RE" +
-      "LOAD_SHOTGUN\020\370\002\022\027\n\022ACT_BUSY_LEAN_LEFT\020\371\002" +
-      "\022\035\n\030ACT_BUSY_LEAN_LEFT_ENTRY\020\372\002\022\034\n\027ACT_B",
-      "USY_LEAN_LEFT_EXIT\020\373\002\022\027\n\022ACT_BUSY_LEAN_B" +
-      "ACK\020\374\002\022\035\n\030ACT_BUSY_LEAN_BACK_ENTRY\020\375\002\022\034\n" +
-      "\027ACT_BUSY_LEAN_BACK_EXIT\020\376\002\022\030\n\023ACT_BUSY_" +
-      "SIT_GROUND\020\377\002\022\036\n\031ACT_BUSY_SIT_GROUND_ENT" +
-      "RY\020\200\003\022\035\n\030ACT_BUSY_SIT_GROUND_EXIT\020\201\003\022\027\n\022" +
-      "ACT_BUSY_SIT_CHAIR\020\202\003\022\035\n\030ACT_BUSY_SIT_CH" +
-      "AIR_ENTRY\020\203\003\022\034\n\027ACT_BUSY_SIT_CHAIR_EXIT\020" +
-      "\204\003\022\023\n\016ACT_BUSY_STAND\020\205\003\022\023\n\016ACT_BUSY_QUEU" +
-      "E\020\206\003\022\023\n\016ACT_DUCK_DODGE\020\207\003\022\035\n\030ACT_DIE_BAR" +
-      "NACLE_SWALLOW\020\210\003\022\"\n\035ACT_GESTURE_BARNACLE",
-      "_STRANGLE\020\211\003\022\032\n\025ACT_PHYSCANNON_DETACH\020\212\003" +
-      "\022\033\n\026ACT_PHYSCANNON_ANIMATE\020\213\003\022\037\n\032ACT_PHY" +
-      "SCANNON_ANIMATE_PRE\020\214\003\022 \n\033ACT_PHYSCANNON" +
-      "_ANIMATE_POST\020\215\003\022\026\n\021ACT_DIE_FRONTSIDE\020\216\003" +
-      "\022\026\n\021ACT_DIE_RIGHTSIDE\020\217\003\022\025\n\020ACT_DIE_BACK" +
-      "SIDE\020\220\003\022\025\n\020ACT_DIE_LEFTSIDE\020\221\003\022\022\n\rACT_OP" +
-      "EN_DOOR\020\222\003\022\035\n\030ACT_DI_ALYX_ZOMBIE_MELEE\020\223" +
-      "\003\022#\n\036ACT_DI_ALYX_ZOMBIE_TORSO_MELEE\020\224\003\022\037" +
-      "\n\032ACT_DI_ALYX_HEADCRAB_MELEE\020\225\003\022\030\n\023ACT_D" +
-      "I_ALYX_ANTLION\020\226\003\022!\n\034ACT_DI_ALYX_ZOMBIE_",
-      "SHOTGUN64\020\227\003\022!\n\034ACT_DI_ALYX_ZOMBIE_SHOTG" +
-      "UN26\020\230\003\022(\n#ACT_READINESS_RELAXED_TO_STIM" +
-      "ULATED\020\231\003\022-\n(ACT_READINESS_RELAXED_TO_ST" +
-      "IMULATED_WALK\020\232\003\022)\n$ACT_READINESS_AGITAT" +
-      "ED_TO_STIMULATED\020\233\003\022(\n#ACT_READINESS_STI" +
-      "MULATED_TO_RELAXED\020\234\003\022/\n*ACT_READINESS_P" +
-      "ISTOL_RELAXED_TO_STIMULATED\020\235\003\0224\n/ACT_RE" +
-      "ADINESS_PISTOL_RELAXED_TO_STIMULATED_WAL" +
-      "K\020\236\003\0220\n+ACT_READINESS_PISTOL_AGITATED_TO" +
-      "_STIMULATED\020\237\003\022/\n*ACT_READINESS_PISTOL_S",
-      "TIMULATED_TO_RELAXED\020\240\003\022\023\n\016ACT_IDLE_CARR" +
-      "Y\020\241\003\022\023\n\016ACT_WALK_CARRY\020\242\003\022\022\n\rACT_DOTA_ID" +
-      "LE\020\243\003\022\027\n\022ACT_DOTA_IDLE_RARE\020\245\003\022\021\n\014ACT_DO" +
-      "TA_RUN\020\246\003\022\024\n\017ACT_DOTA_ATTACK\020\250\003\022\025\n\020ACT_D" +
-      "OTA_ATTACK2\020\251\003\022\032\n\025ACT_DOTA_ATTACK_EVENT\020" +
-      "\252\003\022\021\n\014ACT_DOTA_DIE\020\253\003\022\024\n\017ACT_DOTA_FLINCH" +
-      "\020\254\003\022\023\n\016ACT_DOTA_FLAIL\020\255\003\022\026\n\021ACT_DOTA_DIS" +
-      "ABLED\020\256\003\022\034\n\027ACT_DOTA_CAST_ABILITY_1\020\257\003\022\034" +
-      "\n\027ACT_DOTA_CAST_ABILITY_2\020\260\003\022\034\n\027ACT_DOTA" +
-      "_CAST_ABILITY_3\020\261\003\022\034\n\027ACT_DOTA_CAST_ABIL",
-      "ITY_4\020\262\003\022\034\n\027ACT_DOTA_CAST_ABILITY_5\020\263\003\022\034" +
-      "\n\027ACT_DOTA_CAST_ABILITY_6\020\264\003\022 \n\033ACT_DOTA" +
-      "_OVERRIDE_ABILITY_1\020\265\003\022 \n\033ACT_DOTA_OVERR" +
-      "IDE_ABILITY_2\020\266\003\022 \n\033ACT_DOTA_OVERRIDE_AB" +
-      "ILITY_3\020\267\003\022 \n\033ACT_DOTA_OVERRIDE_ABILITY_" +
-      "4\020\270\003\022\037\n\032ACT_DOTA_CHANNEL_ABILITY_1\020\271\003\022\037\n" +
-      "\032ACT_DOTA_CHANNEL_ABILITY_2\020\272\003\022\037\n\032ACT_DO" +
-      "TA_CHANNEL_ABILITY_3\020\273\003\022\037\n\032ACT_DOTA_CHAN" +
-      "NEL_ABILITY_4\020\274\003\022\037\n\032ACT_DOTA_CHANNEL_ABI" +
-      "LITY_5\020\275\003\022\037\n\032ACT_DOTA_CHANNEL_ABILITY_6\020",
-      "\276\003\022#\n\036ACT_DOTA_CHANNEL_END_ABILITY_1\020\277\003\022" +
-      "#\n\036ACT_DOTA_CHANNEL_END_ABILITY_2\020\300\003\022#\n\036" +
-      "ACT_DOTA_CHANNEL_END_ABILITY_3\020\301\003\022#\n\036ACT" +
-      "_DOTA_CHANNEL_END_ABILITY_4\020\302\003\022#\n\036ACT_DO" +
-      "TA_CHANNEL_END_ABILITY_5\020\303\003\022#\n\036ACT_DOTA_" +
-      "CHANNEL_END_ABILITY_6\020\304\003\022\034\n\027ACT_DOTA_CON" +
-      "STANT_LAYER\020\305\003\022\025\n\020ACT_DOTA_CAPTURE\020\306\003\022\023\n" +
-      "\016ACT_DOTA_SPAWN\020\307\003\022\027\n\022ACT_DOTA_KILLTAUNT" +
-      "\020\310\003\022\023\n\016ACT_DOTA_TAUNT\020\311\003\022\024\n\017ACT_DOTA_THI" +
-      "RST\020\312\003\022\037\n\032ACT_DOTA_CAST_DRAGONBREATH\020\313\003\022",
-      "\027\n\022ACT_DOTA_ECHO_SLAM\020\314\003\022 \n\033ACT_DOTA_CAS" +
-      "T_ABILITY_1_END\020\315\003\022 \n\033ACT_DOTA_CAST_ABIL" +
-      "ITY_2_END\020\316\003\022 \n\033ACT_DOTA_CAST_ABILITY_3_" +
-      "END\020\317\003\022 \n\033ACT_DOTA_CAST_ABILITY_4_END\020\320\003" +
-      "\022\030\n\023ACT_MIRANA_LEAP_END\020\321\003\022\027\n\022ACT_WAVEFO" +
-      "RM_START\020\322\003\022\025\n\020ACT_WAVEFORM_END\020\323\003\022\036\n\031AC" +
-      "T_DOTA_CAST_ABILITY_ROT\020\324\003\022\031\n\024ACT_DOTA_D" +
-      "IE_SPECIAL\020\325\003\022\'\n\"ACT_DOTA_RATTLETRAP_BAT" +
-      "TERYASSAULT\020\326\003\022\"\n\035ACT_DOTA_RATTLETRAP_PO" +
-      "WERCOGS\020\327\003\022\'\n\"ACT_DOTA_RATTLETRAP_HOOKSH",
-      "OT_START\020\330\003\022&\n!ACT_DOTA_RATTLETRAP_HOOKS" +
-      "HOT_LOOP\020\331\003\022%\n ACT_DOTA_RATTLETRAP_HOOKS" +
-      "HOT_END\020\332\003\022+\n&ACT_STORM_SPIRIT_OVERLOAD_" +
-      "RUN_OVERRIDE\020\333\003\022\033\n\026ACT_DOTA_TINKER_REARM" +
-      "1\020\334\003\022\033\n\026ACT_DOTA_TINKER_REARM2\020\335\003\022\033\n\026ACT" +
-      "_DOTA_TINKER_REARM3\020\336\003\022\027\n\022ACT_TINY_AVALA" +
-      "NCHE\020\337\003\022\022\n\rACT_TINY_TOSS\020\340\003\022\023\n\016ACT_TINY_" +
-      "GROWL\020\341\003\022\036\n\031ACT_DOTA_WEAVERBUG_ATTACH\020\342\003" +
-      "\022 \n\033ACT_DOTA_CAST_WILD_AXES_END\020\343\003\022#\n\036AC" +
-      "T_DOTA_CAST_LIFE_BREAK_START\020\344\003\022!\n\034ACT_D",
-      "OTA_CAST_LIFE_BREAK_END\020\345\003\022%\n ACT_DOTA_N" +
-      "IGHTSTALKER_TRANSITION\020\346\003\022\036\n\031ACT_DOTA_LI" +
-      "FESTEALER_RAGE\020\347\003\022%\n ACT_DOTA_LIFESTEALE" +
-      "R_OPEN_WOUNDS\020\350\003\022!\n\034ACT_DOTA_SAND_KING_B" +
-      "URROW_IN\020\351\003\022\"\n\035ACT_DOTA_SAND_KING_BURROW" +
-      "_OUT\020\352\003\022&\n!ACT_DOTA_EARTHSHAKER_TOTEM_AT" +
-      "TACK\020\353\003\022\031\n\024ACT_DOTA_WHEEL_LAYER\020\354\003\022+\n&AC" +
-      "T_DOTA_ALCHEMIST_CHEMICAL_RAGE_START\020\355\003\022" +
-      "\"\n\035ACT_DOTA_ALCHEMIST_CONCOCTION\020\356\003\022%\n A" +
-      "CT_DOTA_JAKIRO_LIQUIDFIRE_START\020\357\003\022$\n\037AC",
-      "T_DOTA_JAKIRO_LIQUIDFIRE_LOOP\020\360\003\022 \n\033ACT_" +
-      "DOTA_LIFESTEALER_INFEST\020\361\003\022$\n\037ACT_DOTA_L" +
-      "IFESTEALER_INFEST_END\020\362\003\022\030\n\023ACT_DOTA_LAS" +
-      "SO_LOOP\020\363\003\022(\n#ACT_DOTA_ALCHEMIST_CONCOCT" +
-      "ION_THROW\020\364\003\022)\n$ACT_DOTA_ALCHEMIST_CHEMI" +
-      "CAL_RAGE_END\020\365\003\022\034\n\027ACT_DOTA_CAST_COLD_SN" +
-      "AP\020\366\003\022\035\n\030ACT_DOTA_CAST_GHOST_WALK\020\367\003\022\032\n\025" +
-      "ACT_DOTA_CAST_TORNADO\020\370\003\022\026\n\021ACT_DOTA_CAS" +
-      "T_EMP\020\371\003\022\033\n\026ACT_DOTA_CAST_ALACRITY\020\372\003\022\037\n" +
-      "\032ACT_DOTA_CAST_CHAOS_METEOR\020\373\003\022\035\n\030ACT_DO",
-      "TA_CAST_SUN_STRIKE\020\374\003\022\037\n\032ACT_DOTA_CAST_F" +
-      "ORGE_SPIRIT\020\375\003\022\033\n\026ACT_DOTA_CAST_ICE_WALL" +
-      "\020\376\003\022\"\n\035ACT_DOTA_CAST_DEAFENING_BLAST\020\377\003\022" +
-      "\025\n\020ACT_DOTA_VICTORY\020\200\004\022\024\n\017ACT_DOTA_DEFEA" +
-      "T\020\201\004\022(\n#ACT_DOTA_SPIRIT_BREAKER_CHARGE_P" +
-      "OSE\020\202\004\022\'\n\"ACT_DOTA_SPIRIT_BREAKER_CHARGE" +
-      "_END\020\203\004\022\026\n\021ACT_DOTA_TELEPORT\020\204\004\022\032\n\025ACT_D" +
-      "OTA_TELEPORT_END\020\205\004B\005H\001\200\001\000"
+      "\n\021ai_activity.proto*\220\203\001\n\010Activity\022\030\n\013ACT" +
+      "_INVALID\020\377\377\377\377\377\377\377\377\377\001\022\r\n\tACT_RESET\020\000\022\014\n\010AC" +
+      "T_IDLE\020\001\022\022\n\016ACT_TRANSITION\020\002\022\r\n\tACT_COVE" +
+      "R\020\003\022\021\n\rACT_COVER_MED\020\004\022\021\n\rACT_COVER_LOW\020" +
+      "\005\022\014\n\010ACT_WALK\020\006\022\020\n\014ACT_WALK_AIM\020\007\022\023\n\017ACT" +
+      "_WALK_CROUCH\020\010\022\027\n\023ACT_WALK_CROUCH_AIM\020\t\022" +
+      "\013\n\007ACT_RUN\020\n\022\017\n\013ACT_RUN_AIM\020\013\022\022\n\016ACT_RUN" +
+      "_CROUCH\020\014\022\026\n\022ACT_RUN_CROUCH_AIM\020\r\022\025\n\021ACT" +
+      "_RUN_PROTECTED\020\016\022\032\n\026ACT_SCRIPT_CUSTOM_MO" +
+      "VE\020\017\022\025\n\021ACT_RANGE_ATTACK1\020\020\022\025\n\021ACT_RANGE",
+      "_ATTACK2\020\021\022\031\n\025ACT_RANGE_ATTACK1_LOW\020\022\022\031\n" +
+      "\025ACT_RANGE_ATTACK2_LOW\020\023\022\021\n\rACT_DIESIMPL" +
+      "E\020\024\022\023\n\017ACT_DIEBACKWARD\020\025\022\022\n\016ACT_DIEFORWA" +
+      "RD\020\026\022\022\n\016ACT_DIEVIOLENT\020\027\022\022\n\016ACT_DIERAGDO" +
+      "LL\020\030\022\013\n\007ACT_FLY\020\031\022\r\n\tACT_HOVER\020\032\022\r\n\tACT_" +
+      "GLIDE\020\033\022\014\n\010ACT_SWIM\020\034\022\014\n\010ACT_JUMP\020\035\022\013\n\007A" +
+      "CT_HOP\020\036\022\014\n\010ACT_LEAP\020\037\022\014\n\010ACT_LAND\020 \022\020\n\014" +
+      "ACT_CLIMB_UP\020!\022\022\n\016ACT_CLIMB_DOWN\020\"\022\026\n\022AC" +
+      "T_CLIMB_DISMOUNT\020#\022\025\n\021ACT_SHIPLADDER_UP\020" +
+      "$\022\027\n\023ACT_SHIPLADDER_DOWN\020%\022\023\n\017ACT_STRAFE",
+      "_LEFT\020&\022\024\n\020ACT_STRAFE_RIGHT\020\'\022\021\n\rACT_ROL" +
+      "L_LEFT\020(\022\022\n\016ACT_ROLL_RIGHT\020)\022\021\n\rACT_TURN" +
+      "_LEFT\020*\022\022\n\016ACT_TURN_RIGHT\020+\022\016\n\nACT_CROUC" +
+      "H\020,\022\022\n\016ACT_CROUCHIDLE\020-\022\r\n\tACT_STAND\020.\022\013" +
+      "\n\007ACT_USE\020/\022\031\n\025ACT_ALIEN_BURROW_IDLE\0200\022\030" +
+      "\n\024ACT_ALIEN_BURROW_OUT\0201\022\017\n\013ACT_SIGNAL1\020" +
+      "2\022\017\n\013ACT_SIGNAL2\0203\022\017\n\013ACT_SIGNAL3\0204\022\026\n\022A" +
+      "CT_SIGNAL_ADVANCE\0205\022\026\n\022ACT_SIGNAL_FORWAR" +
+      "D\0206\022\024\n\020ACT_SIGNAL_GROUP\0207\022\023\n\017ACT_SIGNAL_" +
+      "HALT\0208\022\023\n\017ACT_SIGNAL_LEFT\0209\022\024\n\020ACT_SIGNA",
+      "L_RIGHT\020:\022\030\n\024ACT_SIGNAL_TAKECOVER\020;\022\026\n\022A" +
+      "CT_LOOKBACK_RIGHT\020<\022\025\n\021ACT_LOOKBACK_LEFT" +
+      "\020=\022\r\n\tACT_COWER\020>\022\024\n\020ACT_SMALL_FLINCH\020?\022" +
+      "\022\n\016ACT_BIG_FLINCH\020@\022\025\n\021ACT_MELEE_ATTACK1" +
+      "\020A\022\025\n\021ACT_MELEE_ATTACK2\020B\022\016\n\nACT_RELOAD\020" +
+      "C\022\024\n\020ACT_RELOAD_START\020D\022\025\n\021ACT_RELOAD_FI" +
+      "NISH\020E\022\022\n\016ACT_RELOAD_LOW\020F\022\013\n\007ACT_ARM\020G\022" +
+      "\016\n\nACT_DISARM\020H\022\023\n\017ACT_DROP_WEAPON\020I\022\033\n\027" +
+      "ACT_DROP_WEAPON_SHOTGUN\020J\022\025\n\021ACT_PICKUP_" +
+      "GROUND\020K\022\023\n\017ACT_PICKUP_RACK\020L\022\022\n\016ACT_IDL",
+      "E_ANGRY\020M\022\024\n\020ACT_IDLE_RELAXED\020N\022\027\n\023ACT_I" +
+      "DLE_STIMULATED\020O\022\025\n\021ACT_IDLE_AGITATED\020P\022" +
+      "\024\n\020ACT_IDLE_STEALTH\020Q\022\021\n\rACT_IDLE_HURT\020R" +
+      "\022\024\n\020ACT_WALK_RELAXED\020S\022\027\n\023ACT_WALK_STIMU" +
+      "LATED\020T\022\025\n\021ACT_WALK_AGITATED\020U\022\024\n\020ACT_WA" +
+      "LK_STEALTH\020V\022\023\n\017ACT_RUN_RELAXED\020W\022\026\n\022ACT" +
+      "_RUN_STIMULATED\020X\022\024\n\020ACT_RUN_AGITATED\020Y\022" +
+      "\023\n\017ACT_RUN_STEALTH\020Z\022\030\n\024ACT_IDLE_AIM_REL" +
+      "AXED\020[\022\033\n\027ACT_IDLE_AIM_STIMULATED\020\\\022\031\n\025A" +
+      "CT_IDLE_AIM_AGITATED\020]\022\030\n\024ACT_IDLE_AIM_S",
+      "TEALTH\020^\022\030\n\024ACT_WALK_AIM_RELAXED\020_\022\033\n\027AC" +
+      "T_WALK_AIM_STIMULATED\020`\022\031\n\025ACT_WALK_AIM_" +
+      "AGITATED\020a\022\030\n\024ACT_WALK_AIM_STEALTH\020b\022\027\n\023" +
+      "ACT_RUN_AIM_RELAXED\020c\022\032\n\026ACT_RUN_AIM_STI" +
+      "MULATED\020d\022\030\n\024ACT_RUN_AIM_AGITATED\020e\022\027\n\023A" +
+      "CT_RUN_AIM_STEALTH\020f\022\035\n\031ACT_CROUCHIDLE_S" +
+      "TIMULATED\020g\022!\n\035ACT_CROUCHIDLE_AIM_STIMUL" +
+      "ATED\020h\022\033\n\027ACT_CROUCHIDLE_AGITATED\020i\022\021\n\rA" +
+      "CT_WALK_HURT\020j\022\020\n\014ACT_RUN_HURT\020k\022\027\n\023ACT_" +
+      "SPECIAL_ATTACK1\020l\022\027\n\023ACT_SPECIAL_ATTACK2",
+      "\020m\022\023\n\017ACT_COMBAT_IDLE\020n\022\023\n\017ACT_WALK_SCAR" +
+      "ED\020o\022\022\n\016ACT_RUN_SCARED\020p\022\025\n\021ACT_VICTORY_" +
+      "DANCE\020q\022\024\n\020ACT_DIE_HEADSHOT\020r\022\025\n\021ACT_DIE" +
+      "_CHESTSHOT\020s\022\023\n\017ACT_DIE_GUTSHOT\020t\022\024\n\020ACT" +
+      "_DIE_BACKSHOT\020u\022\023\n\017ACT_FLINCH_HEAD\020v\022\024\n\020" +
+      "ACT_FLINCH_CHEST\020w\022\026\n\022ACT_FLINCH_STOMACH" +
+      "\020x\022\026\n\022ACT_FLINCH_LEFTARM\020y\022\027\n\023ACT_FLINCH" +
+      "_RIGHTARM\020z\022\026\n\022ACT_FLINCH_LEFTLEG\020{\022\027\n\023A" +
+      "CT_FLINCH_RIGHTLEG\020|\022\026\n\022ACT_FLINCH_PHYSI" +
+      "CS\020}\022\030\n\024ACT_FLINCH_HEAD_BACK\020~\022\031\n\025ACT_FL",
+      "INCH_CHEST_BACK\020\177\022\034\n\027ACT_FLINCH_STOMACH_" +
+      "BACK\020\200\001\022\034\n\027ACT_FLINCH_CROUCH_FRONT\020\201\001\022\033\n" +
+      "\026ACT_FLINCH_CROUCH_BACK\020\202\001\022\033\n\026ACT_FLINCH" +
+      "_CROUCH_LEFT\020\203\001\022\034\n\027ACT_FLINCH_CROUCH_RIG" +
+      "HT\020\204\001\022\025\n\020ACT_IDLE_ON_FIRE\020\205\001\022\025\n\020ACT_WALK" +
+      "_ON_FIRE\020\206\001\022\024\n\017ACT_RUN_ON_FIRE\020\207\001\022\024\n\017ACT" +
+      "_RAPPEL_LOOP\020\210\001\022\021\n\014ACT_180_LEFT\020\211\001\022\022\n\rAC" +
+      "T_180_RIGHT\020\212\001\022\020\n\013ACT_90_LEFT\020\213\001\022\021\n\014ACT_" +
+      "90_RIGHT\020\214\001\022\022\n\rACT_STEP_LEFT\020\215\001\022\023\n\016ACT_S" +
+      "TEP_RIGHT\020\216\001\022\022\n\rACT_STEP_BACK\020\217\001\022\022\n\rACT_",
+      "STEP_FORE\020\220\001\022\036\n\031ACT_GESTURE_RANGE_ATTACK" +
+      "1\020\221\001\022\036\n\031ACT_GESTURE_RANGE_ATTACK2\020\222\001\022\036\n\031" +
+      "ACT_GESTURE_MELEE_ATTACK1\020\223\001\022\036\n\031ACT_GEST" +
+      "URE_MELEE_ATTACK2\020\224\001\022\"\n\035ACT_GESTURE_RANG" +
+      "E_ATTACK1_LOW\020\225\001\022\"\n\035ACT_GESTURE_RANGE_AT" +
+      "TACK2_LOW\020\226\001\022#\n\036ACT_MELEE_ATTACK_SWING_G" +
+      "ESTURE\020\227\001\022\035\n\030ACT_GESTURE_SMALL_FLINCH\020\230\001" +
+      "\022\033\n\026ACT_GESTURE_BIG_FLINCH\020\231\001\022\035\n\030ACT_GES" +
+      "TURE_FLINCH_BLAST\020\232\001\022%\n ACT_GESTURE_FLIN" +
+      "CH_BLAST_SHOTGUN\020\233\001\022%\n ACT_GESTURE_FLINC",
+      "H_BLAST_DAMAGED\020\234\001\022-\n(ACT_GESTURE_FLINCH" +
+      "_BLAST_DAMAGED_SHOTGUN\020\235\001\022\034\n\027ACT_GESTURE" +
+      "_FLINCH_HEAD\020\236\001\022\035\n\030ACT_GESTURE_FLINCH_CH" +
+      "EST\020\237\001\022\037\n\032ACT_GESTURE_FLINCH_STOMACH\020\240\001\022" +
+      "\037\n\032ACT_GESTURE_FLINCH_LEFTARM\020\241\001\022 \n\033ACT_" +
+      "GESTURE_FLINCH_RIGHTARM\020\242\001\022\037\n\032ACT_GESTUR" +
+      "E_FLINCH_LEFTLEG\020\243\001\022 \n\033ACT_GESTURE_FLINC" +
+      "H_RIGHTLEG\020\244\001\022\032\n\025ACT_GESTURE_TURN_LEFT\020\245" +
+      "\001\022\033\n\026ACT_GESTURE_TURN_RIGHT\020\246\001\022\034\n\027ACT_GE" +
+      "STURE_TURN_LEFT45\020\247\001\022\035\n\030ACT_GESTURE_TURN",
+      "_RIGHT45\020\250\001\022\034\n\027ACT_GESTURE_TURN_LEFT90\020\251" +
+      "\001\022\035\n\030ACT_GESTURE_TURN_RIGHT90\020\252\001\022!\n\034ACT_" +
+      "GESTURE_TURN_LEFT45_FLAT\020\253\001\022\"\n\035ACT_GESTU" +
+      "RE_TURN_RIGHT45_FLAT\020\254\001\022!\n\034ACT_GESTURE_T" +
+      "URN_LEFT90_FLAT\020\255\001\022\"\n\035ACT_GESTURE_TURN_R" +
+      "IGHT90_FLAT\020\256\001\022\025\n\020ACT_BARNACLE_HIT\020\257\001\022\026\n" +
+      "\021ACT_BARNACLE_PULL\020\260\001\022\027\n\022ACT_BARNACLE_CH" +
+      "OMP\020\261\001\022\026\n\021ACT_BARNACLE_CHEW\020\262\001\022\027\n\022ACT_DO" +
+      "_NOT_DISTURB\020\263\001\022\032\n\025ACT_SPECIFIC_SEQUENCE" +
+      "\020\264\001\022\020\n\013ACT_VM_DRAW\020\265\001\022\023\n\016ACT_VM_HOLSTER\020",
+      "\266\001\022\020\n\013ACT_VM_IDLE\020\267\001\022\022\n\rACT_VM_FIDGET\020\270\001" +
+      "\022\024\n\017ACT_VM_PULLBACK\020\271\001\022\031\n\024ACT_VM_PULLBAC" +
+      "K_HIGH\020\272\001\022\030\n\023ACT_VM_PULLBACK_LOW\020\273\001\022\021\n\014A" +
+      "CT_VM_THROW\020\274\001\022\023\n\016ACT_VM_PULLPIN\020\275\001\022\031\n\024A" +
+      "CT_VM_PRIMARYATTACK\020\276\001\022\033\n\026ACT_VM_SECONDA" +
+      "RYATTACK\020\277\001\022\022\n\rACT_VM_RELOAD\020\300\001\022\023\n\016ACT_V" +
+      "M_DRYFIRE\020\301\001\022\023\n\016ACT_VM_HITLEFT\020\302\001\022\024\n\017ACT" +
+      "_VM_HITLEFT2\020\303\001\022\024\n\017ACT_VM_HITRIGHT\020\304\001\022\025\n" +
+      "\020ACT_VM_HITRIGHT2\020\305\001\022\025\n\020ACT_VM_HITCENTER" +
+      "\020\306\001\022\026\n\021ACT_VM_HITCENTER2\020\307\001\022\024\n\017ACT_VM_MI",
+      "SSLEFT\020\310\001\022\025\n\020ACT_VM_MISSLEFT2\020\311\001\022\025\n\020ACT_" +
+      "VM_MISSRIGHT\020\312\001\022\026\n\021ACT_VM_MISSRIGHT2\020\313\001\022" +
+      "\026\n\021ACT_VM_MISSCENTER\020\314\001\022\027\n\022ACT_VM_MISSCE" +
+      "NTER2\020\315\001\022\024\n\017ACT_VM_HAULBACK\020\316\001\022\025\n\020ACT_VM" +
+      "_SWINGHARD\020\317\001\022\025\n\020ACT_VM_SWINGMISS\020\320\001\022\024\n\017" +
+      "ACT_VM_SWINGHIT\020\321\001\022\033\n\026ACT_VM_IDLE_TO_LOW" +
+      "ERED\020\322\001\022\030\n\023ACT_VM_IDLE_LOWERED\020\323\001\022\033\n\026ACT" +
+      "_VM_LOWERED_TO_IDLE\020\324\001\022\023\n\016ACT_VM_RECOIL1" +
+      "\020\325\001\022\023\n\016ACT_VM_RECOIL2\020\326\001\022\023\n\016ACT_VM_RECOI" +
+      "L3\020\327\001\022\022\n\rACT_VM_PICKUP\020\330\001\022\023\n\016ACT_VM_RELE",
+      "ASE\020\331\001\022\033\n\026ACT_VM_ATTACH_SILENCER\020\332\001\022\033\n\026A" +
+      "CT_VM_DETACH_SILENCER\020\333\001\022\034\n\027ACT_SLAM_STI" +
+      "CKWALL_IDLE\020\334\001\022\037\n\032ACT_SLAM_STICKWALL_ND_" +
+      "IDLE\020\335\001\022\036\n\031ACT_SLAM_STICKWALL_ATTACH\020\336\001\022" +
+      "\037\n\032ACT_SLAM_STICKWALL_ATTACH2\020\337\001\022!\n\034ACT_" +
+      "SLAM_STICKWALL_ND_ATTACH\020\340\001\022\"\n\035ACT_SLAM_" +
+      "STICKWALL_ND_ATTACH2\020\341\001\022 \n\033ACT_SLAM_STIC" +
+      "KWALL_DETONATE\020\342\001\022)\n$ACT_SLAM_STICKWALL_" +
+      "DETONATOR_HOLSTER\020\343\001\022\034\n\027ACT_SLAM_STICKWA" +
+      "LL_DRAW\020\344\001\022\037\n\032ACT_SLAM_STICKWALL_ND_DRAW",
+      "\020\345\001\022 \n\033ACT_SLAM_STICKWALL_TO_THROW\020\346\001\022#\n" +
+      "\036ACT_SLAM_STICKWALL_TO_THROW_ND\020\347\001\022&\n!AC" +
+      "T_SLAM_STICKWALL_TO_TRIPMINE_ND\020\350\001\022\030\n\023AC" +
+      "T_SLAM_THROW_IDLE\020\351\001\022\033\n\026ACT_SLAM_THROW_N" +
+      "D_IDLE\020\352\001\022\031\n\024ACT_SLAM_THROW_THROW\020\353\001\022\032\n\025" +
+      "ACT_SLAM_THROW_THROW2\020\354\001\022\034\n\027ACT_SLAM_THR" +
+      "OW_THROW_ND\020\355\001\022\035\n\030ACT_SLAM_THROW_THROW_N" +
+      "D2\020\356\001\022\030\n\023ACT_SLAM_THROW_DRAW\020\357\001\022\033\n\026ACT_S" +
+      "LAM_THROW_ND_DRAW\020\360\001\022 \n\033ACT_SLAM_THROW_T" +
+      "O_STICKWALL\020\361\001\022#\n\036ACT_SLAM_THROW_TO_STIC",
+      "KWALL_ND\020\362\001\022\034\n\027ACT_SLAM_THROW_DETONATE\020\363" +
+      "\001\022%\n ACT_SLAM_THROW_DETONATOR_HOLSTER\020\364\001" +
+      "\022\"\n\035ACT_SLAM_THROW_TO_TRIPMINE_ND\020\365\001\022\033\n\026" +
+      "ACT_SLAM_TRIPMINE_IDLE\020\366\001\022\033\n\026ACT_SLAM_TR" +
+      "IPMINE_DRAW\020\367\001\022\035\n\030ACT_SLAM_TRIPMINE_ATTA" +
+      "CH\020\370\001\022\036\n\031ACT_SLAM_TRIPMINE_ATTACH2\020\371\001\022&\n" +
+      "!ACT_SLAM_TRIPMINE_TO_STICKWALL_ND\020\372\001\022\"\n" +
+      "\035ACT_SLAM_TRIPMINE_TO_THROW_ND\020\373\001\022\034\n\027ACT" +
+      "_SLAM_DETONATOR_IDLE\020\374\001\022\034\n\027ACT_SLAM_DETO" +
+      "NATOR_DRAW\020\375\001\022 \n\033ACT_SLAM_DETONATOR_DETO",
+      "NATE\020\376\001\022\037\n\032ACT_SLAM_DETONATOR_HOLSTER\020\377\001" +
+      "\022&\n!ACT_SLAM_DETONATOR_STICKWALL_DRAW\020\200\002" +
+      "\022\"\n\035ACT_SLAM_DETONATOR_THROW_DRAW\020\201\002\022\035\n\030" +
+      "ACT_SHOTGUN_RELOAD_START\020\202\002\022\036\n\031ACT_SHOTG" +
+      "UN_RELOAD_FINISH\020\203\002\022\025\n\020ACT_SHOTGUN_PUMP\020" +
+      "\204\002\022\023\n\016ACT_SMG2_IDLE2\020\205\002\022\023\n\016ACT_SMG2_FIRE" +
+      "2\020\206\002\022\023\n\016ACT_SMG2_DRAW2\020\207\002\022\025\n\020ACT_SMG2_RE" +
+      "LOAD2\020\210\002\022\026\n\021ACT_SMG2_DRYFIRE2\020\211\002\022\024\n\017ACT_" +
+      "SMG2_TOAUTO\020\212\002\022\025\n\020ACT_SMG2_TOBURST\020\213\002\022\033\n" +
+      "\026ACT_PHYSCANNON_UPGRADE\020\214\002\022\031\n\024ACT_RANGE_",
+      "ATTACK_AR1\020\215\002\022\031\n\024ACT_RANGE_ATTACK_AR2\020\216\002" +
+      "\022\035\n\030ACT_RANGE_ATTACK_AR2_LOW\020\217\002\022!\n\034ACT_R" +
+      "ANGE_ATTACK_AR2_GRENADE\020\220\002\022\032\n\025ACT_RANGE_" +
+      "ATTACK_HMG1\020\221\002\022\030\n\023ACT_RANGE_ATTACK_ML\020\222\002" +
+      "\022\032\n\025ACT_RANGE_ATTACK_SMG1\020\223\002\022\036\n\031ACT_RANG" +
+      "E_ATTACK_SMG1_LOW\020\224\002\022\032\n\025ACT_RANGE_ATTACK" +
+      "_SMG2\020\225\002\022\035\n\030ACT_RANGE_ATTACK_SHOTGUN\020\226\002\022" +
+      "!\n\034ACT_RANGE_ATTACK_SHOTGUN_LOW\020\227\002\022\034\n\027AC" +
+      "T_RANGE_ATTACK_PISTOL\020\230\002\022 \n\033ACT_RANGE_AT" +
+      "TACK_PISTOL_LOW\020\231\002\022\032\n\025ACT_RANGE_ATTACK_S",
+      "LAM\020\232\002\022\036\n\031ACT_RANGE_ATTACK_TRIPWIRE\020\233\002\022\033" +
+      "\n\026ACT_RANGE_ATTACK_THROW\020\234\002\022\"\n\035ACT_RANGE" +
+      "_ATTACK_SNIPER_RIFLE\020\235\002\022\031\n\024ACT_RANGE_ATT" +
+      "ACK_RPG\020\236\002\022\033\n\026ACT_MELEE_ATTACK_SWING\020\237\002\022" +
+      "\026\n\021ACT_RANGE_AIM_LOW\020\240\002\022\033\n\026ACT_RANGE_AIM" +
+      "_SMG1_LOW\020\241\002\022\035\n\030ACT_RANGE_AIM_PISTOL_LOW" +
+      "\020\242\002\022\032\n\025ACT_RANGE_AIM_AR2_LOW\020\243\002\022\031\n\024ACT_C" +
+      "OVER_PISTOL_LOW\020\244\002\022\027\n\022ACT_COVER_SMG1_LOW" +
+      "\020\245\002\022!\n\034ACT_GESTURE_RANGE_ATTACK_AR1\020\246\002\022!" +
+      "\n\034ACT_GESTURE_RANGE_ATTACK_AR2\020\247\002\022)\n$ACT",
+      "_GESTURE_RANGE_ATTACK_AR2_GRENADE\020\250\002\022\"\n\035" +
+      "ACT_GESTURE_RANGE_ATTACK_HMG1\020\251\002\022 \n\033ACT_" +
+      "GESTURE_RANGE_ATTACK_ML\020\252\002\022\"\n\035ACT_GESTUR" +
+      "E_RANGE_ATTACK_SMG1\020\253\002\022&\n!ACT_GESTURE_RA" +
+      "NGE_ATTACK_SMG1_LOW\020\254\002\022\"\n\035ACT_GESTURE_RA" +
+      "NGE_ATTACK_SMG2\020\255\002\022%\n ACT_GESTURE_RANGE_" +
+      "ATTACK_SHOTGUN\020\256\002\022$\n\037ACT_GESTURE_RANGE_A" +
+      "TTACK_PISTOL\020\257\002\022(\n#ACT_GESTURE_RANGE_ATT" +
+      "ACK_PISTOL_LOW\020\260\002\022\"\n\035ACT_GESTURE_RANGE_A" +
+      "TTACK_SLAM\020\261\002\022&\n!ACT_GESTURE_RANGE_ATTAC",
+      "K_TRIPWIRE\020\262\002\022#\n\036ACT_GESTURE_RANGE_ATTAC" +
+      "K_THROW\020\263\002\022*\n%ACT_GESTURE_RANGE_ATTACK_S" +
+      "NIPER_RIFLE\020\264\002\022#\n\036ACT_GESTURE_MELEE_ATTA" +
+      "CK_SWING\020\265\002\022\023\n\016ACT_IDLE_RIFLE\020\266\002\022\022\n\rACT_" +
+      "IDLE_SMG1\020\267\002\022\030\n\023ACT_IDLE_ANGRY_SMG1\020\270\002\022\024" +
+      "\n\017ACT_IDLE_PISTOL\020\271\002\022\032\n\025ACT_IDLE_ANGRY_P" +
+      "ISTOL\020\272\002\022\033\n\026ACT_IDLE_ANGRY_SHOTGUN\020\273\002\022\034\n" +
+      "\027ACT_IDLE_STEALTH_PISTOL\020\274\002\022\025\n\020ACT_IDLE_" +
+      "PACKAGE\020\275\002\022\025\n\020ACT_WALK_PACKAGE\020\276\002\022\026\n\021ACT" +
+      "_IDLE_SUITCASE\020\277\002\022\026\n\021ACT_WALK_SUITCASE\020\300",
+      "\002\022\032\n\025ACT_IDLE_SMG1_RELAXED\020\301\002\022\035\n\030ACT_IDL" +
+      "E_SMG1_STIMULATED\020\302\002\022\033\n\026ACT_WALK_RIFLE_R" +
+      "ELAXED\020\303\002\022\032\n\025ACT_RUN_RIFLE_RELAXED\020\304\002\022\036\n" +
+      "\031ACT_WALK_RIFLE_STIMULATED\020\305\002\022\035\n\030ACT_RUN" +
+      "_RIFLE_STIMULATED\020\306\002\022\"\n\035ACT_IDLE_AIM_RIF" +
+      "LE_STIMULATED\020\307\002\022\"\n\035ACT_WALK_AIM_RIFLE_S" +
+      "TIMULATED\020\310\002\022!\n\034ACT_RUN_AIM_RIFLE_STIMUL" +
+      "ATED\020\311\002\022\035\n\030ACT_IDLE_SHOTGUN_RELAXED\020\312\002\022 " +
+      "\n\033ACT_IDLE_SHOTGUN_STIMULATED\020\313\002\022\036\n\031ACT_" +
+      "IDLE_SHOTGUN_AGITATED\020\314\002\022\023\n\016ACT_WALK_ANG",
+      "RY\020\315\002\022\027\n\022ACT_POLICE_HARASS1\020\316\002\022\027\n\022ACT_PO" +
+      "LICE_HARASS2\020\317\002\022\027\n\022ACT_IDLE_MANNEDGUN\020\320\002" +
+      "\022\023\n\016ACT_IDLE_MELEE\020\321\002\022\031\n\024ACT_IDLE_ANGRY_" +
+      "MELEE\020\322\002\022\031\n\024ACT_IDLE_RPG_RELAXED\020\323\002\022\021\n\014A" +
+      "CT_IDLE_RPG\020\324\002\022\027\n\022ACT_IDLE_ANGRY_RPG\020\325\002\022" +
+      "\026\n\021ACT_COVER_LOW_RPG\020\326\002\022\021\n\014ACT_WALK_RPG\020" +
+      "\327\002\022\020\n\013ACT_RUN_RPG\020\330\002\022\030\n\023ACT_WALK_CROUCH_" +
+      "RPG\020\331\002\022\027\n\022ACT_RUN_CROUCH_RPG\020\332\002\022\031\n\024ACT_W" +
+      "ALK_RPG_RELAXED\020\333\002\022\030\n\023ACT_RUN_RPG_RELAXE" +
+      "D\020\334\002\022\023\n\016ACT_WALK_RIFLE\020\335\002\022\027\n\022ACT_WALK_AI",
+      "M_RIFLE\020\336\002\022\032\n\025ACT_WALK_CROUCH_RIFLE\020\337\002\022\036" +
+      "\n\031ACT_WALK_CROUCH_AIM_RIFLE\020\340\002\022\022\n\rACT_RU" +
+      "N_RIFLE\020\341\002\022\026\n\021ACT_RUN_AIM_RIFLE\020\342\002\022\031\n\024AC" +
+      "T_RUN_CROUCH_RIFLE\020\343\002\022\035\n\030ACT_RUN_CROUCH_" +
+      "AIM_RIFLE\020\344\002\022\033\n\026ACT_RUN_STEALTH_PISTOL\020\345" +
+      "\002\022\031\n\024ACT_WALK_AIM_SHOTGUN\020\346\002\022\030\n\023ACT_RUN_" +
+      "AIM_SHOTGUN\020\347\002\022\024\n\017ACT_WALK_PISTOL\020\350\002\022\023\n\016" +
+      "ACT_RUN_PISTOL\020\351\002\022\030\n\023ACT_WALK_AIM_PISTOL" +
+      "\020\352\002\022\027\n\022ACT_RUN_AIM_PISTOL\020\353\002\022\034\n\027ACT_WALK" +
+      "_STEALTH_PISTOL\020\354\002\022 \n\033ACT_WALK_AIM_STEAL",
+      "TH_PISTOL\020\355\002\022\037\n\032ACT_RUN_AIM_STEALTH_PIST" +
+      "OL\020\356\002\022\026\n\021ACT_RELOAD_PISTOL\020\357\002\022\032\n\025ACT_REL" +
+      "OAD_PISTOL_LOW\020\360\002\022\024\n\017ACT_RELOAD_SMG1\020\361\002\022" +
+      "\030\n\023ACT_RELOAD_SMG1_LOW\020\362\002\022\027\n\022ACT_RELOAD_" +
+      "SHOTGUN\020\363\002\022\033\n\026ACT_RELOAD_SHOTGUN_LOW\020\364\002\022" +
+      "\027\n\022ACT_GESTURE_RELOAD\020\365\002\022\036\n\031ACT_GESTURE_" +
+      "RELOAD_PISTOL\020\366\002\022\034\n\027ACT_GESTURE_RELOAD_S" +
+      "MG1\020\367\002\022\037\n\032ACT_GESTURE_RELOAD_SHOTGUN\020\370\002\022" +
+      "\027\n\022ACT_BUSY_LEAN_LEFT\020\371\002\022\035\n\030ACT_BUSY_LEA" +
+      "N_LEFT_ENTRY\020\372\002\022\034\n\027ACT_BUSY_LEAN_LEFT_EX",
+      "IT\020\373\002\022\027\n\022ACT_BUSY_LEAN_BACK\020\374\002\022\035\n\030ACT_BU" +
+      "SY_LEAN_BACK_ENTRY\020\375\002\022\034\n\027ACT_BUSY_LEAN_B" +
+      "ACK_EXIT\020\376\002\022\030\n\023ACT_BUSY_SIT_GROUND\020\377\002\022\036\n" +
+      "\031ACT_BUSY_SIT_GROUND_ENTRY\020\200\003\022\035\n\030ACT_BUS" +
+      "Y_SIT_GROUND_EXIT\020\201\003\022\027\n\022ACT_BUSY_SIT_CHA" +
+      "IR\020\202\003\022\035\n\030ACT_BUSY_SIT_CHAIR_ENTRY\020\203\003\022\034\n\027" +
+      "ACT_BUSY_SIT_CHAIR_EXIT\020\204\003\022\023\n\016ACT_BUSY_S" +
+      "TAND\020\205\003\022\023\n\016ACT_BUSY_QUEUE\020\206\003\022\023\n\016ACT_DUCK" +
+      "_DODGE\020\207\003\022\035\n\030ACT_DIE_BARNACLE_SWALLOW\020\210\003" +
+      "\022\"\n\035ACT_GESTURE_BARNACLE_STRANGLE\020\211\003\022\032\n\025",
+      "ACT_PHYSCANNON_DETACH\020\212\003\022\033\n\026ACT_PHYSCANN" +
+      "ON_ANIMATE\020\213\003\022\037\n\032ACT_PHYSCANNON_ANIMATE_" +
+      "PRE\020\214\003\022 \n\033ACT_PHYSCANNON_ANIMATE_POST\020\215\003" +
+      "\022\026\n\021ACT_DIE_FRONTSIDE\020\216\003\022\026\n\021ACT_DIE_RIGH" +
+      "TSIDE\020\217\003\022\025\n\020ACT_DIE_BACKSIDE\020\220\003\022\025\n\020ACT_D" +
+      "IE_LEFTSIDE\020\221\003\022\022\n\rACT_OPEN_DOOR\020\222\003\022\035\n\030AC" +
+      "T_DI_ALYX_ZOMBIE_MELEE\020\223\003\022#\n\036ACT_DI_ALYX" +
+      "_ZOMBIE_TORSO_MELEE\020\224\003\022\037\n\032ACT_DI_ALYX_HE" +
+      "ADCRAB_MELEE\020\225\003\022\030\n\023ACT_DI_ALYX_ANTLION\020\226" +
+      "\003\022!\n\034ACT_DI_ALYX_ZOMBIE_SHOTGUN64\020\227\003\022!\n\034",
+      "ACT_DI_ALYX_ZOMBIE_SHOTGUN26\020\230\003\022(\n#ACT_R" +
+      "EADINESS_RELAXED_TO_STIMULATED\020\231\003\022-\n(ACT" +
+      "_READINESS_RELAXED_TO_STIMULATED_WALK\020\232\003" +
+      "\022)\n$ACT_READINESS_AGITATED_TO_STIMULATED" +
+      "\020\233\003\022(\n#ACT_READINESS_STIMULATED_TO_RELAX" +
+      "ED\020\234\003\022/\n*ACT_READINESS_PISTOL_RELAXED_TO" +
+      "_STIMULATED\020\235\003\0224\n/ACT_READINESS_PISTOL_R" +
+      "ELAXED_TO_STIMULATED_WALK\020\236\003\0220\n+ACT_READ" +
+      "INESS_PISTOL_AGITATED_TO_STIMULATED\020\237\003\022/" +
+      "\n*ACT_READINESS_PISTOL_STIMULATED_TO_REL",
+      "AXED\020\240\003\022\023\n\016ACT_IDLE_CARRY\020\241\003\022\023\n\016ACT_WALK" +
+      "_CARRY\020\242\003\022\022\n\rACT_DOTA_IDLE\020\243\003\022\027\n\022ACT_DOT" +
+      "A_IDLE_RARE\020\245\003\022\021\n\014ACT_DOTA_RUN\020\246\003\022\024\n\017ACT" +
+      "_DOTA_ATTACK\020\250\003\022\025\n\020ACT_DOTA_ATTACK2\020\251\003\022\032" +
+      "\n\025ACT_DOTA_ATTACK_EVENT\020\252\003\022\021\n\014ACT_DOTA_D" +
+      "IE\020\253\003\022\024\n\017ACT_DOTA_FLINCH\020\254\003\022\023\n\016ACT_DOTA_" +
+      "FLAIL\020\255\003\022\026\n\021ACT_DOTA_DISABLED\020\256\003\022\034\n\027ACT_" +
+      "DOTA_CAST_ABILITY_1\020\257\003\022\034\n\027ACT_DOTA_CAST_" +
+      "ABILITY_2\020\260\003\022\034\n\027ACT_DOTA_CAST_ABILITY_3\020" +
+      "\261\003\022\034\n\027ACT_DOTA_CAST_ABILITY_4\020\262\003\022\034\n\027ACT_",
+      "DOTA_CAST_ABILITY_5\020\263\003\022\034\n\027ACT_DOTA_CAST_" +
+      "ABILITY_6\020\264\003\022 \n\033ACT_DOTA_OVERRIDE_ABILIT" +
+      "Y_1\020\265\003\022 \n\033ACT_DOTA_OVERRIDE_ABILITY_2\020\266\003" +
+      "\022 \n\033ACT_DOTA_OVERRIDE_ABILITY_3\020\267\003\022 \n\033AC" +
+      "T_DOTA_OVERRIDE_ABILITY_4\020\270\003\022\037\n\032ACT_DOTA" +
+      "_CHANNEL_ABILITY_1\020\271\003\022\037\n\032ACT_DOTA_CHANNE" +
+      "L_ABILITY_2\020\272\003\022\037\n\032ACT_DOTA_CHANNEL_ABILI" +
+      "TY_3\020\273\003\022\037\n\032ACT_DOTA_CHANNEL_ABILITY_4\020\274\003" +
+      "\022\037\n\032ACT_DOTA_CHANNEL_ABILITY_5\020\275\003\022\037\n\032ACT" +
+      "_DOTA_CHANNEL_ABILITY_6\020\276\003\022#\n\036ACT_DOTA_C",
+      "HANNEL_END_ABILITY_1\020\277\003\022#\n\036ACT_DOTA_CHAN" +
+      "NEL_END_ABILITY_2\020\300\003\022#\n\036ACT_DOTA_CHANNEL" +
+      "_END_ABILITY_3\020\301\003\022#\n\036ACT_DOTA_CHANNEL_EN" +
+      "D_ABILITY_4\020\302\003\022#\n\036ACT_DOTA_CHANNEL_END_A" +
+      "BILITY_5\020\303\003\022#\n\036ACT_DOTA_CHANNEL_END_ABIL" +
+      "ITY_6\020\304\003\022\034\n\027ACT_DOTA_CONSTANT_LAYER\020\305\003\022\025" +
+      "\n\020ACT_DOTA_CAPTURE\020\306\003\022\023\n\016ACT_DOTA_SPAWN\020" +
+      "\307\003\022\027\n\022ACT_DOTA_KILLTAUNT\020\310\003\022\023\n\016ACT_DOTA_" +
+      "TAUNT\020\311\003\022\024\n\017ACT_DOTA_THIRST\020\312\003\022\037\n\032ACT_DO" +
+      "TA_CAST_DRAGONBREATH\020\313\003\022\027\n\022ACT_DOTA_ECHO",
+      "_SLAM\020\314\003\022 \n\033ACT_DOTA_CAST_ABILITY_1_END\020" +
+      "\315\003\022 \n\033ACT_DOTA_CAST_ABILITY_2_END\020\316\003\022 \n\033" +
+      "ACT_DOTA_CAST_ABILITY_3_END\020\317\003\022 \n\033ACT_DO" +
+      "TA_CAST_ABILITY_4_END\020\320\003\022\030\n\023ACT_MIRANA_L" +
+      "EAP_END\020\321\003\022\027\n\022ACT_WAVEFORM_START\020\322\003\022\025\n\020A" +
+      "CT_WAVEFORM_END\020\323\003\022\036\n\031ACT_DOTA_CAST_ABIL" +
+      "ITY_ROT\020\324\003\022\031\n\024ACT_DOTA_DIE_SPECIAL\020\325\003\022\'\n" +
+      "\"ACT_DOTA_RATTLETRAP_BATTERYASSAULT\020\326\003\022\"" +
+      "\n\035ACT_DOTA_RATTLETRAP_POWERCOGS\020\327\003\022\'\n\"AC" +
+      "T_DOTA_RATTLETRAP_HOOKSHOT_START\020\330\003\022&\n!A",
+      "CT_DOTA_RATTLETRAP_HOOKSHOT_LOOP\020\331\003\022%\n A" +
+      "CT_DOTA_RATTLETRAP_HOOKSHOT_END\020\332\003\022+\n&AC" +
+      "T_STORM_SPIRIT_OVERLOAD_RUN_OVERRIDE\020\333\003\022" +
+      "\033\n\026ACT_DOTA_TINKER_REARM1\020\334\003\022\033\n\026ACT_DOTA" +
+      "_TINKER_REARM2\020\335\003\022\033\n\026ACT_DOTA_TINKER_REA" +
+      "RM3\020\336\003\022\027\n\022ACT_TINY_AVALANCHE\020\337\003\022\022\n\rACT_T" +
+      "INY_TOSS\020\340\003\022\023\n\016ACT_TINY_GROWL\020\341\003\022\036\n\031ACT_" +
+      "DOTA_WEAVERBUG_ATTACH\020\342\003\022 \n\033ACT_DOTA_CAS" +
+      "T_WILD_AXES_END\020\343\003\022#\n\036ACT_DOTA_CAST_LIFE" +
+      "_BREAK_START\020\344\003\022!\n\034ACT_DOTA_CAST_LIFE_BR",
+      "EAK_END\020\345\003\022%\n ACT_DOTA_NIGHTSTALKER_TRAN" +
+      "SITION\020\346\003\022\036\n\031ACT_DOTA_LIFESTEALER_RAGE\020\347" +
+      "\003\022%\n ACT_DOTA_LIFESTEALER_OPEN_WOUNDS\020\350\003" +
+      "\022!\n\034ACT_DOTA_SAND_KING_BURROW_IN\020\351\003\022\"\n\035A" +
+      "CT_DOTA_SAND_KING_BURROW_OUT\020\352\003\022&\n!ACT_D" +
+      "OTA_EARTHSHAKER_TOTEM_ATTACK\020\353\003\022\031\n\024ACT_D" +
+      "OTA_WHEEL_LAYER\020\354\003\022+\n&ACT_DOTA_ALCHEMIST" +
+      "_CHEMICAL_RAGE_START\020\355\003\022\"\n\035ACT_DOTA_ALCH" +
+      "EMIST_CONCOCTION\020\356\003\022%\n ACT_DOTA_JAKIRO_L" +
+      "IQUIDFIRE_START\020\357\003\022$\n\037ACT_DOTA_JAKIRO_LI",
+      "QUIDFIRE_LOOP\020\360\003\022 \n\033ACT_DOTA_LIFESTEALER" +
+      "_INFEST\020\361\003\022$\n\037ACT_DOTA_LIFESTEALER_INFES" +
+      "T_END\020\362\003\022\030\n\023ACT_DOTA_LASSO_LOOP\020\363\003\022(\n#AC" +
+      "T_DOTA_ALCHEMIST_CONCOCTION_THROW\020\364\003\022)\n$" +
+      "ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_END\020\365\003\022" +
+      "\034\n\027ACT_DOTA_CAST_COLD_SNAP\020\366\003\022\035\n\030ACT_DOT" +
+      "A_CAST_GHOST_WALK\020\367\003\022\032\n\025ACT_DOTA_CAST_TO" +
+      "RNADO\020\370\003\022\026\n\021ACT_DOTA_CAST_EMP\020\371\003\022\033\n\026ACT_" +
+      "DOTA_CAST_ALACRITY\020\372\003\022\037\n\032ACT_DOTA_CAST_C" +
+      "HAOS_METEOR\020\373\003\022\035\n\030ACT_DOTA_CAST_SUN_STRI",
+      "KE\020\374\003\022\037\n\032ACT_DOTA_CAST_FORGE_SPIRIT\020\375\003\022\033" +
+      "\n\026ACT_DOTA_CAST_ICE_WALL\020\376\003\022\"\n\035ACT_DOTA_" +
+      "CAST_DEAFENING_BLAST\020\377\003\022\025\n\020ACT_DOTA_VICT" +
+      "ORY\020\200\004\022\024\n\017ACT_DOTA_DEFEAT\020\201\004\022(\n#ACT_DOTA" +
+      "_SPIRIT_BREAKER_CHARGE_POSE\020\202\004\022\'\n\"ACT_DO" +
+      "TA_SPIRIT_BREAKER_CHARGE_END\020\203\004\022\026\n\021ACT_D" +
+      "OTA_TELEPORT\020\204\004\022\032\n\025ACT_DOTA_TELEPORT_END" +
+      "\020\205\004\022\035\n\030ACT_DOTA_CAST_REFRACTION\020\206\004\022\034\n\027AC" +
+      "T_DOTA_CAST_ABILITY_7\020\207\004\022\037\n\032ACT_DOTA_CAN" +
+      "CEL_SIREN_SONG\020\210\004\022\037\n\032ACT_DOTA_CHANNEL_AB",
+      "ILITY_7\020\211\004\022\025\n\020ACT_DOTA_LOADOUT\020\212\004\022\034\n\027ACT" +
+      "_DOTA_FORCESTAFF_END\020\213\004\022\026\n\021ACT_DOTA_POOF" +
+      "_END\020\214\004\022\032\n\025ACT_DOTA_SLARK_POUNCE\020\215\004\022!\n\034A" +
+      "CT_DOTA_MAGNUS_SKEWER_START\020\216\004\022\037\n\032ACT_DO" +
+      "TA_MAGNUS_SKEWER_END\020\217\004\022\037\n\032ACT_DOTA_MEDU" +
+      "SA_STONE_GAZE\020\220\004\022\031\n\024ACT_DOTA_RELAX_START" +
+      "\020\221\004\022\030\n\023ACT_DOTA_RELAX_LOOP\020\222\004\022\027\n\022ACT_DOT" +
+      "A_RELAX_END\020\223\004\022\036\n\031ACT_DOTA_CENTAUR_STAMP" +
+      "EDE\020\224\004\022\035\n\030ACT_DOTA_BELLYACHE_START\020\225\004\022\034\n" +
+      "\027ACT_DOTA_BELLYACHE_LOOP\020\226\004\022\033\n\026ACT_DOTA_",
+      "BELLYACHE_END\020\227\004\022\035\n\030ACT_DOTA_ROQUELAIRE_" +
+      "LAND\020\230\004\022\"\n\035ACT_DOTA_ROQUELAIRE_LAND_IDLE" +
+      "\020\231\004\022\032\n\025ACT_DOTA_GREEVIL_CAST\020\232\004\022&\n!ACT_D" +
+      "OTA_GREEVIL_OVERRIDE_ABILITY\020\233\004\022 \n\033ACT_D" +
+      "OTA_GREEVIL_HOOK_START\020\234\004\022\036\n\031ACT_DOTA_GR" +
+      "EEVIL_HOOK_END\020\235\004\022 \n\033ACT_DOTA_GREEVIL_BL" +
+      "INK_BONE\020\236\004\022\033\n\026ACT_DOTA_IDLE_SLEEPING\020\237\004" +
+      "\022\023\n\016ACT_DOTA_INTRO\020\240\004\022\033\n\026ACT_DOTA_GESTUR" +
+      "E_POINT\020\241\004\022\034\n\027ACT_DOTA_GESTURE_ACCENT\020\242\004" +
+      "\022\032\n\025ACT_DOTA_SLEEPING_END\020\243\004\022\024\n\017ACT_DOTA",
+      "_AMBUSH\020\244\004\022\027\n\022ACT_DOTA_ITEM_LOOK\020\245\004\022\025\n\020A" +
+      "CT_DOTA_STARTLE\020\246\004\022\031\n\024ACT_DOTA_FRUSTRATI" +
+      "ON\020\247\004\022\034\n\027ACT_DOTA_TELEPORT_REACT\020\250\004\022 \n\033A" +
+      "CT_DOTA_TELEPORT_END_REACT\020\251\004\022\023\n\016ACT_DOT" +
+      "A_SHRUG\020\252\004\022\034\n\027ACT_DOTA_RELAX_LOOP_END\020\253\004" +
+      "\022\032\n\025ACT_DOTA_PRESENT_ITEM\020\254\004\022\034\n\027ACT_DOTA" +
+      "_IDLE_IMPATIENT\020\255\004\022\034\n\027ACT_DOTA_SHARPEN_W" +
+      "EAPON\020\256\004\022 \n\033ACT_DOTA_SHARPEN_WEAPON_OUT\020" +
+      "\257\004\022\037\n\032ACT_DOTA_IDLE_SLEEPING_END\020\260\004\022\034\n\027A" +
+      "CT_DOTA_BRIDGE_DESTROY\020\261\004\022\032\n\025ACT_DOTA_TA",
+      "UNT_SNIPER\020\262\004\022\035\n\030ACT_DOTA_DEATH_BY_SNIPE" +
+      "R\020\263\004\022\031\n\024ACT_DOTA_LOOK_AROUND\020\264\004\022\036\n\031ACT_D" +
+      "OTA_CAGED_CREEP_RAGE\020\265\004\022\"\n\035ACT_DOTA_CAGE" +
+      "D_CREEP_RAGE_OUT\020\266\004\022\037\n\032ACT_DOTA_CAGED_CR" +
+      "EEP_SMASH\020\267\004\022#\n\036ACT_DOTA_CAGED_CREEP_SMA" +
+      "SH_OUT\020\270\004\022&\n!ACT_DOTA_IDLE_IMPATIENT_SWO" +
+      "RD_TAP\020\271\004\022\030\n\023ACT_DOTA_INTRO_LOOP\020\272\004\022\033\n\026A" +
+      "CT_DOTA_BRIDGE_THREAT\020\273\004\022\023\n\016ACT_DOTA_DAG" +
+      "ON\020\274\004\022*\n%ACT_DOTA_CAST_ABILITY_2_ES_ROLL" +
+      "_START\020\275\004\022$\n\037ACT_DOTA_CAST_ABILITY_2_ES_",
+      "ROLL\020\276\004\022(\n#ACT_DOTA_CAST_ABILITY_2_ES_RO" +
+      "LL_END\020\277\004\022\034\n\027ACT_DOTA_NIAN_PIN_START\020\300\004\022" +
+      "\033\n\026ACT_DOTA_NIAN_PIN_LOOP\020\301\004\022\032\n\025ACT_DOTA" +
+      "_NIAN_PIN_END\020\302\004\022\027\n\022ACT_DOTA_LEAP_STUN\020\303" +
+      "\004\022\030\n\023ACT_DOTA_LEAP_SWIPE\020\304\004\022\035\n\030ACT_DOTA_" +
+      "NIAN_INTRO_LEAP\020\305\004\022\027\n\022ACT_DOTA_AREA_DENY" +
+      "\020\306\004\022\036\n\031ACT_DOTA_NIAN_PIN_TO_STUN\020\307\004\022\024\n\017A" +
+      "CT_DOTA_RAZE_1\020\310\004\022\024\n\017ACT_DOTA_RAZE_2\020\311\004\022" +
+      "\024\n\017ACT_DOTA_RAZE_3\020\312\004\022\033\n\026ACT_DOTA_UNDYIN" +
+      "G_DECAY\020\313\004\022\036\n\031ACT_DOTA_UNDYING_SOUL_RIP\020",
+      "\314\004\022\037\n\032ACT_DOTA_UNDYING_TOMBSTONE\020\315\004\022\"\n\035A" +
+      "CT_DOTA_WHIRLING_AXES_RANGED\020\316\004\022\033\n\026ACT_D" +
+      "OTA_SHALLOW_GRAVE\020\317\004\022\027\n\022ACT_DOTA_COLD_FE" +
+      "ET\020\320\004\022\030\n\023ACT_DOTA_ICE_VORTEX\020\321\004\022\034\n\027ACT_D" +
+      "OTA_CHILLING_TOUCH\020\322\004\022\026\n\021ACT_DOTA_ENFEEB" +
+      "LE\020\323\004\022\031\n\024ACT_DOTA_FATAL_BONDS\020\324\004\022\034\n\027ACT_" +
+      "DOTA_MIDNIGHT_PULSE\020\325\004\022\036\n\031ACT_DOTA_ANCES" +
+      "TRAL_SPIRIT\020\326\004\022\034\n\027ACT_DOTA_THUNDER_STRIK" +
+      "E\020\327\004\022\033\n\026ACT_DOTA_KINETIC_FIELD\020\330\004\022\032\n\025ACT" +
+      "_DOTA_STATIC_STORM\020\331\004\022\030\n\023ACT_DOTA_MINI_T",
+      "AUNT\020\332\004B\021\n\017com.valve.dota2"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {

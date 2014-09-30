@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 
 import com.valve.dota2.Demo.CDemoSendTables;
 import com.valve.dota2.Netmessages.CSVCMsg_CreateStringTable;
-import com.valve.dota2.Netmessages.CSVCMsg_GameEvent;
 import com.valve.dota2.Netmessages.CSVCMsg_GameEventList;
 import com.valve.dota2.Netmessages.CSVCMsg_PacketEntities;
 import com.valve.dota2.Netmessages.CSVCMsg_SendTable;
@@ -14,8 +13,9 @@ import com.valve.dota2.Netmessages.CSVCMsg_SendTable.sendprop_t;
 import com.valve.dota2.Netmessages.CSVCMsg_ServerInfo;
 import com.valve.dota2.Netmessages.CSVCMsg_TempEntities;
 import com.valve.dota2.Netmessages.CSVCMsg_UpdateStringTable;
-import com.valve.dota2.Netmessages.CSVCMsg_UserMessage;
 import com.valve.dota2.Netmessages.SVC_Messages;
+import com.valve.dota2.Networkbasetypes.CSVCMsg_GameEvent;
+import com.valve.dota2.Networkbasetypes.CSVCMsg_UserMessage;
 
 import de.lighti.DotaPlay;
 import de.lighti.model.state.ParseState;
@@ -29,10 +29,6 @@ import de.lighti.util.BitInputBuffer;
 import de.lighti.util.Utils;
 
 public class SVCMessageHandler {
-    private final static String INSTANCE_BASELINE_TABLE = "instancebaseline";
-    private final static int MAX_KEY_SIZE = 0x400;
-    private final static int MAX_VALUE_SIZE = 0x4000;
-
     private static void handleCreateTable( CSVCMsg_CreateStringTable table, ParseState state ) {
         if (state == null) {
             throw new IllegalStateException( "SVC_CreateStringTable but no state." );
@@ -207,7 +203,7 @@ public class SVCMessageHandler {
 
             String key = null;
             if (stream.readBit()) {
-                if (first && (stream.readBit())) {
+                if (first && stream.readBit()) {
                     throw new UnsupportedOperationException( "please no" );
                 }
                 else {
@@ -243,7 +239,7 @@ public class SVCMessageHandler {
             if (entryId < table.size()) {
                 final StringTableEntry item = table.get( entryId );
 
-                if ((key != null) && !item.key.equals( key )) {
+                if (key != null && !item.key.equals( key )) {
                     throw new IllegalStateException( "Entry's keys don't match." );
                 }
                 item.value = valueBuffer;
@@ -262,4 +258,10 @@ public class SVCMessageHandler {
         Logger.getLogger( SVCMessageHandler.class.getName() ).finer(
                         "StringTable " + table.getName() + " updated with " + numEntries + " updated enties. (" + oldSize + "->" + table.size() + ")" );
     }
+
+    private final static String INSTANCE_BASELINE_TABLE = "instancebaseline";
+
+    private final static int MAX_KEY_SIZE = 0x400;
+
+    private final static int MAX_VALUE_SIZE = 0x4000;
 }
