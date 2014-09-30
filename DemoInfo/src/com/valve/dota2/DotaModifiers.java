@@ -9,7 +9,7 @@ public final class DotaModifiers {
       com.google.protobuf.ExtensionRegistry registry) {
   }
   /**
-   * Protobuf enum {@code com.valve.dota2.DOTA_MODIFIER_ENTRY_TYPE}
+   * Protobuf enum {@code DOTA_MODIFIER_ENTRY_TYPE}
    */
   public enum DOTA_MODIFIER_ENTRY_TYPE
       implements com.google.protobuf.ProtocolMessageEnum {
@@ -87,93 +87,61 @@ public final class DotaModifiers {
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:com.valve.dota2.DOTA_MODIFIER_ENTRY_TYPE)
+    // @@protoc_insertion_point(enum_scope:DOTA_MODIFIER_ENTRY_TYPE)
   }
 
   public interface CDOTAModifierBuffTableEntryOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // required .com.valve.dota2.DOTA_MODIFIER_ENTRY_TYPE entry_type = 1;
+    // required .DOTA_MODIFIER_ENTRY_TYPE entry_type = 1 [default = DOTA_MODIFIER_ENTRY_TYPE_ACTIVE];
     /**
-     * <code>required .com.valve.dota2.DOTA_MODIFIER_ENTRY_TYPE entry_type = 1;</code>
+     * <code>required .DOTA_MODIFIER_ENTRY_TYPE entry_type = 1 [default = DOTA_MODIFIER_ENTRY_TYPE_ACTIVE];</code>
      */
     boolean hasEntryType();
     /**
-     * <code>required .com.valve.dota2.DOTA_MODIFIER_ENTRY_TYPE entry_type = 1;</code>
+     * <code>required .DOTA_MODIFIER_ENTRY_TYPE entry_type = 1 [default = DOTA_MODIFIER_ENTRY_TYPE_ACTIVE];</code>
      */
     com.valve.dota2.DotaModifiers.DOTA_MODIFIER_ENTRY_TYPE getEntryType();
 
     // required int32 parent = 2;
     /**
      * <code>required int32 parent = 2;</code>
-     *
-     * <pre>
-     * ehandle to parent owner
-     * </pre>
      */
     boolean hasParent();
     /**
      * <code>required int32 parent = 2;</code>
-     *
-     * <pre>
-     * ehandle to parent owner
-     * </pre>
      */
     int getParent();
 
     // required int32 index = 3;
     /**
      * <code>required int32 index = 3;</code>
-     *
-     * <pre>
-     * index into the modifier list on the entity (local to each entity)
-     * </pre>
      */
     boolean hasIndex();
     /**
      * <code>required int32 index = 3;</code>
-     *
-     * <pre>
-     * index into the modifier list on the entity (local to each entity)
-     * </pre>
      */
     int getIndex();
 
     // required int32 serial_num = 4;
     /**
      * <code>required int32 serial_num = 4;</code>
-     *
-     * <pre>
-     * global serial number
-     * </pre>
      */
     boolean hasSerialNum();
     /**
      * <code>required int32 serial_num = 4;</code>
-     *
-     * <pre>
-     * global serial number
-     * </pre>
      */
     int getSerialNum();
 
-    // optional int32 name = 5;
+    // optional int32 modifier_class = 5;
     /**
-     * <code>optional int32 name = 5;</code>
-     *
-     * <pre>
-     * index into the modifier name string table
-     * </pre>
+     * <code>optional int32 modifier_class = 5;</code>
      */
-    boolean hasName();
+    boolean hasModifierClass();
     /**
-     * <code>optional int32 name = 5;</code>
-     *
-     * <pre>
-     * index into the modifier name string table
-     * </pre>
+     * <code>optional int32 modifier_class = 5;</code>
      */
-    int getName();
+    int getModifierClass();
 
     // optional int32 ability_level = 6;
     /**
@@ -238,150 +206,82 @@ public final class DotaModifiers {
     // optional int32 armor = 12;
     /**
      * <code>optional int32 armor = 12;</code>
-     *
-     * <pre>
-     * optional custom data
-     * </pre>
      */
     boolean hasArmor();
     /**
      * <code>optional int32 armor = 12;</code>
-     *
-     * <pre>
-     * optional custom data
-     * </pre>
      */
     int getArmor();
 
     // optional float fade_time = 13;
     /**
      * <code>optional float fade_time = 13;</code>
-     *
-     * <pre>
-     * used by invisiblity
-     * </pre>
      */
     boolean hasFadeTime();
     /**
      * <code>optional float fade_time = 13;</code>
-     *
-     * <pre>
-     * used by invisiblity
-     * </pre>
      */
     float getFadeTime();
 
     // optional bool subtle = 14;
     /**
      * <code>optional bool subtle = 14;</code>
-     *
-     * <pre>
-     * used by invisiblity
-     * </pre>
      */
     boolean hasSubtle();
     /**
      * <code>optional bool subtle = 14;</code>
-     *
-     * <pre>
-     * used by invisiblity
-     * </pre>
      */
     boolean getSubtle();
 
     // optional float channel_time = 15;
     /**
      * <code>optional float channel_time = 15;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     boolean hasChannelTime();
     /**
      * <code>optional float channel_time = 15;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     float getChannelTime();
 
-    // optional .com.valve.dota2.CMsgVector v_start = 16;
+    // optional .CMsgVector v_start = 16;
     /**
-     * <code>optional .com.valve.dota2.CMsgVector v_start = 16;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
+     * <code>optional .CMsgVector v_start = 16;</code>
      */
     boolean hasVStart();
     /**
-     * <code>optional .com.valve.dota2.CMsgVector v_start = 16;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
+     * <code>optional .CMsgVector v_start = 16;</code>
      */
-    com.valve.dota2.Netmessages.CMsgVector getVStart();
+    com.valve.dota2.Networkbasetypes.CMsgVector getVStart();
     /**
-     * <code>optional .com.valve.dota2.CMsgVector v_start = 16;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
+     * <code>optional .CMsgVector v_start = 16;</code>
      */
-    com.valve.dota2.Netmessages.CMsgVectorOrBuilder getVStartOrBuilder();
+    com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder getVStartOrBuilder();
 
-    // optional .com.valve.dota2.CMsgVector v_end = 17;
+    // optional .CMsgVector v_end = 17;
     /**
-     * <code>optional .com.valve.dota2.CMsgVector v_end = 17;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
+     * <code>optional .CMsgVector v_end = 17;</code>
      */
     boolean hasVEnd();
     /**
-     * <code>optional .com.valve.dota2.CMsgVector v_end = 17;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
+     * <code>optional .CMsgVector v_end = 17;</code>
      */
-    com.valve.dota2.Netmessages.CMsgVector getVEnd();
+    com.valve.dota2.Networkbasetypes.CMsgVector getVEnd();
     /**
-     * <code>optional .com.valve.dota2.CMsgVector v_end = 17;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
+     * <code>optional .CMsgVector v_end = 17;</code>
      */
-    com.valve.dota2.Netmessages.CMsgVectorOrBuilder getVEndOrBuilder();
+    com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder getVEndOrBuilder();
 
     // optional string portal_loop_appear = 18;
     /**
      * <code>optional string portal_loop_appear = 18;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     boolean hasPortalLoopAppear();
     /**
      * <code>optional string portal_loop_appear = 18;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     java.lang.String getPortalLoopAppear();
     /**
      * <code>optional string portal_loop_appear = 18;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     com.google.protobuf.ByteString
         getPortalLoopAppearBytes();
@@ -389,26 +289,14 @@ public final class DotaModifiers {
     // optional string portal_loop_disappear = 19;
     /**
      * <code>optional string portal_loop_disappear = 19;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     boolean hasPortalLoopDisappear();
     /**
      * <code>optional string portal_loop_disappear = 19;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     java.lang.String getPortalLoopDisappear();
     /**
      * <code>optional string portal_loop_disappear = 19;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     com.google.protobuf.ByteString
         getPortalLoopDisappearBytes();
@@ -416,26 +304,14 @@ public final class DotaModifiers {
     // optional string hero_loop_appear = 20;
     /**
      * <code>optional string hero_loop_appear = 20;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     boolean hasHeroLoopAppear();
     /**
      * <code>optional string hero_loop_appear = 20;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     java.lang.String getHeroLoopAppear();
     /**
      * <code>optional string hero_loop_appear = 20;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     com.google.protobuf.ByteString
         getHeroLoopAppearBytes();
@@ -443,26 +319,14 @@ public final class DotaModifiers {
     // optional string hero_loop_disappear = 21;
     /**
      * <code>optional string hero_loop_disappear = 21;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     boolean hasHeroLoopDisappear();
     /**
      * <code>optional string hero_loop_disappear = 21;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     java.lang.String getHeroLoopDisappear();
     /**
      * <code>optional string hero_loop_disappear = 21;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     com.google.protobuf.ByteString
         getHeroLoopDisappearBytes();
@@ -470,18 +334,10 @@ public final class DotaModifiers {
     // optional int32 movement_speed = 22;
     /**
      * <code>optional int32 movement_speed = 22;</code>
-     *
-     * <pre>
-     * used by smoke of deceit
-     * </pre>
      */
     boolean hasMovementSpeed();
     /**
      * <code>optional int32 movement_speed = 22;</code>
-     *
-     * <pre>
-     * used by smoke of deceit
-     * </pre>
      */
     int getMovementSpeed();
 
@@ -494,9 +350,59 @@ public final class DotaModifiers {
      * <code>optional bool aura = 23;</code>
      */
     boolean getAura();
+
+    // optional int32 activity = 24;
+    /**
+     * <code>optional int32 activity = 24;</code>
+     */
+    boolean hasActivity();
+    /**
+     * <code>optional int32 activity = 24;</code>
+     */
+    int getActivity();
+
+    // optional int32 damage = 25;
+    /**
+     * <code>optional int32 damage = 25;</code>
+     */
+    boolean hasDamage();
+    /**
+     * <code>optional int32 damage = 25;</code>
+     */
+    int getDamage();
+
+    // optional int32 range = 26;
+    /**
+     * <code>optional int32 range = 26;</code>
+     */
+    boolean hasRange();
+    /**
+     * <code>optional int32 range = 26;</code>
+     */
+    int getRange();
+
+    // optional int32 dd_modifier_index = 27;
+    /**
+     * <code>optional int32 dd_modifier_index = 27;</code>
+     */
+    boolean hasDdModifierIndex();
+    /**
+     * <code>optional int32 dd_modifier_index = 27;</code>
+     */
+    int getDdModifierIndex();
+
+    // optional int32 dd_ability_index = 28;
+    /**
+     * <code>optional int32 dd_ability_index = 28;</code>
+     */
+    boolean hasDdAbilityIndex();
+    /**
+     * <code>optional int32 dd_ability_index = 28;</code>
+     */
+    int getDdAbilityIndex();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CDOTAModifierBuffTableEntry}
+   * Protobuf type {@code CDOTAModifierBuffTableEntry}
    */
   public static final class CDOTAModifierBuffTableEntry extends
       com.google.protobuf.GeneratedMessage
@@ -574,7 +480,7 @@ public final class DotaModifiers {
             }
             case 40: {
               bitField0_ |= 0x00000010;
-              name_ = input.readInt32();
+              modifierClass_ = input.readInt32();
               break;
             }
             case 48: {
@@ -628,11 +534,11 @@ public final class DotaModifiers {
               break;
             }
             case 130: {
-              com.valve.dota2.Netmessages.CMsgVector.Builder subBuilder = null;
+              com.valve.dota2.Networkbasetypes.CMsgVector.Builder subBuilder = null;
               if (((bitField0_ & 0x00008000) == 0x00008000)) {
                 subBuilder = vStart_.toBuilder();
               }
-              vStart_ = input.readMessage(com.valve.dota2.Netmessages.CMsgVector.PARSER, extensionRegistry);
+              vStart_ = input.readMessage(com.valve.dota2.Networkbasetypes.CMsgVector.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(vStart_);
                 vStart_ = subBuilder.buildPartial();
@@ -641,11 +547,11 @@ public final class DotaModifiers {
               break;
             }
             case 138: {
-              com.valve.dota2.Netmessages.CMsgVector.Builder subBuilder = null;
+              com.valve.dota2.Networkbasetypes.CMsgVector.Builder subBuilder = null;
               if (((bitField0_ & 0x00010000) == 0x00010000)) {
                 subBuilder = vEnd_.toBuilder();
               }
-              vEnd_ = input.readMessage(com.valve.dota2.Netmessages.CMsgVector.PARSER, extensionRegistry);
+              vEnd_ = input.readMessage(com.valve.dota2.Networkbasetypes.CMsgVector.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(vEnd_);
                 vEnd_ = subBuilder.buildPartial();
@@ -683,6 +589,31 @@ public final class DotaModifiers {
               aura_ = input.readBool();
               break;
             }
+            case 192: {
+              bitField0_ |= 0x00800000;
+              activity_ = input.readInt32();
+              break;
+            }
+            case 200: {
+              bitField0_ |= 0x01000000;
+              damage_ = input.readInt32();
+              break;
+            }
+            case 208: {
+              bitField0_ |= 0x02000000;
+              range_ = input.readInt32();
+              break;
+            }
+            case 216: {
+              bitField0_ |= 0x04000000;
+              ddModifierIndex_ = input.readInt32();
+              break;
+            }
+            case 224: {
+              bitField0_ |= 0x08000000;
+              ddAbilityIndex_ = input.readInt32();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -697,12 +628,12 @@ public final class DotaModifiers {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.DotaModifiers.internal_static_com_valve_dota2_CDOTAModifierBuffTableEntry_descriptor;
+      return com.valve.dota2.DotaModifiers.internal_static_CDOTAModifierBuffTableEntry_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.DotaModifiers.internal_static_com_valve_dota2_CDOTAModifierBuffTableEntry_fieldAccessorTable
+      return com.valve.dota2.DotaModifiers.internal_static_CDOTAModifierBuffTableEntry_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.DotaModifiers.CDOTAModifierBuffTableEntry.class, com.valve.dota2.DotaModifiers.CDOTAModifierBuffTableEntry.Builder.class);
     }
@@ -723,17 +654,17 @@ public final class DotaModifiers {
     }
 
     private int bitField0_;
-    // required .com.valve.dota2.DOTA_MODIFIER_ENTRY_TYPE entry_type = 1;
+    // required .DOTA_MODIFIER_ENTRY_TYPE entry_type = 1 [default = DOTA_MODIFIER_ENTRY_TYPE_ACTIVE];
     public static final int ENTRY_TYPE_FIELD_NUMBER = 1;
     private com.valve.dota2.DotaModifiers.DOTA_MODIFIER_ENTRY_TYPE entryType_;
     /**
-     * <code>required .com.valve.dota2.DOTA_MODIFIER_ENTRY_TYPE entry_type = 1;</code>
+     * <code>required .DOTA_MODIFIER_ENTRY_TYPE entry_type = 1 [default = DOTA_MODIFIER_ENTRY_TYPE_ACTIVE];</code>
      */
     public boolean hasEntryType() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>required .com.valve.dota2.DOTA_MODIFIER_ENTRY_TYPE entry_type = 1;</code>
+     * <code>required .DOTA_MODIFIER_ENTRY_TYPE entry_type = 1 [default = DOTA_MODIFIER_ENTRY_TYPE_ACTIVE];</code>
      */
     public com.valve.dota2.DotaModifiers.DOTA_MODIFIER_ENTRY_TYPE getEntryType() {
       return entryType_;
@@ -744,20 +675,12 @@ public final class DotaModifiers {
     private int parent_;
     /**
      * <code>required int32 parent = 2;</code>
-     *
-     * <pre>
-     * ehandle to parent owner
-     * </pre>
      */
     public boolean hasParent() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <code>required int32 parent = 2;</code>
-     *
-     * <pre>
-     * ehandle to parent owner
-     * </pre>
      */
     public int getParent() {
       return parent_;
@@ -768,20 +691,12 @@ public final class DotaModifiers {
     private int index_;
     /**
      * <code>required int32 index = 3;</code>
-     *
-     * <pre>
-     * index into the modifier list on the entity (local to each entity)
-     * </pre>
      */
     public boolean hasIndex() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <code>required int32 index = 3;</code>
-     *
-     * <pre>
-     * index into the modifier list on the entity (local to each entity)
-     * </pre>
      */
     public int getIndex() {
       return index_;
@@ -792,47 +707,31 @@ public final class DotaModifiers {
     private int serialNum_;
     /**
      * <code>required int32 serial_num = 4;</code>
-     *
-     * <pre>
-     * global serial number
-     * </pre>
      */
     public boolean hasSerialNum() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      * <code>required int32 serial_num = 4;</code>
-     *
-     * <pre>
-     * global serial number
-     * </pre>
      */
     public int getSerialNum() {
       return serialNum_;
     }
 
-    // optional int32 name = 5;
-    public static final int NAME_FIELD_NUMBER = 5;
-    private int name_;
+    // optional int32 modifier_class = 5;
+    public static final int MODIFIER_CLASS_FIELD_NUMBER = 5;
+    private int modifierClass_;
     /**
-     * <code>optional int32 name = 5;</code>
-     *
-     * <pre>
-     * index into the modifier name string table
-     * </pre>
+     * <code>optional int32 modifier_class = 5;</code>
      */
-    public boolean hasName() {
+    public boolean hasModifierClass() {
       return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
-     * <code>optional int32 name = 5;</code>
-     *
-     * <pre>
-     * index into the modifier name string table
-     * </pre>
+     * <code>optional int32 modifier_class = 5;</code>
      */
-    public int getName() {
-      return name_;
+    public int getModifierClass() {
+      return modifierClass_;
     }
 
     // optional int32 ability_level = 6;
@@ -936,20 +835,12 @@ public final class DotaModifiers {
     private int armor_;
     /**
      * <code>optional int32 armor = 12;</code>
-     *
-     * <pre>
-     * optional custom data
-     * </pre>
      */
     public boolean hasArmor() {
       return ((bitField0_ & 0x00000800) == 0x00000800);
     }
     /**
      * <code>optional int32 armor = 12;</code>
-     *
-     * <pre>
-     * optional custom data
-     * </pre>
      */
     public int getArmor() {
       return armor_;
@@ -960,20 +851,12 @@ public final class DotaModifiers {
     private float fadeTime_;
     /**
      * <code>optional float fade_time = 13;</code>
-     *
-     * <pre>
-     * used by invisiblity
-     * </pre>
      */
     public boolean hasFadeTime() {
       return ((bitField0_ & 0x00001000) == 0x00001000);
     }
     /**
      * <code>optional float fade_time = 13;</code>
-     *
-     * <pre>
-     * used by invisiblity
-     * </pre>
      */
     public float getFadeTime() {
       return fadeTime_;
@@ -984,20 +867,12 @@ public final class DotaModifiers {
     private boolean subtle_;
     /**
      * <code>optional bool subtle = 14;</code>
-     *
-     * <pre>
-     * used by invisiblity
-     * </pre>
      */
     public boolean hasSubtle() {
       return ((bitField0_ & 0x00002000) == 0x00002000);
     }
     /**
      * <code>optional bool subtle = 14;</code>
-     *
-     * <pre>
-     * used by invisiblity
-     * </pre>
      */
     public boolean getSubtle() {
       return subtle_;
@@ -1008,90 +883,58 @@ public final class DotaModifiers {
     private float channelTime_;
     /**
      * <code>optional float channel_time = 15;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     public boolean hasChannelTime() {
       return ((bitField0_ & 0x00004000) == 0x00004000);
     }
     /**
      * <code>optional float channel_time = 15;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     public float getChannelTime() {
       return channelTime_;
     }
 
-    // optional .com.valve.dota2.CMsgVector v_start = 16;
+    // optional .CMsgVector v_start = 16;
     public static final int V_START_FIELD_NUMBER = 16;
-    private com.valve.dota2.Netmessages.CMsgVector vStart_;
+    private com.valve.dota2.Networkbasetypes.CMsgVector vStart_;
     /**
-     * <code>optional .com.valve.dota2.CMsgVector v_start = 16;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
+     * <code>optional .CMsgVector v_start = 16;</code>
      */
     public boolean hasVStart() {
       return ((bitField0_ & 0x00008000) == 0x00008000);
     }
     /**
-     * <code>optional .com.valve.dota2.CMsgVector v_start = 16;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
+     * <code>optional .CMsgVector v_start = 16;</code>
      */
-    public com.valve.dota2.Netmessages.CMsgVector getVStart() {
+    public com.valve.dota2.Networkbasetypes.CMsgVector getVStart() {
       return vStart_;
     }
     /**
-     * <code>optional .com.valve.dota2.CMsgVector v_start = 16;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
+     * <code>optional .CMsgVector v_start = 16;</code>
      */
-    public com.valve.dota2.Netmessages.CMsgVectorOrBuilder getVStartOrBuilder() {
+    public com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder getVStartOrBuilder() {
       return vStart_;
     }
 
-    // optional .com.valve.dota2.CMsgVector v_end = 17;
+    // optional .CMsgVector v_end = 17;
     public static final int V_END_FIELD_NUMBER = 17;
-    private com.valve.dota2.Netmessages.CMsgVector vEnd_;
+    private com.valve.dota2.Networkbasetypes.CMsgVector vEnd_;
     /**
-     * <code>optional .com.valve.dota2.CMsgVector v_end = 17;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
+     * <code>optional .CMsgVector v_end = 17;</code>
      */
     public boolean hasVEnd() {
       return ((bitField0_ & 0x00010000) == 0x00010000);
     }
     /**
-     * <code>optional .com.valve.dota2.CMsgVector v_end = 17;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
+     * <code>optional .CMsgVector v_end = 17;</code>
      */
-    public com.valve.dota2.Netmessages.CMsgVector getVEnd() {
+    public com.valve.dota2.Networkbasetypes.CMsgVector getVEnd() {
       return vEnd_;
     }
     /**
-     * <code>optional .com.valve.dota2.CMsgVector v_end = 17;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
+     * <code>optional .CMsgVector v_end = 17;</code>
      */
-    public com.valve.dota2.Netmessages.CMsgVectorOrBuilder getVEndOrBuilder() {
+    public com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder getVEndOrBuilder() {
       return vEnd_;
     }
 
@@ -1100,20 +943,12 @@ public final class DotaModifiers {
     private java.lang.Object portalLoopAppear_;
     /**
      * <code>optional string portal_loop_appear = 18;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     public boolean hasPortalLoopAppear() {
       return ((bitField0_ & 0x00020000) == 0x00020000);
     }
     /**
      * <code>optional string portal_loop_appear = 18;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     public java.lang.String getPortalLoopAppear() {
       java.lang.Object ref = portalLoopAppear_;
@@ -1131,10 +966,6 @@ public final class DotaModifiers {
     }
     /**
      * <code>optional string portal_loop_appear = 18;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     public com.google.protobuf.ByteString
         getPortalLoopAppearBytes() {
@@ -1155,20 +986,12 @@ public final class DotaModifiers {
     private java.lang.Object portalLoopDisappear_;
     /**
      * <code>optional string portal_loop_disappear = 19;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     public boolean hasPortalLoopDisappear() {
       return ((bitField0_ & 0x00040000) == 0x00040000);
     }
     /**
      * <code>optional string portal_loop_disappear = 19;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     public java.lang.String getPortalLoopDisappear() {
       java.lang.Object ref = portalLoopDisappear_;
@@ -1186,10 +1009,6 @@ public final class DotaModifiers {
     }
     /**
      * <code>optional string portal_loop_disappear = 19;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     public com.google.protobuf.ByteString
         getPortalLoopDisappearBytes() {
@@ -1210,20 +1029,12 @@ public final class DotaModifiers {
     private java.lang.Object heroLoopAppear_;
     /**
      * <code>optional string hero_loop_appear = 20;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     public boolean hasHeroLoopAppear() {
       return ((bitField0_ & 0x00080000) == 0x00080000);
     }
     /**
      * <code>optional string hero_loop_appear = 20;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     public java.lang.String getHeroLoopAppear() {
       java.lang.Object ref = heroLoopAppear_;
@@ -1241,10 +1052,6 @@ public final class DotaModifiers {
     }
     /**
      * <code>optional string hero_loop_appear = 20;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     public com.google.protobuf.ByteString
         getHeroLoopAppearBytes() {
@@ -1265,20 +1072,12 @@ public final class DotaModifiers {
     private java.lang.Object heroLoopDisappear_;
     /**
      * <code>optional string hero_loop_disappear = 21;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     public boolean hasHeroLoopDisappear() {
       return ((bitField0_ & 0x00100000) == 0x00100000);
     }
     /**
      * <code>optional string hero_loop_disappear = 21;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     public java.lang.String getHeroLoopDisappear() {
       java.lang.Object ref = heroLoopDisappear_;
@@ -1296,10 +1095,6 @@ public final class DotaModifiers {
     }
     /**
      * <code>optional string hero_loop_disappear = 21;</code>
-     *
-     * <pre>
-     * used by teleport
-     * </pre>
      */
     public com.google.protobuf.ByteString
         getHeroLoopDisappearBytes() {
@@ -1320,20 +1115,12 @@ public final class DotaModifiers {
     private int movementSpeed_;
     /**
      * <code>optional int32 movement_speed = 22;</code>
-     *
-     * <pre>
-     * used by smoke of deceit
-     * </pre>
      */
     public boolean hasMovementSpeed() {
       return ((bitField0_ & 0x00200000) == 0x00200000);
     }
     /**
      * <code>optional int32 movement_speed = 22;</code>
-     *
-     * <pre>
-     * used by smoke of deceit
-     * </pre>
      */
     public int getMovementSpeed() {
       return movementSpeed_;
@@ -1355,12 +1142,92 @@ public final class DotaModifiers {
       return aura_;
     }
 
+    // optional int32 activity = 24;
+    public static final int ACTIVITY_FIELD_NUMBER = 24;
+    private int activity_;
+    /**
+     * <code>optional int32 activity = 24;</code>
+     */
+    public boolean hasActivity() {
+      return ((bitField0_ & 0x00800000) == 0x00800000);
+    }
+    /**
+     * <code>optional int32 activity = 24;</code>
+     */
+    public int getActivity() {
+      return activity_;
+    }
+
+    // optional int32 damage = 25;
+    public static final int DAMAGE_FIELD_NUMBER = 25;
+    private int damage_;
+    /**
+     * <code>optional int32 damage = 25;</code>
+     */
+    public boolean hasDamage() {
+      return ((bitField0_ & 0x01000000) == 0x01000000);
+    }
+    /**
+     * <code>optional int32 damage = 25;</code>
+     */
+    public int getDamage() {
+      return damage_;
+    }
+
+    // optional int32 range = 26;
+    public static final int RANGE_FIELD_NUMBER = 26;
+    private int range_;
+    /**
+     * <code>optional int32 range = 26;</code>
+     */
+    public boolean hasRange() {
+      return ((bitField0_ & 0x02000000) == 0x02000000);
+    }
+    /**
+     * <code>optional int32 range = 26;</code>
+     */
+    public int getRange() {
+      return range_;
+    }
+
+    // optional int32 dd_modifier_index = 27;
+    public static final int DD_MODIFIER_INDEX_FIELD_NUMBER = 27;
+    private int ddModifierIndex_;
+    /**
+     * <code>optional int32 dd_modifier_index = 27;</code>
+     */
+    public boolean hasDdModifierIndex() {
+      return ((bitField0_ & 0x04000000) == 0x04000000);
+    }
+    /**
+     * <code>optional int32 dd_modifier_index = 27;</code>
+     */
+    public int getDdModifierIndex() {
+      return ddModifierIndex_;
+    }
+
+    // optional int32 dd_ability_index = 28;
+    public static final int DD_ABILITY_INDEX_FIELD_NUMBER = 28;
+    private int ddAbilityIndex_;
+    /**
+     * <code>optional int32 dd_ability_index = 28;</code>
+     */
+    public boolean hasDdAbilityIndex() {
+      return ((bitField0_ & 0x08000000) == 0x08000000);
+    }
+    /**
+     * <code>optional int32 dd_ability_index = 28;</code>
+     */
+    public int getDdAbilityIndex() {
+      return ddAbilityIndex_;
+    }
+
     private void initFields() {
       entryType_ = com.valve.dota2.DotaModifiers.DOTA_MODIFIER_ENTRY_TYPE.DOTA_MODIFIER_ENTRY_TYPE_ACTIVE;
       parent_ = 0;
       index_ = 0;
       serialNum_ = 0;
-      name_ = 0;
+      modifierClass_ = 0;
       abilityLevel_ = 0;
       stackCount_ = 0;
       creationTime_ = 0F;
@@ -1371,14 +1238,19 @@ public final class DotaModifiers {
       fadeTime_ = 0F;
       subtle_ = false;
       channelTime_ = 0F;
-      vStart_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
-      vEnd_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+      vStart_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
+      vEnd_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
       portalLoopAppear_ = "";
       portalLoopDisappear_ = "";
       heroLoopAppear_ = "";
       heroLoopDisappear_ = "";
       movementSpeed_ = 0;
       aura_ = false;
+      activity_ = 0;
+      damage_ = 0;
+      range_ = 0;
+      ddModifierIndex_ = 0;
+      ddAbilityIndex_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -1421,7 +1293,7 @@ public final class DotaModifiers {
         output.writeInt32(4, serialNum_);
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
-        output.writeInt32(5, name_);
+        output.writeInt32(5, modifierClass_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeInt32(6, abilityLevel_);
@@ -1477,6 +1349,21 @@ public final class DotaModifiers {
       if (((bitField0_ & 0x00400000) == 0x00400000)) {
         output.writeBool(23, aura_);
       }
+      if (((bitField0_ & 0x00800000) == 0x00800000)) {
+        output.writeInt32(24, activity_);
+      }
+      if (((bitField0_ & 0x01000000) == 0x01000000)) {
+        output.writeInt32(25, damage_);
+      }
+      if (((bitField0_ & 0x02000000) == 0x02000000)) {
+        output.writeInt32(26, range_);
+      }
+      if (((bitField0_ & 0x04000000) == 0x04000000)) {
+        output.writeInt32(27, ddModifierIndex_);
+      }
+      if (((bitField0_ & 0x08000000) == 0x08000000)) {
+        output.writeInt32(28, ddAbilityIndex_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -1504,7 +1391,7 @@ public final class DotaModifiers {
       }
       if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, name_);
+          .computeInt32Size(5, modifierClass_);
       }
       if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
@@ -1577,6 +1464,26 @@ public final class DotaModifiers {
       if (((bitField0_ & 0x00400000) == 0x00400000)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(23, aura_);
+      }
+      if (((bitField0_ & 0x00800000) == 0x00800000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(24, activity_);
+      }
+      if (((bitField0_ & 0x01000000) == 0x01000000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(25, damage_);
+      }
+      if (((bitField0_ & 0x02000000) == 0x02000000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(26, range_);
+      }
+      if (((bitField0_ & 0x04000000) == 0x04000000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(27, ddModifierIndex_);
+      }
+      if (((bitField0_ & 0x08000000) == 0x08000000)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(28, ddAbilityIndex_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1657,19 +1564,19 @@ public final class DotaModifiers {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CDOTAModifierBuffTableEntry}
+     * Protobuf type {@code CDOTAModifierBuffTableEntry}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.DotaModifiers.CDOTAModifierBuffTableEntryOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.DotaModifiers.internal_static_com_valve_dota2_CDOTAModifierBuffTableEntry_descriptor;
+        return com.valve.dota2.DotaModifiers.internal_static_CDOTAModifierBuffTableEntry_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.DotaModifiers.internal_static_com_valve_dota2_CDOTAModifierBuffTableEntry_fieldAccessorTable
+        return com.valve.dota2.DotaModifiers.internal_static_CDOTAModifierBuffTableEntry_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.DotaModifiers.CDOTAModifierBuffTableEntry.class, com.valve.dota2.DotaModifiers.CDOTAModifierBuffTableEntry.Builder.class);
       }
@@ -1704,7 +1611,7 @@ public final class DotaModifiers {
         bitField0_ = (bitField0_ & ~0x00000004);
         serialNum_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
-        name_ = 0;
+        modifierClass_ = 0;
         bitField0_ = (bitField0_ & ~0x00000010);
         abilityLevel_ = 0;
         bitField0_ = (bitField0_ & ~0x00000020);
@@ -1727,13 +1634,13 @@ public final class DotaModifiers {
         channelTime_ = 0F;
         bitField0_ = (bitField0_ & ~0x00004000);
         if (vStartBuilder_ == null) {
-          vStart_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+          vStart_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
         } else {
           vStartBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00008000);
         if (vEndBuilder_ == null) {
-          vEnd_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+          vEnd_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
         } else {
           vEndBuilder_.clear();
         }
@@ -1750,6 +1657,16 @@ public final class DotaModifiers {
         bitField0_ = (bitField0_ & ~0x00200000);
         aura_ = false;
         bitField0_ = (bitField0_ & ~0x00400000);
+        activity_ = 0;
+        bitField0_ = (bitField0_ & ~0x00800000);
+        damage_ = 0;
+        bitField0_ = (bitField0_ & ~0x01000000);
+        range_ = 0;
+        bitField0_ = (bitField0_ & ~0x02000000);
+        ddModifierIndex_ = 0;
+        bitField0_ = (bitField0_ & ~0x04000000);
+        ddAbilityIndex_ = 0;
+        bitField0_ = (bitField0_ & ~0x08000000);
         return this;
       }
 
@@ -1759,7 +1676,7 @@ public final class DotaModifiers {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.DotaModifiers.internal_static_com_valve_dota2_CDOTAModifierBuffTableEntry_descriptor;
+        return com.valve.dota2.DotaModifiers.internal_static_CDOTAModifierBuffTableEntry_descriptor;
       }
 
       public com.valve.dota2.DotaModifiers.CDOTAModifierBuffTableEntry getDefaultInstanceForType() {
@@ -1797,7 +1714,7 @@ public final class DotaModifiers {
         if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
           to_bitField0_ |= 0x00000010;
         }
-        result.name_ = name_;
+        result.modifierClass_ = modifierClass_;
         if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
           to_bitField0_ |= 0x00000020;
         }
@@ -1878,6 +1795,26 @@ public final class DotaModifiers {
           to_bitField0_ |= 0x00400000;
         }
         result.aura_ = aura_;
+        if (((from_bitField0_ & 0x00800000) == 0x00800000)) {
+          to_bitField0_ |= 0x00800000;
+        }
+        result.activity_ = activity_;
+        if (((from_bitField0_ & 0x01000000) == 0x01000000)) {
+          to_bitField0_ |= 0x01000000;
+        }
+        result.damage_ = damage_;
+        if (((from_bitField0_ & 0x02000000) == 0x02000000)) {
+          to_bitField0_ |= 0x02000000;
+        }
+        result.range_ = range_;
+        if (((from_bitField0_ & 0x04000000) == 0x04000000)) {
+          to_bitField0_ |= 0x04000000;
+        }
+        result.ddModifierIndex_ = ddModifierIndex_;
+        if (((from_bitField0_ & 0x08000000) == 0x08000000)) {
+          to_bitField0_ |= 0x08000000;
+        }
+        result.ddAbilityIndex_ = ddAbilityIndex_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1906,8 +1843,8 @@ public final class DotaModifiers {
         if (other.hasSerialNum()) {
           setSerialNum(other.getSerialNum());
         }
-        if (other.hasName()) {
-          setName(other.getName());
+        if (other.hasModifierClass()) {
+          setModifierClass(other.getModifierClass());
         }
         if (other.hasAbilityLevel()) {
           setAbilityLevel(other.getAbilityLevel());
@@ -1971,6 +1908,21 @@ public final class DotaModifiers {
         if (other.hasAura()) {
           setAura(other.getAura());
         }
+        if (other.hasActivity()) {
+          setActivity(other.getActivity());
+        }
+        if (other.hasDamage()) {
+          setDamage(other.getDamage());
+        }
+        if (other.hasRange()) {
+          setRange(other.getRange());
+        }
+        if (other.hasDdModifierIndex()) {
+          setDdModifierIndex(other.getDdModifierIndex());
+        }
+        if (other.hasDdAbilityIndex()) {
+          setDdAbilityIndex(other.getDdAbilityIndex());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
       }
@@ -2014,22 +1966,22 @@ public final class DotaModifiers {
       }
       private int bitField0_;
 
-      // required .com.valve.dota2.DOTA_MODIFIER_ENTRY_TYPE entry_type = 1;
+      // required .DOTA_MODIFIER_ENTRY_TYPE entry_type = 1 [default = DOTA_MODIFIER_ENTRY_TYPE_ACTIVE];
       private com.valve.dota2.DotaModifiers.DOTA_MODIFIER_ENTRY_TYPE entryType_ = com.valve.dota2.DotaModifiers.DOTA_MODIFIER_ENTRY_TYPE.DOTA_MODIFIER_ENTRY_TYPE_ACTIVE;
       /**
-       * <code>required .com.valve.dota2.DOTA_MODIFIER_ENTRY_TYPE entry_type = 1;</code>
+       * <code>required .DOTA_MODIFIER_ENTRY_TYPE entry_type = 1 [default = DOTA_MODIFIER_ENTRY_TYPE_ACTIVE];</code>
        */
       public boolean hasEntryType() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>required .com.valve.dota2.DOTA_MODIFIER_ENTRY_TYPE entry_type = 1;</code>
+       * <code>required .DOTA_MODIFIER_ENTRY_TYPE entry_type = 1 [default = DOTA_MODIFIER_ENTRY_TYPE_ACTIVE];</code>
        */
       public com.valve.dota2.DotaModifiers.DOTA_MODIFIER_ENTRY_TYPE getEntryType() {
         return entryType_;
       }
       /**
-       * <code>required .com.valve.dota2.DOTA_MODIFIER_ENTRY_TYPE entry_type = 1;</code>
+       * <code>required .DOTA_MODIFIER_ENTRY_TYPE entry_type = 1 [default = DOTA_MODIFIER_ENTRY_TYPE_ACTIVE];</code>
        */
       public Builder setEntryType(com.valve.dota2.DotaModifiers.DOTA_MODIFIER_ENTRY_TYPE value) {
         if (value == null) {
@@ -2041,7 +1993,7 @@ public final class DotaModifiers {
         return this;
       }
       /**
-       * <code>required .com.valve.dota2.DOTA_MODIFIER_ENTRY_TYPE entry_type = 1;</code>
+       * <code>required .DOTA_MODIFIER_ENTRY_TYPE entry_type = 1 [default = DOTA_MODIFIER_ENTRY_TYPE_ACTIVE];</code>
        */
       public Builder clearEntryType() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -2054,30 +2006,18 @@ public final class DotaModifiers {
       private int parent_ ;
       /**
        * <code>required int32 parent = 2;</code>
-       *
-       * <pre>
-       * ehandle to parent owner
-       * </pre>
        */
       public boolean hasParent() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <code>required int32 parent = 2;</code>
-       *
-       * <pre>
-       * ehandle to parent owner
-       * </pre>
        */
       public int getParent() {
         return parent_;
       }
       /**
        * <code>required int32 parent = 2;</code>
-       *
-       * <pre>
-       * ehandle to parent owner
-       * </pre>
        */
       public Builder setParent(int value) {
         bitField0_ |= 0x00000002;
@@ -2087,10 +2027,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>required int32 parent = 2;</code>
-       *
-       * <pre>
-       * ehandle to parent owner
-       * </pre>
        */
       public Builder clearParent() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -2103,30 +2039,18 @@ public final class DotaModifiers {
       private int index_ ;
       /**
        * <code>required int32 index = 3;</code>
-       *
-       * <pre>
-       * index into the modifier list on the entity (local to each entity)
-       * </pre>
        */
       public boolean hasIndex() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <code>required int32 index = 3;</code>
-       *
-       * <pre>
-       * index into the modifier list on the entity (local to each entity)
-       * </pre>
        */
       public int getIndex() {
         return index_;
       }
       /**
        * <code>required int32 index = 3;</code>
-       *
-       * <pre>
-       * index into the modifier list on the entity (local to each entity)
-       * </pre>
        */
       public Builder setIndex(int value) {
         bitField0_ |= 0x00000004;
@@ -2136,10 +2060,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>required int32 index = 3;</code>
-       *
-       * <pre>
-       * index into the modifier list on the entity (local to each entity)
-       * </pre>
        */
       public Builder clearIndex() {
         bitField0_ = (bitField0_ & ~0x00000004);
@@ -2152,30 +2072,18 @@ public final class DotaModifiers {
       private int serialNum_ ;
       /**
        * <code>required int32 serial_num = 4;</code>
-       *
-       * <pre>
-       * global serial number
-       * </pre>
        */
       public boolean hasSerialNum() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <code>required int32 serial_num = 4;</code>
-       *
-       * <pre>
-       * global serial number
-       * </pre>
        */
       public int getSerialNum() {
         return serialNum_;
       }
       /**
        * <code>required int32 serial_num = 4;</code>
-       *
-       * <pre>
-       * global serial number
-       * </pre>
        */
       public Builder setSerialNum(int value) {
         bitField0_ |= 0x00000008;
@@ -2185,10 +2093,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>required int32 serial_num = 4;</code>
-       *
-       * <pre>
-       * global serial number
-       * </pre>
        */
       public Builder clearSerialNum() {
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -2197,51 +2101,35 @@ public final class DotaModifiers {
         return this;
       }
 
-      // optional int32 name = 5;
-      private int name_ ;
+      // optional int32 modifier_class = 5;
+      private int modifierClass_ ;
       /**
-       * <code>optional int32 name = 5;</code>
-       *
-       * <pre>
-       * index into the modifier name string table
-       * </pre>
+       * <code>optional int32 modifier_class = 5;</code>
        */
-      public boolean hasName() {
+      public boolean hasModifierClass() {
         return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
-       * <code>optional int32 name = 5;</code>
-       *
-       * <pre>
-       * index into the modifier name string table
-       * </pre>
+       * <code>optional int32 modifier_class = 5;</code>
        */
-      public int getName() {
-        return name_;
+      public int getModifierClass() {
+        return modifierClass_;
       }
       /**
-       * <code>optional int32 name = 5;</code>
-       *
-       * <pre>
-       * index into the modifier name string table
-       * </pre>
+       * <code>optional int32 modifier_class = 5;</code>
        */
-      public Builder setName(int value) {
+      public Builder setModifierClass(int value) {
         bitField0_ |= 0x00000010;
-        name_ = value;
+        modifierClass_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 name = 5;</code>
-       *
-       * <pre>
-       * index into the modifier name string table
-       * </pre>
+       * <code>optional int32 modifier_class = 5;</code>
        */
-      public Builder clearName() {
+      public Builder clearModifierClass() {
         bitField0_ = (bitField0_ & ~0x00000010);
-        name_ = 0;
+        modifierClass_ = 0;
         onChanged();
         return this;
       }
@@ -2448,30 +2336,18 @@ public final class DotaModifiers {
       private int armor_ ;
       /**
        * <code>optional int32 armor = 12;</code>
-       *
-       * <pre>
-       * optional custom data
-       * </pre>
        */
       public boolean hasArmor() {
         return ((bitField0_ & 0x00000800) == 0x00000800);
       }
       /**
        * <code>optional int32 armor = 12;</code>
-       *
-       * <pre>
-       * optional custom data
-       * </pre>
        */
       public int getArmor() {
         return armor_;
       }
       /**
        * <code>optional int32 armor = 12;</code>
-       *
-       * <pre>
-       * optional custom data
-       * </pre>
        */
       public Builder setArmor(int value) {
         bitField0_ |= 0x00000800;
@@ -2481,10 +2357,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional int32 armor = 12;</code>
-       *
-       * <pre>
-       * optional custom data
-       * </pre>
        */
       public Builder clearArmor() {
         bitField0_ = (bitField0_ & ~0x00000800);
@@ -2497,30 +2369,18 @@ public final class DotaModifiers {
       private float fadeTime_ ;
       /**
        * <code>optional float fade_time = 13;</code>
-       *
-       * <pre>
-       * used by invisiblity
-       * </pre>
        */
       public boolean hasFadeTime() {
         return ((bitField0_ & 0x00001000) == 0x00001000);
       }
       /**
        * <code>optional float fade_time = 13;</code>
-       *
-       * <pre>
-       * used by invisiblity
-       * </pre>
        */
       public float getFadeTime() {
         return fadeTime_;
       }
       /**
        * <code>optional float fade_time = 13;</code>
-       *
-       * <pre>
-       * used by invisiblity
-       * </pre>
        */
       public Builder setFadeTime(float value) {
         bitField0_ |= 0x00001000;
@@ -2530,10 +2390,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional float fade_time = 13;</code>
-       *
-       * <pre>
-       * used by invisiblity
-       * </pre>
        */
       public Builder clearFadeTime() {
         bitField0_ = (bitField0_ & ~0x00001000);
@@ -2546,30 +2402,18 @@ public final class DotaModifiers {
       private boolean subtle_ ;
       /**
        * <code>optional bool subtle = 14;</code>
-       *
-       * <pre>
-       * used by invisiblity
-       * </pre>
        */
       public boolean hasSubtle() {
         return ((bitField0_ & 0x00002000) == 0x00002000);
       }
       /**
        * <code>optional bool subtle = 14;</code>
-       *
-       * <pre>
-       * used by invisiblity
-       * </pre>
        */
       public boolean getSubtle() {
         return subtle_;
       }
       /**
        * <code>optional bool subtle = 14;</code>
-       *
-       * <pre>
-       * used by invisiblity
-       * </pre>
        */
       public Builder setSubtle(boolean value) {
         bitField0_ |= 0x00002000;
@@ -2579,10 +2423,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional bool subtle = 14;</code>
-       *
-       * <pre>
-       * used by invisiblity
-       * </pre>
        */
       public Builder clearSubtle() {
         bitField0_ = (bitField0_ & ~0x00002000);
@@ -2595,30 +2435,18 @@ public final class DotaModifiers {
       private float channelTime_ ;
       /**
        * <code>optional float channel_time = 15;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public boolean hasChannelTime() {
         return ((bitField0_ & 0x00004000) == 0x00004000);
       }
       /**
        * <code>optional float channel_time = 15;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public float getChannelTime() {
         return channelTime_;
       }
       /**
        * <code>optional float channel_time = 15;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public Builder setChannelTime(float value) {
         bitField0_ |= 0x00004000;
@@ -2628,10 +2456,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional float channel_time = 15;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public Builder clearChannelTime() {
         bitField0_ = (bitField0_ & ~0x00004000);
@@ -2640,28 +2464,20 @@ public final class DotaModifiers {
         return this;
       }
 
-      // optional .com.valve.dota2.CMsgVector v_start = 16;
-      private com.valve.dota2.Netmessages.CMsgVector vStart_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+      // optional .CMsgVector v_start = 16;
+      private com.valve.dota2.Networkbasetypes.CMsgVector vStart_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          com.valve.dota2.Netmessages.CMsgVector, com.valve.dota2.Netmessages.CMsgVector.Builder, com.valve.dota2.Netmessages.CMsgVectorOrBuilder> vStartBuilder_;
+          com.valve.dota2.Networkbasetypes.CMsgVector, com.valve.dota2.Networkbasetypes.CMsgVector.Builder, com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder> vStartBuilder_;
       /**
-       * <code>optional .com.valve.dota2.CMsgVector v_start = 16;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
+       * <code>optional .CMsgVector v_start = 16;</code>
        */
       public boolean hasVStart() {
         return ((bitField0_ & 0x00008000) == 0x00008000);
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector v_start = 16;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
+       * <code>optional .CMsgVector v_start = 16;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgVector getVStart() {
+      public com.valve.dota2.Networkbasetypes.CMsgVector getVStart() {
         if (vStartBuilder_ == null) {
           return vStart_;
         } else {
@@ -2669,13 +2485,9 @@ public final class DotaModifiers {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector v_start = 16;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
+       * <code>optional .CMsgVector v_start = 16;</code>
        */
-      public Builder setVStart(com.valve.dota2.Netmessages.CMsgVector value) {
+      public Builder setVStart(com.valve.dota2.Networkbasetypes.CMsgVector value) {
         if (vStartBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2689,14 +2501,10 @@ public final class DotaModifiers {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector v_start = 16;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
+       * <code>optional .CMsgVector v_start = 16;</code>
        */
       public Builder setVStart(
-          com.valve.dota2.Netmessages.CMsgVector.Builder builderForValue) {
+          com.valve.dota2.Networkbasetypes.CMsgVector.Builder builderForValue) {
         if (vStartBuilder_ == null) {
           vStart_ = builderForValue.build();
           onChanged();
@@ -2707,18 +2515,14 @@ public final class DotaModifiers {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector v_start = 16;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
+       * <code>optional .CMsgVector v_start = 16;</code>
        */
-      public Builder mergeVStart(com.valve.dota2.Netmessages.CMsgVector value) {
+      public Builder mergeVStart(com.valve.dota2.Networkbasetypes.CMsgVector value) {
         if (vStartBuilder_ == null) {
           if (((bitField0_ & 0x00008000) == 0x00008000) &&
-              vStart_ != com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance()) {
+              vStart_ != com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance()) {
             vStart_ =
-              com.valve.dota2.Netmessages.CMsgVector.newBuilder(vStart_).mergeFrom(value).buildPartial();
+              com.valve.dota2.Networkbasetypes.CMsgVector.newBuilder(vStart_).mergeFrom(value).buildPartial();
           } else {
             vStart_ = value;
           }
@@ -2730,15 +2534,11 @@ public final class DotaModifiers {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector v_start = 16;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
+       * <code>optional .CMsgVector v_start = 16;</code>
        */
       public Builder clearVStart() {
         if (vStartBuilder_ == null) {
-          vStart_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+          vStart_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
           onChanged();
         } else {
           vStartBuilder_.clear();
@@ -2747,25 +2547,17 @@ public final class DotaModifiers {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector v_start = 16;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
+       * <code>optional .CMsgVector v_start = 16;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgVector.Builder getVStartBuilder() {
+      public com.valve.dota2.Networkbasetypes.CMsgVector.Builder getVStartBuilder() {
         bitField0_ |= 0x00008000;
         onChanged();
         return getVStartFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector v_start = 16;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
+       * <code>optional .CMsgVector v_start = 16;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgVectorOrBuilder getVStartOrBuilder() {
+      public com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder getVStartOrBuilder() {
         if (vStartBuilder_ != null) {
           return vStartBuilder_.getMessageOrBuilder();
         } else {
@@ -2773,18 +2565,14 @@ public final class DotaModifiers {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector v_start = 16;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
+       * <code>optional .CMsgVector v_start = 16;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          com.valve.dota2.Netmessages.CMsgVector, com.valve.dota2.Netmessages.CMsgVector.Builder, com.valve.dota2.Netmessages.CMsgVectorOrBuilder> 
+          com.valve.dota2.Networkbasetypes.CMsgVector, com.valve.dota2.Networkbasetypes.CMsgVector.Builder, com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder> 
           getVStartFieldBuilder() {
         if (vStartBuilder_ == null) {
           vStartBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              com.valve.dota2.Netmessages.CMsgVector, com.valve.dota2.Netmessages.CMsgVector.Builder, com.valve.dota2.Netmessages.CMsgVectorOrBuilder>(
+              com.valve.dota2.Networkbasetypes.CMsgVector, com.valve.dota2.Networkbasetypes.CMsgVector.Builder, com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder>(
                   vStart_,
                   getParentForChildren(),
                   isClean());
@@ -2793,28 +2581,20 @@ public final class DotaModifiers {
         return vStartBuilder_;
       }
 
-      // optional .com.valve.dota2.CMsgVector v_end = 17;
-      private com.valve.dota2.Netmessages.CMsgVector vEnd_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+      // optional .CMsgVector v_end = 17;
+      private com.valve.dota2.Networkbasetypes.CMsgVector vEnd_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          com.valve.dota2.Netmessages.CMsgVector, com.valve.dota2.Netmessages.CMsgVector.Builder, com.valve.dota2.Netmessages.CMsgVectorOrBuilder> vEndBuilder_;
+          com.valve.dota2.Networkbasetypes.CMsgVector, com.valve.dota2.Networkbasetypes.CMsgVector.Builder, com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder> vEndBuilder_;
       /**
-       * <code>optional .com.valve.dota2.CMsgVector v_end = 17;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
+       * <code>optional .CMsgVector v_end = 17;</code>
        */
       public boolean hasVEnd() {
         return ((bitField0_ & 0x00010000) == 0x00010000);
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector v_end = 17;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
+       * <code>optional .CMsgVector v_end = 17;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgVector getVEnd() {
+      public com.valve.dota2.Networkbasetypes.CMsgVector getVEnd() {
         if (vEndBuilder_ == null) {
           return vEnd_;
         } else {
@@ -2822,13 +2602,9 @@ public final class DotaModifiers {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector v_end = 17;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
+       * <code>optional .CMsgVector v_end = 17;</code>
        */
-      public Builder setVEnd(com.valve.dota2.Netmessages.CMsgVector value) {
+      public Builder setVEnd(com.valve.dota2.Networkbasetypes.CMsgVector value) {
         if (vEndBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2842,14 +2618,10 @@ public final class DotaModifiers {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector v_end = 17;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
+       * <code>optional .CMsgVector v_end = 17;</code>
        */
       public Builder setVEnd(
-          com.valve.dota2.Netmessages.CMsgVector.Builder builderForValue) {
+          com.valve.dota2.Networkbasetypes.CMsgVector.Builder builderForValue) {
         if (vEndBuilder_ == null) {
           vEnd_ = builderForValue.build();
           onChanged();
@@ -2860,18 +2632,14 @@ public final class DotaModifiers {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector v_end = 17;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
+       * <code>optional .CMsgVector v_end = 17;</code>
        */
-      public Builder mergeVEnd(com.valve.dota2.Netmessages.CMsgVector value) {
+      public Builder mergeVEnd(com.valve.dota2.Networkbasetypes.CMsgVector value) {
         if (vEndBuilder_ == null) {
           if (((bitField0_ & 0x00010000) == 0x00010000) &&
-              vEnd_ != com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance()) {
+              vEnd_ != com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance()) {
             vEnd_ =
-              com.valve.dota2.Netmessages.CMsgVector.newBuilder(vEnd_).mergeFrom(value).buildPartial();
+              com.valve.dota2.Networkbasetypes.CMsgVector.newBuilder(vEnd_).mergeFrom(value).buildPartial();
           } else {
             vEnd_ = value;
           }
@@ -2883,15 +2651,11 @@ public final class DotaModifiers {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector v_end = 17;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
+       * <code>optional .CMsgVector v_end = 17;</code>
        */
       public Builder clearVEnd() {
         if (vEndBuilder_ == null) {
-          vEnd_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+          vEnd_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
           onChanged();
         } else {
           vEndBuilder_.clear();
@@ -2900,25 +2664,17 @@ public final class DotaModifiers {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector v_end = 17;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
+       * <code>optional .CMsgVector v_end = 17;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgVector.Builder getVEndBuilder() {
+      public com.valve.dota2.Networkbasetypes.CMsgVector.Builder getVEndBuilder() {
         bitField0_ |= 0x00010000;
         onChanged();
         return getVEndFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector v_end = 17;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
+       * <code>optional .CMsgVector v_end = 17;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgVectorOrBuilder getVEndOrBuilder() {
+      public com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder getVEndOrBuilder() {
         if (vEndBuilder_ != null) {
           return vEndBuilder_.getMessageOrBuilder();
         } else {
@@ -2926,18 +2682,14 @@ public final class DotaModifiers {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector v_end = 17;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
+       * <code>optional .CMsgVector v_end = 17;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          com.valve.dota2.Netmessages.CMsgVector, com.valve.dota2.Netmessages.CMsgVector.Builder, com.valve.dota2.Netmessages.CMsgVectorOrBuilder> 
+          com.valve.dota2.Networkbasetypes.CMsgVector, com.valve.dota2.Networkbasetypes.CMsgVector.Builder, com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder> 
           getVEndFieldBuilder() {
         if (vEndBuilder_ == null) {
           vEndBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              com.valve.dota2.Netmessages.CMsgVector, com.valve.dota2.Netmessages.CMsgVector.Builder, com.valve.dota2.Netmessages.CMsgVectorOrBuilder>(
+              com.valve.dota2.Networkbasetypes.CMsgVector, com.valve.dota2.Networkbasetypes.CMsgVector.Builder, com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder>(
                   vEnd_,
                   getParentForChildren(),
                   isClean());
@@ -2950,20 +2702,12 @@ public final class DotaModifiers {
       private java.lang.Object portalLoopAppear_ = "";
       /**
        * <code>optional string portal_loop_appear = 18;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public boolean hasPortalLoopAppear() {
         return ((bitField0_ & 0x00020000) == 0x00020000);
       }
       /**
        * <code>optional string portal_loop_appear = 18;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public java.lang.String getPortalLoopAppear() {
         java.lang.Object ref = portalLoopAppear_;
@@ -2978,10 +2722,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional string portal_loop_appear = 18;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public com.google.protobuf.ByteString
           getPortalLoopAppearBytes() {
@@ -2998,10 +2738,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional string portal_loop_appear = 18;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public Builder setPortalLoopAppear(
           java.lang.String value) {
@@ -3015,10 +2751,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional string portal_loop_appear = 18;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public Builder clearPortalLoopAppear() {
         bitField0_ = (bitField0_ & ~0x00020000);
@@ -3028,10 +2760,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional string portal_loop_appear = 18;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public Builder setPortalLoopAppearBytes(
           com.google.protobuf.ByteString value) {
@@ -3048,20 +2776,12 @@ public final class DotaModifiers {
       private java.lang.Object portalLoopDisappear_ = "";
       /**
        * <code>optional string portal_loop_disappear = 19;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public boolean hasPortalLoopDisappear() {
         return ((bitField0_ & 0x00040000) == 0x00040000);
       }
       /**
        * <code>optional string portal_loop_disappear = 19;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public java.lang.String getPortalLoopDisappear() {
         java.lang.Object ref = portalLoopDisappear_;
@@ -3076,10 +2796,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional string portal_loop_disappear = 19;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public com.google.protobuf.ByteString
           getPortalLoopDisappearBytes() {
@@ -3096,10 +2812,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional string portal_loop_disappear = 19;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public Builder setPortalLoopDisappear(
           java.lang.String value) {
@@ -3113,10 +2825,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional string portal_loop_disappear = 19;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public Builder clearPortalLoopDisappear() {
         bitField0_ = (bitField0_ & ~0x00040000);
@@ -3126,10 +2834,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional string portal_loop_disappear = 19;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public Builder setPortalLoopDisappearBytes(
           com.google.protobuf.ByteString value) {
@@ -3146,20 +2850,12 @@ public final class DotaModifiers {
       private java.lang.Object heroLoopAppear_ = "";
       /**
        * <code>optional string hero_loop_appear = 20;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public boolean hasHeroLoopAppear() {
         return ((bitField0_ & 0x00080000) == 0x00080000);
       }
       /**
        * <code>optional string hero_loop_appear = 20;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public java.lang.String getHeroLoopAppear() {
         java.lang.Object ref = heroLoopAppear_;
@@ -3174,10 +2870,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional string hero_loop_appear = 20;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public com.google.protobuf.ByteString
           getHeroLoopAppearBytes() {
@@ -3194,10 +2886,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional string hero_loop_appear = 20;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public Builder setHeroLoopAppear(
           java.lang.String value) {
@@ -3211,10 +2899,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional string hero_loop_appear = 20;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public Builder clearHeroLoopAppear() {
         bitField0_ = (bitField0_ & ~0x00080000);
@@ -3224,10 +2908,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional string hero_loop_appear = 20;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public Builder setHeroLoopAppearBytes(
           com.google.protobuf.ByteString value) {
@@ -3244,20 +2924,12 @@ public final class DotaModifiers {
       private java.lang.Object heroLoopDisappear_ = "";
       /**
        * <code>optional string hero_loop_disappear = 21;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public boolean hasHeroLoopDisappear() {
         return ((bitField0_ & 0x00100000) == 0x00100000);
       }
       /**
        * <code>optional string hero_loop_disappear = 21;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public java.lang.String getHeroLoopDisappear() {
         java.lang.Object ref = heroLoopDisappear_;
@@ -3272,10 +2944,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional string hero_loop_disappear = 21;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public com.google.protobuf.ByteString
           getHeroLoopDisappearBytes() {
@@ -3292,10 +2960,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional string hero_loop_disappear = 21;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public Builder setHeroLoopDisappear(
           java.lang.String value) {
@@ -3309,10 +2973,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional string hero_loop_disappear = 21;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public Builder clearHeroLoopDisappear() {
         bitField0_ = (bitField0_ & ~0x00100000);
@@ -3322,10 +2982,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional string hero_loop_disappear = 21;</code>
-       *
-       * <pre>
-       * used by teleport
-       * </pre>
        */
       public Builder setHeroLoopDisappearBytes(
           com.google.protobuf.ByteString value) {
@@ -3342,30 +2998,18 @@ public final class DotaModifiers {
       private int movementSpeed_ ;
       /**
        * <code>optional int32 movement_speed = 22;</code>
-       *
-       * <pre>
-       * used by smoke of deceit
-       * </pre>
        */
       public boolean hasMovementSpeed() {
         return ((bitField0_ & 0x00200000) == 0x00200000);
       }
       /**
        * <code>optional int32 movement_speed = 22;</code>
-       *
-       * <pre>
-       * used by smoke of deceit
-       * </pre>
        */
       public int getMovementSpeed() {
         return movementSpeed_;
       }
       /**
        * <code>optional int32 movement_speed = 22;</code>
-       *
-       * <pre>
-       * used by smoke of deceit
-       * </pre>
        */
       public Builder setMovementSpeed(int value) {
         bitField0_ |= 0x00200000;
@@ -3375,10 +3019,6 @@ public final class DotaModifiers {
       }
       /**
        * <code>optional int32 movement_speed = 22;</code>
-       *
-       * <pre>
-       * used by smoke of deceit
-       * </pre>
        */
       public Builder clearMovementSpeed() {
         bitField0_ = (bitField0_ & ~0x00200000);
@@ -3420,7 +3060,172 @@ public final class DotaModifiers {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CDOTAModifierBuffTableEntry)
+      // optional int32 activity = 24;
+      private int activity_ ;
+      /**
+       * <code>optional int32 activity = 24;</code>
+       */
+      public boolean hasActivity() {
+        return ((bitField0_ & 0x00800000) == 0x00800000);
+      }
+      /**
+       * <code>optional int32 activity = 24;</code>
+       */
+      public int getActivity() {
+        return activity_;
+      }
+      /**
+       * <code>optional int32 activity = 24;</code>
+       */
+      public Builder setActivity(int value) {
+        bitField0_ |= 0x00800000;
+        activity_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 activity = 24;</code>
+       */
+      public Builder clearActivity() {
+        bitField0_ = (bitField0_ & ~0x00800000);
+        activity_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 damage = 25;
+      private int damage_ ;
+      /**
+       * <code>optional int32 damage = 25;</code>
+       */
+      public boolean hasDamage() {
+        return ((bitField0_ & 0x01000000) == 0x01000000);
+      }
+      /**
+       * <code>optional int32 damage = 25;</code>
+       */
+      public int getDamage() {
+        return damage_;
+      }
+      /**
+       * <code>optional int32 damage = 25;</code>
+       */
+      public Builder setDamage(int value) {
+        bitField0_ |= 0x01000000;
+        damage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 damage = 25;</code>
+       */
+      public Builder clearDamage() {
+        bitField0_ = (bitField0_ & ~0x01000000);
+        damage_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 range = 26;
+      private int range_ ;
+      /**
+       * <code>optional int32 range = 26;</code>
+       */
+      public boolean hasRange() {
+        return ((bitField0_ & 0x02000000) == 0x02000000);
+      }
+      /**
+       * <code>optional int32 range = 26;</code>
+       */
+      public int getRange() {
+        return range_;
+      }
+      /**
+       * <code>optional int32 range = 26;</code>
+       */
+      public Builder setRange(int value) {
+        bitField0_ |= 0x02000000;
+        range_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 range = 26;</code>
+       */
+      public Builder clearRange() {
+        bitField0_ = (bitField0_ & ~0x02000000);
+        range_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 dd_modifier_index = 27;
+      private int ddModifierIndex_ ;
+      /**
+       * <code>optional int32 dd_modifier_index = 27;</code>
+       */
+      public boolean hasDdModifierIndex() {
+        return ((bitField0_ & 0x04000000) == 0x04000000);
+      }
+      /**
+       * <code>optional int32 dd_modifier_index = 27;</code>
+       */
+      public int getDdModifierIndex() {
+        return ddModifierIndex_;
+      }
+      /**
+       * <code>optional int32 dd_modifier_index = 27;</code>
+       */
+      public Builder setDdModifierIndex(int value) {
+        bitField0_ |= 0x04000000;
+        ddModifierIndex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 dd_modifier_index = 27;</code>
+       */
+      public Builder clearDdModifierIndex() {
+        bitField0_ = (bitField0_ & ~0x04000000);
+        ddModifierIndex_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 dd_ability_index = 28;
+      private int ddAbilityIndex_ ;
+      /**
+       * <code>optional int32 dd_ability_index = 28;</code>
+       */
+      public boolean hasDdAbilityIndex() {
+        return ((bitField0_ & 0x08000000) == 0x08000000);
+      }
+      /**
+       * <code>optional int32 dd_ability_index = 28;</code>
+       */
+      public int getDdAbilityIndex() {
+        return ddAbilityIndex_;
+      }
+      /**
+       * <code>optional int32 dd_ability_index = 28;</code>
+       */
+      public Builder setDdAbilityIndex(int value) {
+        bitField0_ |= 0x08000000;
+        ddAbilityIndex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 dd_ability_index = 28;</code>
+       */
+      public Builder clearDdAbilityIndex() {
+        bitField0_ = (bitField0_ & ~0x08000000);
+        ddAbilityIndex_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:CDOTAModifierBuffTableEntry)
     }
 
     static {
@@ -3428,14 +3233,14 @@ public final class DotaModifiers {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CDOTAModifierBuffTableEntry)
+    // @@protoc_insertion_point(class_scope:CDOTAModifierBuffTableEntry)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CDOTAModifierBuffTableEntry_descriptor;
+    internal_static_CDOTAModifierBuffTableEntry_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CDOTAModifierBuffTableEntry_fieldAccessorTable;
+      internal_static_CDOTAModifierBuffTableEntry_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3445,38 +3250,41 @@ public final class DotaModifiers {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\024dota_modifiers.proto\022\017com.valve.dota2\032" +
-      " google/protobuf/descriptor.proto\032\021netme" +
-      "ssages.proto\"\321\004\n\033CDOTAModifierBuffTableE" +
-      "ntry\022=\n\nentry_type\030\001 \002(\0162).com.valve.dot" +
-      "a2.DOTA_MODIFIER_ENTRY_TYPE\022\016\n\006parent\030\002 " +
-      "\002(\005\022\r\n\005index\030\003 \002(\005\022\022\n\nserial_num\030\004 \002(\005\022\014" +
-      "\n\004name\030\005 \001(\005\022\025\n\rability_level\030\006 \001(\005\022\023\n\013s" +
-      "tack_count\030\007 \001(\005\022\025\n\rcreation_time\030\010 \001(\002\022" +
-      "\024\n\010duration\030\t \001(\002:\002-1\022\016\n\006caster\030\n \001(\005\022\017\n" +
-      "\007ability\030\013 \001(\005\022\r\n\005armor\030\014 \001(\005\022\021\n\tfade_ti",
-      "me\030\r \001(\002\022\016\n\006subtle\030\016 \001(\010\022\024\n\014channel_time" +
-      "\030\017 \001(\002\022,\n\007v_start\030\020 \001(\0132\033.com.valve.dota" +
-      "2.CMsgVector\022*\n\005v_end\030\021 \001(\0132\033.com.valve." +
-      "dota2.CMsgVector\022\032\n\022portal_loop_appear\030\022" +
-      " \001(\t\022\035\n\025portal_loop_disappear\030\023 \001(\t\022\030\n\020h" +
-      "ero_loop_appear\030\024 \001(\t\022\033\n\023hero_loop_disap" +
-      "pear\030\025 \001(\t\022\026\n\016movement_speed\030\026 \001(\005\022\014\n\004au" +
-      "ra\030\027 \001(\010*e\n\030DOTA_MODIFIER_ENTRY_TYPE\022#\n\037" +
-      "DOTA_MODIFIER_ENTRY_TYPE_ACTIVE\020\001\022$\n DOT" +
-      "A_MODIFIER_ENTRY_TYPE_REMOVED\020\002B\005H\001\200\001\000"
+      "\n\024dota_modifiers.proto\032 google/protobuf/" +
+      "descriptor.proto\032\026networkbasetypes.proto" +
+      "\"\262\005\n\033CDOTAModifierBuffTableEntry\022N\n\nentr" +
+      "y_type\030\001 \002(\0162\031.DOTA_MODIFIER_ENTRY_TYPE:" +
+      "\037DOTA_MODIFIER_ENTRY_TYPE_ACTIVE\022\016\n\006pare" +
+      "nt\030\002 \002(\005\022\r\n\005index\030\003 \002(\005\022\022\n\nserial_num\030\004 " +
+      "\002(\005\022\026\n\016modifier_class\030\005 \001(\005\022\025\n\rability_l" +
+      "evel\030\006 \001(\005\022\023\n\013stack_count\030\007 \001(\005\022\025\n\rcreat" +
+      "ion_time\030\010 \001(\002\022\024\n\010duration\030\t \001(\002:\002-1\022\016\n\006" +
+      "caster\030\n \001(\005\022\017\n\007ability\030\013 \001(\005\022\r\n\005armor\030\014",
+      " \001(\005\022\021\n\tfade_time\030\r \001(\002\022\016\n\006subtle\030\016 \001(\010\022" +
+      "\024\n\014channel_time\030\017 \001(\002\022\034\n\007v_start\030\020 \001(\0132\013" +
+      ".CMsgVector\022\032\n\005v_end\030\021 \001(\0132\013.CMsgVector\022" +
+      "\032\n\022portal_loop_appear\030\022 \001(\t\022\035\n\025portal_lo" +
+      "op_disappear\030\023 \001(\t\022\030\n\020hero_loop_appear\030\024" +
+      " \001(\t\022\033\n\023hero_loop_disappear\030\025 \001(\t\022\026\n\016mov" +
+      "ement_speed\030\026 \001(\005\022\014\n\004aura\030\027 \001(\010\022\020\n\010activ" +
+      "ity\030\030 \001(\005\022\016\n\006damage\030\031 \001(\005\022\r\n\005range\030\032 \001(\005" +
+      "\022\031\n\021dd_modifier_index\030\033 \001(\005\022\030\n\020dd_abilit" +
+      "y_index\030\034 \001(\005*e\n\030DOTA_MODIFIER_ENTRY_TYP",
+      "E\022#\n\037DOTA_MODIFIER_ENTRY_TYPE_ACTIVE\020\001\022$" +
+      "\n DOTA_MODIFIER_ENTRY_TYPE_REMOVED\020\002B\021\n\017" +
+      "com.valve.dota2"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
         public com.google.protobuf.ExtensionRegistry assignDescriptors(
             com.google.protobuf.Descriptors.FileDescriptor root) {
           descriptor = root;
-          internal_static_com_valve_dota2_CDOTAModifierBuffTableEntry_descriptor =
+          internal_static_CDOTAModifierBuffTableEntry_descriptor =
             getDescriptor().getMessageTypes().get(0);
-          internal_static_com_valve_dota2_CDOTAModifierBuffTableEntry_fieldAccessorTable = new
+          internal_static_CDOTAModifierBuffTableEntry_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CDOTAModifierBuffTableEntry_descriptor,
-              new java.lang.String[] { "EntryType", "Parent", "Index", "SerialNum", "Name", "AbilityLevel", "StackCount", "CreationTime", "Duration", "Caster", "Ability", "Armor", "FadeTime", "Subtle", "ChannelTime", "VStart", "VEnd", "PortalLoopAppear", "PortalLoopDisappear", "HeroLoopAppear", "HeroLoopDisappear", "MovementSpeed", "Aura", });
+              internal_static_CDOTAModifierBuffTableEntry_descriptor,
+              new java.lang.String[] { "EntryType", "Parent", "Index", "SerialNum", "ModifierClass", "AbilityLevel", "StackCount", "CreationTime", "Duration", "Caster", "Ability", "Armor", "FadeTime", "Subtle", "ChannelTime", "VStart", "VEnd", "PortalLoopAppear", "PortalLoopDisappear", "HeroLoopAppear", "HeroLoopDisappear", "MovementSpeed", "Aura", "Activity", "Damage", "Range", "DdModifierIndex", "DdAbilityIndex", });
           return null;
         }
       };
@@ -3484,7 +3292,7 @@ public final class DotaModifiers {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.DescriptorProtos.getDescriptor(),
-          com.valve.dota2.Netmessages.getDescriptor(),
+          com.valve.dota2.Networkbasetypes.getDescriptor(),
         }, assigner);
   }
 

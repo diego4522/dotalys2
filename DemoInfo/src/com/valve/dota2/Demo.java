@@ -9,7 +9,7 @@ public final class Demo {
       com.google.protobuf.ExtensionRegistry registry) {
   }
   /**
-   * Protobuf enum {@code com.valve.dota2.EDemoCommands}
+   * Protobuf enum {@code EDemoCommands}
    */
   public enum EDemoCommands
       implements com.google.protobuf.ProtocolMessageEnum {
@@ -74,13 +74,17 @@ public final class Demo {
      */
     DEM_FullPacket(14, 13),
     /**
-     * <code>DEM_Max = 14;</code>
+     * <code>DEM_SaveGame = 14;</code>
      */
-    DEM_Max(15, 14),
+    DEM_SaveGame(15, 14),
+    /**
+     * <code>DEM_Max = 15;</code>
+     */
+    DEM_Max(16, 15),
     /**
      * <code>DEM_IsCompressed = 112;</code>
      */
-    DEM_IsCompressed(16, 112),
+    DEM_IsCompressed(17, 112),
     ;
 
     /**
@@ -144,9 +148,13 @@ public final class Demo {
      */
     public static final int DEM_FullPacket_VALUE = 13;
     /**
-     * <code>DEM_Max = 14;</code>
+     * <code>DEM_SaveGame = 14;</code>
      */
-    public static final int DEM_Max_VALUE = 14;
+    public static final int DEM_SaveGame_VALUE = 14;
+    /**
+     * <code>DEM_Max = 15;</code>
+     */
+    public static final int DEM_Max_VALUE = 15;
     /**
      * <code>DEM_IsCompressed = 112;</code>
      */
@@ -172,7 +180,8 @@ public final class Demo {
         case 11: return DEM_CustomDataCallbacks;
         case 12: return DEM_UserCmd;
         case 13: return DEM_FullPacket;
-        case 14: return DEM_Max;
+        case 14: return DEM_SaveGame;
+        case 15: return DEM_Max;
         case 112: return DEM_IsCompressed;
         default: return null;
       }
@@ -222,7 +231,7 @@ public final class Demo {
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:com.valve.dota2.EDemoCommands)
+    // @@protoc_insertion_point(enum_scope:EDemoCommands)
   }
 
   public interface CDemoFileHeaderOrBuilder
@@ -332,9 +341,19 @@ public final class Demo {
      * <code>optional bool allow_clientside_entities = 8;</code>
      */
     boolean getAllowClientsideEntities();
+
+    // optional bool allow_clientside_particles = 9;
+    /**
+     * <code>optional bool allow_clientside_particles = 9;</code>
+     */
+    boolean hasAllowClientsideParticles();
+    /**
+     * <code>optional bool allow_clientside_particles = 9;</code>
+     */
+    boolean getAllowClientsideParticles();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CDemoFileHeader}
+   * Protobuf type {@code CDemoFileHeader}
    */
   public static final class CDemoFileHeader extends
       com.google.protobuf.GeneratedMessage
@@ -424,6 +443,11 @@ public final class Demo {
               allowClientsideEntities_ = input.readBool();
               break;
             }
+            case 72: {
+              bitField0_ |= 0x00000100;
+              allowClientsideParticles_ = input.readBool();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -438,12 +462,12 @@ public final class Demo {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoFileHeader_descriptor;
+      return com.valve.dota2.Demo.internal_static_CDemoFileHeader_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoFileHeader_fieldAccessorTable
+      return com.valve.dota2.Demo.internal_static_CDemoFileHeader_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Demo.CDemoFileHeader.class, com.valve.dota2.Demo.CDemoFileHeader.Builder.class);
     }
@@ -727,6 +751,22 @@ public final class Demo {
       return allowClientsideEntities_;
     }
 
+    // optional bool allow_clientside_particles = 9;
+    public static final int ALLOW_CLIENTSIDE_PARTICLES_FIELD_NUMBER = 9;
+    private boolean allowClientsideParticles_;
+    /**
+     * <code>optional bool allow_clientside_particles = 9;</code>
+     */
+    public boolean hasAllowClientsideParticles() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <code>optional bool allow_clientside_particles = 9;</code>
+     */
+    public boolean getAllowClientsideParticles() {
+      return allowClientsideParticles_;
+    }
+
     private void initFields() {
       demoFileStamp_ = "";
       networkProtocol_ = 0;
@@ -736,6 +776,7 @@ public final class Demo {
       gameDirectory_ = "";
       fullpacketsVersion_ = 0;
       allowClientsideEntities_ = false;
+      allowClientsideParticles_ = false;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -777,6 +818,9 @@ public final class Demo {
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         output.writeBool(8, allowClientsideEntities_);
       }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        output.writeBool(9, allowClientsideParticles_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -817,6 +861,10 @@ public final class Demo {
       if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(8, allowClientsideEntities_);
+      }
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(9, allowClientsideParticles_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -897,19 +945,19 @@ public final class Demo {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CDemoFileHeader}
+     * Protobuf type {@code CDemoFileHeader}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Demo.CDemoFileHeaderOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoFileHeader_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoFileHeader_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoFileHeader_fieldAccessorTable
+        return com.valve.dota2.Demo.internal_static_CDemoFileHeader_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Demo.CDemoFileHeader.class, com.valve.dota2.Demo.CDemoFileHeader.Builder.class);
       }
@@ -950,6 +998,8 @@ public final class Demo {
         bitField0_ = (bitField0_ & ~0x00000040);
         allowClientsideEntities_ = false;
         bitField0_ = (bitField0_ & ~0x00000080);
+        allowClientsideParticles_ = false;
+        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
 
@@ -959,7 +1009,7 @@ public final class Demo {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoFileHeader_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoFileHeader_descriptor;
       }
 
       public com.valve.dota2.Demo.CDemoFileHeader getDefaultInstanceForType() {
@@ -1010,6 +1060,10 @@ public final class Demo {
           to_bitField0_ |= 0x00000080;
         }
         result.allowClientsideEntities_ = allowClientsideEntities_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
+        result.allowClientsideParticles_ = allowClientsideParticles_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1059,6 +1113,9 @@ public final class Demo {
         }
         if (other.hasAllowClientsideEntities()) {
           setAllowClientsideEntities(other.getAllowClientsideEntities());
+        }
+        if (other.hasAllowClientsideParticles()) {
+          setAllowClientsideParticles(other.getAllowClientsideParticles());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1560,7 +1617,40 @@ public final class Demo {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CDemoFileHeader)
+      // optional bool allow_clientside_particles = 9;
+      private boolean allowClientsideParticles_ ;
+      /**
+       * <code>optional bool allow_clientside_particles = 9;</code>
+       */
+      public boolean hasAllowClientsideParticles() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <code>optional bool allow_clientside_particles = 9;</code>
+       */
+      public boolean getAllowClientsideParticles() {
+        return allowClientsideParticles_;
+      }
+      /**
+       * <code>optional bool allow_clientside_particles = 9;</code>
+       */
+      public Builder setAllowClientsideParticles(boolean value) {
+        bitField0_ |= 0x00000100;
+        allowClientsideParticles_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool allow_clientside_particles = 9;</code>
+       */
+      public Builder clearAllowClientsideParticles() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        allowClientsideParticles_ = false;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:CDemoFileHeader)
     }
 
     static {
@@ -1568,28 +1658,28 @@ public final class Demo {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CDemoFileHeader)
+    // @@protoc_insertion_point(class_scope:CDemoFileHeader)
   }
 
   public interface CGameInfoOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional .com.valve.dota2.CGameInfo.CDotaGameInfo dota = 4;
+    // optional .CGameInfo.CDotaGameInfo dota = 4;
     /**
-     * <code>optional .com.valve.dota2.CGameInfo.CDotaGameInfo dota = 4;</code>
+     * <code>optional .CGameInfo.CDotaGameInfo dota = 4;</code>
      */
     boolean hasDota();
     /**
-     * <code>optional .com.valve.dota2.CGameInfo.CDotaGameInfo dota = 4;</code>
+     * <code>optional .CGameInfo.CDotaGameInfo dota = 4;</code>
      */
     com.valve.dota2.Demo.CGameInfo.CDotaGameInfo getDota();
     /**
-     * <code>optional .com.valve.dota2.CGameInfo.CDotaGameInfo dota = 4;</code>
+     * <code>optional .CGameInfo.CDotaGameInfo dota = 4;</code>
      */
     com.valve.dota2.Demo.CGameInfo.CDotaGameInfoOrBuilder getDotaOrBuilder();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CGameInfo}
+   * Protobuf type {@code CGameInfo}
    */
   public static final class CGameInfo extends
       com.google.protobuf.GeneratedMessage
@@ -1666,12 +1756,12 @@ public final class Demo {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CGameInfo_descriptor;
+      return com.valve.dota2.Demo.internal_static_CGameInfo_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CGameInfo_fieldAccessorTable
+      return com.valve.dota2.Demo.internal_static_CGameInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Demo.CGameInfo.class, com.valve.dota2.Demo.CGameInfo.Builder.class);
     }
@@ -1724,33 +1814,128 @@ public final class Demo {
        */
       int getGameWinner();
 
-      // repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;
+      // repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;
       /**
-       * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+       * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
        */
       java.util.List<com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo> 
           getPlayerInfoList();
       /**
-       * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+       * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
        */
       com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo getPlayerInfo(int index);
       /**
-       * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+       * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
        */
       int getPlayerInfoCount();
       /**
-       * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+       * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
        */
       java.util.List<? extends com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfoOrBuilder> 
           getPlayerInfoOrBuilderList();
       /**
-       * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+       * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
        */
       com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfoOrBuilder getPlayerInfoOrBuilder(
           int index);
+
+      // optional uint32 leagueid = 5;
+      /**
+       * <code>optional uint32 leagueid = 5;</code>
+       */
+      boolean hasLeagueid();
+      /**
+       * <code>optional uint32 leagueid = 5;</code>
+       */
+      int getLeagueid();
+
+      // repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;
+      /**
+       * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+       */
+      java.util.List<com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent> 
+          getPicksBansList();
+      /**
+       * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+       */
+      com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent getPicksBans(int index);
+      /**
+       * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+       */
+      int getPicksBansCount();
+      /**
+       * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+       */
+      java.util.List<? extends com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEventOrBuilder> 
+          getPicksBansOrBuilderList();
+      /**
+       * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+       */
+      com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEventOrBuilder getPicksBansOrBuilder(
+          int index);
+
+      // optional uint32 radiant_team_id = 7;
+      /**
+       * <code>optional uint32 radiant_team_id = 7;</code>
+       */
+      boolean hasRadiantTeamId();
+      /**
+       * <code>optional uint32 radiant_team_id = 7;</code>
+       */
+      int getRadiantTeamId();
+
+      // optional uint32 dire_team_id = 8;
+      /**
+       * <code>optional uint32 dire_team_id = 8;</code>
+       */
+      boolean hasDireTeamId();
+      /**
+       * <code>optional uint32 dire_team_id = 8;</code>
+       */
+      int getDireTeamId();
+
+      // optional string radiant_team_tag = 9;
+      /**
+       * <code>optional string radiant_team_tag = 9;</code>
+       */
+      boolean hasRadiantTeamTag();
+      /**
+       * <code>optional string radiant_team_tag = 9;</code>
+       */
+      java.lang.String getRadiantTeamTag();
+      /**
+       * <code>optional string radiant_team_tag = 9;</code>
+       */
+      com.google.protobuf.ByteString
+          getRadiantTeamTagBytes();
+
+      // optional string dire_team_tag = 10;
+      /**
+       * <code>optional string dire_team_tag = 10;</code>
+       */
+      boolean hasDireTeamTag();
+      /**
+       * <code>optional string dire_team_tag = 10;</code>
+       */
+      java.lang.String getDireTeamTag();
+      /**
+       * <code>optional string dire_team_tag = 10;</code>
+       */
+      com.google.protobuf.ByteString
+          getDireTeamTagBytes();
+
+      // optional uint32 end_time = 11;
+      /**
+       * <code>optional uint32 end_time = 11;</code>
+       */
+      boolean hasEndTime();
+      /**
+       * <code>optional uint32 end_time = 11;</code>
+       */
+      int getEndTime();
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CGameInfo.CDotaGameInfo}
+     * Protobuf type {@code CGameInfo.CDotaGameInfo}
      */
     public static final class CDotaGameInfo extends
         com.google.protobuf.GeneratedMessage
@@ -1823,6 +2008,44 @@ public final class Demo {
                 playerInfo_.add(input.readMessage(com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo.PARSER, extensionRegistry));
                 break;
               }
+              case 40: {
+                bitField0_ |= 0x00000008;
+                leagueid_ = input.readUInt32();
+                break;
+              }
+              case 50: {
+                if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                  picksBans_ = new java.util.ArrayList<com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent>();
+                  mutable_bitField0_ |= 0x00000020;
+                }
+                picksBans_.add(input.readMessage(com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.PARSER, extensionRegistry));
+                break;
+              }
+              case 56: {
+                bitField0_ |= 0x00000010;
+                radiantTeamId_ = input.readUInt32();
+                break;
+              }
+              case 64: {
+                bitField0_ |= 0x00000020;
+                direTeamId_ = input.readUInt32();
+                break;
+              }
+              case 74: {
+                bitField0_ |= 0x00000040;
+                radiantTeamTag_ = input.readBytes();
+                break;
+              }
+              case 82: {
+                bitField0_ |= 0x00000080;
+                direTeamTag_ = input.readBytes();
+                break;
+              }
+              case 88: {
+                bitField0_ |= 0x00000100;
+                endTime_ = input.readUInt32();
+                break;
+              }
             }
           }
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1834,18 +2057,21 @@ public final class Demo {
           if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
             playerInfo_ = java.util.Collections.unmodifiableList(playerInfo_);
           }
+          if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+            picksBans_ = java.util.Collections.unmodifiableList(picksBans_);
+          }
           this.unknownFields = unknownFields.build();
           makeExtensionsImmutable();
         }
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_descriptor;
+        return com.valve.dota2.Demo.internal_static_CGameInfo_CDotaGameInfo_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_fieldAccessorTable
+        return com.valve.dota2.Demo.internal_static_CGameInfo_CDotaGameInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.class, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.Builder.class);
       }
@@ -1907,9 +2133,29 @@ public final class Demo {
          * <code>optional bool is_fake_client = 3;</code>
          */
         boolean getIsFakeClient();
+
+        // optional uint64 steamid = 4;
+        /**
+         * <code>optional uint64 steamid = 4;</code>
+         */
+        boolean hasSteamid();
+        /**
+         * <code>optional uint64 steamid = 4;</code>
+         */
+        long getSteamid();
+
+        // optional int32 game_team = 5;
+        /**
+         * <code>optional int32 game_team = 5;</code>
+         */
+        boolean hasGameTeam();
+        /**
+         * <code>optional int32 game_team = 5;</code>
+         */
+        int getGameTeam();
       }
       /**
-       * Protobuf type {@code com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo}
+       * Protobuf type {@code CGameInfo.CDotaGameInfo.CPlayerInfo}
        */
       public static final class CPlayerInfo extends
           com.google.protobuf.GeneratedMessage
@@ -1974,6 +2220,16 @@ public final class Demo {
                   isFakeClient_ = input.readBool();
                   break;
                 }
+                case 32: {
+                  bitField0_ |= 0x00000008;
+                  steamid_ = input.readUInt64();
+                  break;
+                }
+                case 40: {
+                  bitField0_ |= 0x00000010;
+                  gameTeam_ = input.readInt32();
+                  break;
+                }
               }
             }
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1988,12 +2244,12 @@ public final class Demo {
         }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.valve.dota2.Demo.internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_CPlayerInfo_descriptor;
+          return com.valve.dota2.Demo.internal_static_CGameInfo_CDotaGameInfo_CPlayerInfo_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.valve.dota2.Demo.internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_CPlayerInfo_fieldAccessorTable
+          return com.valve.dota2.Demo.internal_static_CGameInfo_CDotaGameInfo_CPlayerInfo_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo.class, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo.Builder.class);
         }
@@ -2116,10 +2372,44 @@ public final class Demo {
           return isFakeClient_;
         }
 
+        // optional uint64 steamid = 4;
+        public static final int STEAMID_FIELD_NUMBER = 4;
+        private long steamid_;
+        /**
+         * <code>optional uint64 steamid = 4;</code>
+         */
+        public boolean hasSteamid() {
+          return ((bitField0_ & 0x00000008) == 0x00000008);
+        }
+        /**
+         * <code>optional uint64 steamid = 4;</code>
+         */
+        public long getSteamid() {
+          return steamid_;
+        }
+
+        // optional int32 game_team = 5;
+        public static final int GAME_TEAM_FIELD_NUMBER = 5;
+        private int gameTeam_;
+        /**
+         * <code>optional int32 game_team = 5;</code>
+         */
+        public boolean hasGameTeam() {
+          return ((bitField0_ & 0x00000010) == 0x00000010);
+        }
+        /**
+         * <code>optional int32 game_team = 5;</code>
+         */
+        public int getGameTeam() {
+          return gameTeam_;
+        }
+
         private void initFields() {
           heroName_ = "";
           playerName_ = "";
           isFakeClient_ = false;
+          steamid_ = 0L;
+          gameTeam_ = 0;
         }
         private byte memoizedIsInitialized = -1;
         public final boolean isInitialized() {
@@ -2142,6 +2432,12 @@ public final class Demo {
           if (((bitField0_ & 0x00000004) == 0x00000004)) {
             output.writeBool(3, isFakeClient_);
           }
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+            output.writeUInt64(4, steamid_);
+          }
+          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+            output.writeInt32(5, gameTeam_);
+          }
           getUnknownFields().writeTo(output);
         }
 
@@ -2162,6 +2458,14 @@ public final class Demo {
           if (((bitField0_ & 0x00000004) == 0x00000004)) {
             size += com.google.protobuf.CodedOutputStream
               .computeBoolSize(3, isFakeClient_);
+          }
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeUInt64Size(4, steamid_);
+          }
+          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeInt32Size(5, gameTeam_);
           }
           size += getUnknownFields().getSerializedSize();
           memoizedSerializedSize = size;
@@ -2242,19 +2546,19 @@ public final class Demo {
           return builder;
         }
         /**
-         * Protobuf type {@code com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo}
+         * Protobuf type {@code CGameInfo.CDotaGameInfo.CPlayerInfo}
          */
         public static final class Builder extends
             com.google.protobuf.GeneratedMessage.Builder<Builder>
            implements com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfoOrBuilder {
           public static final com.google.protobuf.Descriptors.Descriptor
               getDescriptor() {
-            return com.valve.dota2.Demo.internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_CPlayerInfo_descriptor;
+            return com.valve.dota2.Demo.internal_static_CGameInfo_CDotaGameInfo_CPlayerInfo_descriptor;
           }
 
           protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
               internalGetFieldAccessorTable() {
-            return com.valve.dota2.Demo.internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_CPlayerInfo_fieldAccessorTable
+            return com.valve.dota2.Demo.internal_static_CGameInfo_CDotaGameInfo_CPlayerInfo_fieldAccessorTable
                 .ensureFieldAccessorsInitialized(
                     com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo.class, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo.Builder.class);
           }
@@ -2285,6 +2589,10 @@ public final class Demo {
             bitField0_ = (bitField0_ & ~0x00000002);
             isFakeClient_ = false;
             bitField0_ = (bitField0_ & ~0x00000004);
+            steamid_ = 0L;
+            bitField0_ = (bitField0_ & ~0x00000008);
+            gameTeam_ = 0;
+            bitField0_ = (bitField0_ & ~0x00000010);
             return this;
           }
 
@@ -2294,7 +2602,7 @@ public final class Demo {
 
           public com.google.protobuf.Descriptors.Descriptor
               getDescriptorForType() {
-            return com.valve.dota2.Demo.internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_CPlayerInfo_descriptor;
+            return com.valve.dota2.Demo.internal_static_CGameInfo_CDotaGameInfo_CPlayerInfo_descriptor;
           }
 
           public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo getDefaultInstanceForType() {
@@ -2325,6 +2633,14 @@ public final class Demo {
               to_bitField0_ |= 0x00000004;
             }
             result.isFakeClient_ = isFakeClient_;
+            if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+              to_bitField0_ |= 0x00000008;
+            }
+            result.steamid_ = steamid_;
+            if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+              to_bitField0_ |= 0x00000010;
+            }
+            result.gameTeam_ = gameTeam_;
             result.bitField0_ = to_bitField0_;
             onBuilt();
             return result;
@@ -2353,6 +2669,12 @@ public final class Demo {
             }
             if (other.hasIsFakeClient()) {
               setIsFakeClient(other.getIsFakeClient());
+            }
+            if (other.hasSteamid()) {
+              setSteamid(other.getSteamid());
+            }
+            if (other.hasGameTeam()) {
+              setGameTeam(other.getGameTeam());
             }
             this.mergeUnknownFields(other.getUnknownFields());
             return this;
@@ -2562,7 +2884,73 @@ public final class Demo {
             return this;
           }
 
-          // @@protoc_insertion_point(builder_scope:com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo)
+          // optional uint64 steamid = 4;
+          private long steamid_ ;
+          /**
+           * <code>optional uint64 steamid = 4;</code>
+           */
+          public boolean hasSteamid() {
+            return ((bitField0_ & 0x00000008) == 0x00000008);
+          }
+          /**
+           * <code>optional uint64 steamid = 4;</code>
+           */
+          public long getSteamid() {
+            return steamid_;
+          }
+          /**
+           * <code>optional uint64 steamid = 4;</code>
+           */
+          public Builder setSteamid(long value) {
+            bitField0_ |= 0x00000008;
+            steamid_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>optional uint64 steamid = 4;</code>
+           */
+          public Builder clearSteamid() {
+            bitField0_ = (bitField0_ & ~0x00000008);
+            steamid_ = 0L;
+            onChanged();
+            return this;
+          }
+
+          // optional int32 game_team = 5;
+          private int gameTeam_ ;
+          /**
+           * <code>optional int32 game_team = 5;</code>
+           */
+          public boolean hasGameTeam() {
+            return ((bitField0_ & 0x00000010) == 0x00000010);
+          }
+          /**
+           * <code>optional int32 game_team = 5;</code>
+           */
+          public int getGameTeam() {
+            return gameTeam_;
+          }
+          /**
+           * <code>optional int32 game_team = 5;</code>
+           */
+          public Builder setGameTeam(int value) {
+            bitField0_ |= 0x00000010;
+            gameTeam_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>optional int32 game_team = 5;</code>
+           */
+          public Builder clearGameTeam() {
+            bitField0_ = (bitField0_ & ~0x00000010);
+            gameTeam_ = 0;
+            onChanged();
+            return this;
+          }
+
+          // @@protoc_insertion_point(builder_scope:CGameInfo.CDotaGameInfo.CPlayerInfo)
         }
 
         static {
@@ -2570,7 +2958,565 @@ public final class Demo {
           defaultInstance.initFields();
         }
 
-        // @@protoc_insertion_point(class_scope:com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo)
+        // @@protoc_insertion_point(class_scope:CGameInfo.CDotaGameInfo.CPlayerInfo)
+      }
+
+      public interface CHeroSelectEventOrBuilder
+          extends com.google.protobuf.MessageOrBuilder {
+
+        // optional bool is_pick = 1;
+        /**
+         * <code>optional bool is_pick = 1;</code>
+         */
+        boolean hasIsPick();
+        /**
+         * <code>optional bool is_pick = 1;</code>
+         */
+        boolean getIsPick();
+
+        // optional uint32 team = 2;
+        /**
+         * <code>optional uint32 team = 2;</code>
+         */
+        boolean hasTeam();
+        /**
+         * <code>optional uint32 team = 2;</code>
+         */
+        int getTeam();
+
+        // optional uint32 hero_id = 3;
+        /**
+         * <code>optional uint32 hero_id = 3;</code>
+         */
+        boolean hasHeroId();
+        /**
+         * <code>optional uint32 hero_id = 3;</code>
+         */
+        int getHeroId();
+      }
+      /**
+       * Protobuf type {@code CGameInfo.CDotaGameInfo.CHeroSelectEvent}
+       */
+      public static final class CHeroSelectEvent extends
+          com.google.protobuf.GeneratedMessage
+          implements CHeroSelectEventOrBuilder {
+        // Use CHeroSelectEvent.newBuilder() to construct.
+        private CHeroSelectEvent(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+          super(builder);
+          this.unknownFields = builder.getUnknownFields();
+        }
+        private CHeroSelectEvent(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+        private static final CHeroSelectEvent defaultInstance;
+        public static CHeroSelectEvent getDefaultInstance() {
+          return defaultInstance;
+        }
+
+        public CHeroSelectEvent getDefaultInstanceForType() {
+          return defaultInstance;
+        }
+
+        private final com.google.protobuf.UnknownFieldSet unknownFields;
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+            getUnknownFields() {
+          return this.unknownFields;
+        }
+        private CHeroSelectEvent(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          initFields();
+          int mutable_bitField0_ = 0;
+          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+              com.google.protobuf.UnknownFieldSet.newBuilder();
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!parseUnknownField(input, unknownFields,
+                                         extensionRegistry, tag)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 8: {
+                  bitField0_ |= 0x00000001;
+                  isPick_ = input.readBool();
+                  break;
+                }
+                case 16: {
+                  bitField0_ |= 0x00000002;
+                  team_ = input.readUInt32();
+                  break;
+                }
+                case 24: {
+                  bitField0_ |= 0x00000004;
+                  heroId_ = input.readUInt32();
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                e.getMessage()).setUnfinishedMessage(this);
+          } finally {
+            this.unknownFields = unknownFields.build();
+            makeExtensionsImmutable();
+          }
+        }
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.valve.dota2.Demo.internal_static_CGameInfo_CDotaGameInfo_CHeroSelectEvent_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.valve.dota2.Demo.internal_static_CGameInfo_CDotaGameInfo_CHeroSelectEvent_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.class, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.Builder.class);
+        }
+
+        public static com.google.protobuf.Parser<CHeroSelectEvent> PARSER =
+            new com.google.protobuf.AbstractParser<CHeroSelectEvent>() {
+          public CHeroSelectEvent parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return new CHeroSelectEvent(input, extensionRegistry);
+          }
+        };
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<CHeroSelectEvent> getParserForType() {
+          return PARSER;
+        }
+
+        private int bitField0_;
+        // optional bool is_pick = 1;
+        public static final int IS_PICK_FIELD_NUMBER = 1;
+        private boolean isPick_;
+        /**
+         * <code>optional bool is_pick = 1;</code>
+         */
+        public boolean hasIsPick() {
+          return ((bitField0_ & 0x00000001) == 0x00000001);
+        }
+        /**
+         * <code>optional bool is_pick = 1;</code>
+         */
+        public boolean getIsPick() {
+          return isPick_;
+        }
+
+        // optional uint32 team = 2;
+        public static final int TEAM_FIELD_NUMBER = 2;
+        private int team_;
+        /**
+         * <code>optional uint32 team = 2;</code>
+         */
+        public boolean hasTeam() {
+          return ((bitField0_ & 0x00000002) == 0x00000002);
+        }
+        /**
+         * <code>optional uint32 team = 2;</code>
+         */
+        public int getTeam() {
+          return team_;
+        }
+
+        // optional uint32 hero_id = 3;
+        public static final int HERO_ID_FIELD_NUMBER = 3;
+        private int heroId_;
+        /**
+         * <code>optional uint32 hero_id = 3;</code>
+         */
+        public boolean hasHeroId() {
+          return ((bitField0_ & 0x00000004) == 0x00000004);
+        }
+        /**
+         * <code>optional uint32 hero_id = 3;</code>
+         */
+        public int getHeroId() {
+          return heroId_;
+        }
+
+        private void initFields() {
+          isPick_ = false;
+          team_ = 0;
+          heroId_ = 0;
+        }
+        private byte memoizedIsInitialized = -1;
+        public final boolean isInitialized() {
+          byte isInitialized = memoizedIsInitialized;
+          if (isInitialized != -1) return isInitialized == 1;
+
+          memoizedIsInitialized = 1;
+          return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                            throws java.io.IOException {
+          getSerializedSize();
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            output.writeBool(1, isPick_);
+          }
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            output.writeUInt32(2, team_);
+          }
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            output.writeUInt32(3, heroId_);
+          }
+          getUnknownFields().writeTo(output);
+        }
+
+        private int memoizedSerializedSize = -1;
+        public int getSerializedSize() {
+          int size = memoizedSerializedSize;
+          if (size != -1) return size;
+
+          size = 0;
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeBoolSize(1, isPick_);
+          }
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeUInt32Size(2, team_);
+          }
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeUInt32Size(3, heroId_);
+          }
+          size += getUnknownFields().getSerializedSize();
+          memoizedSerializedSize = size;
+          return size;
+        }
+
+        private static final long serialVersionUID = 0L;
+        @java.lang.Override
+        protected java.lang.Object writeReplace()
+            throws java.io.ObjectStreamException {
+          return super.writeReplace();
+        }
+
+        public static com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return PARSER.parseFrom(input);
+        }
+        public static com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return PARSER.parseFrom(input, extensionRegistry);
+        }
+        public static com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return PARSER.parseDelimitedFrom(input);
+        }
+        public static com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return PARSER.parseDelimitedFrom(input, extensionRegistry);
+        }
+        public static com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return PARSER.parseFrom(input);
+        }
+        public static com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return PARSER.parseFrom(input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() { return Builder.create(); }
+        public Builder newBuilderForType() { return newBuilder(); }
+        public static Builder newBuilder(com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent prototype) {
+          return newBuilder().mergeFrom(prototype);
+        }
+        public Builder toBuilder() { return newBuilder(this); }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          Builder builder = new Builder(parent);
+          return builder;
+        }
+        /**
+         * Protobuf type {@code CGameInfo.CDotaGameInfo.CHeroSelectEvent}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessage.Builder<Builder>
+           implements com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEventOrBuilder {
+          public static final com.google.protobuf.Descriptors.Descriptor
+              getDescriptor() {
+            return com.valve.dota2.Demo.internal_static_CGameInfo_CDotaGameInfo_CHeroSelectEvent_descriptor;
+          }
+
+          protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+              internalGetFieldAccessorTable() {
+            return com.valve.dota2.Demo.internal_static_CGameInfo_CDotaGameInfo_CHeroSelectEvent_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                    com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.class, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.Builder.class);
+          }
+
+          // Construct using com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.newBuilder()
+          private Builder() {
+            maybeForceBuilderInitialization();
+          }
+
+          private Builder(
+              com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+          }
+          private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+            }
+          }
+          private static Builder create() {
+            return new Builder();
+          }
+
+          public Builder clear() {
+            super.clear();
+            isPick_ = false;
+            bitField0_ = (bitField0_ & ~0x00000001);
+            team_ = 0;
+            bitField0_ = (bitField0_ & ~0x00000002);
+            heroId_ = 0;
+            bitField0_ = (bitField0_ & ~0x00000004);
+            return this;
+          }
+
+          public Builder clone() {
+            return create().mergeFrom(buildPartial());
+          }
+
+          public com.google.protobuf.Descriptors.Descriptor
+              getDescriptorForType() {
+            return com.valve.dota2.Demo.internal_static_CGameInfo_CDotaGameInfo_CHeroSelectEvent_descriptor;
+          }
+
+          public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent getDefaultInstanceForType() {
+            return com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.getDefaultInstance();
+          }
+
+          public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent build() {
+            com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent result = buildPartial();
+            if (!result.isInitialized()) {
+              throw newUninitializedMessageException(result);
+            }
+            return result;
+          }
+
+          public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent buildPartial() {
+            com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent result = new com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent(this);
+            int from_bitField0_ = bitField0_;
+            int to_bitField0_ = 0;
+            if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+              to_bitField0_ |= 0x00000001;
+            }
+            result.isPick_ = isPick_;
+            if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+              to_bitField0_ |= 0x00000002;
+            }
+            result.team_ = team_;
+            if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+              to_bitField0_ |= 0x00000004;
+            }
+            result.heroId_ = heroId_;
+            result.bitField0_ = to_bitField0_;
+            onBuilt();
+            return result;
+          }
+
+          public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent) {
+              return mergeFrom((com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent)other);
+            } else {
+              super.mergeFrom(other);
+              return this;
+            }
+          }
+
+          public Builder mergeFrom(com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent other) {
+            if (other == com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.getDefaultInstance()) return this;
+            if (other.hasIsPick()) {
+              setIsPick(other.getIsPick());
+            }
+            if (other.hasTeam()) {
+              setTeam(other.getTeam());
+            }
+            if (other.hasHeroId()) {
+              setHeroId(other.getHeroId());
+            }
+            this.mergeUnknownFields(other.getUnknownFields());
+            return this;
+          }
+
+          public final boolean isInitialized() {
+            return true;
+          }
+
+          public Builder mergeFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent parsedMessage = null;
+            try {
+              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              parsedMessage = (com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent) e.getUnfinishedMessage();
+              throw e;
+            } finally {
+              if (parsedMessage != null) {
+                mergeFrom(parsedMessage);
+              }
+            }
+            return this;
+          }
+          private int bitField0_;
+
+          // optional bool is_pick = 1;
+          private boolean isPick_ ;
+          /**
+           * <code>optional bool is_pick = 1;</code>
+           */
+          public boolean hasIsPick() {
+            return ((bitField0_ & 0x00000001) == 0x00000001);
+          }
+          /**
+           * <code>optional bool is_pick = 1;</code>
+           */
+          public boolean getIsPick() {
+            return isPick_;
+          }
+          /**
+           * <code>optional bool is_pick = 1;</code>
+           */
+          public Builder setIsPick(boolean value) {
+            bitField0_ |= 0x00000001;
+            isPick_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>optional bool is_pick = 1;</code>
+           */
+          public Builder clearIsPick() {
+            bitField0_ = (bitField0_ & ~0x00000001);
+            isPick_ = false;
+            onChanged();
+            return this;
+          }
+
+          // optional uint32 team = 2;
+          private int team_ ;
+          /**
+           * <code>optional uint32 team = 2;</code>
+           */
+          public boolean hasTeam() {
+            return ((bitField0_ & 0x00000002) == 0x00000002);
+          }
+          /**
+           * <code>optional uint32 team = 2;</code>
+           */
+          public int getTeam() {
+            return team_;
+          }
+          /**
+           * <code>optional uint32 team = 2;</code>
+           */
+          public Builder setTeam(int value) {
+            bitField0_ |= 0x00000002;
+            team_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>optional uint32 team = 2;</code>
+           */
+          public Builder clearTeam() {
+            bitField0_ = (bitField0_ & ~0x00000002);
+            team_ = 0;
+            onChanged();
+            return this;
+          }
+
+          // optional uint32 hero_id = 3;
+          private int heroId_ ;
+          /**
+           * <code>optional uint32 hero_id = 3;</code>
+           */
+          public boolean hasHeroId() {
+            return ((bitField0_ & 0x00000004) == 0x00000004);
+          }
+          /**
+           * <code>optional uint32 hero_id = 3;</code>
+           */
+          public int getHeroId() {
+            return heroId_;
+          }
+          /**
+           * <code>optional uint32 hero_id = 3;</code>
+           */
+          public Builder setHeroId(int value) {
+            bitField0_ |= 0x00000004;
+            heroId_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>optional uint32 hero_id = 3;</code>
+           */
+          public Builder clearHeroId() {
+            bitField0_ = (bitField0_ & ~0x00000004);
+            heroId_ = 0;
+            onChanged();
+            return this;
+          }
+
+          // @@protoc_insertion_point(builder_scope:CGameInfo.CDotaGameInfo.CHeroSelectEvent)
+        }
+
+        static {
+          defaultInstance = new CHeroSelectEvent(true);
+          defaultInstance.initFields();
+        }
+
+        // @@protoc_insertion_point(class_scope:CGameInfo.CDotaGameInfo.CHeroSelectEvent)
       }
 
       private int bitField0_;
@@ -2622,40 +3568,226 @@ public final class Demo {
         return gameWinner_;
       }
 
-      // repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;
+      // repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;
       public static final int PLAYER_INFO_FIELD_NUMBER = 4;
       private java.util.List<com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo> playerInfo_;
       /**
-       * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+       * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
        */
       public java.util.List<com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo> getPlayerInfoList() {
         return playerInfo_;
       }
       /**
-       * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+       * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
        */
       public java.util.List<? extends com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfoOrBuilder> 
           getPlayerInfoOrBuilderList() {
         return playerInfo_;
       }
       /**
-       * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+       * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
        */
       public int getPlayerInfoCount() {
         return playerInfo_.size();
       }
       /**
-       * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+       * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
        */
       public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo getPlayerInfo(int index) {
         return playerInfo_.get(index);
       }
       /**
-       * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+       * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
        */
       public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfoOrBuilder getPlayerInfoOrBuilder(
           int index) {
         return playerInfo_.get(index);
+      }
+
+      // optional uint32 leagueid = 5;
+      public static final int LEAGUEID_FIELD_NUMBER = 5;
+      private int leagueid_;
+      /**
+       * <code>optional uint32 leagueid = 5;</code>
+       */
+      public boolean hasLeagueid() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional uint32 leagueid = 5;</code>
+       */
+      public int getLeagueid() {
+        return leagueid_;
+      }
+
+      // repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;
+      public static final int PICKS_BANS_FIELD_NUMBER = 6;
+      private java.util.List<com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent> picksBans_;
+      /**
+       * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+       */
+      public java.util.List<com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent> getPicksBansList() {
+        return picksBans_;
+      }
+      /**
+       * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+       */
+      public java.util.List<? extends com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEventOrBuilder> 
+          getPicksBansOrBuilderList() {
+        return picksBans_;
+      }
+      /**
+       * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+       */
+      public int getPicksBansCount() {
+        return picksBans_.size();
+      }
+      /**
+       * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+       */
+      public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent getPicksBans(int index) {
+        return picksBans_.get(index);
+      }
+      /**
+       * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+       */
+      public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEventOrBuilder getPicksBansOrBuilder(
+          int index) {
+        return picksBans_.get(index);
+      }
+
+      // optional uint32 radiant_team_id = 7;
+      public static final int RADIANT_TEAM_ID_FIELD_NUMBER = 7;
+      private int radiantTeamId_;
+      /**
+       * <code>optional uint32 radiant_team_id = 7;</code>
+       */
+      public boolean hasRadiantTeamId() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>optional uint32 radiant_team_id = 7;</code>
+       */
+      public int getRadiantTeamId() {
+        return radiantTeamId_;
+      }
+
+      // optional uint32 dire_team_id = 8;
+      public static final int DIRE_TEAM_ID_FIELD_NUMBER = 8;
+      private int direTeamId_;
+      /**
+       * <code>optional uint32 dire_team_id = 8;</code>
+       */
+      public boolean hasDireTeamId() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>optional uint32 dire_team_id = 8;</code>
+       */
+      public int getDireTeamId() {
+        return direTeamId_;
+      }
+
+      // optional string radiant_team_tag = 9;
+      public static final int RADIANT_TEAM_TAG_FIELD_NUMBER = 9;
+      private java.lang.Object radiantTeamTag_;
+      /**
+       * <code>optional string radiant_team_tag = 9;</code>
+       */
+      public boolean hasRadiantTeamTag() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>optional string radiant_team_tag = 9;</code>
+       */
+      public java.lang.String getRadiantTeamTag() {
+        java.lang.Object ref = radiantTeamTag_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            radiantTeamTag_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <code>optional string radiant_team_tag = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRadiantTeamTagBytes() {
+        java.lang.Object ref = radiantTeamTag_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          radiantTeamTag_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      // optional string dire_team_tag = 10;
+      public static final int DIRE_TEAM_TAG_FIELD_NUMBER = 10;
+      private java.lang.Object direTeamTag_;
+      /**
+       * <code>optional string dire_team_tag = 10;</code>
+       */
+      public boolean hasDireTeamTag() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>optional string dire_team_tag = 10;</code>
+       */
+      public java.lang.String getDireTeamTag() {
+        java.lang.Object ref = direTeamTag_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            direTeamTag_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <code>optional string dire_team_tag = 10;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDireTeamTagBytes() {
+        java.lang.Object ref = direTeamTag_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          direTeamTag_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      // optional uint32 end_time = 11;
+      public static final int END_TIME_FIELD_NUMBER = 11;
+      private int endTime_;
+      /**
+       * <code>optional uint32 end_time = 11;</code>
+       */
+      public boolean hasEndTime() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <code>optional uint32 end_time = 11;</code>
+       */
+      public int getEndTime() {
+        return endTime_;
       }
 
       private void initFields() {
@@ -2663,6 +3795,13 @@ public final class Demo {
         gameMode_ = 0;
         gameWinner_ = 0;
         playerInfo_ = java.util.Collections.emptyList();
+        leagueid_ = 0;
+        picksBans_ = java.util.Collections.emptyList();
+        radiantTeamId_ = 0;
+        direTeamId_ = 0;
+        radiantTeamTag_ = "";
+        direTeamTag_ = "";
+        endTime_ = 0;
       }
       private byte memoizedIsInitialized = -1;
       public final boolean isInitialized() {
@@ -2688,6 +3827,27 @@ public final class Demo {
         for (int i = 0; i < playerInfo_.size(); i++) {
           output.writeMessage(4, playerInfo_.get(i));
         }
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          output.writeUInt32(5, leagueid_);
+        }
+        for (int i = 0; i < picksBans_.size(); i++) {
+          output.writeMessage(6, picksBans_.get(i));
+        }
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          output.writeUInt32(7, radiantTeamId_);
+        }
+        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+          output.writeUInt32(8, direTeamId_);
+        }
+        if (((bitField0_ & 0x00000040) == 0x00000040)) {
+          output.writeBytes(9, getRadiantTeamTagBytes());
+        }
+        if (((bitField0_ & 0x00000080) == 0x00000080)) {
+          output.writeBytes(10, getDireTeamTagBytes());
+        }
+        if (((bitField0_ & 0x00000100) == 0x00000100)) {
+          output.writeUInt32(11, endTime_);
+        }
         getUnknownFields().writeTo(output);
       }
 
@@ -2712,6 +3872,34 @@ public final class Demo {
         for (int i = 0; i < playerInfo_.size(); i++) {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(4, playerInfo_.get(i));
+        }
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32Size(5, leagueid_);
+        }
+        for (int i = 0; i < picksBans_.size(); i++) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(6, picksBans_.get(i));
+        }
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32Size(7, radiantTeamId_);
+        }
+        if (((bitField0_ & 0x00000020) == 0x00000020)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32Size(8, direTeamId_);
+        }
+        if (((bitField0_ & 0x00000040) == 0x00000040)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(9, getRadiantTeamTagBytes());
+        }
+        if (((bitField0_ & 0x00000080) == 0x00000080)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(10, getDireTeamTagBytes());
+        }
+        if (((bitField0_ & 0x00000100) == 0x00000100)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32Size(11, endTime_);
         }
         size += getUnknownFields().getSerializedSize();
         memoizedSerializedSize = size;
@@ -2792,19 +3980,19 @@ public final class Demo {
         return builder;
       }
       /**
-       * Protobuf type {@code com.valve.dota2.CGameInfo.CDotaGameInfo}
+       * Protobuf type {@code CGameInfo.CDotaGameInfo}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
          implements com.valve.dota2.Demo.CGameInfo.CDotaGameInfoOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.valve.dota2.Demo.internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_descriptor;
+          return com.valve.dota2.Demo.internal_static_CGameInfo_CDotaGameInfo_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.valve.dota2.Demo.internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_fieldAccessorTable
+          return com.valve.dota2.Demo.internal_static_CGameInfo_CDotaGameInfo_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.class, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.Builder.class);
         }
@@ -2822,6 +4010,7 @@ public final class Demo {
         private void maybeForceBuilderInitialization() {
           if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
             getPlayerInfoFieldBuilder();
+            getPicksBansFieldBuilder();
           }
         }
         private static Builder create() {
@@ -2842,6 +4031,24 @@ public final class Demo {
           } else {
             playerInfoBuilder_.clear();
           }
+          leagueid_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000010);
+          if (picksBansBuilder_ == null) {
+            picksBans_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000020);
+          } else {
+            picksBansBuilder_.clear();
+          }
+          radiantTeamId_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000040);
+          direTeamId_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000080);
+          radiantTeamTag_ = "";
+          bitField0_ = (bitField0_ & ~0x00000100);
+          direTeamTag_ = "";
+          bitField0_ = (bitField0_ & ~0x00000200);
+          endTime_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000400);
           return this;
         }
 
@@ -2851,7 +4058,7 @@ public final class Demo {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.valve.dota2.Demo.internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_descriptor;
+          return com.valve.dota2.Demo.internal_static_CGameInfo_CDotaGameInfo_descriptor;
         }
 
         public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo getDefaultInstanceForType() {
@@ -2891,6 +4098,39 @@ public final class Demo {
           } else {
             result.playerInfo_ = playerInfoBuilder_.build();
           }
+          if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+            to_bitField0_ |= 0x00000008;
+          }
+          result.leagueid_ = leagueid_;
+          if (picksBansBuilder_ == null) {
+            if (((bitField0_ & 0x00000020) == 0x00000020)) {
+              picksBans_ = java.util.Collections.unmodifiableList(picksBans_);
+              bitField0_ = (bitField0_ & ~0x00000020);
+            }
+            result.picksBans_ = picksBans_;
+          } else {
+            result.picksBans_ = picksBansBuilder_.build();
+          }
+          if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+            to_bitField0_ |= 0x00000010;
+          }
+          result.radiantTeamId_ = radiantTeamId_;
+          if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+            to_bitField0_ |= 0x00000020;
+          }
+          result.direTeamId_ = direTeamId_;
+          if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+            to_bitField0_ |= 0x00000040;
+          }
+          result.radiantTeamTag_ = radiantTeamTag_;
+          if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+            to_bitField0_ |= 0x00000080;
+          }
+          result.direTeamTag_ = direTeamTag_;
+          if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+            to_bitField0_ |= 0x00000100;
+          }
+          result.endTime_ = endTime_;
           result.bitField0_ = to_bitField0_;
           onBuilt();
           return result;
@@ -2941,6 +4181,54 @@ public final class Demo {
                 playerInfoBuilder_.addAllMessages(other.playerInfo_);
               }
             }
+          }
+          if (other.hasLeagueid()) {
+            setLeagueid(other.getLeagueid());
+          }
+          if (picksBansBuilder_ == null) {
+            if (!other.picksBans_.isEmpty()) {
+              if (picksBans_.isEmpty()) {
+                picksBans_ = other.picksBans_;
+                bitField0_ = (bitField0_ & ~0x00000020);
+              } else {
+                ensurePicksBansIsMutable();
+                picksBans_.addAll(other.picksBans_);
+              }
+              onChanged();
+            }
+          } else {
+            if (!other.picksBans_.isEmpty()) {
+              if (picksBansBuilder_.isEmpty()) {
+                picksBansBuilder_.dispose();
+                picksBansBuilder_ = null;
+                picksBans_ = other.picksBans_;
+                bitField0_ = (bitField0_ & ~0x00000020);
+                picksBansBuilder_ = 
+                  com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ?
+                     getPicksBansFieldBuilder() : null;
+              } else {
+                picksBansBuilder_.addAllMessages(other.picksBans_);
+              }
+            }
+          }
+          if (other.hasRadiantTeamId()) {
+            setRadiantTeamId(other.getRadiantTeamId());
+          }
+          if (other.hasDireTeamId()) {
+            setDireTeamId(other.getDireTeamId());
+          }
+          if (other.hasRadiantTeamTag()) {
+            bitField0_ |= 0x00000100;
+            radiantTeamTag_ = other.radiantTeamTag_;
+            onChanged();
+          }
+          if (other.hasDireTeamTag()) {
+            bitField0_ |= 0x00000200;
+            direTeamTag_ = other.direTeamTag_;
+            onChanged();
+          }
+          if (other.hasEndTime()) {
+            setEndTime(other.getEndTime());
           }
           this.mergeUnknownFields(other.getUnknownFields());
           return this;
@@ -3068,7 +4356,7 @@ public final class Demo {
           return this;
         }
 
-        // repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;
+        // repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;
         private java.util.List<com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo> playerInfo_ =
           java.util.Collections.emptyList();
         private void ensurePlayerInfoIsMutable() {
@@ -3082,7 +4370,7 @@ public final class Demo {
             com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo.Builder, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfoOrBuilder> playerInfoBuilder_;
 
         /**
-         * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+         * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
          */
         public java.util.List<com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo> getPlayerInfoList() {
           if (playerInfoBuilder_ == null) {
@@ -3092,7 +4380,7 @@ public final class Demo {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+         * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
          */
         public int getPlayerInfoCount() {
           if (playerInfoBuilder_ == null) {
@@ -3102,7 +4390,7 @@ public final class Demo {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+         * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
          */
         public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo getPlayerInfo(int index) {
           if (playerInfoBuilder_ == null) {
@@ -3112,7 +4400,7 @@ public final class Demo {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+         * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
          */
         public Builder setPlayerInfo(
             int index, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo value) {
@@ -3129,7 +4417,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+         * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
          */
         public Builder setPlayerInfo(
             int index, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo.Builder builderForValue) {
@@ -3143,7 +4431,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+         * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
          */
         public Builder addPlayerInfo(com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo value) {
           if (playerInfoBuilder_ == null) {
@@ -3159,7 +4447,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+         * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
          */
         public Builder addPlayerInfo(
             int index, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo value) {
@@ -3176,7 +4464,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+         * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
          */
         public Builder addPlayerInfo(
             com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo.Builder builderForValue) {
@@ -3190,7 +4478,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+         * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
          */
         public Builder addPlayerInfo(
             int index, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo.Builder builderForValue) {
@@ -3204,7 +4492,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+         * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
          */
         public Builder addAllPlayerInfo(
             java.lang.Iterable<? extends com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo> values) {
@@ -3218,7 +4506,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+         * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
          */
         public Builder clearPlayerInfo() {
           if (playerInfoBuilder_ == null) {
@@ -3231,7 +4519,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+         * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
          */
         public Builder removePlayerInfo(int index) {
           if (playerInfoBuilder_ == null) {
@@ -3244,14 +4532,14 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+         * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
          */
         public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo.Builder getPlayerInfoBuilder(
             int index) {
           return getPlayerInfoFieldBuilder().getBuilder(index);
         }
         /**
-         * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+         * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
          */
         public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfoOrBuilder getPlayerInfoOrBuilder(
             int index) {
@@ -3261,7 +4549,7 @@ public final class Demo {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+         * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
          */
         public java.util.List<? extends com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfoOrBuilder> 
              getPlayerInfoOrBuilderList() {
@@ -3272,14 +4560,14 @@ public final class Demo {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+         * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
          */
         public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo.Builder addPlayerInfoBuilder() {
           return getPlayerInfoFieldBuilder().addBuilder(
               com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo.getDefaultInstance());
         }
         /**
-         * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+         * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
          */
         public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo.Builder addPlayerInfoBuilder(
             int index) {
@@ -3287,7 +4575,7 @@ public final class Demo {
               index, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo.getDefaultInstance());
         }
         /**
-         * <code>repeated .com.valve.dota2.CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
+         * <code>repeated .CGameInfo.CDotaGameInfo.CPlayerInfo player_info = 4;</code>
          */
         public java.util.List<com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CPlayerInfo.Builder> 
              getPlayerInfoBuilderList() {
@@ -3308,7 +4596,527 @@ public final class Demo {
           return playerInfoBuilder_;
         }
 
-        // @@protoc_insertion_point(builder_scope:com.valve.dota2.CGameInfo.CDotaGameInfo)
+        // optional uint32 leagueid = 5;
+        private int leagueid_ ;
+        /**
+         * <code>optional uint32 leagueid = 5;</code>
+         */
+        public boolean hasLeagueid() {
+          return ((bitField0_ & 0x00000010) == 0x00000010);
+        }
+        /**
+         * <code>optional uint32 leagueid = 5;</code>
+         */
+        public int getLeagueid() {
+          return leagueid_;
+        }
+        /**
+         * <code>optional uint32 leagueid = 5;</code>
+         */
+        public Builder setLeagueid(int value) {
+          bitField0_ |= 0x00000010;
+          leagueid_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional uint32 leagueid = 5;</code>
+         */
+        public Builder clearLeagueid() {
+          bitField0_ = (bitField0_ & ~0x00000010);
+          leagueid_ = 0;
+          onChanged();
+          return this;
+        }
+
+        // repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;
+        private java.util.List<com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent> picksBans_ =
+          java.util.Collections.emptyList();
+        private void ensurePicksBansIsMutable() {
+          if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+            picksBans_ = new java.util.ArrayList<com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent>(picksBans_);
+            bitField0_ |= 0x00000020;
+           }
+        }
+
+        private com.google.protobuf.RepeatedFieldBuilder<
+            com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.Builder, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEventOrBuilder> picksBansBuilder_;
+
+        /**
+         * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+         */
+        public java.util.List<com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent> getPicksBansList() {
+          if (picksBansBuilder_ == null) {
+            return java.util.Collections.unmodifiableList(picksBans_);
+          } else {
+            return picksBansBuilder_.getMessageList();
+          }
+        }
+        /**
+         * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+         */
+        public int getPicksBansCount() {
+          if (picksBansBuilder_ == null) {
+            return picksBans_.size();
+          } else {
+            return picksBansBuilder_.getCount();
+          }
+        }
+        /**
+         * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+         */
+        public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent getPicksBans(int index) {
+          if (picksBansBuilder_ == null) {
+            return picksBans_.get(index);
+          } else {
+            return picksBansBuilder_.getMessage(index);
+          }
+        }
+        /**
+         * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+         */
+        public Builder setPicksBans(
+            int index, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent value) {
+          if (picksBansBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensurePicksBansIsMutable();
+            picksBans_.set(index, value);
+            onChanged();
+          } else {
+            picksBansBuilder_.setMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+         */
+        public Builder setPicksBans(
+            int index, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.Builder builderForValue) {
+          if (picksBansBuilder_ == null) {
+            ensurePicksBansIsMutable();
+            picksBans_.set(index, builderForValue.build());
+            onChanged();
+          } else {
+            picksBansBuilder_.setMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+         */
+        public Builder addPicksBans(com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent value) {
+          if (picksBansBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensurePicksBansIsMutable();
+            picksBans_.add(value);
+            onChanged();
+          } else {
+            picksBansBuilder_.addMessage(value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+         */
+        public Builder addPicksBans(
+            int index, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent value) {
+          if (picksBansBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensurePicksBansIsMutable();
+            picksBans_.add(index, value);
+            onChanged();
+          } else {
+            picksBansBuilder_.addMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+         */
+        public Builder addPicksBans(
+            com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.Builder builderForValue) {
+          if (picksBansBuilder_ == null) {
+            ensurePicksBansIsMutable();
+            picksBans_.add(builderForValue.build());
+            onChanged();
+          } else {
+            picksBansBuilder_.addMessage(builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+         */
+        public Builder addPicksBans(
+            int index, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.Builder builderForValue) {
+          if (picksBansBuilder_ == null) {
+            ensurePicksBansIsMutable();
+            picksBans_.add(index, builderForValue.build());
+            onChanged();
+          } else {
+            picksBansBuilder_.addMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+         */
+        public Builder addAllPicksBans(
+            java.lang.Iterable<? extends com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent> values) {
+          if (picksBansBuilder_ == null) {
+            ensurePicksBansIsMutable();
+            super.addAll(values, picksBans_);
+            onChanged();
+          } else {
+            picksBansBuilder_.addAllMessages(values);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+         */
+        public Builder clearPicksBans() {
+          if (picksBansBuilder_ == null) {
+            picksBans_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000020);
+            onChanged();
+          } else {
+            picksBansBuilder_.clear();
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+         */
+        public Builder removePicksBans(int index) {
+          if (picksBansBuilder_ == null) {
+            ensurePicksBansIsMutable();
+            picksBans_.remove(index);
+            onChanged();
+          } else {
+            picksBansBuilder_.remove(index);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+         */
+        public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.Builder getPicksBansBuilder(
+            int index) {
+          return getPicksBansFieldBuilder().getBuilder(index);
+        }
+        /**
+         * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+         */
+        public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEventOrBuilder getPicksBansOrBuilder(
+            int index) {
+          if (picksBansBuilder_ == null) {
+            return picksBans_.get(index);  } else {
+            return picksBansBuilder_.getMessageOrBuilder(index);
+          }
+        }
+        /**
+         * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+         */
+        public java.util.List<? extends com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEventOrBuilder> 
+             getPicksBansOrBuilderList() {
+          if (picksBansBuilder_ != null) {
+            return picksBansBuilder_.getMessageOrBuilderList();
+          } else {
+            return java.util.Collections.unmodifiableList(picksBans_);
+          }
+        }
+        /**
+         * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+         */
+        public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.Builder addPicksBansBuilder() {
+          return getPicksBansFieldBuilder().addBuilder(
+              com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.getDefaultInstance());
+        }
+        /**
+         * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+         */
+        public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.Builder addPicksBansBuilder(
+            int index) {
+          return getPicksBansFieldBuilder().addBuilder(
+              index, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.getDefaultInstance());
+        }
+        /**
+         * <code>repeated .CGameInfo.CDotaGameInfo.CHeroSelectEvent picks_bans = 6;</code>
+         */
+        public java.util.List<com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.Builder> 
+             getPicksBansBuilderList() {
+          return getPicksBansFieldBuilder().getBuilderList();
+        }
+        private com.google.protobuf.RepeatedFieldBuilder<
+            com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.Builder, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEventOrBuilder> 
+            getPicksBansFieldBuilder() {
+          if (picksBansBuilder_ == null) {
+            picksBansBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+                com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEvent.Builder, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.CHeroSelectEventOrBuilder>(
+                    picksBans_,
+                    ((bitField0_ & 0x00000020) == 0x00000020),
+                    getParentForChildren(),
+                    isClean());
+            picksBans_ = null;
+          }
+          return picksBansBuilder_;
+        }
+
+        // optional uint32 radiant_team_id = 7;
+        private int radiantTeamId_ ;
+        /**
+         * <code>optional uint32 radiant_team_id = 7;</code>
+         */
+        public boolean hasRadiantTeamId() {
+          return ((bitField0_ & 0x00000040) == 0x00000040);
+        }
+        /**
+         * <code>optional uint32 radiant_team_id = 7;</code>
+         */
+        public int getRadiantTeamId() {
+          return radiantTeamId_;
+        }
+        /**
+         * <code>optional uint32 radiant_team_id = 7;</code>
+         */
+        public Builder setRadiantTeamId(int value) {
+          bitField0_ |= 0x00000040;
+          radiantTeamId_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional uint32 radiant_team_id = 7;</code>
+         */
+        public Builder clearRadiantTeamId() {
+          bitField0_ = (bitField0_ & ~0x00000040);
+          radiantTeamId_ = 0;
+          onChanged();
+          return this;
+        }
+
+        // optional uint32 dire_team_id = 8;
+        private int direTeamId_ ;
+        /**
+         * <code>optional uint32 dire_team_id = 8;</code>
+         */
+        public boolean hasDireTeamId() {
+          return ((bitField0_ & 0x00000080) == 0x00000080);
+        }
+        /**
+         * <code>optional uint32 dire_team_id = 8;</code>
+         */
+        public int getDireTeamId() {
+          return direTeamId_;
+        }
+        /**
+         * <code>optional uint32 dire_team_id = 8;</code>
+         */
+        public Builder setDireTeamId(int value) {
+          bitField0_ |= 0x00000080;
+          direTeamId_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional uint32 dire_team_id = 8;</code>
+         */
+        public Builder clearDireTeamId() {
+          bitField0_ = (bitField0_ & ~0x00000080);
+          direTeamId_ = 0;
+          onChanged();
+          return this;
+        }
+
+        // optional string radiant_team_tag = 9;
+        private java.lang.Object radiantTeamTag_ = "";
+        /**
+         * <code>optional string radiant_team_tag = 9;</code>
+         */
+        public boolean hasRadiantTeamTag() {
+          return ((bitField0_ & 0x00000100) == 0x00000100);
+        }
+        /**
+         * <code>optional string radiant_team_tag = 9;</code>
+         */
+        public java.lang.String getRadiantTeamTag() {
+          java.lang.Object ref = radiantTeamTag_;
+          if (!(ref instanceof java.lang.String)) {
+            java.lang.String s = ((com.google.protobuf.ByteString) ref)
+                .toStringUtf8();
+            radiantTeamTag_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>optional string radiant_team_tag = 9;</code>
+         */
+        public com.google.protobuf.ByteString
+            getRadiantTeamTagBytes() {
+          java.lang.Object ref = radiantTeamTag_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            radiantTeamTag_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>optional string radiant_team_tag = 9;</code>
+         */
+        public Builder setRadiantTeamTag(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+          radiantTeamTag_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string radiant_team_tag = 9;</code>
+         */
+        public Builder clearRadiantTeamTag() {
+          bitField0_ = (bitField0_ & ~0x00000100);
+          radiantTeamTag_ = getDefaultInstance().getRadiantTeamTag();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string radiant_team_tag = 9;</code>
+         */
+        public Builder setRadiantTeamTagBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000100;
+          radiantTeamTag_ = value;
+          onChanged();
+          return this;
+        }
+
+        // optional string dire_team_tag = 10;
+        private java.lang.Object direTeamTag_ = "";
+        /**
+         * <code>optional string dire_team_tag = 10;</code>
+         */
+        public boolean hasDireTeamTag() {
+          return ((bitField0_ & 0x00000200) == 0x00000200);
+        }
+        /**
+         * <code>optional string dire_team_tag = 10;</code>
+         */
+        public java.lang.String getDireTeamTag() {
+          java.lang.Object ref = direTeamTag_;
+          if (!(ref instanceof java.lang.String)) {
+            java.lang.String s = ((com.google.protobuf.ByteString) ref)
+                .toStringUtf8();
+            direTeamTag_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>optional string dire_team_tag = 10;</code>
+         */
+        public com.google.protobuf.ByteString
+            getDireTeamTagBytes() {
+          java.lang.Object ref = direTeamTag_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            direTeamTag_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>optional string dire_team_tag = 10;</code>
+         */
+        public Builder setDireTeamTag(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000200;
+          direTeamTag_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string dire_team_tag = 10;</code>
+         */
+        public Builder clearDireTeamTag() {
+          bitField0_ = (bitField0_ & ~0x00000200);
+          direTeamTag_ = getDefaultInstance().getDireTeamTag();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string dire_team_tag = 10;</code>
+         */
+        public Builder setDireTeamTagBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000200;
+          direTeamTag_ = value;
+          onChanged();
+          return this;
+        }
+
+        // optional uint32 end_time = 11;
+        private int endTime_ ;
+        /**
+         * <code>optional uint32 end_time = 11;</code>
+         */
+        public boolean hasEndTime() {
+          return ((bitField0_ & 0x00000400) == 0x00000400);
+        }
+        /**
+         * <code>optional uint32 end_time = 11;</code>
+         */
+        public int getEndTime() {
+          return endTime_;
+        }
+        /**
+         * <code>optional uint32 end_time = 11;</code>
+         */
+        public Builder setEndTime(int value) {
+          bitField0_ |= 0x00000400;
+          endTime_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional uint32 end_time = 11;</code>
+         */
+        public Builder clearEndTime() {
+          bitField0_ = (bitField0_ & ~0x00000400);
+          endTime_ = 0;
+          onChanged();
+          return this;
+        }
+
+        // @@protoc_insertion_point(builder_scope:CGameInfo.CDotaGameInfo)
       }
 
       static {
@@ -3316,27 +5124,27 @@ public final class Demo {
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:com.valve.dota2.CGameInfo.CDotaGameInfo)
+      // @@protoc_insertion_point(class_scope:CGameInfo.CDotaGameInfo)
     }
 
     private int bitField0_;
-    // optional .com.valve.dota2.CGameInfo.CDotaGameInfo dota = 4;
+    // optional .CGameInfo.CDotaGameInfo dota = 4;
     public static final int DOTA_FIELD_NUMBER = 4;
     private com.valve.dota2.Demo.CGameInfo.CDotaGameInfo dota_;
     /**
-     * <code>optional .com.valve.dota2.CGameInfo.CDotaGameInfo dota = 4;</code>
+     * <code>optional .CGameInfo.CDotaGameInfo dota = 4;</code>
      */
     public boolean hasDota() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional .com.valve.dota2.CGameInfo.CDotaGameInfo dota = 4;</code>
+     * <code>optional .CGameInfo.CDotaGameInfo dota = 4;</code>
      */
     public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo getDota() {
       return dota_;
     }
     /**
-     * <code>optional .com.valve.dota2.CGameInfo.CDotaGameInfo dota = 4;</code>
+     * <code>optional .CGameInfo.CDotaGameInfo dota = 4;</code>
      */
     public com.valve.dota2.Demo.CGameInfo.CDotaGameInfoOrBuilder getDotaOrBuilder() {
       return dota_;
@@ -3452,19 +5260,19 @@ public final class Demo {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CGameInfo}
+     * Protobuf type {@code CGameInfo}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Demo.CGameInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CGameInfo_descriptor;
+        return com.valve.dota2.Demo.internal_static_CGameInfo_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CGameInfo_fieldAccessorTable
+        return com.valve.dota2.Demo.internal_static_CGameInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Demo.CGameInfo.class, com.valve.dota2.Demo.CGameInfo.Builder.class);
       }
@@ -3505,7 +5313,7 @@ public final class Demo {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CGameInfo_descriptor;
+        return com.valve.dota2.Demo.internal_static_CGameInfo_descriptor;
       }
 
       public com.valve.dota2.Demo.CGameInfo getDefaultInstanceForType() {
@@ -3578,18 +5386,18 @@ public final class Demo {
       }
       private int bitField0_;
 
-      // optional .com.valve.dota2.CGameInfo.CDotaGameInfo dota = 4;
+      // optional .CGameInfo.CDotaGameInfo dota = 4;
       private com.valve.dota2.Demo.CGameInfo.CDotaGameInfo dota_ = com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.valve.dota2.Demo.CGameInfo.CDotaGameInfo, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.Builder, com.valve.dota2.Demo.CGameInfo.CDotaGameInfoOrBuilder> dotaBuilder_;
       /**
-       * <code>optional .com.valve.dota2.CGameInfo.CDotaGameInfo dota = 4;</code>
+       * <code>optional .CGameInfo.CDotaGameInfo dota = 4;</code>
        */
       public boolean hasDota() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional .com.valve.dota2.CGameInfo.CDotaGameInfo dota = 4;</code>
+       * <code>optional .CGameInfo.CDotaGameInfo dota = 4;</code>
        */
       public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo getDota() {
         if (dotaBuilder_ == null) {
@@ -3599,7 +5407,7 @@ public final class Demo {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CGameInfo.CDotaGameInfo dota = 4;</code>
+       * <code>optional .CGameInfo.CDotaGameInfo dota = 4;</code>
        */
       public Builder setDota(com.valve.dota2.Demo.CGameInfo.CDotaGameInfo value) {
         if (dotaBuilder_ == null) {
@@ -3615,7 +5423,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CGameInfo.CDotaGameInfo dota = 4;</code>
+       * <code>optional .CGameInfo.CDotaGameInfo dota = 4;</code>
        */
       public Builder setDota(
           com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.Builder builderForValue) {
@@ -3629,7 +5437,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CGameInfo.CDotaGameInfo dota = 4;</code>
+       * <code>optional .CGameInfo.CDotaGameInfo dota = 4;</code>
        */
       public Builder mergeDota(com.valve.dota2.Demo.CGameInfo.CDotaGameInfo value) {
         if (dotaBuilder_ == null) {
@@ -3648,7 +5456,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CGameInfo.CDotaGameInfo dota = 4;</code>
+       * <code>optional .CGameInfo.CDotaGameInfo dota = 4;</code>
        */
       public Builder clearDota() {
         if (dotaBuilder_ == null) {
@@ -3661,7 +5469,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CGameInfo.CDotaGameInfo dota = 4;</code>
+       * <code>optional .CGameInfo.CDotaGameInfo dota = 4;</code>
        */
       public com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.Builder getDotaBuilder() {
         bitField0_ |= 0x00000001;
@@ -3669,7 +5477,7 @@ public final class Demo {
         return getDotaFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.valve.dota2.CGameInfo.CDotaGameInfo dota = 4;</code>
+       * <code>optional .CGameInfo.CDotaGameInfo dota = 4;</code>
        */
       public com.valve.dota2.Demo.CGameInfo.CDotaGameInfoOrBuilder getDotaOrBuilder() {
         if (dotaBuilder_ != null) {
@@ -3679,7 +5487,7 @@ public final class Demo {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CGameInfo.CDotaGameInfo dota = 4;</code>
+       * <code>optional .CGameInfo.CDotaGameInfo dota = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.valve.dota2.Demo.CGameInfo.CDotaGameInfo, com.valve.dota2.Demo.CGameInfo.CDotaGameInfo.Builder, com.valve.dota2.Demo.CGameInfo.CDotaGameInfoOrBuilder> 
@@ -3695,7 +5503,7 @@ public final class Demo {
         return dotaBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CGameInfo)
+      // @@protoc_insertion_point(builder_scope:CGameInfo)
     }
 
     static {
@@ -3703,7 +5511,7 @@ public final class Demo {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CGameInfo)
+    // @@protoc_insertion_point(class_scope:CGameInfo)
   }
 
   public interface CDemoFileInfoOrBuilder
@@ -3739,22 +5547,22 @@ public final class Demo {
      */
     int getPlaybackFrames();
 
-    // optional .com.valve.dota2.CGameInfo game_info = 4;
+    // optional .CGameInfo game_info = 4;
     /**
-     * <code>optional .com.valve.dota2.CGameInfo game_info = 4;</code>
+     * <code>optional .CGameInfo game_info = 4;</code>
      */
     boolean hasGameInfo();
     /**
-     * <code>optional .com.valve.dota2.CGameInfo game_info = 4;</code>
+     * <code>optional .CGameInfo game_info = 4;</code>
      */
     com.valve.dota2.Demo.CGameInfo getGameInfo();
     /**
-     * <code>optional .com.valve.dota2.CGameInfo game_info = 4;</code>
+     * <code>optional .CGameInfo game_info = 4;</code>
      */
     com.valve.dota2.Demo.CGameInfoOrBuilder getGameInfoOrBuilder();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CDemoFileInfo}
+   * Protobuf type {@code CDemoFileInfo}
    */
   public static final class CDemoFileInfo extends
       com.google.protobuf.GeneratedMessage
@@ -3846,12 +5654,12 @@ public final class Demo {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoFileInfo_descriptor;
+      return com.valve.dota2.Demo.internal_static_CDemoFileInfo_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoFileInfo_fieldAccessorTable
+      return com.valve.dota2.Demo.internal_static_CDemoFileInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Demo.CDemoFileInfo.class, com.valve.dota2.Demo.CDemoFileInfo.Builder.class);
     }
@@ -3920,23 +5728,23 @@ public final class Demo {
       return playbackFrames_;
     }
 
-    // optional .com.valve.dota2.CGameInfo game_info = 4;
+    // optional .CGameInfo game_info = 4;
     public static final int GAME_INFO_FIELD_NUMBER = 4;
     private com.valve.dota2.Demo.CGameInfo gameInfo_;
     /**
-     * <code>optional .com.valve.dota2.CGameInfo game_info = 4;</code>
+     * <code>optional .CGameInfo game_info = 4;</code>
      */
     public boolean hasGameInfo() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional .com.valve.dota2.CGameInfo game_info = 4;</code>
+     * <code>optional .CGameInfo game_info = 4;</code>
      */
     public com.valve.dota2.Demo.CGameInfo getGameInfo() {
       return gameInfo_;
     }
     /**
-     * <code>optional .com.valve.dota2.CGameInfo game_info = 4;</code>
+     * <code>optional .CGameInfo game_info = 4;</code>
      */
     public com.valve.dota2.Demo.CGameInfoOrBuilder getGameInfoOrBuilder() {
       return gameInfo_;
@@ -4076,19 +5884,19 @@ public final class Demo {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CDemoFileInfo}
+     * Protobuf type {@code CDemoFileInfo}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Demo.CDemoFileInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoFileInfo_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoFileInfo_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoFileInfo_fieldAccessorTable
+        return com.valve.dota2.Demo.internal_static_CDemoFileInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Demo.CDemoFileInfo.class, com.valve.dota2.Demo.CDemoFileInfo.Builder.class);
       }
@@ -4135,7 +5943,7 @@ public final class Demo {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoFileInfo_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoFileInfo_descriptor;
       }
 
       public com.valve.dota2.Demo.CDemoFileInfo getDefaultInstanceForType() {
@@ -4328,18 +6136,18 @@ public final class Demo {
         return this;
       }
 
-      // optional .com.valve.dota2.CGameInfo game_info = 4;
+      // optional .CGameInfo game_info = 4;
       private com.valve.dota2.Demo.CGameInfo gameInfo_ = com.valve.dota2.Demo.CGameInfo.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.valve.dota2.Demo.CGameInfo, com.valve.dota2.Demo.CGameInfo.Builder, com.valve.dota2.Demo.CGameInfoOrBuilder> gameInfoBuilder_;
       /**
-       * <code>optional .com.valve.dota2.CGameInfo game_info = 4;</code>
+       * <code>optional .CGameInfo game_info = 4;</code>
        */
       public boolean hasGameInfo() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional .com.valve.dota2.CGameInfo game_info = 4;</code>
+       * <code>optional .CGameInfo game_info = 4;</code>
        */
       public com.valve.dota2.Demo.CGameInfo getGameInfo() {
         if (gameInfoBuilder_ == null) {
@@ -4349,7 +6157,7 @@ public final class Demo {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CGameInfo game_info = 4;</code>
+       * <code>optional .CGameInfo game_info = 4;</code>
        */
       public Builder setGameInfo(com.valve.dota2.Demo.CGameInfo value) {
         if (gameInfoBuilder_ == null) {
@@ -4365,7 +6173,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CGameInfo game_info = 4;</code>
+       * <code>optional .CGameInfo game_info = 4;</code>
        */
       public Builder setGameInfo(
           com.valve.dota2.Demo.CGameInfo.Builder builderForValue) {
@@ -4379,7 +6187,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CGameInfo game_info = 4;</code>
+       * <code>optional .CGameInfo game_info = 4;</code>
        */
       public Builder mergeGameInfo(com.valve.dota2.Demo.CGameInfo value) {
         if (gameInfoBuilder_ == null) {
@@ -4398,7 +6206,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CGameInfo game_info = 4;</code>
+       * <code>optional .CGameInfo game_info = 4;</code>
        */
       public Builder clearGameInfo() {
         if (gameInfoBuilder_ == null) {
@@ -4411,7 +6219,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CGameInfo game_info = 4;</code>
+       * <code>optional .CGameInfo game_info = 4;</code>
        */
       public com.valve.dota2.Demo.CGameInfo.Builder getGameInfoBuilder() {
         bitField0_ |= 0x00000008;
@@ -4419,7 +6227,7 @@ public final class Demo {
         return getGameInfoFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.valve.dota2.CGameInfo game_info = 4;</code>
+       * <code>optional .CGameInfo game_info = 4;</code>
        */
       public com.valve.dota2.Demo.CGameInfoOrBuilder getGameInfoOrBuilder() {
         if (gameInfoBuilder_ != null) {
@@ -4429,7 +6237,7 @@ public final class Demo {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CGameInfo game_info = 4;</code>
+       * <code>optional .CGameInfo game_info = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.valve.dota2.Demo.CGameInfo, com.valve.dota2.Demo.CGameInfo.Builder, com.valve.dota2.Demo.CGameInfoOrBuilder> 
@@ -4445,7 +6253,7 @@ public final class Demo {
         return gameInfoBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CDemoFileInfo)
+      // @@protoc_insertion_point(builder_scope:CDemoFileInfo)
     }
 
     static {
@@ -4453,7 +6261,7 @@ public final class Demo {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CDemoFileInfo)
+    // @@protoc_insertion_point(class_scope:CDemoFileInfo)
   }
 
   public interface CDemoPacketOrBuilder
@@ -4490,7 +6298,7 @@ public final class Demo {
     com.google.protobuf.ByteString getData();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CDemoPacket}
+   * Protobuf type {@code CDemoPacket}
    */
   public static final class CDemoPacket extends
       com.google.protobuf.GeneratedMessage
@@ -4569,12 +6377,12 @@ public final class Demo {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoPacket_descriptor;
+      return com.valve.dota2.Demo.internal_static_CDemoPacket_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoPacket_fieldAccessorTable
+      return com.valve.dota2.Demo.internal_static_CDemoPacket_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Demo.CDemoPacket.class, com.valve.dota2.Demo.CDemoPacket.Builder.class);
     }
@@ -4769,19 +6577,19 @@ public final class Demo {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CDemoPacket}
+     * Protobuf type {@code CDemoPacket}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Demo.CDemoPacketOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoPacket_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoPacket_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoPacket_fieldAccessorTable
+        return com.valve.dota2.Demo.internal_static_CDemoPacket_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Demo.CDemoPacket.class, com.valve.dota2.Demo.CDemoPacket.Builder.class);
       }
@@ -4821,7 +6629,7 @@ public final class Demo {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoPacket_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoPacket_descriptor;
       }
 
       public com.valve.dota2.Demo.CDemoPacket getDefaultInstanceForType() {
@@ -5006,7 +6814,7 @@ public final class Demo {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CDemoPacket)
+      // @@protoc_insertion_point(builder_scope:CDemoPacket)
     }
 
     static {
@@ -5014,42 +6822,42 @@ public final class Demo {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CDemoPacket)
+    // @@protoc_insertion_point(class_scope:CDemoPacket)
   }
 
   public interface CDemoFullPacketOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional .com.valve.dota2.CDemoStringTables string_table = 1;
+    // optional .CDemoStringTables string_table = 1;
     /**
-     * <code>optional .com.valve.dota2.CDemoStringTables string_table = 1;</code>
+     * <code>optional .CDemoStringTables string_table = 1;</code>
      */
     boolean hasStringTable();
     /**
-     * <code>optional .com.valve.dota2.CDemoStringTables string_table = 1;</code>
+     * <code>optional .CDemoStringTables string_table = 1;</code>
      */
     com.valve.dota2.Demo.CDemoStringTables getStringTable();
     /**
-     * <code>optional .com.valve.dota2.CDemoStringTables string_table = 1;</code>
+     * <code>optional .CDemoStringTables string_table = 1;</code>
      */
     com.valve.dota2.Demo.CDemoStringTablesOrBuilder getStringTableOrBuilder();
 
-    // optional .com.valve.dota2.CDemoPacket packet = 2;
+    // optional .CDemoPacket packet = 2;
     /**
-     * <code>optional .com.valve.dota2.CDemoPacket packet = 2;</code>
+     * <code>optional .CDemoPacket packet = 2;</code>
      */
     boolean hasPacket();
     /**
-     * <code>optional .com.valve.dota2.CDemoPacket packet = 2;</code>
+     * <code>optional .CDemoPacket packet = 2;</code>
      */
     com.valve.dota2.Demo.CDemoPacket getPacket();
     /**
-     * <code>optional .com.valve.dota2.CDemoPacket packet = 2;</code>
+     * <code>optional .CDemoPacket packet = 2;</code>
      */
     com.valve.dota2.Demo.CDemoPacketOrBuilder getPacketOrBuilder();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CDemoFullPacket}
+   * Protobuf type {@code CDemoFullPacket}
    */
   public static final class CDemoFullPacket extends
       com.google.protobuf.GeneratedMessage
@@ -5139,12 +6947,12 @@ public final class Demo {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoFullPacket_descriptor;
+      return com.valve.dota2.Demo.internal_static_CDemoFullPacket_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoFullPacket_fieldAccessorTable
+      return com.valve.dota2.Demo.internal_static_CDemoFullPacket_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Demo.CDemoFullPacket.class, com.valve.dota2.Demo.CDemoFullPacket.Builder.class);
     }
@@ -5165,45 +6973,45 @@ public final class Demo {
     }
 
     private int bitField0_;
-    // optional .com.valve.dota2.CDemoStringTables string_table = 1;
+    // optional .CDemoStringTables string_table = 1;
     public static final int STRING_TABLE_FIELD_NUMBER = 1;
     private com.valve.dota2.Demo.CDemoStringTables stringTable_;
     /**
-     * <code>optional .com.valve.dota2.CDemoStringTables string_table = 1;</code>
+     * <code>optional .CDemoStringTables string_table = 1;</code>
      */
     public boolean hasStringTable() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional .com.valve.dota2.CDemoStringTables string_table = 1;</code>
+     * <code>optional .CDemoStringTables string_table = 1;</code>
      */
     public com.valve.dota2.Demo.CDemoStringTables getStringTable() {
       return stringTable_;
     }
     /**
-     * <code>optional .com.valve.dota2.CDemoStringTables string_table = 1;</code>
+     * <code>optional .CDemoStringTables string_table = 1;</code>
      */
     public com.valve.dota2.Demo.CDemoStringTablesOrBuilder getStringTableOrBuilder() {
       return stringTable_;
     }
 
-    // optional .com.valve.dota2.CDemoPacket packet = 2;
+    // optional .CDemoPacket packet = 2;
     public static final int PACKET_FIELD_NUMBER = 2;
     private com.valve.dota2.Demo.CDemoPacket packet_;
     /**
-     * <code>optional .com.valve.dota2.CDemoPacket packet = 2;</code>
+     * <code>optional .CDemoPacket packet = 2;</code>
      */
     public boolean hasPacket() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional .com.valve.dota2.CDemoPacket packet = 2;</code>
+     * <code>optional .CDemoPacket packet = 2;</code>
      */
     public com.valve.dota2.Demo.CDemoPacket getPacket() {
       return packet_;
     }
     /**
-     * <code>optional .com.valve.dota2.CDemoPacket packet = 2;</code>
+     * <code>optional .CDemoPacket packet = 2;</code>
      */
     public com.valve.dota2.Demo.CDemoPacketOrBuilder getPacketOrBuilder() {
       return packet_;
@@ -5327,19 +7135,19 @@ public final class Demo {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CDemoFullPacket}
+     * Protobuf type {@code CDemoFullPacket}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Demo.CDemoFullPacketOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoFullPacket_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoFullPacket_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoFullPacket_fieldAccessorTable
+        return com.valve.dota2.Demo.internal_static_CDemoFullPacket_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Demo.CDemoFullPacket.class, com.valve.dota2.Demo.CDemoFullPacket.Builder.class);
       }
@@ -5387,7 +7195,7 @@ public final class Demo {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoFullPacket_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoFullPacket_descriptor;
       }
 
       public com.valve.dota2.Demo.CDemoFullPacket getDefaultInstanceForType() {
@@ -5471,18 +7279,18 @@ public final class Demo {
       }
       private int bitField0_;
 
-      // optional .com.valve.dota2.CDemoStringTables string_table = 1;
+      // optional .CDemoStringTables string_table = 1;
       private com.valve.dota2.Demo.CDemoStringTables stringTable_ = com.valve.dota2.Demo.CDemoStringTables.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.valve.dota2.Demo.CDemoStringTables, com.valve.dota2.Demo.CDemoStringTables.Builder, com.valve.dota2.Demo.CDemoStringTablesOrBuilder> stringTableBuilder_;
       /**
-       * <code>optional .com.valve.dota2.CDemoStringTables string_table = 1;</code>
+       * <code>optional .CDemoStringTables string_table = 1;</code>
        */
       public boolean hasStringTable() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional .com.valve.dota2.CDemoStringTables string_table = 1;</code>
+       * <code>optional .CDemoStringTables string_table = 1;</code>
        */
       public com.valve.dota2.Demo.CDemoStringTables getStringTable() {
         if (stringTableBuilder_ == null) {
@@ -5492,7 +7300,7 @@ public final class Demo {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CDemoStringTables string_table = 1;</code>
+       * <code>optional .CDemoStringTables string_table = 1;</code>
        */
       public Builder setStringTable(com.valve.dota2.Demo.CDemoStringTables value) {
         if (stringTableBuilder_ == null) {
@@ -5508,7 +7316,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CDemoStringTables string_table = 1;</code>
+       * <code>optional .CDemoStringTables string_table = 1;</code>
        */
       public Builder setStringTable(
           com.valve.dota2.Demo.CDemoStringTables.Builder builderForValue) {
@@ -5522,7 +7330,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CDemoStringTables string_table = 1;</code>
+       * <code>optional .CDemoStringTables string_table = 1;</code>
        */
       public Builder mergeStringTable(com.valve.dota2.Demo.CDemoStringTables value) {
         if (stringTableBuilder_ == null) {
@@ -5541,7 +7349,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CDemoStringTables string_table = 1;</code>
+       * <code>optional .CDemoStringTables string_table = 1;</code>
        */
       public Builder clearStringTable() {
         if (stringTableBuilder_ == null) {
@@ -5554,7 +7362,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CDemoStringTables string_table = 1;</code>
+       * <code>optional .CDemoStringTables string_table = 1;</code>
        */
       public com.valve.dota2.Demo.CDemoStringTables.Builder getStringTableBuilder() {
         bitField0_ |= 0x00000001;
@@ -5562,7 +7370,7 @@ public final class Demo {
         return getStringTableFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.valve.dota2.CDemoStringTables string_table = 1;</code>
+       * <code>optional .CDemoStringTables string_table = 1;</code>
        */
       public com.valve.dota2.Demo.CDemoStringTablesOrBuilder getStringTableOrBuilder() {
         if (stringTableBuilder_ != null) {
@@ -5572,7 +7380,7 @@ public final class Demo {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CDemoStringTables string_table = 1;</code>
+       * <code>optional .CDemoStringTables string_table = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.valve.dota2.Demo.CDemoStringTables, com.valve.dota2.Demo.CDemoStringTables.Builder, com.valve.dota2.Demo.CDemoStringTablesOrBuilder> 
@@ -5588,18 +7396,18 @@ public final class Demo {
         return stringTableBuilder_;
       }
 
-      // optional .com.valve.dota2.CDemoPacket packet = 2;
+      // optional .CDemoPacket packet = 2;
       private com.valve.dota2.Demo.CDemoPacket packet_ = com.valve.dota2.Demo.CDemoPacket.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.valve.dota2.Demo.CDemoPacket, com.valve.dota2.Demo.CDemoPacket.Builder, com.valve.dota2.Demo.CDemoPacketOrBuilder> packetBuilder_;
       /**
-       * <code>optional .com.valve.dota2.CDemoPacket packet = 2;</code>
+       * <code>optional .CDemoPacket packet = 2;</code>
        */
       public boolean hasPacket() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional .com.valve.dota2.CDemoPacket packet = 2;</code>
+       * <code>optional .CDemoPacket packet = 2;</code>
        */
       public com.valve.dota2.Demo.CDemoPacket getPacket() {
         if (packetBuilder_ == null) {
@@ -5609,7 +7417,7 @@ public final class Demo {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CDemoPacket packet = 2;</code>
+       * <code>optional .CDemoPacket packet = 2;</code>
        */
       public Builder setPacket(com.valve.dota2.Demo.CDemoPacket value) {
         if (packetBuilder_ == null) {
@@ -5625,7 +7433,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CDemoPacket packet = 2;</code>
+       * <code>optional .CDemoPacket packet = 2;</code>
        */
       public Builder setPacket(
           com.valve.dota2.Demo.CDemoPacket.Builder builderForValue) {
@@ -5639,7 +7447,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CDemoPacket packet = 2;</code>
+       * <code>optional .CDemoPacket packet = 2;</code>
        */
       public Builder mergePacket(com.valve.dota2.Demo.CDemoPacket value) {
         if (packetBuilder_ == null) {
@@ -5658,7 +7466,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CDemoPacket packet = 2;</code>
+       * <code>optional .CDemoPacket packet = 2;</code>
        */
       public Builder clearPacket() {
         if (packetBuilder_ == null) {
@@ -5671,7 +7479,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CDemoPacket packet = 2;</code>
+       * <code>optional .CDemoPacket packet = 2;</code>
        */
       public com.valve.dota2.Demo.CDemoPacket.Builder getPacketBuilder() {
         bitField0_ |= 0x00000002;
@@ -5679,7 +7487,7 @@ public final class Demo {
         return getPacketFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.valve.dota2.CDemoPacket packet = 2;</code>
+       * <code>optional .CDemoPacket packet = 2;</code>
        */
       public com.valve.dota2.Demo.CDemoPacketOrBuilder getPacketOrBuilder() {
         if (packetBuilder_ != null) {
@@ -5689,7 +7497,7 @@ public final class Demo {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CDemoPacket packet = 2;</code>
+       * <code>optional .CDemoPacket packet = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.valve.dota2.Demo.CDemoPacket, com.valve.dota2.Demo.CDemoPacket.Builder, com.valve.dota2.Demo.CDemoPacketOrBuilder> 
@@ -5705,7 +7513,7 @@ public final class Demo {
         return packetBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CDemoFullPacket)
+      // @@protoc_insertion_point(builder_scope:CDemoFullPacket)
     }
 
     static {
@@ -5713,14 +7521,656 @@ public final class Demo {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CDemoFullPacket)
+    // @@protoc_insertion_point(class_scope:CDemoFullPacket)
+  }
+
+  public interface CDemoSaveGameOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional bytes data = 1;
+    /**
+     * <code>optional bytes data = 1;</code>
+     */
+    boolean hasData();
+    /**
+     * <code>optional bytes data = 1;</code>
+     */
+    com.google.protobuf.ByteString getData();
+
+    // optional fixed64 steam_id = 2;
+    /**
+     * <code>optional fixed64 steam_id = 2;</code>
+     */
+    boolean hasSteamId();
+    /**
+     * <code>optional fixed64 steam_id = 2;</code>
+     */
+    long getSteamId();
+
+    // optional fixed64 signature = 3;
+    /**
+     * <code>optional fixed64 signature = 3;</code>
+     */
+    boolean hasSignature();
+    /**
+     * <code>optional fixed64 signature = 3;</code>
+     */
+    long getSignature();
+
+    // optional int32 version = 4;
+    /**
+     * <code>optional int32 version = 4;</code>
+     */
+    boolean hasVersion();
+    /**
+     * <code>optional int32 version = 4;</code>
+     */
+    int getVersion();
+  }
+  /**
+   * Protobuf type {@code CDemoSaveGame}
+   */
+  public static final class CDemoSaveGame extends
+      com.google.protobuf.GeneratedMessage
+      implements CDemoSaveGameOrBuilder {
+    // Use CDemoSaveGame.newBuilder() to construct.
+    private CDemoSaveGame(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private CDemoSaveGame(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final CDemoSaveGame defaultInstance;
+    public static CDemoSaveGame getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public CDemoSaveGame getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CDemoSaveGame(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              data_ = input.readBytes();
+              break;
+            }
+            case 17: {
+              bitField0_ |= 0x00000002;
+              steamId_ = input.readFixed64();
+              break;
+            }
+            case 25: {
+              bitField0_ |= 0x00000004;
+              signature_ = input.readFixed64();
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              version_ = input.readInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.valve.dota2.Demo.internal_static_CDemoSaveGame_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.valve.dota2.Demo.internal_static_CDemoSaveGame_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.valve.dota2.Demo.CDemoSaveGame.class, com.valve.dota2.Demo.CDemoSaveGame.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<CDemoSaveGame> PARSER =
+        new com.google.protobuf.AbstractParser<CDemoSaveGame>() {
+      public CDemoSaveGame parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CDemoSaveGame(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CDemoSaveGame> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional bytes data = 1;
+    public static final int DATA_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString data_;
+    /**
+     * <code>optional bytes data = 1;</code>
+     */
+    public boolean hasData() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional bytes data = 1;</code>
+     */
+    public com.google.protobuf.ByteString getData() {
+      return data_;
+    }
+
+    // optional fixed64 steam_id = 2;
+    public static final int STEAM_ID_FIELD_NUMBER = 2;
+    private long steamId_;
+    /**
+     * <code>optional fixed64 steam_id = 2;</code>
+     */
+    public boolean hasSteamId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional fixed64 steam_id = 2;</code>
+     */
+    public long getSteamId() {
+      return steamId_;
+    }
+
+    // optional fixed64 signature = 3;
+    public static final int SIGNATURE_FIELD_NUMBER = 3;
+    private long signature_;
+    /**
+     * <code>optional fixed64 signature = 3;</code>
+     */
+    public boolean hasSignature() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional fixed64 signature = 3;</code>
+     */
+    public long getSignature() {
+      return signature_;
+    }
+
+    // optional int32 version = 4;
+    public static final int VERSION_FIELD_NUMBER = 4;
+    private int version_;
+    /**
+     * <code>optional int32 version = 4;</code>
+     */
+    public boolean hasVersion() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional int32 version = 4;</code>
+     */
+    public int getVersion() {
+      return version_;
+    }
+
+    private void initFields() {
+      data_ = com.google.protobuf.ByteString.EMPTY;
+      steamId_ = 0L;
+      signature_ = 0L;
+      version_ = 0;
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, data_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeFixed64(2, steamId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeFixed64(3, signature_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, version_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, data_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed64Size(2, steamId_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFixed64Size(3, signature_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, version_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.valve.dota2.Demo.CDemoSaveGame parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.valve.dota2.Demo.CDemoSaveGame parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.valve.dota2.Demo.CDemoSaveGame parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.valve.dota2.Demo.CDemoSaveGame parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.valve.dota2.Demo.CDemoSaveGame parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.valve.dota2.Demo.CDemoSaveGame parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.valve.dota2.Demo.CDemoSaveGame parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.valve.dota2.Demo.CDemoSaveGame parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.valve.dota2.Demo.CDemoSaveGame parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.valve.dota2.Demo.CDemoSaveGame parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.valve.dota2.Demo.CDemoSaveGame prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code CDemoSaveGame}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.valve.dota2.Demo.CDemoSaveGameOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.valve.dota2.Demo.internal_static_CDemoSaveGame_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.valve.dota2.Demo.internal_static_CDemoSaveGame_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.valve.dota2.Demo.CDemoSaveGame.class, com.valve.dota2.Demo.CDemoSaveGame.Builder.class);
+      }
+
+      // Construct using com.valve.dota2.Demo.CDemoSaveGame.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        data_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        steamId_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        signature_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        version_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.valve.dota2.Demo.internal_static_CDemoSaveGame_descriptor;
+      }
+
+      public com.valve.dota2.Demo.CDemoSaveGame getDefaultInstanceForType() {
+        return com.valve.dota2.Demo.CDemoSaveGame.getDefaultInstance();
+      }
+
+      public com.valve.dota2.Demo.CDemoSaveGame build() {
+        com.valve.dota2.Demo.CDemoSaveGame result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.valve.dota2.Demo.CDemoSaveGame buildPartial() {
+        com.valve.dota2.Demo.CDemoSaveGame result = new com.valve.dota2.Demo.CDemoSaveGame(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.data_ = data_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.steamId_ = steamId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.signature_ = signature_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.version_ = version_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.valve.dota2.Demo.CDemoSaveGame) {
+          return mergeFrom((com.valve.dota2.Demo.CDemoSaveGame)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.valve.dota2.Demo.CDemoSaveGame other) {
+        if (other == com.valve.dota2.Demo.CDemoSaveGame.getDefaultInstance()) return this;
+        if (other.hasData()) {
+          setData(other.getData());
+        }
+        if (other.hasSteamId()) {
+          setSteamId(other.getSteamId());
+        }
+        if (other.hasSignature()) {
+          setSignature(other.getSignature());
+        }
+        if (other.hasVersion()) {
+          setVersion(other.getVersion());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.valve.dota2.Demo.CDemoSaveGame parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.valve.dota2.Demo.CDemoSaveGame) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional bytes data = 1;
+      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes data = 1;</code>
+       */
+      public boolean hasData() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional bytes data = 1;</code>
+       */
+      public com.google.protobuf.ByteString getData() {
+        return data_;
+      }
+      /**
+       * <code>optional bytes data = 1;</code>
+       */
+      public Builder setData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        data_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bytes data = 1;</code>
+       */
+      public Builder clearData() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        data_ = getDefaultInstance().getData();
+        onChanged();
+        return this;
+      }
+
+      // optional fixed64 steam_id = 2;
+      private long steamId_ ;
+      /**
+       * <code>optional fixed64 steam_id = 2;</code>
+       */
+      public boolean hasSteamId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional fixed64 steam_id = 2;</code>
+       */
+      public long getSteamId() {
+        return steamId_;
+      }
+      /**
+       * <code>optional fixed64 steam_id = 2;</code>
+       */
+      public Builder setSteamId(long value) {
+        bitField0_ |= 0x00000002;
+        steamId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed64 steam_id = 2;</code>
+       */
+      public Builder clearSteamId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        steamId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional fixed64 signature = 3;
+      private long signature_ ;
+      /**
+       * <code>optional fixed64 signature = 3;</code>
+       */
+      public boolean hasSignature() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional fixed64 signature = 3;</code>
+       */
+      public long getSignature() {
+        return signature_;
+      }
+      /**
+       * <code>optional fixed64 signature = 3;</code>
+       */
+      public Builder setSignature(long value) {
+        bitField0_ |= 0x00000004;
+        signature_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional fixed64 signature = 3;</code>
+       */
+      public Builder clearSignature() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        signature_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      // optional int32 version = 4;
+      private int version_ ;
+      /**
+       * <code>optional int32 version = 4;</code>
+       */
+      public boolean hasVersion() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int32 version = 4;</code>
+       */
+      public int getVersion() {
+        return version_;
+      }
+      /**
+       * <code>optional int32 version = 4;</code>
+       */
+      public Builder setVersion(int value) {
+        bitField0_ |= 0x00000008;
+        version_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 version = 4;</code>
+       */
+      public Builder clearVersion() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        version_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:CDemoSaveGame)
+    }
+
+    static {
+      defaultInstance = new CDemoSaveGame(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:CDemoSaveGame)
   }
 
   public interface CDemoSyncTickOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CDemoSyncTick}
+   * Protobuf type {@code CDemoSyncTick}
    */
   public static final class CDemoSyncTick extends
       com.google.protobuf.GeneratedMessage
@@ -5783,12 +8233,12 @@ public final class Demo {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoSyncTick_descriptor;
+      return com.valve.dota2.Demo.internal_static_CDemoSyncTick_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoSyncTick_fieldAccessorTable
+      return com.valve.dota2.Demo.internal_static_CDemoSyncTick_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Demo.CDemoSyncTick.class, com.valve.dota2.Demo.CDemoSyncTick.Builder.class);
     }
@@ -5910,19 +8360,19 @@ public final class Demo {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CDemoSyncTick}
+     * Protobuf type {@code CDemoSyncTick}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Demo.CDemoSyncTickOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoSyncTick_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoSyncTick_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoSyncTick_fieldAccessorTable
+        return com.valve.dota2.Demo.internal_static_CDemoSyncTick_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Demo.CDemoSyncTick.class, com.valve.dota2.Demo.CDemoSyncTick.Builder.class);
       }
@@ -5956,7 +8406,7 @@ public final class Demo {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoSyncTick_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoSyncTick_descriptor;
       }
 
       public com.valve.dota2.Demo.CDemoSyncTick getDefaultInstanceForType() {
@@ -6014,7 +8464,7 @@ public final class Demo {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CDemoSyncTick)
+      // @@protoc_insertion_point(builder_scope:CDemoSyncTick)
     }
 
     static {
@@ -6022,7 +8472,7 @@ public final class Demo {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CDemoSyncTick)
+    // @@protoc_insertion_point(class_scope:CDemoSyncTick)
   }
 
   public interface CDemoConsoleCmdOrBuilder
@@ -6044,7 +8494,7 @@ public final class Demo {
         getCmdstringBytes();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CDemoConsoleCmd}
+   * Protobuf type {@code CDemoConsoleCmd}
    */
   public static final class CDemoConsoleCmd extends
       com.google.protobuf.GeneratedMessage
@@ -6113,12 +8563,12 @@ public final class Demo {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoConsoleCmd_descriptor;
+      return com.valve.dota2.Demo.internal_static_CDemoConsoleCmd_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoConsoleCmd_fieldAccessorTable
+      return com.valve.dota2.Demo.internal_static_CDemoConsoleCmd_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Demo.CDemoConsoleCmd.class, com.valve.dota2.Demo.CDemoConsoleCmd.Builder.class);
     }
@@ -6292,19 +8742,19 @@ public final class Demo {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CDemoConsoleCmd}
+     * Protobuf type {@code CDemoConsoleCmd}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Demo.CDemoConsoleCmdOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoConsoleCmd_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoConsoleCmd_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoConsoleCmd_fieldAccessorTable
+        return com.valve.dota2.Demo.internal_static_CDemoConsoleCmd_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Demo.CDemoConsoleCmd.class, com.valve.dota2.Demo.CDemoConsoleCmd.Builder.class);
       }
@@ -6340,7 +8790,7 @@ public final class Demo {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoConsoleCmd_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoConsoleCmd_descriptor;
       }
 
       public com.valve.dota2.Demo.CDemoConsoleCmd getDefaultInstanceForType() {
@@ -6485,7 +8935,7 @@ public final class Demo {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CDemoConsoleCmd)
+      // @@protoc_insertion_point(builder_scope:CDemoConsoleCmd)
     }
 
     static {
@@ -6493,7 +8943,7 @@ public final class Demo {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CDemoConsoleCmd)
+    // @@protoc_insertion_point(class_scope:CDemoConsoleCmd)
   }
 
   public interface CDemoSendTablesOrBuilder
@@ -6510,7 +8960,7 @@ public final class Demo {
     com.google.protobuf.ByteString getData();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CDemoSendTables}
+   * Protobuf type {@code CDemoSendTables}
    */
   public static final class CDemoSendTables extends
       com.google.protobuf.GeneratedMessage
@@ -6579,12 +9029,12 @@ public final class Demo {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoSendTables_descriptor;
+      return com.valve.dota2.Demo.internal_static_CDemoSendTables_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoSendTables_fieldAccessorTable
+      return com.valve.dota2.Demo.internal_static_CDemoSendTables_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Demo.CDemoSendTables.class, com.valve.dota2.Demo.CDemoSendTables.Builder.class);
     }
@@ -6731,19 +9181,19 @@ public final class Demo {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CDemoSendTables}
+     * Protobuf type {@code CDemoSendTables}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Demo.CDemoSendTablesOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoSendTables_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoSendTables_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoSendTables_fieldAccessorTable
+        return com.valve.dota2.Demo.internal_static_CDemoSendTables_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Demo.CDemoSendTables.class, com.valve.dota2.Demo.CDemoSendTables.Builder.class);
       }
@@ -6779,7 +9229,7 @@ public final class Demo {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoSendTables_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoSendTables_descriptor;
       }
 
       public com.valve.dota2.Demo.CDemoSendTables getDefaultInstanceForType() {
@@ -6884,7 +9334,7 @@ public final class Demo {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CDemoSendTables)
+      // @@protoc_insertion_point(builder_scope:CDemoSendTables)
     }
 
     static {
@@ -6892,39 +9342,39 @@ public final class Demo {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CDemoSendTables)
+    // @@protoc_insertion_point(class_scope:CDemoSendTables)
   }
 
   public interface CDemoClassInfoOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;
+    // repeated .CDemoClassInfo.class_t classes = 1;
     /**
-     * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+     * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
      */
     java.util.List<com.valve.dota2.Demo.CDemoClassInfo.class_t> 
         getClassesList();
     /**
-     * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+     * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
      */
     com.valve.dota2.Demo.CDemoClassInfo.class_t getClasses(int index);
     /**
-     * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+     * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
      */
     int getClassesCount();
     /**
-     * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+     * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
      */
     java.util.List<? extends com.valve.dota2.Demo.CDemoClassInfo.class_tOrBuilder> 
         getClassesOrBuilderList();
     /**
-     * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+     * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
      */
     com.valve.dota2.Demo.CDemoClassInfo.class_tOrBuilder getClassesOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CDemoClassInfo}
+   * Protobuf type {@code CDemoClassInfo}
    */
   public static final class CDemoClassInfo extends
       com.google.protobuf.GeneratedMessage
@@ -6999,12 +9449,12 @@ public final class Demo {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoClassInfo_descriptor;
+      return com.valve.dota2.Demo.internal_static_CDemoClassInfo_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoClassInfo_fieldAccessorTable
+      return com.valve.dota2.Demo.internal_static_CDemoClassInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Demo.CDemoClassInfo.class, com.valve.dota2.Demo.CDemoClassInfo.Builder.class);
     }
@@ -7068,7 +9518,7 @@ public final class Demo {
           getTableNameBytes();
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CDemoClassInfo.class_t}
+     * Protobuf type {@code CDemoClassInfo.class_t}
      */
     public static final class class_t extends
         com.google.protobuf.GeneratedMessage
@@ -7147,12 +9597,12 @@ public final class Demo {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoClassInfo_class_t_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoClassInfo_class_t_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoClassInfo_class_t_fieldAccessorTable
+        return com.valve.dota2.Demo.internal_static_CDemoClassInfo_class_t_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Demo.CDemoClassInfo.class_t.class, com.valve.dota2.Demo.CDemoClassInfo.class_t.Builder.class);
       }
@@ -7401,19 +9851,19 @@ public final class Demo {
         return builder;
       }
       /**
-       * Protobuf type {@code com.valve.dota2.CDemoClassInfo.class_t}
+       * Protobuf type {@code CDemoClassInfo.class_t}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
          implements com.valve.dota2.Demo.CDemoClassInfo.class_tOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoClassInfo_class_t_descriptor;
+          return com.valve.dota2.Demo.internal_static_CDemoClassInfo_class_t_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoClassInfo_class_t_fieldAccessorTable
+          return com.valve.dota2.Demo.internal_static_CDemoClassInfo_class_t_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.valve.dota2.Demo.CDemoClassInfo.class_t.class, com.valve.dota2.Demo.CDemoClassInfo.class_t.Builder.class);
         }
@@ -7453,7 +9903,7 @@ public final class Demo {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoClassInfo_class_t_descriptor;
+          return com.valve.dota2.Demo.internal_static_CDemoClassInfo_class_t_descriptor;
         }
 
         public com.valve.dota2.Demo.CDemoClassInfo.class_t getDefaultInstanceForType() {
@@ -7721,7 +10171,7 @@ public final class Demo {
           return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:com.valve.dota2.CDemoClassInfo.class_t)
+        // @@protoc_insertion_point(builder_scope:CDemoClassInfo.class_t)
       }
 
       static {
@@ -7729,39 +10179,39 @@ public final class Demo {
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:com.valve.dota2.CDemoClassInfo.class_t)
+      // @@protoc_insertion_point(class_scope:CDemoClassInfo.class_t)
     }
 
-    // repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;
+    // repeated .CDemoClassInfo.class_t classes = 1;
     public static final int CLASSES_FIELD_NUMBER = 1;
     private java.util.List<com.valve.dota2.Demo.CDemoClassInfo.class_t> classes_;
     /**
-     * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+     * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
      */
     public java.util.List<com.valve.dota2.Demo.CDemoClassInfo.class_t> getClassesList() {
       return classes_;
     }
     /**
-     * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+     * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
      */
     public java.util.List<? extends com.valve.dota2.Demo.CDemoClassInfo.class_tOrBuilder> 
         getClassesOrBuilderList() {
       return classes_;
     }
     /**
-     * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+     * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
      */
     public int getClassesCount() {
       return classes_.size();
     }
     /**
-     * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+     * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
      */
     public com.valve.dota2.Demo.CDemoClassInfo.class_t getClasses(int index) {
       return classes_.get(index);
     }
     /**
-     * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+     * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
      */
     public com.valve.dota2.Demo.CDemoClassInfo.class_tOrBuilder getClassesOrBuilder(
         int index) {
@@ -7878,19 +10328,19 @@ public final class Demo {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CDemoClassInfo}
+     * Protobuf type {@code CDemoClassInfo}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Demo.CDemoClassInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoClassInfo_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoClassInfo_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoClassInfo_fieldAccessorTable
+        return com.valve.dota2.Demo.internal_static_CDemoClassInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Demo.CDemoClassInfo.class, com.valve.dota2.Demo.CDemoClassInfo.Builder.class);
       }
@@ -7931,7 +10381,7 @@ public final class Demo {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoClassInfo_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoClassInfo_descriptor;
       }
 
       public com.valve.dota2.Demo.CDemoClassInfo getDefaultInstanceForType() {
@@ -8026,7 +10476,7 @@ public final class Demo {
       }
       private int bitField0_;
 
-      // repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;
+      // repeated .CDemoClassInfo.class_t classes = 1;
       private java.util.List<com.valve.dota2.Demo.CDemoClassInfo.class_t> classes_ =
         java.util.Collections.emptyList();
       private void ensureClassesIsMutable() {
@@ -8040,7 +10490,7 @@ public final class Demo {
           com.valve.dota2.Demo.CDemoClassInfo.class_t, com.valve.dota2.Demo.CDemoClassInfo.class_t.Builder, com.valve.dota2.Demo.CDemoClassInfo.class_tOrBuilder> classesBuilder_;
 
       /**
-       * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+       * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
        */
       public java.util.List<com.valve.dota2.Demo.CDemoClassInfo.class_t> getClassesList() {
         if (classesBuilder_ == null) {
@@ -8050,7 +10500,7 @@ public final class Demo {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+       * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
        */
       public int getClassesCount() {
         if (classesBuilder_ == null) {
@@ -8060,7 +10510,7 @@ public final class Demo {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+       * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
        */
       public com.valve.dota2.Demo.CDemoClassInfo.class_t getClasses(int index) {
         if (classesBuilder_ == null) {
@@ -8070,7 +10520,7 @@ public final class Demo {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+       * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
        */
       public Builder setClasses(
           int index, com.valve.dota2.Demo.CDemoClassInfo.class_t value) {
@@ -8087,7 +10537,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+       * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
        */
       public Builder setClasses(
           int index, com.valve.dota2.Demo.CDemoClassInfo.class_t.Builder builderForValue) {
@@ -8101,7 +10551,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+       * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
        */
       public Builder addClasses(com.valve.dota2.Demo.CDemoClassInfo.class_t value) {
         if (classesBuilder_ == null) {
@@ -8117,7 +10567,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+       * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
        */
       public Builder addClasses(
           int index, com.valve.dota2.Demo.CDemoClassInfo.class_t value) {
@@ -8134,7 +10584,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+       * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
        */
       public Builder addClasses(
           com.valve.dota2.Demo.CDemoClassInfo.class_t.Builder builderForValue) {
@@ -8148,7 +10598,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+       * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
        */
       public Builder addClasses(
           int index, com.valve.dota2.Demo.CDemoClassInfo.class_t.Builder builderForValue) {
@@ -8162,7 +10612,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+       * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
        */
       public Builder addAllClasses(
           java.lang.Iterable<? extends com.valve.dota2.Demo.CDemoClassInfo.class_t> values) {
@@ -8176,7 +10626,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+       * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
        */
       public Builder clearClasses() {
         if (classesBuilder_ == null) {
@@ -8189,7 +10639,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+       * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
        */
       public Builder removeClasses(int index) {
         if (classesBuilder_ == null) {
@@ -8202,14 +10652,14 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+       * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
        */
       public com.valve.dota2.Demo.CDemoClassInfo.class_t.Builder getClassesBuilder(
           int index) {
         return getClassesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+       * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
        */
       public com.valve.dota2.Demo.CDemoClassInfo.class_tOrBuilder getClassesOrBuilder(
           int index) {
@@ -8219,7 +10669,7 @@ public final class Demo {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+       * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
        */
       public java.util.List<? extends com.valve.dota2.Demo.CDemoClassInfo.class_tOrBuilder> 
            getClassesOrBuilderList() {
@@ -8230,14 +10680,14 @@ public final class Demo {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+       * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
        */
       public com.valve.dota2.Demo.CDemoClassInfo.class_t.Builder addClassesBuilder() {
         return getClassesFieldBuilder().addBuilder(
             com.valve.dota2.Demo.CDemoClassInfo.class_t.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+       * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
        */
       public com.valve.dota2.Demo.CDemoClassInfo.class_t.Builder addClassesBuilder(
           int index) {
@@ -8245,7 +10695,7 @@ public final class Demo {
             index, com.valve.dota2.Demo.CDemoClassInfo.class_t.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoClassInfo.class_t classes = 1;</code>
+       * <code>repeated .CDemoClassInfo.class_t classes = 1;</code>
        */
       public java.util.List<com.valve.dota2.Demo.CDemoClassInfo.class_t.Builder> 
            getClassesBuilderList() {
@@ -8266,7 +10716,7 @@ public final class Demo {
         return classesBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CDemoClassInfo)
+      // @@protoc_insertion_point(builder_scope:CDemoClassInfo)
     }
 
     static {
@@ -8274,7 +10724,7 @@ public final class Demo {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CDemoClassInfo)
+    // @@protoc_insertion_point(class_scope:CDemoClassInfo)
   }
 
   public interface CDemoCustomDataOrBuilder
@@ -8301,7 +10751,7 @@ public final class Demo {
     com.google.protobuf.ByteString getData();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CDemoCustomData}
+   * Protobuf type {@code CDemoCustomData}
    */
   public static final class CDemoCustomData extends
       com.google.protobuf.GeneratedMessage
@@ -8375,12 +10825,12 @@ public final class Demo {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoCustomData_descriptor;
+      return com.valve.dota2.Demo.internal_static_CDemoCustomData_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoCustomData_fieldAccessorTable
+      return com.valve.dota2.Demo.internal_static_CDemoCustomData_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Demo.CDemoCustomData.class, com.valve.dota2.Demo.CDemoCustomData.Builder.class);
     }
@@ -8551,19 +11001,19 @@ public final class Demo {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CDemoCustomData}
+     * Protobuf type {@code CDemoCustomData}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Demo.CDemoCustomDataOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoCustomData_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoCustomData_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoCustomData_fieldAccessorTable
+        return com.valve.dota2.Demo.internal_static_CDemoCustomData_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Demo.CDemoCustomData.class, com.valve.dota2.Demo.CDemoCustomData.Builder.class);
       }
@@ -8601,7 +11051,7 @@ public final class Demo {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoCustomData_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoCustomData_descriptor;
       }
 
       public com.valve.dota2.Demo.CDemoCustomData getDefaultInstanceForType() {
@@ -8746,7 +11196,7 @@ public final class Demo {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CDemoCustomData)
+      // @@protoc_insertion_point(builder_scope:CDemoCustomData)
     }
 
     static {
@@ -8754,7 +11204,7 @@ public final class Demo {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CDemoCustomData)
+    // @@protoc_insertion_point(class_scope:CDemoCustomData)
   }
 
   public interface CDemoCustomDataCallbacksOrBuilder
@@ -8781,7 +11231,7 @@ public final class Demo {
         getSaveIdBytes(int index);
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CDemoCustomDataCallbacks}
+   * Protobuf type {@code CDemoCustomDataCallbacks}
    */
   public static final class CDemoCustomDataCallbacks extends
       com.google.protobuf.GeneratedMessage
@@ -8856,12 +11306,12 @@ public final class Demo {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoCustomDataCallbacks_descriptor;
+      return com.valve.dota2.Demo.internal_static_CDemoCustomDataCallbacks_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoCustomDataCallbacks_fieldAccessorTable
+      return com.valve.dota2.Demo.internal_static_CDemoCustomDataCallbacks_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Demo.CDemoCustomDataCallbacks.class, com.valve.dota2.Demo.CDemoCustomDataCallbacks.Builder.class);
     }
@@ -9026,19 +11476,19 @@ public final class Demo {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CDemoCustomDataCallbacks}
+     * Protobuf type {@code CDemoCustomDataCallbacks}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Demo.CDemoCustomDataCallbacksOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoCustomDataCallbacks_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoCustomDataCallbacks_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoCustomDataCallbacks_fieldAccessorTable
+        return com.valve.dota2.Demo.internal_static_CDemoCustomDataCallbacks_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Demo.CDemoCustomDataCallbacks.class, com.valve.dota2.Demo.CDemoCustomDataCallbacks.Builder.class);
       }
@@ -9074,7 +11524,7 @@ public final class Demo {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoCustomDataCallbacks_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoCustomDataCallbacks_descriptor;
       }
 
       public com.valve.dota2.Demo.CDemoCustomDataCallbacks getDefaultInstanceForType() {
@@ -9243,7 +11693,7 @@ public final class Demo {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CDemoCustomDataCallbacks)
+      // @@protoc_insertion_point(builder_scope:CDemoCustomDataCallbacks)
     }
 
     static {
@@ -9251,39 +11701,39 @@ public final class Demo {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CDemoCustomDataCallbacks)
+    // @@protoc_insertion_point(class_scope:CDemoCustomDataCallbacks)
   }
 
   public interface CDemoStringTablesOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;
+    // repeated .CDemoStringTables.table_t tables = 1;
     /**
-     * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+     * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
      */
     java.util.List<com.valve.dota2.Demo.CDemoStringTables.table_t> 
         getTablesList();
     /**
-     * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+     * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
      */
     com.valve.dota2.Demo.CDemoStringTables.table_t getTables(int index);
     /**
-     * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+     * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
      */
     int getTablesCount();
     /**
-     * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+     * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
      */
     java.util.List<? extends com.valve.dota2.Demo.CDemoStringTables.table_tOrBuilder> 
         getTablesOrBuilderList();
     /**
-     * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+     * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
      */
     com.valve.dota2.Demo.CDemoStringTables.table_tOrBuilder getTablesOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CDemoStringTables}
+   * Protobuf type {@code CDemoStringTables}
    */
   public static final class CDemoStringTables extends
       com.google.protobuf.GeneratedMessage
@@ -9358,12 +11808,12 @@ public final class Demo {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStringTables_descriptor;
+      return com.valve.dota2.Demo.internal_static_CDemoStringTables_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStringTables_fieldAccessorTable
+      return com.valve.dota2.Demo.internal_static_CDemoStringTables_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Demo.CDemoStringTables.class, com.valve.dota2.Demo.CDemoStringTables.Builder.class);
     }
@@ -9412,7 +11862,7 @@ public final class Demo {
       com.google.protobuf.ByteString getData();
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CDemoStringTables.items_t}
+     * Protobuf type {@code CDemoStringTables.items_t}
      */
     public static final class items_t extends
         com.google.protobuf.GeneratedMessage
@@ -9486,12 +11936,12 @@ public final class Demo {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStringTables_items_t_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoStringTables_items_t_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStringTables_items_t_fieldAccessorTable
+        return com.valve.dota2.Demo.internal_static_CDemoStringTables_items_t_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Demo.CDemoStringTables.items_t.class, com.valve.dota2.Demo.CDemoStringTables.items_t.Builder.class);
       }
@@ -9689,19 +12139,19 @@ public final class Demo {
         return builder;
       }
       /**
-       * Protobuf type {@code com.valve.dota2.CDemoStringTables.items_t}
+       * Protobuf type {@code CDemoStringTables.items_t}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
          implements com.valve.dota2.Demo.CDemoStringTables.items_tOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStringTables_items_t_descriptor;
+          return com.valve.dota2.Demo.internal_static_CDemoStringTables_items_t_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStringTables_items_t_fieldAccessorTable
+          return com.valve.dota2.Demo.internal_static_CDemoStringTables_items_t_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.valve.dota2.Demo.CDemoStringTables.items_t.class, com.valve.dota2.Demo.CDemoStringTables.items_t.Builder.class);
         }
@@ -9739,7 +12189,7 @@ public final class Demo {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStringTables_items_t_descriptor;
+          return com.valve.dota2.Demo.internal_static_CDemoStringTables_items_t_descriptor;
         }
 
         public com.valve.dota2.Demo.CDemoStringTables.items_t getDefaultInstanceForType() {
@@ -9927,7 +12377,7 @@ public final class Demo {
           return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:com.valve.dota2.CDemoStringTables.items_t)
+        // @@protoc_insertion_point(builder_scope:CDemoStringTables.items_t)
       }
 
       static {
@@ -9935,7 +12385,7 @@ public final class Demo {
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:com.valve.dota2.CDemoStringTables.items_t)
+      // @@protoc_insertion_point(class_scope:CDemoStringTables.items_t)
     }
 
     public interface table_tOrBuilder
@@ -9956,52 +12406,52 @@ public final class Demo {
       com.google.protobuf.ByteString
           getTableNameBytes();
 
-      // repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;
+      // repeated .CDemoStringTables.items_t items = 2;
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+       * <code>repeated .CDemoStringTables.items_t items = 2;</code>
        */
       java.util.List<com.valve.dota2.Demo.CDemoStringTables.items_t> 
           getItemsList();
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+       * <code>repeated .CDemoStringTables.items_t items = 2;</code>
        */
       com.valve.dota2.Demo.CDemoStringTables.items_t getItems(int index);
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+       * <code>repeated .CDemoStringTables.items_t items = 2;</code>
        */
       int getItemsCount();
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+       * <code>repeated .CDemoStringTables.items_t items = 2;</code>
        */
       java.util.List<? extends com.valve.dota2.Demo.CDemoStringTables.items_tOrBuilder> 
           getItemsOrBuilderList();
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+       * <code>repeated .CDemoStringTables.items_t items = 2;</code>
        */
       com.valve.dota2.Demo.CDemoStringTables.items_tOrBuilder getItemsOrBuilder(
           int index);
 
-      // repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;
+      // repeated .CDemoStringTables.items_t items_clientside = 3;
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+       * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
        */
       java.util.List<com.valve.dota2.Demo.CDemoStringTables.items_t> 
           getItemsClientsideList();
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+       * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
        */
       com.valve.dota2.Demo.CDemoStringTables.items_t getItemsClientside(int index);
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+       * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
        */
       int getItemsClientsideCount();
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+       * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
        */
       java.util.List<? extends com.valve.dota2.Demo.CDemoStringTables.items_tOrBuilder> 
           getItemsClientsideOrBuilderList();
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+       * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
        */
       com.valve.dota2.Demo.CDemoStringTables.items_tOrBuilder getItemsClientsideOrBuilder(
           int index);
@@ -10017,7 +12467,7 @@ public final class Demo {
       int getTableFlags();
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CDemoStringTables.table_t}
+     * Protobuf type {@code CDemoStringTables.table_t}
      */
     public static final class table_t extends
         com.google.protobuf.GeneratedMessage
@@ -10113,12 +12563,12 @@ public final class Demo {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStringTables_table_t_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoStringTables_table_t_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStringTables_table_t_fieldAccessorTable
+        return com.valve.dota2.Demo.internal_static_CDemoStringTables_table_t_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Demo.CDemoStringTables.table_t.class, com.valve.dota2.Demo.CDemoStringTables.table_t.Builder.class);
       }
@@ -10182,72 +12632,72 @@ public final class Demo {
         }
       }
 
-      // repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;
+      // repeated .CDemoStringTables.items_t items = 2;
       public static final int ITEMS_FIELD_NUMBER = 2;
       private java.util.List<com.valve.dota2.Demo.CDemoStringTables.items_t> items_;
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+       * <code>repeated .CDemoStringTables.items_t items = 2;</code>
        */
       public java.util.List<com.valve.dota2.Demo.CDemoStringTables.items_t> getItemsList() {
         return items_;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+       * <code>repeated .CDemoStringTables.items_t items = 2;</code>
        */
       public java.util.List<? extends com.valve.dota2.Demo.CDemoStringTables.items_tOrBuilder> 
           getItemsOrBuilderList() {
         return items_;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+       * <code>repeated .CDemoStringTables.items_t items = 2;</code>
        */
       public int getItemsCount() {
         return items_.size();
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+       * <code>repeated .CDemoStringTables.items_t items = 2;</code>
        */
       public com.valve.dota2.Demo.CDemoStringTables.items_t getItems(int index) {
         return items_.get(index);
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+       * <code>repeated .CDemoStringTables.items_t items = 2;</code>
        */
       public com.valve.dota2.Demo.CDemoStringTables.items_tOrBuilder getItemsOrBuilder(
           int index) {
         return items_.get(index);
       }
 
-      // repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;
+      // repeated .CDemoStringTables.items_t items_clientside = 3;
       public static final int ITEMS_CLIENTSIDE_FIELD_NUMBER = 3;
       private java.util.List<com.valve.dota2.Demo.CDemoStringTables.items_t> itemsClientside_;
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+       * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
        */
       public java.util.List<com.valve.dota2.Demo.CDemoStringTables.items_t> getItemsClientsideList() {
         return itemsClientside_;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+       * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
        */
       public java.util.List<? extends com.valve.dota2.Demo.CDemoStringTables.items_tOrBuilder> 
           getItemsClientsideOrBuilderList() {
         return itemsClientside_;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+       * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
        */
       public int getItemsClientsideCount() {
         return itemsClientside_.size();
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+       * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
        */
       public com.valve.dota2.Demo.CDemoStringTables.items_t getItemsClientside(int index) {
         return itemsClientside_.get(index);
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+       * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
        */
       public com.valve.dota2.Demo.CDemoStringTables.items_tOrBuilder getItemsClientsideOrBuilder(
           int index) {
@@ -10404,19 +12854,19 @@ public final class Demo {
         return builder;
       }
       /**
-       * Protobuf type {@code com.valve.dota2.CDemoStringTables.table_t}
+       * Protobuf type {@code CDemoStringTables.table_t}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
          implements com.valve.dota2.Demo.CDemoStringTables.table_tOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStringTables_table_t_descriptor;
+          return com.valve.dota2.Demo.internal_static_CDemoStringTables_table_t_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStringTables_table_t_fieldAccessorTable
+          return com.valve.dota2.Demo.internal_static_CDemoStringTables_table_t_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.valve.dota2.Demo.CDemoStringTables.table_t.class, com.valve.dota2.Demo.CDemoStringTables.table_t.Builder.class);
         }
@@ -10468,7 +12918,7 @@ public final class Demo {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStringTables_table_t_descriptor;
+          return com.valve.dota2.Demo.internal_static_CDemoStringTables_table_t_descriptor;
         }
 
         public com.valve.dota2.Demo.CDemoStringTables.table_t getDefaultInstanceForType() {
@@ -10690,7 +13140,7 @@ public final class Demo {
           return this;
         }
 
-        // repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;
+        // repeated .CDemoStringTables.items_t items = 2;
         private java.util.List<com.valve.dota2.Demo.CDemoStringTables.items_t> items_ =
           java.util.Collections.emptyList();
         private void ensureItemsIsMutable() {
@@ -10704,7 +13154,7 @@ public final class Demo {
             com.valve.dota2.Demo.CDemoStringTables.items_t, com.valve.dota2.Demo.CDemoStringTables.items_t.Builder, com.valve.dota2.Demo.CDemoStringTables.items_tOrBuilder> itemsBuilder_;
 
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+         * <code>repeated .CDemoStringTables.items_t items = 2;</code>
          */
         public java.util.List<com.valve.dota2.Demo.CDemoStringTables.items_t> getItemsList() {
           if (itemsBuilder_ == null) {
@@ -10714,7 +13164,7 @@ public final class Demo {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+         * <code>repeated .CDemoStringTables.items_t items = 2;</code>
          */
         public int getItemsCount() {
           if (itemsBuilder_ == null) {
@@ -10724,7 +13174,7 @@ public final class Demo {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+         * <code>repeated .CDemoStringTables.items_t items = 2;</code>
          */
         public com.valve.dota2.Demo.CDemoStringTables.items_t getItems(int index) {
           if (itemsBuilder_ == null) {
@@ -10734,7 +13184,7 @@ public final class Demo {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+         * <code>repeated .CDemoStringTables.items_t items = 2;</code>
          */
         public Builder setItems(
             int index, com.valve.dota2.Demo.CDemoStringTables.items_t value) {
@@ -10751,7 +13201,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+         * <code>repeated .CDemoStringTables.items_t items = 2;</code>
          */
         public Builder setItems(
             int index, com.valve.dota2.Demo.CDemoStringTables.items_t.Builder builderForValue) {
@@ -10765,7 +13215,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+         * <code>repeated .CDemoStringTables.items_t items = 2;</code>
          */
         public Builder addItems(com.valve.dota2.Demo.CDemoStringTables.items_t value) {
           if (itemsBuilder_ == null) {
@@ -10781,7 +13231,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+         * <code>repeated .CDemoStringTables.items_t items = 2;</code>
          */
         public Builder addItems(
             int index, com.valve.dota2.Demo.CDemoStringTables.items_t value) {
@@ -10798,7 +13248,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+         * <code>repeated .CDemoStringTables.items_t items = 2;</code>
          */
         public Builder addItems(
             com.valve.dota2.Demo.CDemoStringTables.items_t.Builder builderForValue) {
@@ -10812,7 +13262,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+         * <code>repeated .CDemoStringTables.items_t items = 2;</code>
          */
         public Builder addItems(
             int index, com.valve.dota2.Demo.CDemoStringTables.items_t.Builder builderForValue) {
@@ -10826,7 +13276,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+         * <code>repeated .CDemoStringTables.items_t items = 2;</code>
          */
         public Builder addAllItems(
             java.lang.Iterable<? extends com.valve.dota2.Demo.CDemoStringTables.items_t> values) {
@@ -10840,7 +13290,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+         * <code>repeated .CDemoStringTables.items_t items = 2;</code>
          */
         public Builder clearItems() {
           if (itemsBuilder_ == null) {
@@ -10853,7 +13303,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+         * <code>repeated .CDemoStringTables.items_t items = 2;</code>
          */
         public Builder removeItems(int index) {
           if (itemsBuilder_ == null) {
@@ -10866,14 +13316,14 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+         * <code>repeated .CDemoStringTables.items_t items = 2;</code>
          */
         public com.valve.dota2.Demo.CDemoStringTables.items_t.Builder getItemsBuilder(
             int index) {
           return getItemsFieldBuilder().getBuilder(index);
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+         * <code>repeated .CDemoStringTables.items_t items = 2;</code>
          */
         public com.valve.dota2.Demo.CDemoStringTables.items_tOrBuilder getItemsOrBuilder(
             int index) {
@@ -10883,7 +13333,7 @@ public final class Demo {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+         * <code>repeated .CDemoStringTables.items_t items = 2;</code>
          */
         public java.util.List<? extends com.valve.dota2.Demo.CDemoStringTables.items_tOrBuilder> 
              getItemsOrBuilderList() {
@@ -10894,14 +13344,14 @@ public final class Demo {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+         * <code>repeated .CDemoStringTables.items_t items = 2;</code>
          */
         public com.valve.dota2.Demo.CDemoStringTables.items_t.Builder addItemsBuilder() {
           return getItemsFieldBuilder().addBuilder(
               com.valve.dota2.Demo.CDemoStringTables.items_t.getDefaultInstance());
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+         * <code>repeated .CDemoStringTables.items_t items = 2;</code>
          */
         public com.valve.dota2.Demo.CDemoStringTables.items_t.Builder addItemsBuilder(
             int index) {
@@ -10909,7 +13359,7 @@ public final class Demo {
               index, com.valve.dota2.Demo.CDemoStringTables.items_t.getDefaultInstance());
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items = 2;</code>
+         * <code>repeated .CDemoStringTables.items_t items = 2;</code>
          */
         public java.util.List<com.valve.dota2.Demo.CDemoStringTables.items_t.Builder> 
              getItemsBuilderList() {
@@ -10930,7 +13380,7 @@ public final class Demo {
           return itemsBuilder_;
         }
 
-        // repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;
+        // repeated .CDemoStringTables.items_t items_clientside = 3;
         private java.util.List<com.valve.dota2.Demo.CDemoStringTables.items_t> itemsClientside_ =
           java.util.Collections.emptyList();
         private void ensureItemsClientsideIsMutable() {
@@ -10944,7 +13394,7 @@ public final class Demo {
             com.valve.dota2.Demo.CDemoStringTables.items_t, com.valve.dota2.Demo.CDemoStringTables.items_t.Builder, com.valve.dota2.Demo.CDemoStringTables.items_tOrBuilder> itemsClientsideBuilder_;
 
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+         * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
          */
         public java.util.List<com.valve.dota2.Demo.CDemoStringTables.items_t> getItemsClientsideList() {
           if (itemsClientsideBuilder_ == null) {
@@ -10954,7 +13404,7 @@ public final class Demo {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+         * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
          */
         public int getItemsClientsideCount() {
           if (itemsClientsideBuilder_ == null) {
@@ -10964,7 +13414,7 @@ public final class Demo {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+         * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
          */
         public com.valve.dota2.Demo.CDemoStringTables.items_t getItemsClientside(int index) {
           if (itemsClientsideBuilder_ == null) {
@@ -10974,7 +13424,7 @@ public final class Demo {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+         * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
          */
         public Builder setItemsClientside(
             int index, com.valve.dota2.Demo.CDemoStringTables.items_t value) {
@@ -10991,7 +13441,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+         * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
          */
         public Builder setItemsClientside(
             int index, com.valve.dota2.Demo.CDemoStringTables.items_t.Builder builderForValue) {
@@ -11005,7 +13455,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+         * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
          */
         public Builder addItemsClientside(com.valve.dota2.Demo.CDemoStringTables.items_t value) {
           if (itemsClientsideBuilder_ == null) {
@@ -11021,7 +13471,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+         * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
          */
         public Builder addItemsClientside(
             int index, com.valve.dota2.Demo.CDemoStringTables.items_t value) {
@@ -11038,7 +13488,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+         * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
          */
         public Builder addItemsClientside(
             com.valve.dota2.Demo.CDemoStringTables.items_t.Builder builderForValue) {
@@ -11052,7 +13502,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+         * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
          */
         public Builder addItemsClientside(
             int index, com.valve.dota2.Demo.CDemoStringTables.items_t.Builder builderForValue) {
@@ -11066,7 +13516,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+         * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
          */
         public Builder addAllItemsClientside(
             java.lang.Iterable<? extends com.valve.dota2.Demo.CDemoStringTables.items_t> values) {
@@ -11080,7 +13530,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+         * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
          */
         public Builder clearItemsClientside() {
           if (itemsClientsideBuilder_ == null) {
@@ -11093,7 +13543,7 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+         * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
          */
         public Builder removeItemsClientside(int index) {
           if (itemsClientsideBuilder_ == null) {
@@ -11106,14 +13556,14 @@ public final class Demo {
           return this;
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+         * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
          */
         public com.valve.dota2.Demo.CDemoStringTables.items_t.Builder getItemsClientsideBuilder(
             int index) {
           return getItemsClientsideFieldBuilder().getBuilder(index);
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+         * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
          */
         public com.valve.dota2.Demo.CDemoStringTables.items_tOrBuilder getItemsClientsideOrBuilder(
             int index) {
@@ -11123,7 +13573,7 @@ public final class Demo {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+         * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
          */
         public java.util.List<? extends com.valve.dota2.Demo.CDemoStringTables.items_tOrBuilder> 
              getItemsClientsideOrBuilderList() {
@@ -11134,14 +13584,14 @@ public final class Demo {
           }
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+         * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
          */
         public com.valve.dota2.Demo.CDemoStringTables.items_t.Builder addItemsClientsideBuilder() {
           return getItemsClientsideFieldBuilder().addBuilder(
               com.valve.dota2.Demo.CDemoStringTables.items_t.getDefaultInstance());
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+         * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
          */
         public com.valve.dota2.Demo.CDemoStringTables.items_t.Builder addItemsClientsideBuilder(
             int index) {
@@ -11149,7 +13599,7 @@ public final class Demo {
               index, com.valve.dota2.Demo.CDemoStringTables.items_t.getDefaultInstance());
         }
         /**
-         * <code>repeated .com.valve.dota2.CDemoStringTables.items_t items_clientside = 3;</code>
+         * <code>repeated .CDemoStringTables.items_t items_clientside = 3;</code>
          */
         public java.util.List<com.valve.dota2.Demo.CDemoStringTables.items_t.Builder> 
              getItemsClientsideBuilderList() {
@@ -11203,7 +13653,7 @@ public final class Demo {
           return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:com.valve.dota2.CDemoStringTables.table_t)
+        // @@protoc_insertion_point(builder_scope:CDemoStringTables.table_t)
       }
 
       static {
@@ -11211,39 +13661,39 @@ public final class Demo {
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:com.valve.dota2.CDemoStringTables.table_t)
+      // @@protoc_insertion_point(class_scope:CDemoStringTables.table_t)
     }
 
-    // repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;
+    // repeated .CDemoStringTables.table_t tables = 1;
     public static final int TABLES_FIELD_NUMBER = 1;
     private java.util.List<com.valve.dota2.Demo.CDemoStringTables.table_t> tables_;
     /**
-     * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+     * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
      */
     public java.util.List<com.valve.dota2.Demo.CDemoStringTables.table_t> getTablesList() {
       return tables_;
     }
     /**
-     * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+     * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
      */
     public java.util.List<? extends com.valve.dota2.Demo.CDemoStringTables.table_tOrBuilder> 
         getTablesOrBuilderList() {
       return tables_;
     }
     /**
-     * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+     * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
      */
     public int getTablesCount() {
       return tables_.size();
     }
     /**
-     * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+     * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
      */
     public com.valve.dota2.Demo.CDemoStringTables.table_t getTables(int index) {
       return tables_.get(index);
     }
     /**
-     * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+     * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
      */
     public com.valve.dota2.Demo.CDemoStringTables.table_tOrBuilder getTablesOrBuilder(
         int index) {
@@ -11360,19 +13810,19 @@ public final class Demo {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CDemoStringTables}
+     * Protobuf type {@code CDemoStringTables}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Demo.CDemoStringTablesOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStringTables_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoStringTables_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStringTables_fieldAccessorTable
+        return com.valve.dota2.Demo.internal_static_CDemoStringTables_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Demo.CDemoStringTables.class, com.valve.dota2.Demo.CDemoStringTables.Builder.class);
       }
@@ -11413,7 +13863,7 @@ public final class Demo {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStringTables_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoStringTables_descriptor;
       }
 
       public com.valve.dota2.Demo.CDemoStringTables getDefaultInstanceForType() {
@@ -11508,7 +13958,7 @@ public final class Demo {
       }
       private int bitField0_;
 
-      // repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;
+      // repeated .CDemoStringTables.table_t tables = 1;
       private java.util.List<com.valve.dota2.Demo.CDemoStringTables.table_t> tables_ =
         java.util.Collections.emptyList();
       private void ensureTablesIsMutable() {
@@ -11522,7 +13972,7 @@ public final class Demo {
           com.valve.dota2.Demo.CDemoStringTables.table_t, com.valve.dota2.Demo.CDemoStringTables.table_t.Builder, com.valve.dota2.Demo.CDemoStringTables.table_tOrBuilder> tablesBuilder_;
 
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+       * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
        */
       public java.util.List<com.valve.dota2.Demo.CDemoStringTables.table_t> getTablesList() {
         if (tablesBuilder_ == null) {
@@ -11532,7 +13982,7 @@ public final class Demo {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+       * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
        */
       public int getTablesCount() {
         if (tablesBuilder_ == null) {
@@ -11542,7 +13992,7 @@ public final class Demo {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+       * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
        */
       public com.valve.dota2.Demo.CDemoStringTables.table_t getTables(int index) {
         if (tablesBuilder_ == null) {
@@ -11552,7 +14002,7 @@ public final class Demo {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+       * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
        */
       public Builder setTables(
           int index, com.valve.dota2.Demo.CDemoStringTables.table_t value) {
@@ -11569,7 +14019,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+       * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
        */
       public Builder setTables(
           int index, com.valve.dota2.Demo.CDemoStringTables.table_t.Builder builderForValue) {
@@ -11583,7 +14033,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+       * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
        */
       public Builder addTables(com.valve.dota2.Demo.CDemoStringTables.table_t value) {
         if (tablesBuilder_ == null) {
@@ -11599,7 +14049,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+       * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
        */
       public Builder addTables(
           int index, com.valve.dota2.Demo.CDemoStringTables.table_t value) {
@@ -11616,7 +14066,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+       * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
        */
       public Builder addTables(
           com.valve.dota2.Demo.CDemoStringTables.table_t.Builder builderForValue) {
@@ -11630,7 +14080,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+       * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
        */
       public Builder addTables(
           int index, com.valve.dota2.Demo.CDemoStringTables.table_t.Builder builderForValue) {
@@ -11644,7 +14094,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+       * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
        */
       public Builder addAllTables(
           java.lang.Iterable<? extends com.valve.dota2.Demo.CDemoStringTables.table_t> values) {
@@ -11658,7 +14108,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+       * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
        */
       public Builder clearTables() {
         if (tablesBuilder_ == null) {
@@ -11671,7 +14121,7 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+       * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
        */
       public Builder removeTables(int index) {
         if (tablesBuilder_ == null) {
@@ -11684,14 +14134,14 @@ public final class Demo {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+       * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
        */
       public com.valve.dota2.Demo.CDemoStringTables.table_t.Builder getTablesBuilder(
           int index) {
         return getTablesFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+       * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
        */
       public com.valve.dota2.Demo.CDemoStringTables.table_tOrBuilder getTablesOrBuilder(
           int index) {
@@ -11701,7 +14151,7 @@ public final class Demo {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+       * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
        */
       public java.util.List<? extends com.valve.dota2.Demo.CDemoStringTables.table_tOrBuilder> 
            getTablesOrBuilderList() {
@@ -11712,14 +14162,14 @@ public final class Demo {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+       * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
        */
       public com.valve.dota2.Demo.CDemoStringTables.table_t.Builder addTablesBuilder() {
         return getTablesFieldBuilder().addBuilder(
             com.valve.dota2.Demo.CDemoStringTables.table_t.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+       * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
        */
       public com.valve.dota2.Demo.CDemoStringTables.table_t.Builder addTablesBuilder(
           int index) {
@@ -11727,7 +14177,7 @@ public final class Demo {
             index, com.valve.dota2.Demo.CDemoStringTables.table_t.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.valve.dota2.CDemoStringTables.table_t tables = 1;</code>
+       * <code>repeated .CDemoStringTables.table_t tables = 1;</code>
        */
       public java.util.List<com.valve.dota2.Demo.CDemoStringTables.table_t.Builder> 
            getTablesBuilderList() {
@@ -11748,7 +14198,7 @@ public final class Demo {
         return tablesBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CDemoStringTables)
+      // @@protoc_insertion_point(builder_scope:CDemoStringTables)
     }
 
     static {
@@ -11756,14 +14206,14 @@ public final class Demo {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CDemoStringTables)
+    // @@protoc_insertion_point(class_scope:CDemoStringTables)
   }
 
   public interface CDemoStopOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CDemoStop}
+   * Protobuf type {@code CDemoStop}
    */
   public static final class CDemoStop extends
       com.google.protobuf.GeneratedMessage
@@ -11826,12 +14276,12 @@ public final class Demo {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStop_descriptor;
+      return com.valve.dota2.Demo.internal_static_CDemoStop_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStop_fieldAccessorTable
+      return com.valve.dota2.Demo.internal_static_CDemoStop_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Demo.CDemoStop.class, com.valve.dota2.Demo.CDemoStop.Builder.class);
     }
@@ -11953,19 +14403,19 @@ public final class Demo {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CDemoStop}
+     * Protobuf type {@code CDemoStop}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Demo.CDemoStopOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStop_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoStop_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStop_fieldAccessorTable
+        return com.valve.dota2.Demo.internal_static_CDemoStop_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Demo.CDemoStop.class, com.valve.dota2.Demo.CDemoStop.Builder.class);
       }
@@ -11999,7 +14449,7 @@ public final class Demo {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoStop_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoStop_descriptor;
       }
 
       public com.valve.dota2.Demo.CDemoStop getDefaultInstanceForType() {
@@ -12057,7 +14507,7 @@ public final class Demo {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CDemoStop)
+      // @@protoc_insertion_point(builder_scope:CDemoStop)
     }
 
     static {
@@ -12065,7 +14515,7 @@ public final class Demo {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CDemoStop)
+    // @@protoc_insertion_point(class_scope:CDemoStop)
   }
 
   public interface CDemoUserCmdOrBuilder
@@ -12092,7 +14542,7 @@ public final class Demo {
     com.google.protobuf.ByteString getData();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CDemoUserCmd}
+   * Protobuf type {@code CDemoUserCmd}
    */
   public static final class CDemoUserCmd extends
       com.google.protobuf.GeneratedMessage
@@ -12166,12 +14616,12 @@ public final class Demo {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoUserCmd_descriptor;
+      return com.valve.dota2.Demo.internal_static_CDemoUserCmd_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoUserCmd_fieldAccessorTable
+      return com.valve.dota2.Demo.internal_static_CDemoUserCmd_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Demo.CDemoUserCmd.class, com.valve.dota2.Demo.CDemoUserCmd.Builder.class);
     }
@@ -12342,19 +14792,19 @@ public final class Demo {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CDemoUserCmd}
+     * Protobuf type {@code CDemoUserCmd}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Demo.CDemoUserCmdOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoUserCmd_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoUserCmd_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoUserCmd_fieldAccessorTable
+        return com.valve.dota2.Demo.internal_static_CDemoUserCmd_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Demo.CDemoUserCmd.class, com.valve.dota2.Demo.CDemoUserCmd.Builder.class);
       }
@@ -12392,7 +14842,7 @@ public final class Demo {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Demo.internal_static_com_valve_dota2_CDemoUserCmd_descriptor;
+        return com.valve.dota2.Demo.internal_static_CDemoUserCmd_descriptor;
       }
 
       public com.valve.dota2.Demo.CDemoUserCmd getDefaultInstanceForType() {
@@ -12537,7 +14987,7 @@ public final class Demo {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CDemoUserCmd)
+      // @@protoc_insertion_point(builder_scope:CDemoUserCmd)
     }
 
     static {
@@ -12545,104 +14995,114 @@ public final class Demo {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CDemoUserCmd)
+    // @@protoc_insertion_point(class_scope:CDemoUserCmd)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CDemoFileHeader_descriptor;
+    internal_static_CDemoFileHeader_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CDemoFileHeader_fieldAccessorTable;
+      internal_static_CDemoFileHeader_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CGameInfo_descriptor;
+    internal_static_CGameInfo_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CGameInfo_fieldAccessorTable;
+      internal_static_CGameInfo_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_descriptor;
+    internal_static_CGameInfo_CDotaGameInfo_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_fieldAccessorTable;
+      internal_static_CGameInfo_CDotaGameInfo_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_CPlayerInfo_descriptor;
+    internal_static_CGameInfo_CDotaGameInfo_CPlayerInfo_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_CPlayerInfo_fieldAccessorTable;
+      internal_static_CGameInfo_CDotaGameInfo_CPlayerInfo_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CDemoFileInfo_descriptor;
+    internal_static_CGameInfo_CDotaGameInfo_CHeroSelectEvent_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CDemoFileInfo_fieldAccessorTable;
+      internal_static_CGameInfo_CDotaGameInfo_CHeroSelectEvent_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CDemoPacket_descriptor;
+    internal_static_CDemoFileInfo_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CDemoPacket_fieldAccessorTable;
+      internal_static_CDemoFileInfo_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CDemoFullPacket_descriptor;
+    internal_static_CDemoPacket_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CDemoFullPacket_fieldAccessorTable;
+      internal_static_CDemoPacket_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CDemoSyncTick_descriptor;
+    internal_static_CDemoFullPacket_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CDemoSyncTick_fieldAccessorTable;
+      internal_static_CDemoFullPacket_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CDemoConsoleCmd_descriptor;
+    internal_static_CDemoSaveGame_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CDemoConsoleCmd_fieldAccessorTable;
+      internal_static_CDemoSaveGame_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CDemoSendTables_descriptor;
+    internal_static_CDemoSyncTick_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CDemoSendTables_fieldAccessorTable;
+      internal_static_CDemoSyncTick_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CDemoClassInfo_descriptor;
+    internal_static_CDemoConsoleCmd_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CDemoClassInfo_fieldAccessorTable;
+      internal_static_CDemoConsoleCmd_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CDemoClassInfo_class_t_descriptor;
+    internal_static_CDemoSendTables_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CDemoClassInfo_class_t_fieldAccessorTable;
+      internal_static_CDemoSendTables_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CDemoCustomData_descriptor;
+    internal_static_CDemoClassInfo_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CDemoCustomData_fieldAccessorTable;
+      internal_static_CDemoClassInfo_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CDemoCustomDataCallbacks_descriptor;
+    internal_static_CDemoClassInfo_class_t_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CDemoCustomDataCallbacks_fieldAccessorTable;
+      internal_static_CDemoClassInfo_class_t_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CDemoStringTables_descriptor;
+    internal_static_CDemoCustomData_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CDemoStringTables_fieldAccessorTable;
+      internal_static_CDemoCustomData_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CDemoStringTables_items_t_descriptor;
+    internal_static_CDemoCustomDataCallbacks_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CDemoStringTables_items_t_fieldAccessorTable;
+      internal_static_CDemoCustomDataCallbacks_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CDemoStringTables_table_t_descriptor;
+    internal_static_CDemoStringTables_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CDemoStringTables_table_t_fieldAccessorTable;
+      internal_static_CDemoStringTables_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CDemoStop_descriptor;
+    internal_static_CDemoStringTables_items_t_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CDemoStop_fieldAccessorTable;
+      internal_static_CDemoStringTables_items_t_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CDemoUserCmd_descriptor;
+    internal_static_CDemoStringTables_table_t_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CDemoUserCmd_fieldAccessorTable;
+      internal_static_CDemoStringTables_table_t_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_CDemoStop_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_CDemoStop_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_CDemoUserCmd_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_CDemoUserCmd_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -12652,175 +15112,194 @@ public final class Demo {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\ndemo.proto\022\017com.valve.dota2\032 google/pr" +
-      "otobuf/descriptor.proto\"\330\001\n\017CDemoFileHea" +
-      "der\022\027\n\017demo_file_stamp\030\001 \002(\t\022\030\n\020network_" +
-      "protocol\030\002 \001(\005\022\023\n\013server_name\030\003 \001(\t\022\023\n\013c" +
-      "lient_name\030\004 \001(\t\022\020\n\010map_name\030\005 \001(\t\022\026\n\016ga" +
-      "me_directory\030\006 \001(\t\022\033\n\023fullpackets_versio" +
-      "n\030\007 \001(\005\022!\n\031allow_clientside_entities\030\010 \001" +
-      "(\010\"\251\002\n\tCGameInfo\0226\n\004dota\030\004 \001(\0132(.com.val" +
-      "ve.dota2.CGameInfo.CDotaGameInfo\032\343\001\n\rCDo" +
-      "taGameInfo\022\020\n\010match_id\030\001 \001(\r\022\021\n\tgame_mod",
-      "e\030\002 \001(\005\022\023\n\013game_winner\030\003 \001(\005\022I\n\013player_i" +
-      "nfo\030\004 \003(\01324.com.valve.dota2.CGameInfo.CD" +
-      "otaGameInfo.CPlayerInfo\032M\n\013CPlayerInfo\022\021" +
-      "\n\thero_name\030\001 \001(\t\022\023\n\013player_name\030\002 \001(\t\022\026" +
-      "\n\016is_fake_client\030\003 \001(\010\"\206\001\n\rCDemoFileInfo" +
-      "\022\025\n\rplayback_time\030\001 \001(\002\022\026\n\016playback_tick" +
-      "s\030\002 \001(\005\022\027\n\017playback_frames\030\003 \001(\005\022-\n\tgame" +
-      "_info\030\004 \001(\0132\032.com.valve.dota2.CGameInfo\"" +
-      "J\n\013CDemoPacket\022\023\n\013sequence_in\030\001 \001(\005\022\030\n\020s" +
-      "equence_out_ack\030\002 \001(\005\022\014\n\004data\030\003 \001(\014\"y\n\017C",
-      "DemoFullPacket\0228\n\014string_table\030\001 \001(\0132\".c" +
-      "om.valve.dota2.CDemoStringTables\022,\n\006pack" +
-      "et\030\002 \001(\0132\034.com.valve.dota2.CDemoPacket\"\017" +
-      "\n\rCDemoSyncTick\"$\n\017CDemoConsoleCmd\022\021\n\tcm" +
-      "dstring\030\001 \001(\t\"\037\n\017CDemoSendTables\022\014\n\004data" +
-      "\030\001 \001(\014\"\221\001\n\016CDemoClassInfo\0228\n\007classes\030\001 \003" +
-      "(\0132\'.com.valve.dota2.CDemoClassInfo.clas" +
-      "s_t\032E\n\007class_t\022\020\n\010class_id\030\001 \001(\005\022\024\n\014netw" +
-      "ork_name\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\"7\n\017CD" +
-      "emoCustomData\022\026\n\016callback_index\030\001 \001(\005\022\014\n",
-      "\004data\030\002 \001(\014\"+\n\030CDemoCustomDataCallbacks\022" +
-      "\017\n\007save_id\030\001 \003(\t\"\253\002\n\021CDemoStringTables\022:" +
-      "\n\006tables\030\001 \003(\0132*.com.valve.dota2.CDemoSt" +
-      "ringTables.table_t\032$\n\007items_t\022\013\n\003str\030\001 \001" +
-      "(\t\022\014\n\004data\030\002 \001(\014\032\263\001\n\007table_t\022\022\n\ntable_na" +
-      "me\030\001 \001(\t\0229\n\005items\030\002 \003(\0132*.com.valve.dota" +
-      "2.CDemoStringTables.items_t\022D\n\020items_cli" +
-      "entside\030\003 \003(\0132*.com.valve.dota2.CDemoStr" +
-      "ingTables.items_t\022\023\n\013table_flags\030\004 \001(\005\"\013" +
-      "\n\tCDemoStop\"0\n\014CDemoUserCmd\022\022\n\ncmd_numbe",
-      "r\030\001 \001(\005\022\014\n\004data\030\002 \001(\014*\335\002\n\rEDemoCommands\022" +
-      "\026\n\tDEM_Error\020\377\377\377\377\377\377\377\377\377\001\022\014\n\010DEM_Stop\020\000\022\022\n" +
-      "\016DEM_FileHeader\020\001\022\020\n\014DEM_FileInfo\020\002\022\020\n\014D" +
-      "EM_SyncTick\020\003\022\022\n\016DEM_SendTables\020\004\022\021\n\rDEM" +
-      "_ClassInfo\020\005\022\024\n\020DEM_StringTables\020\006\022\016\n\nDE" +
-      "M_Packet\020\007\022\024\n\020DEM_SignonPacket\020\010\022\022\n\016DEM_" +
-      "ConsoleCmd\020\t\022\022\n\016DEM_CustomData\020\n\022\033\n\027DEM_" +
-      "CustomDataCallbacks\020\013\022\017\n\013DEM_UserCmd\020\014\022\022" +
-      "\n\016DEM_FullPacket\020\r\022\013\n\007DEM_Max\020\016\022\024\n\020DEM_I" +
-      "sCompressed\020pB\003\200\001\000"
+      "\n\ndemo.proto\032 google/protobuf/descriptor" +
+      ".proto\"\374\001\n\017CDemoFileHeader\022\027\n\017demo_file_" +
+      "stamp\030\001 \002(\t\022\030\n\020network_protocol\030\002 \001(\005\022\023\n" +
+      "\013server_name\030\003 \001(\t\022\023\n\013client_name\030\004 \001(\t\022" +
+      "\020\n\010map_name\030\005 \001(\t\022\026\n\016game_directory\030\006 \001(" +
+      "\t\022\033\n\023fullpackets_version\030\007 \001(\005\022!\n\031allow_" +
+      "clientside_entities\030\010 \001(\010\022\"\n\032allow_clien" +
+      "tside_particles\030\t \001(\010\"\264\004\n\tCGameInfo\022&\n\004d" +
+      "ota\030\004 \001(\0132\030.CGameInfo.CDotaGameInfo\032\376\003\n\r" +
+      "CDotaGameInfo\022\020\n\010match_id\030\001 \001(\r\022\021\n\tgame_",
+      "mode\030\002 \001(\005\022\023\n\013game_winner\030\003 \001(\005\0229\n\013playe" +
+      "r_info\030\004 \003(\0132$.CGameInfo.CDotaGameInfo.C" +
+      "PlayerInfo\022\020\n\010leagueid\030\005 \001(\r\022=\n\npicks_ba" +
+      "ns\030\006 \003(\0132).CGameInfo.CDotaGameInfo.CHero" +
+      "SelectEvent\022\027\n\017radiant_team_id\030\007 \001(\r\022\024\n\014" +
+      "dire_team_id\030\010 \001(\r\022\030\n\020radiant_team_tag\030\t" +
+      " \001(\t\022\025\n\rdire_team_tag\030\n \001(\t\022\020\n\010end_time\030" +
+      "\013 \001(\r\032q\n\013CPlayerInfo\022\021\n\thero_name\030\001 \001(\t\022" +
+      "\023\n\013player_name\030\002 \001(\t\022\026\n\016is_fake_client\030\003" +
+      " \001(\010\022\017\n\007steamid\030\004 \001(\004\022\021\n\tgame_team\030\005 \001(\005",
+      "\032B\n\020CHeroSelectEvent\022\017\n\007is_pick\030\001 \001(\010\022\014\n" +
+      "\004team\030\002 \001(\r\022\017\n\007hero_id\030\003 \001(\r\"v\n\rCDemoFil" +
+      "eInfo\022\025\n\rplayback_time\030\001 \001(\002\022\026\n\016playback" +
+      "_ticks\030\002 \001(\005\022\027\n\017playback_frames\030\003 \001(\005\022\035\n" +
+      "\tgame_info\030\004 \001(\0132\n.CGameInfo\"J\n\013CDemoPac" +
+      "ket\022\023\n\013sequence_in\030\001 \001(\005\022\030\n\020sequence_out" +
+      "_ack\030\002 \001(\005\022\014\n\004data\030\003 \001(\014\"Y\n\017CDemoFullPac" +
+      "ket\022(\n\014string_table\030\001 \001(\0132\022.CDemoStringT" +
+      "ables\022\034\n\006packet\030\002 \001(\0132\014.CDemoPacket\"S\n\rC" +
+      "DemoSaveGame\022\014\n\004data\030\001 \001(\014\022\020\n\010steam_id\030\002",
+      " \001(\006\022\021\n\tsignature\030\003 \001(\006\022\017\n\007version\030\004 \001(\005" +
+      "\"\017\n\rCDemoSyncTick\"$\n\017CDemoConsoleCmd\022\021\n\t" +
+      "cmdstring\030\001 \001(\t\"\037\n\017CDemoSendTables\022\014\n\004da" +
+      "ta\030\001 \001(\014\"\201\001\n\016CDemoClassInfo\022(\n\007classes\030\001" +
+      " \003(\0132\027.CDemoClassInfo.class_t\032E\n\007class_t" +
+      "\022\020\n\010class_id\030\001 \001(\005\022\024\n\014network_name\030\002 \001(\t" +
+      "\022\022\n\ntable_name\030\003 \001(\t\"7\n\017CDemoCustomData\022" +
+      "\026\n\016callback_index\030\001 \001(\005\022\014\n\004data\030\002 \001(\014\"+\n" +
+      "\030CDemoCustomDataCallbacks\022\017\n\007save_id\030\001 \003" +
+      "(\t\"\373\001\n\021CDemoStringTables\022*\n\006tables\030\001 \003(\013",
+      "2\032.CDemoStringTables.table_t\032$\n\007items_t\022" +
+      "\013\n\003str\030\001 \001(\t\022\014\n\004data\030\002 \001(\014\032\223\001\n\007table_t\022\022" +
+      "\n\ntable_name\030\001 \001(\t\022)\n\005items\030\002 \003(\0132\032.CDem" +
+      "oStringTables.items_t\0224\n\020items_clientsid" +
+      "e\030\003 \003(\0132\032.CDemoStringTables.items_t\022\023\n\013t" +
+      "able_flags\030\004 \001(\005\"\013\n\tCDemoStop\"0\n\014CDemoUs" +
+      "erCmd\022\022\n\ncmd_number\030\001 \001(\005\022\014\n\004data\030\002 \001(\014*" +
+      "\357\002\n\rEDemoCommands\022\026\n\tDEM_Error\020\377\377\377\377\377\377\377\377\377" +
+      "\001\022\014\n\010DEM_Stop\020\000\022\022\n\016DEM_FileHeader\020\001\022\020\n\014D" +
+      "EM_FileInfo\020\002\022\020\n\014DEM_SyncTick\020\003\022\022\n\016DEM_S",
+      "endTables\020\004\022\021\n\rDEM_ClassInfo\020\005\022\024\n\020DEM_St" +
+      "ringTables\020\006\022\016\n\nDEM_Packet\020\007\022\024\n\020DEM_Sign" +
+      "onPacket\020\010\022\022\n\016DEM_ConsoleCmd\020\t\022\022\n\016DEM_Cu" +
+      "stomData\020\n\022\033\n\027DEM_CustomDataCallbacks\020\013\022" +
+      "\017\n\013DEM_UserCmd\020\014\022\022\n\016DEM_FullPacket\020\r\022\020\n\014" +
+      "DEM_SaveGame\020\016\022\013\n\007DEM_Max\020\017\022\024\n\020DEM_IsCom" +
+      "pressed\020pB\021\n\017com.valve.dota2"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
         public com.google.protobuf.ExtensionRegistry assignDescriptors(
             com.google.protobuf.Descriptors.FileDescriptor root) {
           descriptor = root;
-          internal_static_com_valve_dota2_CDemoFileHeader_descriptor =
+          internal_static_CDemoFileHeader_descriptor =
             getDescriptor().getMessageTypes().get(0);
-          internal_static_com_valve_dota2_CDemoFileHeader_fieldAccessorTable = new
+          internal_static_CDemoFileHeader_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CDemoFileHeader_descriptor,
-              new java.lang.String[] { "DemoFileStamp", "NetworkProtocol", "ServerName", "ClientName", "MapName", "GameDirectory", "FullpacketsVersion", "AllowClientsideEntities", });
-          internal_static_com_valve_dota2_CGameInfo_descriptor =
+              internal_static_CDemoFileHeader_descriptor,
+              new java.lang.String[] { "DemoFileStamp", "NetworkProtocol", "ServerName", "ClientName", "MapName", "GameDirectory", "FullpacketsVersion", "AllowClientsideEntities", "AllowClientsideParticles", });
+          internal_static_CGameInfo_descriptor =
             getDescriptor().getMessageTypes().get(1);
-          internal_static_com_valve_dota2_CGameInfo_fieldAccessorTable = new
+          internal_static_CGameInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CGameInfo_descriptor,
+              internal_static_CGameInfo_descriptor,
               new java.lang.String[] { "Dota", });
-          internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_descriptor =
-            internal_static_com_valve_dota2_CGameInfo_descriptor.getNestedTypes().get(0);
-          internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_fieldAccessorTable = new
+          internal_static_CGameInfo_CDotaGameInfo_descriptor =
+            internal_static_CGameInfo_descriptor.getNestedTypes().get(0);
+          internal_static_CGameInfo_CDotaGameInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_descriptor,
-              new java.lang.String[] { "MatchId", "GameMode", "GameWinner", "PlayerInfo", });
-          internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_CPlayerInfo_descriptor =
-            internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_descriptor.getNestedTypes().get(0);
-          internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_CPlayerInfo_fieldAccessorTable = new
+              internal_static_CGameInfo_CDotaGameInfo_descriptor,
+              new java.lang.String[] { "MatchId", "GameMode", "GameWinner", "PlayerInfo", "Leagueid", "PicksBans", "RadiantTeamId", "DireTeamId", "RadiantTeamTag", "DireTeamTag", "EndTime", });
+          internal_static_CGameInfo_CDotaGameInfo_CPlayerInfo_descriptor =
+            internal_static_CGameInfo_CDotaGameInfo_descriptor.getNestedTypes().get(0);
+          internal_static_CGameInfo_CDotaGameInfo_CPlayerInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CGameInfo_CDotaGameInfo_CPlayerInfo_descriptor,
-              new java.lang.String[] { "HeroName", "PlayerName", "IsFakeClient", });
-          internal_static_com_valve_dota2_CDemoFileInfo_descriptor =
+              internal_static_CGameInfo_CDotaGameInfo_CPlayerInfo_descriptor,
+              new java.lang.String[] { "HeroName", "PlayerName", "IsFakeClient", "Steamid", "GameTeam", });
+          internal_static_CGameInfo_CDotaGameInfo_CHeroSelectEvent_descriptor =
+            internal_static_CGameInfo_CDotaGameInfo_descriptor.getNestedTypes().get(1);
+          internal_static_CGameInfo_CDotaGameInfo_CHeroSelectEvent_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_CGameInfo_CDotaGameInfo_CHeroSelectEvent_descriptor,
+              new java.lang.String[] { "IsPick", "Team", "HeroId", });
+          internal_static_CDemoFileInfo_descriptor =
             getDescriptor().getMessageTypes().get(2);
-          internal_static_com_valve_dota2_CDemoFileInfo_fieldAccessorTable = new
+          internal_static_CDemoFileInfo_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CDemoFileInfo_descriptor,
+              internal_static_CDemoFileInfo_descriptor,
               new java.lang.String[] { "PlaybackTime", "PlaybackTicks", "PlaybackFrames", "GameInfo", });
-          internal_static_com_valve_dota2_CDemoPacket_descriptor =
+          internal_static_CDemoPacket_descriptor =
             getDescriptor().getMessageTypes().get(3);
-          internal_static_com_valve_dota2_CDemoPacket_fieldAccessorTable = new
+          internal_static_CDemoPacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CDemoPacket_descriptor,
+              internal_static_CDemoPacket_descriptor,
               new java.lang.String[] { "SequenceIn", "SequenceOutAck", "Data", });
-          internal_static_com_valve_dota2_CDemoFullPacket_descriptor =
+          internal_static_CDemoFullPacket_descriptor =
             getDescriptor().getMessageTypes().get(4);
-          internal_static_com_valve_dota2_CDemoFullPacket_fieldAccessorTable = new
+          internal_static_CDemoFullPacket_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CDemoFullPacket_descriptor,
+              internal_static_CDemoFullPacket_descriptor,
               new java.lang.String[] { "StringTable", "Packet", });
-          internal_static_com_valve_dota2_CDemoSyncTick_descriptor =
+          internal_static_CDemoSaveGame_descriptor =
             getDescriptor().getMessageTypes().get(5);
-          internal_static_com_valve_dota2_CDemoSyncTick_fieldAccessorTable = new
+          internal_static_CDemoSaveGame_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CDemoSyncTick_descriptor,
-              new java.lang.String[] { });
-          internal_static_com_valve_dota2_CDemoConsoleCmd_descriptor =
+              internal_static_CDemoSaveGame_descriptor,
+              new java.lang.String[] { "Data", "SteamId", "Signature", "Version", });
+          internal_static_CDemoSyncTick_descriptor =
             getDescriptor().getMessageTypes().get(6);
-          internal_static_com_valve_dota2_CDemoConsoleCmd_fieldAccessorTable = new
+          internal_static_CDemoSyncTick_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CDemoConsoleCmd_descriptor,
-              new java.lang.String[] { "Cmdstring", });
-          internal_static_com_valve_dota2_CDemoSendTables_descriptor =
-            getDescriptor().getMessageTypes().get(7);
-          internal_static_com_valve_dota2_CDemoSendTables_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CDemoSendTables_descriptor,
-              new java.lang.String[] { "Data", });
-          internal_static_com_valve_dota2_CDemoClassInfo_descriptor =
-            getDescriptor().getMessageTypes().get(8);
-          internal_static_com_valve_dota2_CDemoClassInfo_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CDemoClassInfo_descriptor,
-              new java.lang.String[] { "Classes", });
-          internal_static_com_valve_dota2_CDemoClassInfo_class_t_descriptor =
-            internal_static_com_valve_dota2_CDemoClassInfo_descriptor.getNestedTypes().get(0);
-          internal_static_com_valve_dota2_CDemoClassInfo_class_t_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CDemoClassInfo_class_t_descriptor,
-              new java.lang.String[] { "ClassId", "NetworkName", "TableName", });
-          internal_static_com_valve_dota2_CDemoCustomData_descriptor =
-            getDescriptor().getMessageTypes().get(9);
-          internal_static_com_valve_dota2_CDemoCustomData_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CDemoCustomData_descriptor,
-              new java.lang.String[] { "CallbackIndex", "Data", });
-          internal_static_com_valve_dota2_CDemoCustomDataCallbacks_descriptor =
-            getDescriptor().getMessageTypes().get(10);
-          internal_static_com_valve_dota2_CDemoCustomDataCallbacks_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CDemoCustomDataCallbacks_descriptor,
-              new java.lang.String[] { "SaveId", });
-          internal_static_com_valve_dota2_CDemoStringTables_descriptor =
-            getDescriptor().getMessageTypes().get(11);
-          internal_static_com_valve_dota2_CDemoStringTables_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CDemoStringTables_descriptor,
-              new java.lang.String[] { "Tables", });
-          internal_static_com_valve_dota2_CDemoStringTables_items_t_descriptor =
-            internal_static_com_valve_dota2_CDemoStringTables_descriptor.getNestedTypes().get(0);
-          internal_static_com_valve_dota2_CDemoStringTables_items_t_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CDemoStringTables_items_t_descriptor,
-              new java.lang.String[] { "Str", "Data", });
-          internal_static_com_valve_dota2_CDemoStringTables_table_t_descriptor =
-            internal_static_com_valve_dota2_CDemoStringTables_descriptor.getNestedTypes().get(1);
-          internal_static_com_valve_dota2_CDemoStringTables_table_t_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CDemoStringTables_table_t_descriptor,
-              new java.lang.String[] { "TableName", "Items", "ItemsClientside", "TableFlags", });
-          internal_static_com_valve_dota2_CDemoStop_descriptor =
-            getDescriptor().getMessageTypes().get(12);
-          internal_static_com_valve_dota2_CDemoStop_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CDemoStop_descriptor,
+              internal_static_CDemoSyncTick_descriptor,
               new java.lang.String[] { });
-          internal_static_com_valve_dota2_CDemoUserCmd_descriptor =
-            getDescriptor().getMessageTypes().get(13);
-          internal_static_com_valve_dota2_CDemoUserCmd_fieldAccessorTable = new
+          internal_static_CDemoConsoleCmd_descriptor =
+            getDescriptor().getMessageTypes().get(7);
+          internal_static_CDemoConsoleCmd_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CDemoUserCmd_descriptor,
+              internal_static_CDemoConsoleCmd_descriptor,
+              new java.lang.String[] { "Cmdstring", });
+          internal_static_CDemoSendTables_descriptor =
+            getDescriptor().getMessageTypes().get(8);
+          internal_static_CDemoSendTables_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_CDemoSendTables_descriptor,
+              new java.lang.String[] { "Data", });
+          internal_static_CDemoClassInfo_descriptor =
+            getDescriptor().getMessageTypes().get(9);
+          internal_static_CDemoClassInfo_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_CDemoClassInfo_descriptor,
+              new java.lang.String[] { "Classes", });
+          internal_static_CDemoClassInfo_class_t_descriptor =
+            internal_static_CDemoClassInfo_descriptor.getNestedTypes().get(0);
+          internal_static_CDemoClassInfo_class_t_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_CDemoClassInfo_class_t_descriptor,
+              new java.lang.String[] { "ClassId", "NetworkName", "TableName", });
+          internal_static_CDemoCustomData_descriptor =
+            getDescriptor().getMessageTypes().get(10);
+          internal_static_CDemoCustomData_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_CDemoCustomData_descriptor,
+              new java.lang.String[] { "CallbackIndex", "Data", });
+          internal_static_CDemoCustomDataCallbacks_descriptor =
+            getDescriptor().getMessageTypes().get(11);
+          internal_static_CDemoCustomDataCallbacks_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_CDemoCustomDataCallbacks_descriptor,
+              new java.lang.String[] { "SaveId", });
+          internal_static_CDemoStringTables_descriptor =
+            getDescriptor().getMessageTypes().get(12);
+          internal_static_CDemoStringTables_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_CDemoStringTables_descriptor,
+              new java.lang.String[] { "Tables", });
+          internal_static_CDemoStringTables_items_t_descriptor =
+            internal_static_CDemoStringTables_descriptor.getNestedTypes().get(0);
+          internal_static_CDemoStringTables_items_t_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_CDemoStringTables_items_t_descriptor,
+              new java.lang.String[] { "Str", "Data", });
+          internal_static_CDemoStringTables_table_t_descriptor =
+            internal_static_CDemoStringTables_descriptor.getNestedTypes().get(1);
+          internal_static_CDemoStringTables_table_t_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_CDemoStringTables_table_t_descriptor,
+              new java.lang.String[] { "TableName", "Items", "ItemsClientside", "TableFlags", });
+          internal_static_CDemoStop_descriptor =
+            getDescriptor().getMessageTypes().get(13);
+          internal_static_CDemoStop_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_CDemoStop_descriptor,
+              new java.lang.String[] { });
+          internal_static_CDemoUserCmd_descriptor =
+            getDescriptor().getMessageTypes().get(14);
+          internal_static_CDemoUserCmd_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_CDemoUserCmd_descriptor,
               new java.lang.String[] { "CmdNumber", "Data", });
           return null;
         }

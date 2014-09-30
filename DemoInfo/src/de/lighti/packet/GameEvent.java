@@ -1,8 +1,8 @@
 package de.lighti.packet;
 
-import com.valve.dota2.Netmessages.CSVCMsg_GameEvent;
 import com.valve.dota2.Netmessages.CSVCMsg_GameEventList.descriptor_t;
 import com.valve.dota2.Netmessages.CSVCMsg_GameEventList.key_t;
+import com.valve.dota2.Networkbasetypes.CSVCMsg_GameEvent;
 
 import de.lighti.DotaPlay;
 import de.lighti.GameEventListener;
@@ -50,7 +50,7 @@ public class GameEvent {
 
             for (int i = 0; i < numKeys; i++) {
                 final key_t key = typeDescriptor.getKeys( i );
-                final com.valve.dota2.Netmessages.CSVCMsg_GameEvent.key_t keyValue = e.getKeys( i );
+                final CSVCMsg_GameEvent.key_t keyValue = e.getKeys( i );
 
                 final String keyName = key.getName();
                 switch (keyName) {
@@ -79,7 +79,7 @@ public class GameEvent {
                 }
 
             }
-            if ((attackerEntity < 0) || (eventType < 0) || (source < 0) || (target < 0) || (inflictor < 0) || (timeStamp < 0)) {
+            if (attackerEntity < 0 || eventType < 0 || source < 0 || target < 0 || inflictor < 0 || timeStamp < 0) {
                 throw new IllegalStateException( "GameEvent is missing values" );
             }
 

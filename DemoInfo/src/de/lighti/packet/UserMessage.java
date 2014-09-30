@@ -3,7 +3,7 @@ package de.lighti.packet;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.valve.dota2.DotaUsermessages.CDOTAUserMsg_CombatLogData;
 import com.valve.dota2.DotaUsermessages.EDotaUserMessages;
-import com.valve.dota2.Netmessages.CSVCMsg_UserMessage;
+import com.valve.dota2.Networkbasetypes.CSVCMsg_UserMessage;
 
 /**
  * Handles UserMessages. Might be used in the future.

@@ -9,7 +9,7 @@ public final class Usermessages {
       com.google.protobuf.ExtensionRegistry registry) {
   }
   /**
-   * Protobuf enum {@code com.valve.dota2.EBaseUserMessages}
+   * Protobuf enum {@code EBaseUserMessages}
    */
   public enum EBaseUserMessages
       implements com.google.protobuf.ProtocolMessageEnum {
@@ -23,10 +23,6 @@ public final class Usermessages {
     UM_CloseCaption(1, 2),
     /**
      * <code>UM_CloseCaptionDirect = 3;</code>
-     *
-     * <pre>
-     * Shares message def CUserMsg_CloseCaption
-     * </pre>
      */
     UM_CloseCaptionDirect(2, 3),
     /**
@@ -138,13 +134,13 @@ public final class Usermessages {
      */
     UM_SendAudio(29, 30),
     /**
-     * <code>UM_MAX_BASE = 63;</code>
-     *
-     * <pre>
-     * Game specific user messages should start after this
-     * </pre>
+     * <code>UM_CameraTransition = 31;</code>
      */
-    UM_MAX_BASE(30, 63),
+    UM_CameraTransition(30, 31),
+    /**
+     * <code>UM_MAX_BASE = 63;</code>
+     */
+    UM_MAX_BASE(31, 63),
     ;
 
     /**
@@ -157,10 +153,6 @@ public final class Usermessages {
     public static final int UM_CloseCaption_VALUE = 2;
     /**
      * <code>UM_CloseCaptionDirect = 3;</code>
-     *
-     * <pre>
-     * Shares message def CUserMsg_CloseCaption
-     * </pre>
      */
     public static final int UM_CloseCaptionDirect_VALUE = 3;
     /**
@@ -272,11 +264,11 @@ public final class Usermessages {
      */
     public static final int UM_SendAudio_VALUE = 30;
     /**
+     * <code>UM_CameraTransition = 31;</code>
+     */
+    public static final int UM_CameraTransition_VALUE = 31;
+    /**
      * <code>UM_MAX_BASE = 63;</code>
-     *
-     * <pre>
-     * Game specific user messages should start after this
-     * </pre>
      */
     public static final int UM_MAX_BASE_VALUE = 63;
 
@@ -315,6 +307,7 @@ public final class Usermessages {
         case 28: return UM_VoiceMask;
         case 29: return UM_VoiceSubtitle;
         case 30: return UM_SendAudio;
+        case 31: return UM_CameraTransition;
         case 63: return UM_MAX_BASE;
         default: return null;
       }
@@ -364,7 +357,7 @@ public final class Usermessages {
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:com.valve.dota2.EBaseUserMessages)
+    // @@protoc_insertion_point(enum_scope:EBaseUserMessages)
   }
 
   public interface CUserMsg_AchievementEventOrBuilder
@@ -381,7 +374,7 @@ public final class Usermessages {
     int getAchievement();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_AchievementEvent}
+   * Protobuf type {@code CUserMsg_AchievementEvent}
    */
   public static final class CUserMsg_AchievementEvent extends
       com.google.protobuf.GeneratedMessage
@@ -450,12 +443,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_AchievementEvent_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_AchievementEvent_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_AchievementEvent_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_AchievementEvent_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_AchievementEvent.class, com.valve.dota2.Usermessages.CUserMsg_AchievementEvent.Builder.class);
     }
@@ -602,19 +595,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_AchievementEvent}
+     * Protobuf type {@code CUserMsg_AchievementEvent}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_AchievementEventOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_AchievementEvent_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_AchievementEvent_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_AchievementEvent_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_AchievementEvent_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_AchievementEvent.class, com.valve.dota2.Usermessages.CUserMsg_AchievementEvent.Builder.class);
       }
@@ -650,7 +643,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_AchievementEvent_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_AchievementEvent_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_AchievementEvent getDefaultInstanceForType() {
@@ -752,7 +745,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_AchievementEvent)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_AchievementEvent)
     }
 
     static {
@@ -760,7 +753,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_AchievementEvent)
+    // @@protoc_insertion_point(class_scope:CUserMsg_AchievementEvent)
   }
 
   public interface CUserMsg_CloseCaptionOrBuilder
@@ -795,9 +788,19 @@ public final class Usermessages {
      * <code>optional bool from_player = 3;</code>
      */
     boolean getFromPlayer();
+
+    // optional int32 ent_index = 4;
+    /**
+     * <code>optional int32 ent_index = 4;</code>
+     */
+    boolean hasEntIndex();
+    /**
+     * <code>optional int32 ent_index = 4;</code>
+     */
+    int getEntIndex();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_CloseCaption}
+   * Protobuf type {@code CUserMsg_CloseCaption}
    */
   public static final class CUserMsg_CloseCaption extends
       com.google.protobuf.GeneratedMessage
@@ -862,6 +865,11 @@ public final class Usermessages {
               fromPlayer_ = input.readBool();
               break;
             }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              entIndex_ = input.readInt32();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -876,12 +884,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_CloseCaption_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_CloseCaption_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_CloseCaption_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_CloseCaption_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_CloseCaption.class, com.valve.dota2.Usermessages.CUserMsg_CloseCaption.Builder.class);
     }
@@ -950,10 +958,27 @@ public final class Usermessages {
       return fromPlayer_;
     }
 
+    // optional int32 ent_index = 4;
+    public static final int ENT_INDEX_FIELD_NUMBER = 4;
+    private int entIndex_;
+    /**
+     * <code>optional int32 ent_index = 4;</code>
+     */
+    public boolean hasEntIndex() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional int32 ent_index = 4;</code>
+     */
+    public int getEntIndex() {
+      return entIndex_;
+    }
+
     private void initFields() {
       hash_ = 0;
       duration_ = 0F;
       fromPlayer_ = false;
+      entIndex_ = 0;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -976,6 +1001,9 @@ public final class Usermessages {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBool(3, fromPlayer_);
       }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt32(4, entIndex_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -996,6 +1024,10 @@ public final class Usermessages {
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, fromPlayer_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(4, entIndex_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -1076,19 +1108,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_CloseCaption}
+     * Protobuf type {@code CUserMsg_CloseCaption}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_CloseCaptionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_CloseCaption_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_CloseCaption_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_CloseCaption_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_CloseCaption_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_CloseCaption.class, com.valve.dota2.Usermessages.CUserMsg_CloseCaption.Builder.class);
       }
@@ -1119,6 +1151,8 @@ public final class Usermessages {
         bitField0_ = (bitField0_ & ~0x00000002);
         fromPlayer_ = false;
         bitField0_ = (bitField0_ & ~0x00000004);
+        entIndex_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -1128,7 +1162,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_CloseCaption_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_CloseCaption_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_CloseCaption getDefaultInstanceForType() {
@@ -1159,6 +1193,10 @@ public final class Usermessages {
           to_bitField0_ |= 0x00000004;
         }
         result.fromPlayer_ = fromPlayer_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.entIndex_ = entIndex_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1183,6 +1221,9 @@ public final class Usermessages {
         }
         if (other.hasFromPlayer()) {
           setFromPlayer(other.getFromPlayer());
+        }
+        if (other.hasEntIndex()) {
+          setEntIndex(other.getEntIndex());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -1310,7 +1351,40 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_CloseCaption)
+      // optional int32 ent_index = 4;
+      private int entIndex_ ;
+      /**
+       * <code>optional int32 ent_index = 4;</code>
+       */
+      public boolean hasEntIndex() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int32 ent_index = 4;</code>
+       */
+      public int getEntIndex() {
+        return entIndex_;
+      }
+      /**
+       * <code>optional int32 ent_index = 4;</code>
+       */
+      public Builder setEntIndex(int value) {
+        bitField0_ |= 0x00000008;
+        entIndex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 ent_index = 4;</code>
+       */
+      public Builder clearEntIndex() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        entIndex_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:CUserMsg_CloseCaption)
     }
 
     static {
@@ -1318,7 +1392,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_CloseCaption)
+    // @@protoc_insertion_point(class_scope:CUserMsg_CloseCaption)
   }
 
   public interface CUserMsg_CurrentTimescaleOrBuilder
@@ -1335,7 +1409,7 @@ public final class Usermessages {
     float getCurrent();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_CurrentTimescale}
+   * Protobuf type {@code CUserMsg_CurrentTimescale}
    */
   public static final class CUserMsg_CurrentTimescale extends
       com.google.protobuf.GeneratedMessage
@@ -1404,12 +1478,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_CurrentTimescale_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_CurrentTimescale_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_CurrentTimescale_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_CurrentTimescale_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_CurrentTimescale.class, com.valve.dota2.Usermessages.CUserMsg_CurrentTimescale.Builder.class);
     }
@@ -1556,19 +1630,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_CurrentTimescale}
+     * Protobuf type {@code CUserMsg_CurrentTimescale}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_CurrentTimescaleOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_CurrentTimescale_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_CurrentTimescale_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_CurrentTimescale_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_CurrentTimescale_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_CurrentTimescale.class, com.valve.dota2.Usermessages.CUserMsg_CurrentTimescale.Builder.class);
       }
@@ -1604,7 +1678,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_CurrentTimescale_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_CurrentTimescale_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_CurrentTimescale getDefaultInstanceForType() {
@@ -1706,7 +1780,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_CurrentTimescale)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_CurrentTimescale)
     }
 
     static {
@@ -1714,7 +1788,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_CurrentTimescale)
+    // @@protoc_insertion_point(class_scope:CUserMsg_CurrentTimescale)
   }
 
   public interface CUserMsg_DesiredTimescaleOrBuilder
@@ -1761,7 +1835,7 @@ public final class Usermessages {
     float getStartBlendTime();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_DesiredTimescale}
+   * Protobuf type {@code CUserMsg_DesiredTimescale}
    */
   public static final class CUserMsg_DesiredTimescale extends
       com.google.protobuf.GeneratedMessage
@@ -1845,12 +1919,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_DesiredTimescale_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_DesiredTimescale_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_DesiredTimescale_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_DesiredTimescale_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_DesiredTimescale.class, com.valve.dota2.Usermessages.CUserMsg_DesiredTimescale.Builder.class);
     }
@@ -2069,19 +2143,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_DesiredTimescale}
+     * Protobuf type {@code CUserMsg_DesiredTimescale}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_DesiredTimescaleOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_DesiredTimescale_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_DesiredTimescale_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_DesiredTimescale_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_DesiredTimescale_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_DesiredTimescale.class, com.valve.dota2.Usermessages.CUserMsg_DesiredTimescale.Builder.class);
       }
@@ -2123,7 +2197,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_DesiredTimescale_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_DesiredTimescale_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_DesiredTimescale getDefaultInstanceForType() {
@@ -2345,7 +2419,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_DesiredTimescale)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_DesiredTimescale)
     }
 
     static {
@@ -2353,7 +2427,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_DesiredTimescale)
+    // @@protoc_insertion_point(class_scope:CUserMsg_DesiredTimescale)
   }
 
   public interface CUserMsg_FadeOrBuilder
@@ -2400,7 +2474,7 @@ public final class Usermessages {
     int getColor();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_Fade}
+   * Protobuf type {@code CUserMsg_Fade}
    */
   public static final class CUserMsg_Fade extends
       com.google.protobuf.GeneratedMessage
@@ -2484,12 +2558,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Fade_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_Fade_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Fade_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_Fade_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_Fade.class, com.valve.dota2.Usermessages.CUserMsg_Fade.Builder.class);
     }
@@ -2708,19 +2782,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_Fade}
+     * Protobuf type {@code CUserMsg_Fade}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_FadeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Fade_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_Fade_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Fade_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_Fade_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_Fade.class, com.valve.dota2.Usermessages.CUserMsg_Fade.Builder.class);
       }
@@ -2762,7 +2836,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Fade_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_Fade_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_Fade getDefaultInstanceForType() {
@@ -2984,7 +3058,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_Fade)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_Fade)
     }
 
     static {
@@ -2992,7 +3066,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_Fade)
+    // @@protoc_insertion_point(class_scope:CUserMsg_Fade)
   }
 
   public interface CUserMsg_ShakeOrBuilder
@@ -3039,7 +3113,7 @@ public final class Usermessages {
     float getDuration();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_Shake}
+   * Protobuf type {@code CUserMsg_Shake}
    */
   public static final class CUserMsg_Shake extends
       com.google.protobuf.GeneratedMessage
@@ -3123,12 +3197,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Shake_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_Shake_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Shake_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_Shake_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_Shake.class, com.valve.dota2.Usermessages.CUserMsg_Shake.Builder.class);
     }
@@ -3347,19 +3421,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_Shake}
+     * Protobuf type {@code CUserMsg_Shake}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_ShakeOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Shake_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_Shake_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Shake_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_Shake_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_Shake.class, com.valve.dota2.Usermessages.CUserMsg_Shake.Builder.class);
       }
@@ -3401,7 +3475,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Shake_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_Shake_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_Shake getDefaultInstanceForType() {
@@ -3623,7 +3697,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_Shake)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_Shake)
     }
 
     static {
@@ -3631,42 +3705,42 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_Shake)
+    // @@protoc_insertion_point(class_scope:CUserMsg_Shake)
   }
 
   public interface CUserMsg_ShakeDirOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
 
-    // optional .com.valve.dota2.CUserMsg_Shake shake = 1;
+    // optional .CUserMsg_Shake shake = 1;
     /**
-     * <code>optional .com.valve.dota2.CUserMsg_Shake shake = 1;</code>
+     * <code>optional .CUserMsg_Shake shake = 1;</code>
      */
     boolean hasShake();
     /**
-     * <code>optional .com.valve.dota2.CUserMsg_Shake shake = 1;</code>
+     * <code>optional .CUserMsg_Shake shake = 1;</code>
      */
     com.valve.dota2.Usermessages.CUserMsg_Shake getShake();
     /**
-     * <code>optional .com.valve.dota2.CUserMsg_Shake shake = 1;</code>
+     * <code>optional .CUserMsg_Shake shake = 1;</code>
      */
     com.valve.dota2.Usermessages.CUserMsg_ShakeOrBuilder getShakeOrBuilder();
 
-    // optional .com.valve.dota2.CMsgVector direction = 2;
+    // optional .CMsgVector direction = 2;
     /**
-     * <code>optional .com.valve.dota2.CMsgVector direction = 2;</code>
+     * <code>optional .CMsgVector direction = 2;</code>
      */
     boolean hasDirection();
     /**
-     * <code>optional .com.valve.dota2.CMsgVector direction = 2;</code>
+     * <code>optional .CMsgVector direction = 2;</code>
      */
-    com.valve.dota2.Netmessages.CMsgVector getDirection();
+    com.valve.dota2.Networkbasetypes.CMsgVector getDirection();
     /**
-     * <code>optional .com.valve.dota2.CMsgVector direction = 2;</code>
+     * <code>optional .CMsgVector direction = 2;</code>
      */
-    com.valve.dota2.Netmessages.CMsgVectorOrBuilder getDirectionOrBuilder();
+    com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder getDirectionOrBuilder();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_ShakeDir}
+   * Protobuf type {@code CUserMsg_ShakeDir}
    */
   public static final class CUserMsg_ShakeDir extends
       com.google.protobuf.GeneratedMessage
@@ -3730,11 +3804,11 @@ public final class Usermessages {
               break;
             }
             case 18: {
-              com.valve.dota2.Netmessages.CMsgVector.Builder subBuilder = null;
+              com.valve.dota2.Networkbasetypes.CMsgVector.Builder subBuilder = null;
               if (((bitField0_ & 0x00000002) == 0x00000002)) {
                 subBuilder = direction_.toBuilder();
               }
-              direction_ = input.readMessage(com.valve.dota2.Netmessages.CMsgVector.PARSER, extensionRegistry);
+              direction_ = input.readMessage(com.valve.dota2.Networkbasetypes.CMsgVector.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(direction_);
                 direction_ = subBuilder.buildPartial();
@@ -3756,12 +3830,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_ShakeDir_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_ShakeDir_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_ShakeDir_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_ShakeDir_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_ShakeDir.class, com.valve.dota2.Usermessages.CUserMsg_ShakeDir.Builder.class);
     }
@@ -3782,53 +3856,53 @@ public final class Usermessages {
     }
 
     private int bitField0_;
-    // optional .com.valve.dota2.CUserMsg_Shake shake = 1;
+    // optional .CUserMsg_Shake shake = 1;
     public static final int SHAKE_FIELD_NUMBER = 1;
     private com.valve.dota2.Usermessages.CUserMsg_Shake shake_;
     /**
-     * <code>optional .com.valve.dota2.CUserMsg_Shake shake = 1;</code>
+     * <code>optional .CUserMsg_Shake shake = 1;</code>
      */
     public boolean hasShake() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional .com.valve.dota2.CUserMsg_Shake shake = 1;</code>
+     * <code>optional .CUserMsg_Shake shake = 1;</code>
      */
     public com.valve.dota2.Usermessages.CUserMsg_Shake getShake() {
       return shake_;
     }
     /**
-     * <code>optional .com.valve.dota2.CUserMsg_Shake shake = 1;</code>
+     * <code>optional .CUserMsg_Shake shake = 1;</code>
      */
     public com.valve.dota2.Usermessages.CUserMsg_ShakeOrBuilder getShakeOrBuilder() {
       return shake_;
     }
 
-    // optional .com.valve.dota2.CMsgVector direction = 2;
+    // optional .CMsgVector direction = 2;
     public static final int DIRECTION_FIELD_NUMBER = 2;
-    private com.valve.dota2.Netmessages.CMsgVector direction_;
+    private com.valve.dota2.Networkbasetypes.CMsgVector direction_;
     /**
-     * <code>optional .com.valve.dota2.CMsgVector direction = 2;</code>
+     * <code>optional .CMsgVector direction = 2;</code>
      */
     public boolean hasDirection() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>optional .com.valve.dota2.CMsgVector direction = 2;</code>
+     * <code>optional .CMsgVector direction = 2;</code>
      */
-    public com.valve.dota2.Netmessages.CMsgVector getDirection() {
+    public com.valve.dota2.Networkbasetypes.CMsgVector getDirection() {
       return direction_;
     }
     /**
-     * <code>optional .com.valve.dota2.CMsgVector direction = 2;</code>
+     * <code>optional .CMsgVector direction = 2;</code>
      */
-    public com.valve.dota2.Netmessages.CMsgVectorOrBuilder getDirectionOrBuilder() {
+    public com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder getDirectionOrBuilder() {
       return direction_;
     }
 
     private void initFields() {
       shake_ = com.valve.dota2.Usermessages.CUserMsg_Shake.getDefaultInstance();
-      direction_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+      direction_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -3944,19 +4018,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_ShakeDir}
+     * Protobuf type {@code CUserMsg_ShakeDir}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_ShakeDirOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_ShakeDir_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_ShakeDir_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_ShakeDir_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_ShakeDir_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_ShakeDir.class, com.valve.dota2.Usermessages.CUserMsg_ShakeDir.Builder.class);
       }
@@ -3990,7 +4064,7 @@ public final class Usermessages {
         }
         bitField0_ = (bitField0_ & ~0x00000001);
         if (directionBuilder_ == null) {
-          direction_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+          direction_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
         } else {
           directionBuilder_.clear();
         }
@@ -4004,7 +4078,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_ShakeDir_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_ShakeDir_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_ShakeDir getDefaultInstanceForType() {
@@ -4088,18 +4162,18 @@ public final class Usermessages {
       }
       private int bitField0_;
 
-      // optional .com.valve.dota2.CUserMsg_Shake shake = 1;
+      // optional .CUserMsg_Shake shake = 1;
       private com.valve.dota2.Usermessages.CUserMsg_Shake shake_ = com.valve.dota2.Usermessages.CUserMsg_Shake.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
           com.valve.dota2.Usermessages.CUserMsg_Shake, com.valve.dota2.Usermessages.CUserMsg_Shake.Builder, com.valve.dota2.Usermessages.CUserMsg_ShakeOrBuilder> shakeBuilder_;
       /**
-       * <code>optional .com.valve.dota2.CUserMsg_Shake shake = 1;</code>
+       * <code>optional .CUserMsg_Shake shake = 1;</code>
        */
       public boolean hasShake() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional .com.valve.dota2.CUserMsg_Shake shake = 1;</code>
+       * <code>optional .CUserMsg_Shake shake = 1;</code>
        */
       public com.valve.dota2.Usermessages.CUserMsg_Shake getShake() {
         if (shakeBuilder_ == null) {
@@ -4109,7 +4183,7 @@ public final class Usermessages {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CUserMsg_Shake shake = 1;</code>
+       * <code>optional .CUserMsg_Shake shake = 1;</code>
        */
       public Builder setShake(com.valve.dota2.Usermessages.CUserMsg_Shake value) {
         if (shakeBuilder_ == null) {
@@ -4125,7 +4199,7 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CUserMsg_Shake shake = 1;</code>
+       * <code>optional .CUserMsg_Shake shake = 1;</code>
        */
       public Builder setShake(
           com.valve.dota2.Usermessages.CUserMsg_Shake.Builder builderForValue) {
@@ -4139,7 +4213,7 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CUserMsg_Shake shake = 1;</code>
+       * <code>optional .CUserMsg_Shake shake = 1;</code>
        */
       public Builder mergeShake(com.valve.dota2.Usermessages.CUserMsg_Shake value) {
         if (shakeBuilder_ == null) {
@@ -4158,7 +4232,7 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CUserMsg_Shake shake = 1;</code>
+       * <code>optional .CUserMsg_Shake shake = 1;</code>
        */
       public Builder clearShake() {
         if (shakeBuilder_ == null) {
@@ -4171,7 +4245,7 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CUserMsg_Shake shake = 1;</code>
+       * <code>optional .CUserMsg_Shake shake = 1;</code>
        */
       public com.valve.dota2.Usermessages.CUserMsg_Shake.Builder getShakeBuilder() {
         bitField0_ |= 0x00000001;
@@ -4179,7 +4253,7 @@ public final class Usermessages {
         return getShakeFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.valve.dota2.CUserMsg_Shake shake = 1;</code>
+       * <code>optional .CUserMsg_Shake shake = 1;</code>
        */
       public com.valve.dota2.Usermessages.CUserMsg_ShakeOrBuilder getShakeOrBuilder() {
         if (shakeBuilder_ != null) {
@@ -4189,7 +4263,7 @@ public final class Usermessages {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CUserMsg_Shake shake = 1;</code>
+       * <code>optional .CUserMsg_Shake shake = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
           com.valve.dota2.Usermessages.CUserMsg_Shake, com.valve.dota2.Usermessages.CUserMsg_Shake.Builder, com.valve.dota2.Usermessages.CUserMsg_ShakeOrBuilder> 
@@ -4205,20 +4279,20 @@ public final class Usermessages {
         return shakeBuilder_;
       }
 
-      // optional .com.valve.dota2.CMsgVector direction = 2;
-      private com.valve.dota2.Netmessages.CMsgVector direction_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+      // optional .CMsgVector direction = 2;
+      private com.valve.dota2.Networkbasetypes.CMsgVector direction_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          com.valve.dota2.Netmessages.CMsgVector, com.valve.dota2.Netmessages.CMsgVector.Builder, com.valve.dota2.Netmessages.CMsgVectorOrBuilder> directionBuilder_;
+          com.valve.dota2.Networkbasetypes.CMsgVector, com.valve.dota2.Networkbasetypes.CMsgVector.Builder, com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder> directionBuilder_;
       /**
-       * <code>optional .com.valve.dota2.CMsgVector direction = 2;</code>
+       * <code>optional .CMsgVector direction = 2;</code>
        */
       public boolean hasDirection() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector direction = 2;</code>
+       * <code>optional .CMsgVector direction = 2;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgVector getDirection() {
+      public com.valve.dota2.Networkbasetypes.CMsgVector getDirection() {
         if (directionBuilder_ == null) {
           return direction_;
         } else {
@@ -4226,9 +4300,9 @@ public final class Usermessages {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector direction = 2;</code>
+       * <code>optional .CMsgVector direction = 2;</code>
        */
-      public Builder setDirection(com.valve.dota2.Netmessages.CMsgVector value) {
+      public Builder setDirection(com.valve.dota2.Networkbasetypes.CMsgVector value) {
         if (directionBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4242,10 +4316,10 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector direction = 2;</code>
+       * <code>optional .CMsgVector direction = 2;</code>
        */
       public Builder setDirection(
-          com.valve.dota2.Netmessages.CMsgVector.Builder builderForValue) {
+          com.valve.dota2.Networkbasetypes.CMsgVector.Builder builderForValue) {
         if (directionBuilder_ == null) {
           direction_ = builderForValue.build();
           onChanged();
@@ -4256,14 +4330,14 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector direction = 2;</code>
+       * <code>optional .CMsgVector direction = 2;</code>
        */
-      public Builder mergeDirection(com.valve.dota2.Netmessages.CMsgVector value) {
+      public Builder mergeDirection(com.valve.dota2.Networkbasetypes.CMsgVector value) {
         if (directionBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              direction_ != com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance()) {
+              direction_ != com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance()) {
             direction_ =
-              com.valve.dota2.Netmessages.CMsgVector.newBuilder(direction_).mergeFrom(value).buildPartial();
+              com.valve.dota2.Networkbasetypes.CMsgVector.newBuilder(direction_).mergeFrom(value).buildPartial();
           } else {
             direction_ = value;
           }
@@ -4275,11 +4349,11 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector direction = 2;</code>
+       * <code>optional .CMsgVector direction = 2;</code>
        */
       public Builder clearDirection() {
         if (directionBuilder_ == null) {
-          direction_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+          direction_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
           onChanged();
         } else {
           directionBuilder_.clear();
@@ -4288,17 +4362,17 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector direction = 2;</code>
+       * <code>optional .CMsgVector direction = 2;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgVector.Builder getDirectionBuilder() {
+      public com.valve.dota2.Networkbasetypes.CMsgVector.Builder getDirectionBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
         return getDirectionFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector direction = 2;</code>
+       * <code>optional .CMsgVector direction = 2;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgVectorOrBuilder getDirectionOrBuilder() {
+      public com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder getDirectionOrBuilder() {
         if (directionBuilder_ != null) {
           return directionBuilder_.getMessageOrBuilder();
         } else {
@@ -4306,14 +4380,14 @@ public final class Usermessages {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector direction = 2;</code>
+       * <code>optional .CMsgVector direction = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          com.valve.dota2.Netmessages.CMsgVector, com.valve.dota2.Netmessages.CMsgVector.Builder, com.valve.dota2.Netmessages.CMsgVectorOrBuilder> 
+          com.valve.dota2.Networkbasetypes.CMsgVector, com.valve.dota2.Networkbasetypes.CMsgVector.Builder, com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder> 
           getDirectionFieldBuilder() {
         if (directionBuilder_ == null) {
           directionBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              com.valve.dota2.Netmessages.CMsgVector, com.valve.dota2.Netmessages.CMsgVector.Builder, com.valve.dota2.Netmessages.CMsgVectorOrBuilder>(
+              com.valve.dota2.Networkbasetypes.CMsgVector, com.valve.dota2.Networkbasetypes.CMsgVector.Builder, com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder>(
                   direction_,
                   getParentForChildren(),
                   isClean());
@@ -4322,7 +4396,7 @@ public final class Usermessages {
         return directionBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_ShakeDir)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_ShakeDir)
     }
 
     static {
@@ -4330,7 +4404,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_ShakeDir)
+    // @@protoc_insertion_point(class_scope:CUserMsg_ShakeDir)
   }
 
   public interface CUserMsg_TiltOrBuilder
@@ -4356,19 +4430,19 @@ public final class Usermessages {
      */
     boolean getEaseInOut();
 
-    // optional .com.valve.dota2.CMsgVector angle = 3;
+    // optional .CMsgVector angle = 3;
     /**
-     * <code>optional .com.valve.dota2.CMsgVector angle = 3;</code>
+     * <code>optional .CMsgVector angle = 3;</code>
      */
     boolean hasAngle();
     /**
-     * <code>optional .com.valve.dota2.CMsgVector angle = 3;</code>
+     * <code>optional .CMsgVector angle = 3;</code>
      */
-    com.valve.dota2.Netmessages.CMsgVector getAngle();
+    com.valve.dota2.Networkbasetypes.CMsgVector getAngle();
     /**
-     * <code>optional .com.valve.dota2.CMsgVector angle = 3;</code>
+     * <code>optional .CMsgVector angle = 3;</code>
      */
-    com.valve.dota2.Netmessages.CMsgVectorOrBuilder getAngleOrBuilder();
+    com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder getAngleOrBuilder();
 
     // optional float duration = 4;
     /**
@@ -4391,7 +4465,7 @@ public final class Usermessages {
     float getTime();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_Tilt}
+   * Protobuf type {@code CUserMsg_Tilt}
    */
   public static final class CUserMsg_Tilt extends
       com.google.protobuf.GeneratedMessage
@@ -4452,11 +4526,11 @@ public final class Usermessages {
               break;
             }
             case 26: {
-              com.valve.dota2.Netmessages.CMsgVector.Builder subBuilder = null;
+              com.valve.dota2.Networkbasetypes.CMsgVector.Builder subBuilder = null;
               if (((bitField0_ & 0x00000004) == 0x00000004)) {
                 subBuilder = angle_.toBuilder();
               }
-              angle_ = input.readMessage(com.valve.dota2.Netmessages.CMsgVector.PARSER, extensionRegistry);
+              angle_ = input.readMessage(com.valve.dota2.Networkbasetypes.CMsgVector.PARSER, extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(angle_);
                 angle_ = subBuilder.buildPartial();
@@ -4488,12 +4562,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Tilt_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_Tilt_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Tilt_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_Tilt_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_Tilt.class, com.valve.dota2.Usermessages.CUserMsg_Tilt.Builder.class);
     }
@@ -4546,25 +4620,25 @@ public final class Usermessages {
       return easeInOut_;
     }
 
-    // optional .com.valve.dota2.CMsgVector angle = 3;
+    // optional .CMsgVector angle = 3;
     public static final int ANGLE_FIELD_NUMBER = 3;
-    private com.valve.dota2.Netmessages.CMsgVector angle_;
+    private com.valve.dota2.Networkbasetypes.CMsgVector angle_;
     /**
-     * <code>optional .com.valve.dota2.CMsgVector angle = 3;</code>
+     * <code>optional .CMsgVector angle = 3;</code>
      */
     public boolean hasAngle() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
-     * <code>optional .com.valve.dota2.CMsgVector angle = 3;</code>
+     * <code>optional .CMsgVector angle = 3;</code>
      */
-    public com.valve.dota2.Netmessages.CMsgVector getAngle() {
+    public com.valve.dota2.Networkbasetypes.CMsgVector getAngle() {
       return angle_;
     }
     /**
-     * <code>optional .com.valve.dota2.CMsgVector angle = 3;</code>
+     * <code>optional .CMsgVector angle = 3;</code>
      */
-    public com.valve.dota2.Netmessages.CMsgVectorOrBuilder getAngleOrBuilder() {
+    public com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder getAngleOrBuilder() {
       return angle_;
     }
 
@@ -4603,7 +4677,7 @@ public final class Usermessages {
     private void initFields() {
       command_ = 0;
       easeInOut_ = false;
-      angle_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+      angle_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
       duration_ = 0F;
       time_ = 0F;
     }
@@ -4742,19 +4816,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_Tilt}
+     * Protobuf type {@code CUserMsg_Tilt}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_TiltOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Tilt_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_Tilt_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Tilt_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_Tilt_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_Tilt.class, com.valve.dota2.Usermessages.CUserMsg_Tilt.Builder.class);
       }
@@ -4785,7 +4859,7 @@ public final class Usermessages {
         easeInOut_ = false;
         bitField0_ = (bitField0_ & ~0x00000002);
         if (angleBuilder_ == null) {
-          angle_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+          angle_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
         } else {
           angleBuilder_.clear();
         }
@@ -4803,7 +4877,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Tilt_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_Tilt_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_Tilt getDefaultInstanceForType() {
@@ -4970,20 +5044,20 @@ public final class Usermessages {
         return this;
       }
 
-      // optional .com.valve.dota2.CMsgVector angle = 3;
-      private com.valve.dota2.Netmessages.CMsgVector angle_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+      // optional .CMsgVector angle = 3;
+      private com.valve.dota2.Networkbasetypes.CMsgVector angle_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
       private com.google.protobuf.SingleFieldBuilder<
-          com.valve.dota2.Netmessages.CMsgVector, com.valve.dota2.Netmessages.CMsgVector.Builder, com.valve.dota2.Netmessages.CMsgVectorOrBuilder> angleBuilder_;
+          com.valve.dota2.Networkbasetypes.CMsgVector, com.valve.dota2.Networkbasetypes.CMsgVector.Builder, com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder> angleBuilder_;
       /**
-       * <code>optional .com.valve.dota2.CMsgVector angle = 3;</code>
+       * <code>optional .CMsgVector angle = 3;</code>
        */
       public boolean hasAngle() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector angle = 3;</code>
+       * <code>optional .CMsgVector angle = 3;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgVector getAngle() {
+      public com.valve.dota2.Networkbasetypes.CMsgVector getAngle() {
         if (angleBuilder_ == null) {
           return angle_;
         } else {
@@ -4991,9 +5065,9 @@ public final class Usermessages {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector angle = 3;</code>
+       * <code>optional .CMsgVector angle = 3;</code>
        */
-      public Builder setAngle(com.valve.dota2.Netmessages.CMsgVector value) {
+      public Builder setAngle(com.valve.dota2.Networkbasetypes.CMsgVector value) {
         if (angleBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -5007,10 +5081,10 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector angle = 3;</code>
+       * <code>optional .CMsgVector angle = 3;</code>
        */
       public Builder setAngle(
-          com.valve.dota2.Netmessages.CMsgVector.Builder builderForValue) {
+          com.valve.dota2.Networkbasetypes.CMsgVector.Builder builderForValue) {
         if (angleBuilder_ == null) {
           angle_ = builderForValue.build();
           onChanged();
@@ -5021,14 +5095,14 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector angle = 3;</code>
+       * <code>optional .CMsgVector angle = 3;</code>
        */
-      public Builder mergeAngle(com.valve.dota2.Netmessages.CMsgVector value) {
+      public Builder mergeAngle(com.valve.dota2.Networkbasetypes.CMsgVector value) {
         if (angleBuilder_ == null) {
           if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              angle_ != com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance()) {
+              angle_ != com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance()) {
             angle_ =
-              com.valve.dota2.Netmessages.CMsgVector.newBuilder(angle_).mergeFrom(value).buildPartial();
+              com.valve.dota2.Networkbasetypes.CMsgVector.newBuilder(angle_).mergeFrom(value).buildPartial();
           } else {
             angle_ = value;
           }
@@ -5040,11 +5114,11 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector angle = 3;</code>
+       * <code>optional .CMsgVector angle = 3;</code>
        */
       public Builder clearAngle() {
         if (angleBuilder_ == null) {
-          angle_ = com.valve.dota2.Netmessages.CMsgVector.getDefaultInstance();
+          angle_ = com.valve.dota2.Networkbasetypes.CMsgVector.getDefaultInstance();
           onChanged();
         } else {
           angleBuilder_.clear();
@@ -5053,17 +5127,17 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector angle = 3;</code>
+       * <code>optional .CMsgVector angle = 3;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgVector.Builder getAngleBuilder() {
+      public com.valve.dota2.Networkbasetypes.CMsgVector.Builder getAngleBuilder() {
         bitField0_ |= 0x00000004;
         onChanged();
         return getAngleFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector angle = 3;</code>
+       * <code>optional .CMsgVector angle = 3;</code>
        */
-      public com.valve.dota2.Netmessages.CMsgVectorOrBuilder getAngleOrBuilder() {
+      public com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder getAngleOrBuilder() {
         if (angleBuilder_ != null) {
           return angleBuilder_.getMessageOrBuilder();
         } else {
@@ -5071,14 +5145,14 @@ public final class Usermessages {
         }
       }
       /**
-       * <code>optional .com.valve.dota2.CMsgVector angle = 3;</code>
+       * <code>optional .CMsgVector angle = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilder<
-          com.valve.dota2.Netmessages.CMsgVector, com.valve.dota2.Netmessages.CMsgVector.Builder, com.valve.dota2.Netmessages.CMsgVectorOrBuilder> 
+          com.valve.dota2.Networkbasetypes.CMsgVector, com.valve.dota2.Networkbasetypes.CMsgVector.Builder, com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder> 
           getAngleFieldBuilder() {
         if (angleBuilder_ == null) {
           angleBuilder_ = new com.google.protobuf.SingleFieldBuilder<
-              com.valve.dota2.Netmessages.CMsgVector, com.valve.dota2.Netmessages.CMsgVector.Builder, com.valve.dota2.Netmessages.CMsgVectorOrBuilder>(
+              com.valve.dota2.Networkbasetypes.CMsgVector, com.valve.dota2.Networkbasetypes.CMsgVector.Builder, com.valve.dota2.Networkbasetypes.CMsgVectorOrBuilder>(
                   angle_,
                   getParentForChildren(),
                   isClean());
@@ -5153,7 +5227,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_Tilt)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_Tilt)
     }
 
     static {
@@ -5161,7 +5235,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_Tilt)
+    // @@protoc_insertion_point(class_scope:CUserMsg_Tilt)
   }
 
   public interface CUserMsg_SayTextOrBuilder
@@ -5203,7 +5277,7 @@ public final class Usermessages {
     boolean getChat();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_SayText}
+   * Protobuf type {@code CUserMsg_SayText}
    */
   public static final class CUserMsg_SayText extends
       com.google.protobuf.GeneratedMessage
@@ -5282,12 +5356,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SayText_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_SayText_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SayText_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_SayText_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_SayText.class, com.valve.dota2.Usermessages.CUserMsg_SayText.Builder.class);
     }
@@ -5509,19 +5583,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_SayText}
+     * Protobuf type {@code CUserMsg_SayText}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_SayTextOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SayText_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_SayText_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SayText_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_SayText_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_SayText.class, com.valve.dota2.Usermessages.CUserMsg_SayText.Builder.class);
       }
@@ -5561,7 +5635,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SayText_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_SayText_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_SayText getDefaultInstanceForType() {
@@ -5786,7 +5860,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_SayText)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_SayText)
     }
 
     static {
@@ -5794,7 +5868,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_SayText)
+    // @@protoc_insertion_point(class_scope:CUserMsg_SayText)
   }
 
   public interface CUserMsg_SayText2OrBuilder
@@ -5881,7 +5955,7 @@ public final class Usermessages {
         getLocationBytes();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_SayText2}
+   * Protobuf type {@code CUserMsg_SayText2}
    */
   public static final class CUserMsg_SayText2 extends
       com.google.protobuf.GeneratedMessage
@@ -5975,12 +6049,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SayText2_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_SayText2_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SayText2_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_SayText2_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_SayText2.class, com.valve.dota2.Usermessages.CUserMsg_SayText2.Builder.class);
     }
@@ -6355,19 +6429,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_SayText2}
+     * Protobuf type {@code CUserMsg_SayText2}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_SayText2OrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SayText2_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_SayText2_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SayText2_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_SayText2_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_SayText2.class, com.valve.dota2.Usermessages.CUserMsg_SayText2.Builder.class);
       }
@@ -6413,7 +6487,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SayText2_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_SayText2_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_SayText2 getDefaultInstanceForType() {
@@ -6887,7 +6961,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_SayText2)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_SayText2)
     }
 
     static {
@@ -6895,7 +6969,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_SayText2)
+    // @@protoc_insertion_point(class_scope:CUserMsg_SayText2)
   }
 
   public interface CUserMsg_HudMsgOrBuilder
@@ -7017,7 +7091,7 @@ public final class Usermessages {
         getMessageBytes();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_HudMsg}
+   * Protobuf type {@code CUserMsg_HudMsg}
    */
   public static final class CUserMsg_HudMsg extends
       com.google.protobuf.GeneratedMessage
@@ -7136,12 +7210,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_HudMsg_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_HudMsg_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_HudMsg_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_HudMsg_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_HudMsg.class, com.valve.dota2.Usermessages.CUserMsg_HudMsg.Builder.class);
     }
@@ -7555,19 +7629,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_HudMsg}
+     * Protobuf type {@code CUserMsg_HudMsg}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_HudMsgOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_HudMsg_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_HudMsg_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_HudMsg_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_HudMsg_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_HudMsg.class, com.valve.dota2.Usermessages.CUserMsg_HudMsg.Builder.class);
       }
@@ -7623,7 +7697,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_HudMsg_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_HudMsg_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_HudMsg getDefaultInstanceForType() {
@@ -8168,7 +8242,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_HudMsg)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_HudMsg)
     }
 
     static {
@@ -8176,7 +8250,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_HudMsg)
+    // @@protoc_insertion_point(class_scope:CUserMsg_HudMsg)
   }
 
   public interface CUserMsg_HudTextOrBuilder
@@ -8198,7 +8272,7 @@ public final class Usermessages {
         getMessageBytes();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_HudText}
+   * Protobuf type {@code CUserMsg_HudText}
    */
   public static final class CUserMsg_HudText extends
       com.google.protobuf.GeneratedMessage
@@ -8267,12 +8341,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_HudText_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_HudText_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_HudText_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_HudText_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_HudText.class, com.valve.dota2.Usermessages.CUserMsg_HudText.Builder.class);
     }
@@ -8446,19 +8520,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_HudText}
+     * Protobuf type {@code CUserMsg_HudText}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_HudTextOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_HudText_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_HudText_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_HudText_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_HudText_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_HudText.class, com.valve.dota2.Usermessages.CUserMsg_HudText.Builder.class);
       }
@@ -8494,7 +8568,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_HudText_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_HudText_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_HudText getDefaultInstanceForType() {
@@ -8639,7 +8713,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_HudText)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_HudText)
     }
 
     static {
@@ -8647,7 +8721,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_HudText)
+    // @@protoc_insertion_point(class_scope:CUserMsg_HudText)
   }
 
   public interface CUserMsg_TextMsgOrBuilder
@@ -8684,7 +8758,7 @@ public final class Usermessages {
         getParamBytes(int index);
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_TextMsg}
+   * Protobuf type {@code CUserMsg_TextMsg}
    */
   public static final class CUserMsg_TextMsg extends
       com.google.protobuf.GeneratedMessage
@@ -8764,12 +8838,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_TextMsg_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_TextMsg_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_TextMsg_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_TextMsg_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_TextMsg.class, com.valve.dota2.Usermessages.CUserMsg_TextMsg.Builder.class);
     }
@@ -8959,19 +9033,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_TextMsg}
+     * Protobuf type {@code CUserMsg_TextMsg}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_TextMsgOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_TextMsg_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_TextMsg_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_TextMsg_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_TextMsg_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_TextMsg.class, com.valve.dota2.Usermessages.CUserMsg_TextMsg.Builder.class);
       }
@@ -9009,7 +9083,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_TextMsg_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_TextMsg_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_TextMsg getDefaultInstanceForType() {
@@ -9220,7 +9294,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_TextMsg)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_TextMsg)
     }
 
     static {
@@ -9228,14 +9302,14 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_TextMsg)
+    // @@protoc_insertion_point(class_scope:CUserMsg_TextMsg)
   }
 
   public interface CUserMsg_GameTitleOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_GameTitle}
+   * Protobuf type {@code CUserMsg_GameTitle}
    */
   public static final class CUserMsg_GameTitle extends
       com.google.protobuf.GeneratedMessage
@@ -9298,12 +9372,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_GameTitle_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_GameTitle_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_GameTitle_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_GameTitle_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_GameTitle.class, com.valve.dota2.Usermessages.CUserMsg_GameTitle.Builder.class);
     }
@@ -9425,19 +9499,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_GameTitle}
+     * Protobuf type {@code CUserMsg_GameTitle}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_GameTitleOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_GameTitle_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_GameTitle_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_GameTitle_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_GameTitle_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_GameTitle.class, com.valve.dota2.Usermessages.CUserMsg_GameTitle.Builder.class);
       }
@@ -9471,7 +9545,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_GameTitle_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_GameTitle_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_GameTitle getDefaultInstanceForType() {
@@ -9529,7 +9603,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_GameTitle)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_GameTitle)
     }
 
     static {
@@ -9537,14 +9611,14 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_GameTitle)
+    // @@protoc_insertion_point(class_scope:CUserMsg_GameTitle)
   }
 
   public interface CUserMsg_ResetHUDOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_ResetHUD}
+   * Protobuf type {@code CUserMsg_ResetHUD}
    */
   public static final class CUserMsg_ResetHUD extends
       com.google.protobuf.GeneratedMessage
@@ -9607,12 +9681,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_ResetHUD_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_ResetHUD_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_ResetHUD_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_ResetHUD_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_ResetHUD.class, com.valve.dota2.Usermessages.CUserMsg_ResetHUD.Builder.class);
     }
@@ -9734,19 +9808,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_ResetHUD}
+     * Protobuf type {@code CUserMsg_ResetHUD}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_ResetHUDOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_ResetHUD_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_ResetHUD_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_ResetHUD_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_ResetHUD_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_ResetHUD.class, com.valve.dota2.Usermessages.CUserMsg_ResetHUD.Builder.class);
       }
@@ -9780,7 +9854,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_ResetHUD_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_ResetHUD_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_ResetHUD getDefaultInstanceForType() {
@@ -9838,7 +9912,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_ResetHUD)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_ResetHUD)
     }
 
     static {
@@ -9846,7 +9920,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_ResetHUD)
+    // @@protoc_insertion_point(class_scope:CUserMsg_ResetHUD)
   }
 
   public interface CUserMsg_SendAudioOrBuilder
@@ -9855,50 +9929,30 @@ public final class Usermessages {
     // optional bool stop = 2;
     /**
      * <code>optional bool stop = 2;</code>
-     *
-     * <pre>
-     *&#47;optional fixed32 hash = 1; // sound hash
-     * </pre>
      */
     boolean hasStop();
     /**
      * <code>optional bool stop = 2;</code>
-     *
-     * <pre>
-     *&#47;optional fixed32 hash = 1; // sound hash
-     * </pre>
      */
     boolean getStop();
 
     // optional string name = 3;
     /**
      * <code>optional string name = 3;</code>
-     *
-     * <pre>
-     * sound name
-     * </pre>
      */
     boolean hasName();
     /**
      * <code>optional string name = 3;</code>
-     *
-     * <pre>
-     * sound name
-     * </pre>
      */
     java.lang.String getName();
     /**
      * <code>optional string name = 3;</code>
-     *
-     * <pre>
-     * sound name
-     * </pre>
      */
     com.google.protobuf.ByteString
         getNameBytes();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_SendAudio}
+   * Protobuf type {@code CUserMsg_SendAudio}
    */
   public static final class CUserMsg_SendAudio extends
       com.google.protobuf.GeneratedMessage
@@ -9972,12 +10026,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SendAudio_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_SendAudio_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SendAudio_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_SendAudio_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_SendAudio.class, com.valve.dota2.Usermessages.CUserMsg_SendAudio.Builder.class);
     }
@@ -10003,20 +10057,12 @@ public final class Usermessages {
     private boolean stop_;
     /**
      * <code>optional bool stop = 2;</code>
-     *
-     * <pre>
-     *&#47;optional fixed32 hash = 1; // sound hash
-     * </pre>
      */
     public boolean hasStop() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <code>optional bool stop = 2;</code>
-     *
-     * <pre>
-     *&#47;optional fixed32 hash = 1; // sound hash
-     * </pre>
      */
     public boolean getStop() {
       return stop_;
@@ -10027,20 +10073,12 @@ public final class Usermessages {
     private java.lang.Object name_;
     /**
      * <code>optional string name = 3;</code>
-     *
-     * <pre>
-     * sound name
-     * </pre>
      */
     public boolean hasName() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
      * <code>optional string name = 3;</code>
-     *
-     * <pre>
-     * sound name
-     * </pre>
      */
     public java.lang.String getName() {
       java.lang.Object ref = name_;
@@ -10058,10 +10096,6 @@ public final class Usermessages {
     }
     /**
      * <code>optional string name = 3;</code>
-     *
-     * <pre>
-     * sound name
-     * </pre>
      */
     public com.google.protobuf.ByteString
         getNameBytes() {
@@ -10195,19 +10229,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_SendAudio}
+     * Protobuf type {@code CUserMsg_SendAudio}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_SendAudioOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SendAudio_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_SendAudio_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SendAudio_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_SendAudio_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_SendAudio.class, com.valve.dota2.Usermessages.CUserMsg_SendAudio.Builder.class);
       }
@@ -10245,7 +10279,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SendAudio_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_SendAudio_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_SendAudio getDefaultInstanceForType() {
@@ -10327,30 +10361,18 @@ public final class Usermessages {
       private boolean stop_ ;
       /**
        * <code>optional bool stop = 2;</code>
-       *
-       * <pre>
-       *&#47;optional fixed32 hash = 1; // sound hash
-       * </pre>
        */
       public boolean hasStop() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
        * <code>optional bool stop = 2;</code>
-       *
-       * <pre>
-       *&#47;optional fixed32 hash = 1; // sound hash
-       * </pre>
        */
       public boolean getStop() {
         return stop_;
       }
       /**
        * <code>optional bool stop = 2;</code>
-       *
-       * <pre>
-       *&#47;optional fixed32 hash = 1; // sound hash
-       * </pre>
        */
       public Builder setStop(boolean value) {
         bitField0_ |= 0x00000001;
@@ -10360,10 +10382,6 @@ public final class Usermessages {
       }
       /**
        * <code>optional bool stop = 2;</code>
-       *
-       * <pre>
-       *&#47;optional fixed32 hash = 1; // sound hash
-       * </pre>
        */
       public Builder clearStop() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -10376,20 +10394,12 @@ public final class Usermessages {
       private java.lang.Object name_ = "";
       /**
        * <code>optional string name = 3;</code>
-       *
-       * <pre>
-       * sound name
-       * </pre>
        */
       public boolean hasName() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <code>optional string name = 3;</code>
-       *
-       * <pre>
-       * sound name
-       * </pre>
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -10404,10 +10414,6 @@ public final class Usermessages {
       }
       /**
        * <code>optional string name = 3;</code>
-       *
-       * <pre>
-       * sound name
-       * </pre>
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -10424,10 +10430,6 @@ public final class Usermessages {
       }
       /**
        * <code>optional string name = 3;</code>
-       *
-       * <pre>
-       * sound name
-       * </pre>
        */
       public Builder setName(
           java.lang.String value) {
@@ -10441,10 +10443,6 @@ public final class Usermessages {
       }
       /**
        * <code>optional string name = 3;</code>
-       *
-       * <pre>
-       * sound name
-       * </pre>
        */
       public Builder clearName() {
         bitField0_ = (bitField0_ & ~0x00000002);
@@ -10454,10 +10452,6 @@ public final class Usermessages {
       }
       /**
        * <code>optional string name = 3;</code>
-       *
-       * <pre>
-       * sound name
-       * </pre>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -10470,7 +10464,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_SendAudio)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_SendAudio)
     }
 
     static {
@@ -10478,7 +10472,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_SendAudio)
+    // @@protoc_insertion_point(class_scope:CUserMsg_SendAudio)
   }
 
   public interface CUserMsg_VoiceMaskOrBuilder
@@ -10509,7 +10503,7 @@ public final class Usermessages {
     boolean getPlayerModEnabled();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_VoiceMask}
+   * Protobuf type {@code CUserMsg_VoiceMask}
    */
   public static final class CUserMsg_VoiceMask extends
       com.google.protobuf.GeneratedMessage
@@ -10602,12 +10596,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VoiceMask_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_VoiceMask_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VoiceMask_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_VoiceMask_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_VoiceMask.class, com.valve.dota2.Usermessages.CUserMsg_VoiceMask.Builder.class);
     }
@@ -10790,19 +10784,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_VoiceMask}
+     * Protobuf type {@code CUserMsg_VoiceMask}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_VoiceMaskOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VoiceMask_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_VoiceMask_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VoiceMask_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_VoiceMask_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_VoiceMask.class, com.valve.dota2.Usermessages.CUserMsg_VoiceMask.Builder.class);
       }
@@ -10840,7 +10834,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VoiceMask_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_VoiceMask_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_VoiceMask getDefaultInstanceForType() {
@@ -11023,7 +11017,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_VoiceMask)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_VoiceMask)
     }
 
     static {
@@ -11031,14 +11025,14 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_VoiceMask)
+    // @@protoc_insertion_point(class_scope:CUserMsg_VoiceMask)
   }
 
   public interface CUserMsg_RequestStateOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_RequestState}
+   * Protobuf type {@code CUserMsg_RequestState}
    */
   public static final class CUserMsg_RequestState extends
       com.google.protobuf.GeneratedMessage
@@ -11101,12 +11095,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_RequestState_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_RequestState_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_RequestState_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_RequestState_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_RequestState.class, com.valve.dota2.Usermessages.CUserMsg_RequestState.Builder.class);
     }
@@ -11228,19 +11222,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_RequestState}
+     * Protobuf type {@code CUserMsg_RequestState}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_RequestStateOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_RequestState_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_RequestState_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_RequestState_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_RequestState_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_RequestState.class, com.valve.dota2.Usermessages.CUserMsg_RequestState.Builder.class);
       }
@@ -11274,7 +11268,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_RequestState_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_RequestState_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_RequestState getDefaultInstanceForType() {
@@ -11332,7 +11326,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_RequestState)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_RequestState)
     }
 
     static {
@@ -11340,7 +11334,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_RequestState)
+    // @@protoc_insertion_point(class_scope:CUserMsg_RequestState)
   }
 
   public interface CUserMsg_HintTextOrBuilder
@@ -11362,7 +11356,7 @@ public final class Usermessages {
         getMessageBytes();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_HintText}
+   * Protobuf type {@code CUserMsg_HintText}
    */
   public static final class CUserMsg_HintText extends
       com.google.protobuf.GeneratedMessage
@@ -11431,12 +11425,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_HintText_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_HintText_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_HintText_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_HintText_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_HintText.class, com.valve.dota2.Usermessages.CUserMsg_HintText.Builder.class);
     }
@@ -11610,19 +11604,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_HintText}
+     * Protobuf type {@code CUserMsg_HintText}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_HintTextOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_HintText_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_HintText_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_HintText_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_HintText_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_HintText.class, com.valve.dota2.Usermessages.CUserMsg_HintText.Builder.class);
       }
@@ -11658,7 +11652,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_HintText_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_HintText_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_HintText getDefaultInstanceForType() {
@@ -11803,7 +11797,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_HintText)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_HintText)
     }
 
     static {
@@ -11811,7 +11805,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_HintText)
+    // @@protoc_insertion_point(class_scope:CUserMsg_HintText)
   }
 
   public interface CUserMsg_KeyHintTextOrBuilder
@@ -11838,7 +11832,7 @@ public final class Usermessages {
         getMessagesBytes(int index);
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_KeyHintText}
+   * Protobuf type {@code CUserMsg_KeyHintText}
    */
   public static final class CUserMsg_KeyHintText extends
       com.google.protobuf.GeneratedMessage
@@ -11913,12 +11907,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_KeyHintText_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_KeyHintText_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_KeyHintText_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_KeyHintText_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_KeyHintText.class, com.valve.dota2.Usermessages.CUserMsg_KeyHintText.Builder.class);
     }
@@ -12083,19 +12077,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_KeyHintText}
+     * Protobuf type {@code CUserMsg_KeyHintText}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_KeyHintTextOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_KeyHintText_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_KeyHintText_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_KeyHintText_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_KeyHintText_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_KeyHintText.class, com.valve.dota2.Usermessages.CUserMsg_KeyHintText.Builder.class);
       }
@@ -12131,7 +12125,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_KeyHintText_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_KeyHintText_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_KeyHintText getDefaultInstanceForType() {
@@ -12300,7 +12294,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_KeyHintText)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_KeyHintText)
     }
 
     static {
@@ -12308,14 +12302,14 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_KeyHintText)
+    // @@protoc_insertion_point(class_scope:CUserMsg_KeyHintText)
   }
 
   public interface CUserMsg_StatsCrawlMsgOrBuilder
       extends com.google.protobuf.MessageOrBuilder {
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_StatsCrawlMsg}
+   * Protobuf type {@code CUserMsg_StatsCrawlMsg}
    */
   public static final class CUserMsg_StatsCrawlMsg extends
       com.google.protobuf.GeneratedMessage
@@ -12378,12 +12372,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_StatsCrawlMsg_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_StatsCrawlMsg_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_StatsCrawlMsg_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_StatsCrawlMsg_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_StatsCrawlMsg.class, com.valve.dota2.Usermessages.CUserMsg_StatsCrawlMsg.Builder.class);
     }
@@ -12505,19 +12499,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_StatsCrawlMsg}
+     * Protobuf type {@code CUserMsg_StatsCrawlMsg}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_StatsCrawlMsgOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_StatsCrawlMsg_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_StatsCrawlMsg_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_StatsCrawlMsg_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_StatsCrawlMsg_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_StatsCrawlMsg.class, com.valve.dota2.Usermessages.CUserMsg_StatsCrawlMsg.Builder.class);
       }
@@ -12551,7 +12545,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_StatsCrawlMsg_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_StatsCrawlMsg_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_StatsCrawlMsg getDefaultInstanceForType() {
@@ -12609,7 +12603,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_StatsCrawlMsg)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_StatsCrawlMsg)
     }
 
     static {
@@ -12617,7 +12611,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_StatsCrawlMsg)
+    // @@protoc_insertion_point(class_scope:CUserMsg_StatsCrawlMsg)
   }
 
   public interface CUserMsg_StatsSkipStateOrBuilder
@@ -12644,7 +12638,7 @@ public final class Usermessages {
     int getNumPlayers();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_StatsSkipState}
+   * Protobuf type {@code CUserMsg_StatsSkipState}
    */
   public static final class CUserMsg_StatsSkipState extends
       com.google.protobuf.GeneratedMessage
@@ -12718,12 +12712,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_StatsSkipState_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_StatsSkipState_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_StatsSkipState_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_StatsSkipState_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_StatsSkipState.class, com.valve.dota2.Usermessages.CUserMsg_StatsSkipState.Builder.class);
     }
@@ -12894,19 +12888,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_StatsSkipState}
+     * Protobuf type {@code CUserMsg_StatsSkipState}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_StatsSkipStateOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_StatsSkipState_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_StatsSkipState_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_StatsSkipState_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_StatsSkipState_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_StatsSkipState.class, com.valve.dota2.Usermessages.CUserMsg_StatsSkipState.Builder.class);
       }
@@ -12944,7 +12938,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_StatsSkipState_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_StatsSkipState_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_StatsSkipState getDefaultInstanceForType() {
@@ -13086,7 +13080,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_StatsSkipState)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_StatsSkipState)
     }
 
     static {
@@ -13094,7 +13088,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_StatsSkipState)
+    // @@protoc_insertion_point(class_scope:CUserMsg_StatsSkipState)
   }
 
   public interface CUserMsg_VoiceSubtitleOrBuilder
@@ -13131,7 +13125,7 @@ public final class Usermessages {
     int getItem();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_VoiceSubtitle}
+   * Protobuf type {@code CUserMsg_VoiceSubtitle}
    */
   public static final class CUserMsg_VoiceSubtitle extends
       com.google.protobuf.GeneratedMessage
@@ -13210,12 +13204,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VoiceSubtitle_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_VoiceSubtitle_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VoiceSubtitle_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_VoiceSubtitle_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_VoiceSubtitle.class, com.valve.dota2.Usermessages.CUserMsg_VoiceSubtitle.Builder.class);
     }
@@ -13410,19 +13404,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_VoiceSubtitle}
+     * Protobuf type {@code CUserMsg_VoiceSubtitle}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_VoiceSubtitleOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VoiceSubtitle_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_VoiceSubtitle_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VoiceSubtitle_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_VoiceSubtitle_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_VoiceSubtitle.class, com.valve.dota2.Usermessages.CUserMsg_VoiceSubtitle.Builder.class);
       }
@@ -13462,7 +13456,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VoiceSubtitle_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_VoiceSubtitle_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_VoiceSubtitle getDefaultInstanceForType() {
@@ -13644,7 +13638,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_VoiceSubtitle)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_VoiceSubtitle)
     }
 
     static {
@@ -13652,7 +13646,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_VoiceSubtitle)
+    // @@protoc_insertion_point(class_scope:CUserMsg_VoiceSubtitle)
   }
 
   public interface CUserMsg_VGUIMenuOrBuilder
@@ -13683,33 +13677,33 @@ public final class Usermessages {
      */
     boolean getShow();
 
-    // repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;
+    // repeated .CUserMsg_VGUIMenu.Keys keys = 3;
     /**
-     * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+     * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
      */
     java.util.List<com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys> 
         getKeysList();
     /**
-     * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+     * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
      */
     com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys getKeys(int index);
     /**
-     * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+     * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
      */
     int getKeysCount();
     /**
-     * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+     * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
      */
     java.util.List<? extends com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.KeysOrBuilder> 
         getKeysOrBuilderList();
     /**
-     * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+     * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
      */
     com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.KeysOrBuilder getKeysOrBuilder(
         int index);
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_VGUIMenu}
+   * Protobuf type {@code CUserMsg_VGUIMenu}
    */
   public static final class CUserMsg_VGUIMenu extends
       com.google.protobuf.GeneratedMessage
@@ -13794,12 +13788,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VGUIMenu_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_VGUIMenu_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VGUIMenu_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_VGUIMenu_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.class, com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Builder.class);
     }
@@ -13853,7 +13847,7 @@ public final class Usermessages {
           getValueBytes();
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_VGUIMenu.Keys}
+     * Protobuf type {@code CUserMsg_VGUIMenu.Keys}
      */
     public static final class Keys extends
         com.google.protobuf.GeneratedMessage
@@ -13927,12 +13921,12 @@ public final class Usermessages {
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VGUIMenu_Keys_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_VGUIMenu_Keys_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VGUIMenu_Keys_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_VGUIMenu_Keys_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys.class, com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys.Builder.class);
       }
@@ -14157,19 +14151,19 @@ public final class Usermessages {
         return builder;
       }
       /**
-       * Protobuf type {@code com.valve.dota2.CUserMsg_VGUIMenu.Keys}
+       * Protobuf type {@code CUserMsg_VGUIMenu.Keys}
        */
       public static final class Builder extends
           com.google.protobuf.GeneratedMessage.Builder<Builder>
          implements com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.KeysOrBuilder {
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
-          return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VGUIMenu_Keys_descriptor;
+          return com.valve.dota2.Usermessages.internal_static_CUserMsg_VGUIMenu_Keys_descriptor;
         }
 
         protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
             internalGetFieldAccessorTable() {
-          return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VGUIMenu_Keys_fieldAccessorTable
+          return com.valve.dota2.Usermessages.internal_static_CUserMsg_VGUIMenu_Keys_fieldAccessorTable
               .ensureFieldAccessorsInitialized(
                   com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys.class, com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys.Builder.class);
         }
@@ -14207,7 +14201,7 @@ public final class Usermessages {
 
         public com.google.protobuf.Descriptors.Descriptor
             getDescriptorForType() {
-          return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VGUIMenu_Keys_descriptor;
+          return com.valve.dota2.Usermessages.internal_static_CUserMsg_VGUIMenu_Keys_descriptor;
         }
 
         public com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys getDefaultInstanceForType() {
@@ -14435,7 +14429,7 @@ public final class Usermessages {
           return this;
         }
 
-        // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_VGUIMenu.Keys)
+        // @@protoc_insertion_point(builder_scope:CUserMsg_VGUIMenu.Keys)
       }
 
       static {
@@ -14443,7 +14437,7 @@ public final class Usermessages {
         defaultInstance.initFields();
       }
 
-      // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_VGUIMenu.Keys)
+      // @@protoc_insertion_point(class_scope:CUserMsg_VGUIMenu.Keys)
     }
 
     private int bitField0_;
@@ -14506,36 +14500,36 @@ public final class Usermessages {
       return show_;
     }
 
-    // repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;
+    // repeated .CUserMsg_VGUIMenu.Keys keys = 3;
     public static final int KEYS_FIELD_NUMBER = 3;
     private java.util.List<com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys> keys_;
     /**
-     * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+     * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
      */
     public java.util.List<com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys> getKeysList() {
       return keys_;
     }
     /**
-     * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+     * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
      */
     public java.util.List<? extends com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.KeysOrBuilder> 
         getKeysOrBuilderList() {
       return keys_;
     }
     /**
-     * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+     * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
      */
     public int getKeysCount() {
       return keys_.size();
     }
     /**
-     * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+     * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
      */
     public com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys getKeys(int index) {
       return keys_.get(index);
     }
     /**
-     * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+     * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
      */
     public com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.KeysOrBuilder getKeysOrBuilder(
         int index) {
@@ -14668,19 +14662,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_VGUIMenu}
+     * Protobuf type {@code CUserMsg_VGUIMenu}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_VGUIMenuOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VGUIMenu_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_VGUIMenu_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VGUIMenu_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_VGUIMenu_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.class, com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Builder.class);
       }
@@ -14725,7 +14719,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_VGUIMenu_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_VGUIMenu_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_VGUIMenu getDefaultInstanceForType() {
@@ -14945,7 +14939,7 @@ public final class Usermessages {
         return this;
       }
 
-      // repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;
+      // repeated .CUserMsg_VGUIMenu.Keys keys = 3;
       private java.util.List<com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys> keys_ =
         java.util.Collections.emptyList();
       private void ensureKeysIsMutable() {
@@ -14959,7 +14953,7 @@ public final class Usermessages {
           com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys, com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys.Builder, com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.KeysOrBuilder> keysBuilder_;
 
       /**
-       * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+       * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
        */
       public java.util.List<com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys> getKeysList() {
         if (keysBuilder_ == null) {
@@ -14969,7 +14963,7 @@ public final class Usermessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+       * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
        */
       public int getKeysCount() {
         if (keysBuilder_ == null) {
@@ -14979,7 +14973,7 @@ public final class Usermessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+       * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
        */
       public com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys getKeys(int index) {
         if (keysBuilder_ == null) {
@@ -14989,7 +14983,7 @@ public final class Usermessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+       * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
        */
       public Builder setKeys(
           int index, com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys value) {
@@ -15006,7 +15000,7 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+       * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
        */
       public Builder setKeys(
           int index, com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys.Builder builderForValue) {
@@ -15020,7 +15014,7 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+       * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
        */
       public Builder addKeys(com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys value) {
         if (keysBuilder_ == null) {
@@ -15036,7 +15030,7 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+       * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
        */
       public Builder addKeys(
           int index, com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys value) {
@@ -15053,7 +15047,7 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+       * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
        */
       public Builder addKeys(
           com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys.Builder builderForValue) {
@@ -15067,7 +15061,7 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+       * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
        */
       public Builder addKeys(
           int index, com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys.Builder builderForValue) {
@@ -15081,7 +15075,7 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+       * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
        */
       public Builder addAllKeys(
           java.lang.Iterable<? extends com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys> values) {
@@ -15095,7 +15089,7 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+       * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
        */
       public Builder clearKeys() {
         if (keysBuilder_ == null) {
@@ -15108,7 +15102,7 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+       * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
        */
       public Builder removeKeys(int index) {
         if (keysBuilder_ == null) {
@@ -15121,14 +15115,14 @@ public final class Usermessages {
         return this;
       }
       /**
-       * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+       * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
        */
       public com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys.Builder getKeysBuilder(
           int index) {
         return getKeysFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+       * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
        */
       public com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.KeysOrBuilder getKeysOrBuilder(
           int index) {
@@ -15138,7 +15132,7 @@ public final class Usermessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+       * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
        */
       public java.util.List<? extends com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.KeysOrBuilder> 
            getKeysOrBuilderList() {
@@ -15149,14 +15143,14 @@ public final class Usermessages {
         }
       }
       /**
-       * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+       * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
        */
       public com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys.Builder addKeysBuilder() {
         return getKeysFieldBuilder().addBuilder(
             com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+       * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
        */
       public com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys.Builder addKeysBuilder(
           int index) {
@@ -15164,7 +15158,7 @@ public final class Usermessages {
             index, com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys.getDefaultInstance());
       }
       /**
-       * <code>repeated .com.valve.dota2.CUserMsg_VGUIMenu.Keys keys = 3;</code>
+       * <code>repeated .CUserMsg_VGUIMenu.Keys keys = 3;</code>
        */
       public java.util.List<com.valve.dota2.Usermessages.CUserMsg_VGUIMenu.Keys.Builder> 
            getKeysBuilderList() {
@@ -15185,7 +15179,7 @@ public final class Usermessages {
         return keysBuilder_;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_VGUIMenu)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_VGUIMenu)
     }
 
     static {
@@ -15193,7 +15187,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_VGUIMenu)
+    // @@protoc_insertion_point(class_scope:CUserMsg_VGUIMenu)
   }
 
   public interface CUserMsg_GeigerOrBuilder
@@ -15210,7 +15204,7 @@ public final class Usermessages {
     int getRange();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_Geiger}
+   * Protobuf type {@code CUserMsg_Geiger}
    */
   public static final class CUserMsg_Geiger extends
       com.google.protobuf.GeneratedMessage
@@ -15279,12 +15273,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Geiger_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_Geiger_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Geiger_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_Geiger_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_Geiger.class, com.valve.dota2.Usermessages.CUserMsg_Geiger.Builder.class);
     }
@@ -15431,19 +15425,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_Geiger}
+     * Protobuf type {@code CUserMsg_Geiger}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_GeigerOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Geiger_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_Geiger_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Geiger_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_Geiger_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_Geiger.class, com.valve.dota2.Usermessages.CUserMsg_Geiger.Builder.class);
       }
@@ -15479,7 +15473,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Geiger_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_Geiger_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_Geiger getDefaultInstanceForType() {
@@ -15581,7 +15575,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_Geiger)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_Geiger)
     }
 
     static {
@@ -15589,7 +15583,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_Geiger)
+    // @@protoc_insertion_point(class_scope:CUserMsg_Geiger)
   }
 
   public interface CUserMsg_RumbleOrBuilder
@@ -15626,7 +15620,7 @@ public final class Usermessages {
     int getFlags();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_Rumble}
+   * Protobuf type {@code CUserMsg_Rumble}
    */
   public static final class CUserMsg_Rumble extends
       com.google.protobuf.GeneratedMessage
@@ -15705,12 +15699,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Rumble_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_Rumble_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Rumble_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_Rumble_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_Rumble.class, com.valve.dota2.Usermessages.CUserMsg_Rumble.Builder.class);
     }
@@ -15905,19 +15899,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_Rumble}
+     * Protobuf type {@code CUserMsg_Rumble}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_RumbleOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Rumble_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_Rumble_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Rumble_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_Rumble_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_Rumble.class, com.valve.dota2.Usermessages.CUserMsg_Rumble.Builder.class);
       }
@@ -15957,7 +15951,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Rumble_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_Rumble_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_Rumble getDefaultInstanceForType() {
@@ -16139,7 +16133,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_Rumble)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_Rumble)
     }
 
     static {
@@ -16147,7 +16141,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_Rumble)
+    // @@protoc_insertion_point(class_scope:CUserMsg_Rumble)
   }
 
   public interface CUserMsg_TrainOrBuilder
@@ -16164,7 +16158,7 @@ public final class Usermessages {
     int getTrain();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_Train}
+   * Protobuf type {@code CUserMsg_Train}
    */
   public static final class CUserMsg_Train extends
       com.google.protobuf.GeneratedMessage
@@ -16233,12 +16227,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Train_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_Train_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Train_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_Train_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_Train.class, com.valve.dota2.Usermessages.CUserMsg_Train.Builder.class);
     }
@@ -16385,19 +16379,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_Train}
+     * Protobuf type {@code CUserMsg_Train}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_TrainOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Train_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_Train_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Train_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_Train_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_Train.class, com.valve.dota2.Usermessages.CUserMsg_Train.Builder.class);
       }
@@ -16433,7 +16427,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_Train_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_Train_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_Train getDefaultInstanceForType() {
@@ -16535,7 +16529,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_Train)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_Train)
     }
 
     static {
@@ -16543,7 +16537,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_Train)
+    // @@protoc_insertion_point(class_scope:CUserMsg_Train)
   }
 
   public interface CUserMsg_SayTextChannelOrBuilder
@@ -16585,7 +16579,7 @@ public final class Usermessages {
         getTextBytes();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_SayTextChannel}
+   * Protobuf type {@code CUserMsg_SayTextChannel}
    */
   public static final class CUserMsg_SayTextChannel extends
       com.google.protobuf.GeneratedMessage
@@ -16664,12 +16658,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SayTextChannel_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_SayTextChannel_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SayTextChannel_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_SayTextChannel_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_SayTextChannel.class, com.valve.dota2.Usermessages.CUserMsg_SayTextChannel.Builder.class);
     }
@@ -16891,19 +16885,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_SayTextChannel}
+     * Protobuf type {@code CUserMsg_SayTextChannel}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_SayTextChannelOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SayTextChannel_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_SayTextChannel_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SayTextChannel_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_SayTextChannel_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_SayTextChannel.class, com.valve.dota2.Usermessages.CUserMsg_SayTextChannel.Builder.class);
       }
@@ -16943,7 +16937,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_SayTextChannel_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_SayTextChannel_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_SayTextChannel getDefaultInstanceForType() {
@@ -17168,7 +17162,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_SayTextChannel)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_SayTextChannel)
     }
 
     static {
@@ -17176,7 +17170,7 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_SayTextChannel)
+    // @@protoc_insertion_point(class_scope:CUserMsg_SayTextChannel)
   }
 
   public interface CUserMsg_MessageTextOrBuilder
@@ -17208,7 +17202,7 @@ public final class Usermessages {
         getTextBytes();
   }
   /**
-   * Protobuf type {@code com.valve.dota2.CUserMsg_MessageText}
+   * Protobuf type {@code CUserMsg_MessageText}
    */
   public static final class CUserMsg_MessageText extends
       com.google.protobuf.GeneratedMessage
@@ -17282,12 +17276,12 @@ public final class Usermessages {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_MessageText_descriptor;
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_MessageText_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_MessageText_fieldAccessorTable
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_MessageText_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.valve.dota2.Usermessages.CUserMsg_MessageText.class, com.valve.dota2.Usermessages.CUserMsg_MessageText.Builder.class);
     }
@@ -17485,19 +17479,19 @@ public final class Usermessages {
       return builder;
     }
     /**
-     * Protobuf type {@code com.valve.dota2.CUserMsg_MessageText}
+     * Protobuf type {@code CUserMsg_MessageText}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessage.Builder<Builder>
        implements com.valve.dota2.Usermessages.CUserMsg_MessageTextOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_MessageText_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_MessageText_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_MessageText_fieldAccessorTable
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_MessageText_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.valve.dota2.Usermessages.CUserMsg_MessageText.class, com.valve.dota2.Usermessages.CUserMsg_MessageText.Builder.class);
       }
@@ -17535,7 +17529,7 @@ public final class Usermessages {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.valve.dota2.Usermessages.internal_static_com_valve_dota2_CUserMsg_MessageText_descriptor;
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_MessageText_descriptor;
       }
 
       public com.valve.dota2.Usermessages.CUserMsg_MessageText getDefaultInstanceForType() {
@@ -17720,7 +17714,7 @@ public final class Usermessages {
         return this;
       }
 
-      // @@protoc_insertion_point(builder_scope:com.valve.dota2.CUserMsg_MessageText)
+      // @@protoc_insertion_point(builder_scope:CUserMsg_MessageText)
     }
 
     static {
@@ -17728,159 +17722,1390 @@ public final class Usermessages {
       defaultInstance.initFields();
     }
 
-    // @@protoc_insertion_point(class_scope:com.valve.dota2.CUserMsg_MessageText)
+    // @@protoc_insertion_point(class_scope:CUserMsg_MessageText)
+  }
+
+  public interface CUserMsg_CameraTransitionOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional uint32 camera_type = 1;
+    /**
+     * <code>optional uint32 camera_type = 1;</code>
+     */
+    boolean hasCameraType();
+    /**
+     * <code>optional uint32 camera_type = 1;</code>
+     */
+    int getCameraType();
+
+    // optional float duration = 2;
+    /**
+     * <code>optional float duration = 2;</code>
+     */
+    boolean hasDuration();
+    /**
+     * <code>optional float duration = 2;</code>
+     */
+    float getDuration();
+
+    // optional .CUserMsg_CameraTransition.Transition_DataDriven params_data_driven = 3;
+    /**
+     * <code>optional .CUserMsg_CameraTransition.Transition_DataDriven params_data_driven = 3;</code>
+     */
+    boolean hasParamsDataDriven();
+    /**
+     * <code>optional .CUserMsg_CameraTransition.Transition_DataDriven params_data_driven = 3;</code>
+     */
+    com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven getParamsDataDriven();
+    /**
+     * <code>optional .CUserMsg_CameraTransition.Transition_DataDriven params_data_driven = 3;</code>
+     */
+    com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDrivenOrBuilder getParamsDataDrivenOrBuilder();
+  }
+  /**
+   * Protobuf type {@code CUserMsg_CameraTransition}
+   */
+  public static final class CUserMsg_CameraTransition extends
+      com.google.protobuf.GeneratedMessage
+      implements CUserMsg_CameraTransitionOrBuilder {
+    // Use CUserMsg_CameraTransition.newBuilder() to construct.
+    private CUserMsg_CameraTransition(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private CUserMsg_CameraTransition(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final CUserMsg_CameraTransition defaultInstance;
+    public static CUserMsg_CameraTransition getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public CUserMsg_CameraTransition getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private CUserMsg_CameraTransition(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              cameraType_ = input.readUInt32();
+              break;
+            }
+            case 21: {
+              bitField0_ |= 0x00000002;
+              duration_ = input.readFloat();
+              break;
+            }
+            case 26: {
+              com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = paramsDataDriven_.toBuilder();
+              }
+              paramsDataDriven_ = input.readMessage(com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(paramsDataDriven_);
+                paramsDataDriven_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000004;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_CameraTransition_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.valve.dota2.Usermessages.internal_static_CUserMsg_CameraTransition_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.valve.dota2.Usermessages.CUserMsg_CameraTransition.class, com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<CUserMsg_CameraTransition> PARSER =
+        new com.google.protobuf.AbstractParser<CUserMsg_CameraTransition>() {
+      public CUserMsg_CameraTransition parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new CUserMsg_CameraTransition(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<CUserMsg_CameraTransition> getParserForType() {
+      return PARSER;
+    }
+
+    public interface Transition_DataDrivenOrBuilder
+        extends com.google.protobuf.MessageOrBuilder {
+
+      // optional string filename = 1;
+      /**
+       * <code>optional string filename = 1;</code>
+       */
+      boolean hasFilename();
+      /**
+       * <code>optional string filename = 1;</code>
+       */
+      java.lang.String getFilename();
+      /**
+       * <code>optional string filename = 1;</code>
+       */
+      com.google.protobuf.ByteString
+          getFilenameBytes();
+
+      // optional int32 attach_ent_index = 2;
+      /**
+       * <code>optional int32 attach_ent_index = 2;</code>
+       */
+      boolean hasAttachEntIndex();
+      /**
+       * <code>optional int32 attach_ent_index = 2;</code>
+       */
+      int getAttachEntIndex();
+    }
+    /**
+     * Protobuf type {@code CUserMsg_CameraTransition.Transition_DataDriven}
+     */
+    public static final class Transition_DataDriven extends
+        com.google.protobuf.GeneratedMessage
+        implements Transition_DataDrivenOrBuilder {
+      // Use Transition_DataDriven.newBuilder() to construct.
+      private Transition_DataDriven(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+        super(builder);
+        this.unknownFields = builder.getUnknownFields();
+      }
+      private Transition_DataDriven(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+      private static final Transition_DataDriven defaultInstance;
+      public static Transition_DataDriven getDefaultInstance() {
+        return defaultInstance;
+      }
+
+      public Transition_DataDriven getDefaultInstanceForType() {
+        return defaultInstance;
+      }
+
+      private final com.google.protobuf.UnknownFieldSet unknownFields;
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+          getUnknownFields() {
+        return this.unknownFields;
+      }
+      private Transition_DataDriven(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        initFields();
+        int mutable_bitField0_ = 0;
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!parseUnknownField(input, unknownFields,
+                                       extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 10: {
+                bitField0_ |= 0x00000001;
+                filename_ = input.readBytes();
+                break;
+              }
+              case 16: {
+                bitField0_ |= 0x00000002;
+                attachEntIndex_ = input.readInt32();
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e.getMessage()).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_CameraTransition_Transition_DataDriven_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_CameraTransition_Transition_DataDriven_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.class, com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.Builder.class);
+      }
+
+      public static com.google.protobuf.Parser<Transition_DataDriven> PARSER =
+          new com.google.protobuf.AbstractParser<Transition_DataDriven>() {
+        public Transition_DataDriven parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new Transition_DataDriven(input, extensionRegistry);
+        }
+      };
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<Transition_DataDriven> getParserForType() {
+        return PARSER;
+      }
+
+      private int bitField0_;
+      // optional string filename = 1;
+      public static final int FILENAME_FIELD_NUMBER = 1;
+      private java.lang.Object filename_;
+      /**
+       * <code>optional string filename = 1;</code>
+       */
+      public boolean hasFilename() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional string filename = 1;</code>
+       */
+      public java.lang.String getFilename() {
+        java.lang.Object ref = filename_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            filename_ = s;
+          }
+          return s;
+        }
+      }
+      /**
+       * <code>optional string filename = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFilenameBytes() {
+        java.lang.Object ref = filename_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          filename_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      // optional int32 attach_ent_index = 2;
+      public static final int ATTACH_ENT_INDEX_FIELD_NUMBER = 2;
+      private int attachEntIndex_;
+      /**
+       * <code>optional int32 attach_ent_index = 2;</code>
+       */
+      public boolean hasAttachEntIndex() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional int32 attach_ent_index = 2;</code>
+       */
+      public int getAttachEntIndex() {
+        return attachEntIndex_;
+      }
+
+      private void initFields() {
+        filename_ = "";
+        attachEntIndex_ = 0;
+      }
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized != -1) return isInitialized == 1;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        getSerializedSize();
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          output.writeBytes(1, getFilenameBytes());
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          output.writeInt32(2, attachEntIndex_);
+        }
+        getUnknownFields().writeTo(output);
+      }
+
+      private int memoizedSerializedSize = -1;
+      public int getSerializedSize() {
+        int size = memoizedSerializedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(1, getFilenameBytes());
+        }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(2, attachEntIndex_);
+        }
+        size += getUnknownFields().getSerializedSize();
+        memoizedSerializedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      @java.lang.Override
+      protected java.lang.Object writeReplace()
+          throws java.io.ObjectStreamException {
+        return super.writeReplace();
+      }
+
+      public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+      public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input);
+      }
+      public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseDelimitedFrom(input, extensionRegistry);
+      }
+      public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input);
+      }
+      public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return PARSER.parseFrom(input, extensionRegistry);
+      }
+
+      public static Builder newBuilder() { return Builder.create(); }
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder(com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven prototype) {
+        return newBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() { return newBuilder(this); }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code CUserMsg_CameraTransition.Transition_DataDriven}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessage.Builder<Builder>
+         implements com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDrivenOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.valve.dota2.Usermessages.internal_static_CUserMsg_CameraTransition_Transition_DataDriven_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.valve.dota2.Usermessages.internal_static_CUserMsg_CameraTransition_Transition_DataDriven_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.class, com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.Builder.class);
+        }
+
+        // Construct using com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          }
+        }
+        private static Builder create() {
+          return new Builder();
+        }
+
+        public Builder clear() {
+          super.clear();
+          filename_ = "";
+          bitField0_ = (bitField0_ & ~0x00000001);
+          attachEntIndex_ = 0;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          return this;
+        }
+
+        public Builder clone() {
+          return create().mergeFrom(buildPartial());
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return com.valve.dota2.Usermessages.internal_static_CUserMsg_CameraTransition_Transition_DataDriven_descriptor;
+        }
+
+        public com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven getDefaultInstanceForType() {
+          return com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.getDefaultInstance();
+        }
+
+        public com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven build() {
+          com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven buildPartial() {
+          com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven result = new com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven(this);
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+            to_bitField0_ |= 0x00000001;
+          }
+          result.filename_ = filename_;
+          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+            to_bitField0_ |= 0x00000002;
+          }
+          result.attachEntIndex_ = attachEntIndex_;
+          result.bitField0_ = to_bitField0_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven) {
+            return mergeFrom((com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven other) {
+          if (other == com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.getDefaultInstance()) return this;
+          if (other.hasFilename()) {
+            bitField0_ |= 0x00000001;
+            filename_ = other.filename_;
+            onChanged();
+          }
+          if (other.hasAttachEntIndex()) {
+            setAttachEntIndex(other.getAttachEntIndex());
+          }
+          this.mergeUnknownFields(other.getUnknownFields());
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven) e.getUnfinishedMessage();
+            throw e;
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+        private int bitField0_;
+
+        // optional string filename = 1;
+        private java.lang.Object filename_ = "";
+        /**
+         * <code>optional string filename = 1;</code>
+         */
+        public boolean hasFilename() {
+          return ((bitField0_ & 0x00000001) == 0x00000001);
+        }
+        /**
+         * <code>optional string filename = 1;</code>
+         */
+        public java.lang.String getFilename() {
+          java.lang.Object ref = filename_;
+          if (!(ref instanceof java.lang.String)) {
+            java.lang.String s = ((com.google.protobuf.ByteString) ref)
+                .toStringUtf8();
+            filename_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>optional string filename = 1;</code>
+         */
+        public com.google.protobuf.ByteString
+            getFilenameBytes() {
+          java.lang.Object ref = filename_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            filename_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>optional string filename = 1;</code>
+         */
+        public Builder setFilename(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+          filename_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string filename = 1;</code>
+         */
+        public Builder clearFilename() {
+          bitField0_ = (bitField0_ & ~0x00000001);
+          filename_ = getDefaultInstance().getFilename();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional string filename = 1;</code>
+         */
+        public Builder setFilenameBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+          filename_ = value;
+          onChanged();
+          return this;
+        }
+
+        // optional int32 attach_ent_index = 2;
+        private int attachEntIndex_ ;
+        /**
+         * <code>optional int32 attach_ent_index = 2;</code>
+         */
+        public boolean hasAttachEntIndex() {
+          return ((bitField0_ & 0x00000002) == 0x00000002);
+        }
+        /**
+         * <code>optional int32 attach_ent_index = 2;</code>
+         */
+        public int getAttachEntIndex() {
+          return attachEntIndex_;
+        }
+        /**
+         * <code>optional int32 attach_ent_index = 2;</code>
+         */
+        public Builder setAttachEntIndex(int value) {
+          bitField0_ |= 0x00000002;
+          attachEntIndex_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>optional int32 attach_ent_index = 2;</code>
+         */
+        public Builder clearAttachEntIndex() {
+          bitField0_ = (bitField0_ & ~0x00000002);
+          attachEntIndex_ = 0;
+          onChanged();
+          return this;
+        }
+
+        // @@protoc_insertion_point(builder_scope:CUserMsg_CameraTransition.Transition_DataDriven)
+      }
+
+      static {
+        defaultInstance = new Transition_DataDriven(true);
+        defaultInstance.initFields();
+      }
+
+      // @@protoc_insertion_point(class_scope:CUserMsg_CameraTransition.Transition_DataDriven)
+    }
+
+    private int bitField0_;
+    // optional uint32 camera_type = 1;
+    public static final int CAMERA_TYPE_FIELD_NUMBER = 1;
+    private int cameraType_;
+    /**
+     * <code>optional uint32 camera_type = 1;</code>
+     */
+    public boolean hasCameraType() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional uint32 camera_type = 1;</code>
+     */
+    public int getCameraType() {
+      return cameraType_;
+    }
+
+    // optional float duration = 2;
+    public static final int DURATION_FIELD_NUMBER = 2;
+    private float duration_;
+    /**
+     * <code>optional float duration = 2;</code>
+     */
+    public boolean hasDuration() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional float duration = 2;</code>
+     */
+    public float getDuration() {
+      return duration_;
+    }
+
+    // optional .CUserMsg_CameraTransition.Transition_DataDriven params_data_driven = 3;
+    public static final int PARAMS_DATA_DRIVEN_FIELD_NUMBER = 3;
+    private com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven paramsDataDriven_;
+    /**
+     * <code>optional .CUserMsg_CameraTransition.Transition_DataDriven params_data_driven = 3;</code>
+     */
+    public boolean hasParamsDataDriven() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional .CUserMsg_CameraTransition.Transition_DataDriven params_data_driven = 3;</code>
+     */
+    public com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven getParamsDataDriven() {
+      return paramsDataDriven_;
+    }
+    /**
+     * <code>optional .CUserMsg_CameraTransition.Transition_DataDriven params_data_driven = 3;</code>
+     */
+    public com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDrivenOrBuilder getParamsDataDrivenOrBuilder() {
+      return paramsDataDriven_;
+    }
+
+    private void initFields() {
+      cameraType_ = 0;
+      duration_ = 0F;
+      paramsDataDriven_ = com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeUInt32(1, cameraType_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeFloat(2, duration_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeMessage(3, paramsDataDriven_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(1, cameraType_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeFloatSize(2, duration_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, paramsDataDriven_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static com.valve.dota2.Usermessages.CUserMsg_CameraTransition parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(com.valve.dota2.Usermessages.CUserMsg_CameraTransition prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code CUserMsg_CameraTransition}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements com.valve.dota2.Usermessages.CUserMsg_CameraTransitionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_CameraTransition_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_CameraTransition_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.valve.dota2.Usermessages.CUserMsg_CameraTransition.class, com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Builder.class);
+      }
+
+      // Construct using com.valve.dota2.Usermessages.CUserMsg_CameraTransition.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getParamsDataDrivenFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        cameraType_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        duration_ = 0F;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (paramsDataDrivenBuilder_ == null) {
+          paramsDataDriven_ = com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.getDefaultInstance();
+        } else {
+          paramsDataDrivenBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.valve.dota2.Usermessages.internal_static_CUserMsg_CameraTransition_descriptor;
+      }
+
+      public com.valve.dota2.Usermessages.CUserMsg_CameraTransition getDefaultInstanceForType() {
+        return com.valve.dota2.Usermessages.CUserMsg_CameraTransition.getDefaultInstance();
+      }
+
+      public com.valve.dota2.Usermessages.CUserMsg_CameraTransition build() {
+        com.valve.dota2.Usermessages.CUserMsg_CameraTransition result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.valve.dota2.Usermessages.CUserMsg_CameraTransition buildPartial() {
+        com.valve.dota2.Usermessages.CUserMsg_CameraTransition result = new com.valve.dota2.Usermessages.CUserMsg_CameraTransition(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.cameraType_ = cameraType_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.duration_ = duration_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        if (paramsDataDrivenBuilder_ == null) {
+          result.paramsDataDriven_ = paramsDataDriven_;
+        } else {
+          result.paramsDataDriven_ = paramsDataDrivenBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.valve.dota2.Usermessages.CUserMsg_CameraTransition) {
+          return mergeFrom((com.valve.dota2.Usermessages.CUserMsg_CameraTransition)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.valve.dota2.Usermessages.CUserMsg_CameraTransition other) {
+        if (other == com.valve.dota2.Usermessages.CUserMsg_CameraTransition.getDefaultInstance()) return this;
+        if (other.hasCameraType()) {
+          setCameraType(other.getCameraType());
+        }
+        if (other.hasDuration()) {
+          setDuration(other.getDuration());
+        }
+        if (other.hasParamsDataDriven()) {
+          mergeParamsDataDriven(other.getParamsDataDriven());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.valve.dota2.Usermessages.CUserMsg_CameraTransition parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.valve.dota2.Usermessages.CUserMsg_CameraTransition) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional uint32 camera_type = 1;
+      private int cameraType_ ;
+      /**
+       * <code>optional uint32 camera_type = 1;</code>
+       */
+      public boolean hasCameraType() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional uint32 camera_type = 1;</code>
+       */
+      public int getCameraType() {
+        return cameraType_;
+      }
+      /**
+       * <code>optional uint32 camera_type = 1;</code>
+       */
+      public Builder setCameraType(int value) {
+        bitField0_ |= 0x00000001;
+        cameraType_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 camera_type = 1;</code>
+       */
+      public Builder clearCameraType() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        cameraType_ = 0;
+        onChanged();
+        return this;
+      }
+
+      // optional float duration = 2;
+      private float duration_ ;
+      /**
+       * <code>optional float duration = 2;</code>
+       */
+      public boolean hasDuration() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>optional float duration = 2;</code>
+       */
+      public float getDuration() {
+        return duration_;
+      }
+      /**
+       * <code>optional float duration = 2;</code>
+       */
+      public Builder setDuration(float value) {
+        bitField0_ |= 0x00000002;
+        duration_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional float duration = 2;</code>
+       */
+      public Builder clearDuration() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        duration_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      // optional .CUserMsg_CameraTransition.Transition_DataDriven params_data_driven = 3;
+      private com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven paramsDataDriven_ = com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven, com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.Builder, com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDrivenOrBuilder> paramsDataDrivenBuilder_;
+      /**
+       * <code>optional .CUserMsg_CameraTransition.Transition_DataDriven params_data_driven = 3;</code>
+       */
+      public boolean hasParamsDataDriven() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional .CUserMsg_CameraTransition.Transition_DataDriven params_data_driven = 3;</code>
+       */
+      public com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven getParamsDataDriven() {
+        if (paramsDataDrivenBuilder_ == null) {
+          return paramsDataDriven_;
+        } else {
+          return paramsDataDrivenBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .CUserMsg_CameraTransition.Transition_DataDriven params_data_driven = 3;</code>
+       */
+      public Builder setParamsDataDriven(com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven value) {
+        if (paramsDataDrivenBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          paramsDataDriven_ = value;
+          onChanged();
+        } else {
+          paramsDataDrivenBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .CUserMsg_CameraTransition.Transition_DataDriven params_data_driven = 3;</code>
+       */
+      public Builder setParamsDataDriven(
+          com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.Builder builderForValue) {
+        if (paramsDataDrivenBuilder_ == null) {
+          paramsDataDriven_ = builderForValue.build();
+          onChanged();
+        } else {
+          paramsDataDrivenBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .CUserMsg_CameraTransition.Transition_DataDriven params_data_driven = 3;</code>
+       */
+      public Builder mergeParamsDataDriven(com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven value) {
+        if (paramsDataDrivenBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              paramsDataDriven_ != com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.getDefaultInstance()) {
+            paramsDataDriven_ =
+              com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.newBuilder(paramsDataDriven_).mergeFrom(value).buildPartial();
+          } else {
+            paramsDataDriven_ = value;
+          }
+          onChanged();
+        } else {
+          paramsDataDrivenBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>optional .CUserMsg_CameraTransition.Transition_DataDriven params_data_driven = 3;</code>
+       */
+      public Builder clearParamsDataDriven() {
+        if (paramsDataDrivenBuilder_ == null) {
+          paramsDataDriven_ = com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.getDefaultInstance();
+          onChanged();
+        } else {
+          paramsDataDrivenBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <code>optional .CUserMsg_CameraTransition.Transition_DataDriven params_data_driven = 3;</code>
+       */
+      public com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.Builder getParamsDataDrivenBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getParamsDataDrivenFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .CUserMsg_CameraTransition.Transition_DataDriven params_data_driven = 3;</code>
+       */
+      public com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDrivenOrBuilder getParamsDataDrivenOrBuilder() {
+        if (paramsDataDrivenBuilder_ != null) {
+          return paramsDataDrivenBuilder_.getMessageOrBuilder();
+        } else {
+          return paramsDataDriven_;
+        }
+      }
+      /**
+       * <code>optional .CUserMsg_CameraTransition.Transition_DataDriven params_data_driven = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven, com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.Builder, com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDrivenOrBuilder> 
+          getParamsDataDrivenFieldBuilder() {
+        if (paramsDataDrivenBuilder_ == null) {
+          paramsDataDrivenBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven, com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDriven.Builder, com.valve.dota2.Usermessages.CUserMsg_CameraTransition.Transition_DataDrivenOrBuilder>(
+                  paramsDataDriven_,
+                  getParentForChildren(),
+                  isClean());
+          paramsDataDriven_ = null;
+        }
+        return paramsDataDrivenBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:CUserMsg_CameraTransition)
+    }
+
+    static {
+      defaultInstance = new CUserMsg_CameraTransition(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:CUserMsg_CameraTransition)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_AchievementEvent_descriptor;
+    internal_static_CUserMsg_AchievementEvent_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_AchievementEvent_fieldAccessorTable;
+      internal_static_CUserMsg_AchievementEvent_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_CloseCaption_descriptor;
+    internal_static_CUserMsg_CloseCaption_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_CloseCaption_fieldAccessorTable;
+      internal_static_CUserMsg_CloseCaption_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_CurrentTimescale_descriptor;
+    internal_static_CUserMsg_CurrentTimescale_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_CurrentTimescale_fieldAccessorTable;
+      internal_static_CUserMsg_CurrentTimescale_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_DesiredTimescale_descriptor;
+    internal_static_CUserMsg_DesiredTimescale_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_DesiredTimescale_fieldAccessorTable;
+      internal_static_CUserMsg_DesiredTimescale_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_Fade_descriptor;
+    internal_static_CUserMsg_Fade_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_Fade_fieldAccessorTable;
+      internal_static_CUserMsg_Fade_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_Shake_descriptor;
+    internal_static_CUserMsg_Shake_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_Shake_fieldAccessorTable;
+      internal_static_CUserMsg_Shake_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_ShakeDir_descriptor;
+    internal_static_CUserMsg_ShakeDir_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_ShakeDir_fieldAccessorTable;
+      internal_static_CUserMsg_ShakeDir_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_Tilt_descriptor;
+    internal_static_CUserMsg_Tilt_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_Tilt_fieldAccessorTable;
+      internal_static_CUserMsg_Tilt_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_SayText_descriptor;
+    internal_static_CUserMsg_SayText_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_SayText_fieldAccessorTable;
+      internal_static_CUserMsg_SayText_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_SayText2_descriptor;
+    internal_static_CUserMsg_SayText2_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_SayText2_fieldAccessorTable;
+      internal_static_CUserMsg_SayText2_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_HudMsg_descriptor;
+    internal_static_CUserMsg_HudMsg_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_HudMsg_fieldAccessorTable;
+      internal_static_CUserMsg_HudMsg_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_HudText_descriptor;
+    internal_static_CUserMsg_HudText_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_HudText_fieldAccessorTable;
+      internal_static_CUserMsg_HudText_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_TextMsg_descriptor;
+    internal_static_CUserMsg_TextMsg_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_TextMsg_fieldAccessorTable;
+      internal_static_CUserMsg_TextMsg_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_GameTitle_descriptor;
+    internal_static_CUserMsg_GameTitle_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_GameTitle_fieldAccessorTable;
+      internal_static_CUserMsg_GameTitle_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_ResetHUD_descriptor;
+    internal_static_CUserMsg_ResetHUD_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_ResetHUD_fieldAccessorTable;
+      internal_static_CUserMsg_ResetHUD_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_SendAudio_descriptor;
+    internal_static_CUserMsg_SendAudio_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_SendAudio_fieldAccessorTable;
+      internal_static_CUserMsg_SendAudio_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_VoiceMask_descriptor;
+    internal_static_CUserMsg_VoiceMask_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_VoiceMask_fieldAccessorTable;
+      internal_static_CUserMsg_VoiceMask_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_RequestState_descriptor;
+    internal_static_CUserMsg_RequestState_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_RequestState_fieldAccessorTable;
+      internal_static_CUserMsg_RequestState_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_HintText_descriptor;
+    internal_static_CUserMsg_HintText_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_HintText_fieldAccessorTable;
+      internal_static_CUserMsg_HintText_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_KeyHintText_descriptor;
+    internal_static_CUserMsg_KeyHintText_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_KeyHintText_fieldAccessorTable;
+      internal_static_CUserMsg_KeyHintText_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_StatsCrawlMsg_descriptor;
+    internal_static_CUserMsg_StatsCrawlMsg_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_StatsCrawlMsg_fieldAccessorTable;
+      internal_static_CUserMsg_StatsCrawlMsg_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_StatsSkipState_descriptor;
+    internal_static_CUserMsg_StatsSkipState_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_StatsSkipState_fieldAccessorTable;
+      internal_static_CUserMsg_StatsSkipState_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_VoiceSubtitle_descriptor;
+    internal_static_CUserMsg_VoiceSubtitle_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_VoiceSubtitle_fieldAccessorTable;
+      internal_static_CUserMsg_VoiceSubtitle_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_VGUIMenu_descriptor;
+    internal_static_CUserMsg_VGUIMenu_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_VGUIMenu_fieldAccessorTable;
+      internal_static_CUserMsg_VGUIMenu_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_VGUIMenu_Keys_descriptor;
+    internal_static_CUserMsg_VGUIMenu_Keys_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_VGUIMenu_Keys_fieldAccessorTable;
+      internal_static_CUserMsg_VGUIMenu_Keys_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_Geiger_descriptor;
+    internal_static_CUserMsg_Geiger_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_Geiger_fieldAccessorTable;
+      internal_static_CUserMsg_Geiger_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_Rumble_descriptor;
+    internal_static_CUserMsg_Rumble_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_Rumble_fieldAccessorTable;
+      internal_static_CUserMsg_Rumble_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_Train_descriptor;
+    internal_static_CUserMsg_Train_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_Train_fieldAccessorTable;
+      internal_static_CUserMsg_Train_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_SayTextChannel_descriptor;
+    internal_static_CUserMsg_SayTextChannel_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_SayTextChannel_fieldAccessorTable;
+      internal_static_CUserMsg_SayTextChannel_fieldAccessorTable;
   private static com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_valve_dota2_CUserMsg_MessageText_descriptor;
+    internal_static_CUserMsg_MessageText_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
-      internal_static_com_valve_dota2_CUserMsg_MessageText_fieldAccessorTable;
+      internal_static_CUserMsg_MessageText_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_CUserMsg_CameraTransition_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_CUserMsg_CameraTransition_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_CUserMsg_CameraTransition_Transition_DataDriven_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_CUserMsg_CameraTransition_Transition_DataDriven_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -17890,260 +19115,277 @@ public final class Usermessages {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\022usermessages.proto\022\017com.valve.dota2\032 g" +
-      "oogle/protobuf/descriptor.proto\032\021netmess" +
-      "ages.proto\"0\n\031CUserMsg_AchievementEvent\022" +
-      "\023\n\013achievement\030\001 \001(\r\"L\n\025CUserMsg_CloseCa" +
-      "ption\022\014\n\004hash\030\001 \001(\007\022\020\n\010duration\030\002 \001(\002\022\023\n" +
-      "\013from_player\030\003 \001(\010\",\n\031CUserMsg_CurrentTi" +
-      "mescale\022\017\n\007current\030\001 \001(\002\"n\n\031CUserMsg_Des" +
-      "iredTimescale\022\017\n\007desired\030\001 \001(\002\022\020\n\010durati" +
-      "on\030\002 \001(\002\022\024\n\014interpolator\030\003 \001(\r\022\030\n\020start_" +
-      "blend_time\030\004 \001(\002\"R\n\rCUserMsg_Fade\022\020\n\010dur",
-      "ation\030\001 \001(\r\022\021\n\thold_time\030\002 \001(\r\022\r\n\005flags\030" +
-      "\003 \001(\r\022\r\n\005color\030\004 \001(\007\"Y\n\016CUserMsg_Shake\022\017" +
-      "\n\007command\030\001 \001(\r\022\021\n\tamplitude\030\002 \001(\002\022\021\n\tfr" +
-      "equency\030\003 \001(\002\022\020\n\010duration\030\004 \001(\002\"s\n\021CUser" +
-      "Msg_ShakeDir\022.\n\005shake\030\001 \001(\0132\037.com.valve." +
-      "dota2.CUserMsg_Shake\022.\n\tdirection\030\002 \001(\0132" +
-      "\033.com.valve.dota2.CMsgVector\"\201\001\n\rCUserMs" +
-      "g_Tilt\022\017\n\007command\030\001 \001(\r\022\023\n\013ease_in_out\030\002" +
-      " \001(\010\022*\n\005angle\030\003 \001(\0132\033.com.valve.dota2.CM" +
-      "sgVector\022\020\n\010duration\030\004 \001(\002\022\014\n\004time\030\005 \001(\002",
-      "\">\n\020CUserMsg_SayText\022\016\n\006client\030\001 \001(\r\022\014\n\004" +
-      "text\030\002 \001(\t\022\014\n\004chat\030\003 \001(\010\"q\n\021CUserMsg_Say" +
-      "Text2\022\016\n\006client\030\001 \001(\r\022\014\n\004chat\030\002 \001(\010\022\016\n\006f" +
-      "ormat\030\003 \001(\t\022\016\n\006prefix\030\004 \001(\t\022\014\n\004text\030\005 \001(" +
-      "\t\022\020\n\010location\030\006 \001(\t\"\312\001\n\017CUserMsg_HudMsg\022" +
-      "\017\n\007channel\030\001 \001(\r\022\t\n\001x\030\002 \001(\002\022\t\n\001y\030\003 \001(\002\022\016" +
-      "\n\006color1\030\004 \001(\r\022\016\n\006color2\030\005 \001(\r\022\016\n\006effect" +
-      "\030\006 \001(\r\022\024\n\014fade_in_time\030\007 \001(\002\022\025\n\rfade_out" +
-      "_time\030\010 \001(\002\022\021\n\thold_time\030\t \001(\002\022\017\n\007fx_tim" +
-      "e\030\n \001(\002\022\017\n\007message\030\013 \001(\t\"#\n\020CUserMsg_Hud",
-      "Text\022\017\n\007message\030\001 \001(\t\"/\n\020CUserMsg_TextMs" +
-      "g\022\014\n\004dest\030\001 \001(\r\022\r\n\005param\030\002 \003(\t\"\024\n\022CUserM" +
-      "sg_GameTitle\"\023\n\021CUserMsg_ResetHUD\"0\n\022CUs" +
-      "erMsg_SendAudio\022\014\n\004stop\030\002 \001(\010\022\014\n\004name\030\003 " +
-      "\001(\t\"N\n\022CUserMsg_VoiceMask\022\034\n\024audible_pla" +
-      "yers_mask\030\001 \003(\005\022\032\n\022player_mod_enabled\030\002 " +
-      "\001(\010\"\027\n\025CUserMsg_RequestState\"$\n\021CUserMsg" +
-      "_HintText\022\017\n\007message\030\001 \001(\t\"(\n\024CUserMsg_K" +
-      "eyHintText\022\020\n\010messages\030\001 \003(\t\"\030\n\026CUserMsg" +
-      "_StatsCrawlMsg\"A\n\027CUserMsg_StatsSkipStat",
-      "e\022\021\n\tnum_skips\030\001 \001(\005\022\023\n\013num_players\030\002 \001(" +
-      "\005\"G\n\026CUserMsg_VoiceSubtitle\022\021\n\tent_index" +
-      "\030\001 \001(\005\022\014\n\004menu\030\002 \001(\005\022\014\n\004item\030\003 \001(\005\"\213\001\n\021C" +
-      "UserMsg_VGUIMenu\022\014\n\004name\030\001 \001(\t\022\014\n\004show\030\002" +
-      " \001(\010\0225\n\004keys\030\003 \003(\0132\'.com.valve.dota2.CUs" +
-      "erMsg_VGUIMenu.Keys\032#\n\004Keys\022\014\n\004name\030\001 \001(" +
-      "\t\022\r\n\005value\030\002 \001(\t\" \n\017CUserMsg_Geiger\022\r\n\005r" +
-      "ange\030\001 \001(\005\"=\n\017CUserMsg_Rumble\022\r\n\005index\030\001" +
-      " \001(\005\022\014\n\004data\030\002 \001(\005\022\r\n\005flags\030\003 \001(\005\"\037\n\016CUs" +
-      "erMsg_Train\022\r\n\005train\030\001 \001(\005\"H\n\027CUserMsg_S",
-      "ayTextChannel\022\016\n\006player\030\001 \001(\005\022\017\n\007channel" +
-      "\030\002 \001(\005\022\014\n\004text\030\003 \001(\t\"3\n\024CUserMsg_Message" +
-      "Text\022\r\n\005color\030\001 \001(\r\022\014\n\004text\030\002 \001(\t*\324\004\n\021EB" +
-      "aseUserMessages\022\027\n\023UM_AchievementEvent\020\001" +
-      "\022\023\n\017UM_CloseCaption\020\002\022\031\n\025UM_CloseCaption" +
-      "Direct\020\003\022\027\n\023UM_CurrentTimescale\020\004\022\027\n\023UM_" +
-      "DesiredTimescale\020\005\022\013\n\007UM_Fade\020\006\022\020\n\014UM_Ga" +
-      "meTitle\020\007\022\r\n\tUM_Geiger\020\010\022\017\n\013UM_HintText\020" +
-      "\t\022\r\n\tUM_HudMsg\020\n\022\016\n\nUM_HudText\020\013\022\022\n\016UM_K" +
-      "eyHintText\020\014\022\022\n\016UM_MessageText\020\r\022\023\n\017UM_R",
-      "equestState\020\016\022\017\n\013UM_ResetHUD\020\017\022\r\n\tUM_Rum" +
-      "ble\020\020\022\016\n\nUM_SayText\020\021\022\017\n\013UM_SayText2\020\022\022\025" +
-      "\n\021UM_SayTextChannel\020\023\022\014\n\010UM_Shake\020\024\022\017\n\013U" +
-      "M_ShakeDir\020\025\022\024\n\020UM_StatsCrawlMsg\020\026\022\025\n\021UM" +
-      "_StatsSkipState\020\027\022\016\n\nUM_TextMsg\020\030\022\013\n\007UM_" +
-      "Tilt\020\031\022\014\n\010UM_Train\020\032\022\017\n\013UM_VGUIMenu\020\033\022\020\n" +
-      "\014UM_VoiceMask\020\034\022\024\n\020UM_VoiceSubtitle\020\035\022\020\n" +
-      "\014UM_SendAudio\020\036\022\017\n\013UM_MAX_BASE\020?B\005H\001\200\001\000"
+      "\n\022usermessages.proto\032 google/protobuf/de" +
+      "scriptor.proto\032\026networkbasetypes.proto\"0" +
+      "\n\031CUserMsg_AchievementEvent\022\023\n\013achieveme" +
+      "nt\030\001 \001(\r\"_\n\025CUserMsg_CloseCaption\022\014\n\004has" +
+      "h\030\001 \001(\007\022\020\n\010duration\030\002 \001(\002\022\023\n\013from_player" +
+      "\030\003 \001(\010\022\021\n\tent_index\030\004 \001(\005\",\n\031CUserMsg_Cu" +
+      "rrentTimescale\022\017\n\007current\030\001 \001(\002\"n\n\031CUser" +
+      "Msg_DesiredTimescale\022\017\n\007desired\030\001 \001(\002\022\020\n" +
+      "\010duration\030\002 \001(\002\022\024\n\014interpolator\030\003 \001(\r\022\030\n" +
+      "\020start_blend_time\030\004 \001(\002\"R\n\rCUserMsg_Fade",
+      "\022\020\n\010duration\030\001 \001(\r\022\021\n\thold_time\030\002 \001(\r\022\r\n" +
+      "\005flags\030\003 \001(\r\022\r\n\005color\030\004 \001(\007\"Y\n\016CUserMsg_" +
+      "Shake\022\017\n\007command\030\001 \001(\r\022\021\n\tamplitude\030\002 \001(" +
+      "\002\022\021\n\tfrequency\030\003 \001(\002\022\020\n\010duration\030\004 \001(\002\"S" +
+      "\n\021CUserMsg_ShakeDir\022\036\n\005shake\030\001 \001(\0132\017.CUs" +
+      "erMsg_Shake\022\036\n\tdirection\030\002 \001(\0132\013.CMsgVec" +
+      "tor\"q\n\rCUserMsg_Tilt\022\017\n\007command\030\001 \001(\r\022\023\n" +
+      "\013ease_in_out\030\002 \001(\010\022\032\n\005angle\030\003 \001(\0132\013.CMsg" +
+      "Vector\022\020\n\010duration\030\004 \001(\002\022\014\n\004time\030\005 \001(\002\">" +
+      "\n\020CUserMsg_SayText\022\016\n\006client\030\001 \001(\r\022\014\n\004te",
+      "xt\030\002 \001(\t\022\014\n\004chat\030\003 \001(\010\"q\n\021CUserMsg_SayTe" +
+      "xt2\022\016\n\006client\030\001 \001(\r\022\014\n\004chat\030\002 \001(\010\022\016\n\006for" +
+      "mat\030\003 \001(\t\022\016\n\006prefix\030\004 \001(\t\022\014\n\004text\030\005 \001(\t\022" +
+      "\020\n\010location\030\006 \001(\t\"\312\001\n\017CUserMsg_HudMsg\022\017\n" +
+      "\007channel\030\001 \001(\r\022\t\n\001x\030\002 \001(\002\022\t\n\001y\030\003 \001(\002\022\016\n\006" +
+      "color1\030\004 \001(\r\022\016\n\006color2\030\005 \001(\r\022\016\n\006effect\030\006" +
+      " \001(\r\022\024\n\014fade_in_time\030\007 \001(\002\022\025\n\rfade_out_t" +
+      "ime\030\010 \001(\002\022\021\n\thold_time\030\t \001(\002\022\017\n\007fx_time\030" +
+      "\n \001(\002\022\017\n\007message\030\013 \001(\t\"#\n\020CUserMsg_HudTe" +
+      "xt\022\017\n\007message\030\001 \001(\t\"/\n\020CUserMsg_TextMsg\022",
+      "\014\n\004dest\030\001 \001(\r\022\r\n\005param\030\002 \003(\t\"\024\n\022CUserMsg" +
+      "_GameTitle\"\023\n\021CUserMsg_ResetHUD\"0\n\022CUser" +
+      "Msg_SendAudio\022\014\n\004stop\030\002 \001(\010\022\014\n\004name\030\003 \001(" +
+      "\t\"N\n\022CUserMsg_VoiceMask\022\034\n\024audible_playe" +
+      "rs_mask\030\001 \003(\005\022\032\n\022player_mod_enabled\030\002 \001(" +
+      "\010\"\027\n\025CUserMsg_RequestState\"$\n\021CUserMsg_H" +
+      "intText\022\017\n\007message\030\001 \001(\t\"(\n\024CUserMsg_Key" +
+      "HintText\022\020\n\010messages\030\001 \003(\t\"\030\n\026CUserMsg_S" +
+      "tatsCrawlMsg\"A\n\027CUserMsg_StatsSkipState\022" +
+      "\021\n\tnum_skips\030\001 \001(\005\022\023\n\013num_players\030\002 \001(\005\"",
+      "G\n\026CUserMsg_VoiceSubtitle\022\021\n\tent_index\030\001" +
+      " \001(\005\022\014\n\004menu\030\002 \001(\005\022\014\n\004item\030\003 \001(\005\"{\n\021CUse" +
+      "rMsg_VGUIMenu\022\014\n\004name\030\001 \001(\t\022\014\n\004show\030\002 \001(" +
+      "\010\022%\n\004keys\030\003 \003(\0132\027.CUserMsg_VGUIMenu.Keys" +
+      "\032#\n\004Keys\022\014\n\004name\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\" \n" +
+      "\017CUserMsg_Geiger\022\r\n\005range\030\001 \001(\005\"=\n\017CUser" +
+      "Msg_Rumble\022\r\n\005index\030\001 \001(\005\022\014\n\004data\030\002 \001(\005\022" +
+      "\r\n\005flags\030\003 \001(\005\"\037\n\016CUserMsg_Train\022\r\n\005trai" +
+      "n\030\001 \001(\005\"H\n\027CUserMsg_SayTextChannel\022\016\n\006pl" +
+      "ayer\030\001 \001(\005\022\017\n\007channel\030\002 \001(\005\022\014\n\004text\030\003 \001(",
+      "\t\"3\n\024CUserMsg_MessageText\022\r\n\005color\030\001 \001(\r" +
+      "\022\014\n\004text\030\002 \001(\t\"\325\001\n\031CUserMsg_CameraTransi" +
+      "tion\022\023\n\013camera_type\030\001 \001(\r\022\020\n\010duration\030\002 " +
+      "\001(\002\022L\n\022params_data_driven\030\003 \001(\01320.CUserM" +
+      "sg_CameraTransition.Transition_DataDrive" +
+      "n\032C\n\025Transition_DataDriven\022\020\n\010filename\030\001" +
+      " \001(\t\022\030\n\020attach_ent_index\030\002 \001(\005*\355\004\n\021EBase" +
+      "UserMessages\022\027\n\023UM_AchievementEvent\020\001\022\023\n" +
+      "\017UM_CloseCaption\020\002\022\031\n\025UM_CloseCaptionDir" +
+      "ect\020\003\022\027\n\023UM_CurrentTimescale\020\004\022\027\n\023UM_Des",
+      "iredTimescale\020\005\022\013\n\007UM_Fade\020\006\022\020\n\014UM_GameT" +
+      "itle\020\007\022\r\n\tUM_Geiger\020\010\022\017\n\013UM_HintText\020\t\022\r" +
+      "\n\tUM_HudMsg\020\n\022\016\n\nUM_HudText\020\013\022\022\n\016UM_KeyH" +
+      "intText\020\014\022\022\n\016UM_MessageText\020\r\022\023\n\017UM_Requ" +
+      "estState\020\016\022\017\n\013UM_ResetHUD\020\017\022\r\n\tUM_Rumble" +
+      "\020\020\022\016\n\nUM_SayText\020\021\022\017\n\013UM_SayText2\020\022\022\025\n\021U" +
+      "M_SayTextChannel\020\023\022\014\n\010UM_Shake\020\024\022\017\n\013UM_S" +
+      "hakeDir\020\025\022\024\n\020UM_StatsCrawlMsg\020\026\022\025\n\021UM_St" +
+      "atsSkipState\020\027\022\016\n\nUM_TextMsg\020\030\022\013\n\007UM_Til" +
+      "t\020\031\022\014\n\010UM_Train\020\032\022\017\n\013UM_VGUIMenu\020\033\022\020\n\014UM",
+      "_VoiceMask\020\034\022\024\n\020UM_VoiceSubtitle\020\035\022\020\n\014UM" +
+      "_SendAudio\020\036\022\027\n\023UM_CameraTransition\020\037\022\017\n" +
+      "\013UM_MAX_BASE\020?B\021\n\017com.valve.dota2"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
         public com.google.protobuf.ExtensionRegistry assignDescriptors(
             com.google.protobuf.Descriptors.FileDescriptor root) {
           descriptor = root;
-          internal_static_com_valve_dota2_CUserMsg_AchievementEvent_descriptor =
+          internal_static_CUserMsg_AchievementEvent_descriptor =
             getDescriptor().getMessageTypes().get(0);
-          internal_static_com_valve_dota2_CUserMsg_AchievementEvent_fieldAccessorTable = new
+          internal_static_CUserMsg_AchievementEvent_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_AchievementEvent_descriptor,
+              internal_static_CUserMsg_AchievementEvent_descriptor,
               new java.lang.String[] { "Achievement", });
-          internal_static_com_valve_dota2_CUserMsg_CloseCaption_descriptor =
+          internal_static_CUserMsg_CloseCaption_descriptor =
             getDescriptor().getMessageTypes().get(1);
-          internal_static_com_valve_dota2_CUserMsg_CloseCaption_fieldAccessorTable = new
+          internal_static_CUserMsg_CloseCaption_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_CloseCaption_descriptor,
-              new java.lang.String[] { "Hash", "Duration", "FromPlayer", });
-          internal_static_com_valve_dota2_CUserMsg_CurrentTimescale_descriptor =
+              internal_static_CUserMsg_CloseCaption_descriptor,
+              new java.lang.String[] { "Hash", "Duration", "FromPlayer", "EntIndex", });
+          internal_static_CUserMsg_CurrentTimescale_descriptor =
             getDescriptor().getMessageTypes().get(2);
-          internal_static_com_valve_dota2_CUserMsg_CurrentTimescale_fieldAccessorTable = new
+          internal_static_CUserMsg_CurrentTimescale_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_CurrentTimescale_descriptor,
+              internal_static_CUserMsg_CurrentTimescale_descriptor,
               new java.lang.String[] { "Current", });
-          internal_static_com_valve_dota2_CUserMsg_DesiredTimescale_descriptor =
+          internal_static_CUserMsg_DesiredTimescale_descriptor =
             getDescriptor().getMessageTypes().get(3);
-          internal_static_com_valve_dota2_CUserMsg_DesiredTimescale_fieldAccessorTable = new
+          internal_static_CUserMsg_DesiredTimescale_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_DesiredTimescale_descriptor,
+              internal_static_CUserMsg_DesiredTimescale_descriptor,
               new java.lang.String[] { "Desired", "Duration", "Interpolator", "StartBlendTime", });
-          internal_static_com_valve_dota2_CUserMsg_Fade_descriptor =
+          internal_static_CUserMsg_Fade_descriptor =
             getDescriptor().getMessageTypes().get(4);
-          internal_static_com_valve_dota2_CUserMsg_Fade_fieldAccessorTable = new
+          internal_static_CUserMsg_Fade_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_Fade_descriptor,
+              internal_static_CUserMsg_Fade_descriptor,
               new java.lang.String[] { "Duration", "HoldTime", "Flags", "Color", });
-          internal_static_com_valve_dota2_CUserMsg_Shake_descriptor =
+          internal_static_CUserMsg_Shake_descriptor =
             getDescriptor().getMessageTypes().get(5);
-          internal_static_com_valve_dota2_CUserMsg_Shake_fieldAccessorTable = new
+          internal_static_CUserMsg_Shake_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_Shake_descriptor,
+              internal_static_CUserMsg_Shake_descriptor,
               new java.lang.String[] { "Command", "Amplitude", "Frequency", "Duration", });
-          internal_static_com_valve_dota2_CUserMsg_ShakeDir_descriptor =
+          internal_static_CUserMsg_ShakeDir_descriptor =
             getDescriptor().getMessageTypes().get(6);
-          internal_static_com_valve_dota2_CUserMsg_ShakeDir_fieldAccessorTable = new
+          internal_static_CUserMsg_ShakeDir_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_ShakeDir_descriptor,
+              internal_static_CUserMsg_ShakeDir_descriptor,
               new java.lang.String[] { "Shake", "Direction", });
-          internal_static_com_valve_dota2_CUserMsg_Tilt_descriptor =
+          internal_static_CUserMsg_Tilt_descriptor =
             getDescriptor().getMessageTypes().get(7);
-          internal_static_com_valve_dota2_CUserMsg_Tilt_fieldAccessorTable = new
+          internal_static_CUserMsg_Tilt_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_Tilt_descriptor,
+              internal_static_CUserMsg_Tilt_descriptor,
               new java.lang.String[] { "Command", "EaseInOut", "Angle", "Duration", "Time", });
-          internal_static_com_valve_dota2_CUserMsg_SayText_descriptor =
+          internal_static_CUserMsg_SayText_descriptor =
             getDescriptor().getMessageTypes().get(8);
-          internal_static_com_valve_dota2_CUserMsg_SayText_fieldAccessorTable = new
+          internal_static_CUserMsg_SayText_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_SayText_descriptor,
+              internal_static_CUserMsg_SayText_descriptor,
               new java.lang.String[] { "Client", "Text", "Chat", });
-          internal_static_com_valve_dota2_CUserMsg_SayText2_descriptor =
+          internal_static_CUserMsg_SayText2_descriptor =
             getDescriptor().getMessageTypes().get(9);
-          internal_static_com_valve_dota2_CUserMsg_SayText2_fieldAccessorTable = new
+          internal_static_CUserMsg_SayText2_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_SayText2_descriptor,
+              internal_static_CUserMsg_SayText2_descriptor,
               new java.lang.String[] { "Client", "Chat", "Format", "Prefix", "Text", "Location", });
-          internal_static_com_valve_dota2_CUserMsg_HudMsg_descriptor =
+          internal_static_CUserMsg_HudMsg_descriptor =
             getDescriptor().getMessageTypes().get(10);
-          internal_static_com_valve_dota2_CUserMsg_HudMsg_fieldAccessorTable = new
+          internal_static_CUserMsg_HudMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_HudMsg_descriptor,
+              internal_static_CUserMsg_HudMsg_descriptor,
               new java.lang.String[] { "Channel", "X", "Y", "Color1", "Color2", "Effect", "FadeInTime", "FadeOutTime", "HoldTime", "FxTime", "Message", });
-          internal_static_com_valve_dota2_CUserMsg_HudText_descriptor =
+          internal_static_CUserMsg_HudText_descriptor =
             getDescriptor().getMessageTypes().get(11);
-          internal_static_com_valve_dota2_CUserMsg_HudText_fieldAccessorTable = new
+          internal_static_CUserMsg_HudText_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_HudText_descriptor,
+              internal_static_CUserMsg_HudText_descriptor,
               new java.lang.String[] { "Message", });
-          internal_static_com_valve_dota2_CUserMsg_TextMsg_descriptor =
+          internal_static_CUserMsg_TextMsg_descriptor =
             getDescriptor().getMessageTypes().get(12);
-          internal_static_com_valve_dota2_CUserMsg_TextMsg_fieldAccessorTable = new
+          internal_static_CUserMsg_TextMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_TextMsg_descriptor,
+              internal_static_CUserMsg_TextMsg_descriptor,
               new java.lang.String[] { "Dest", "Param", });
-          internal_static_com_valve_dota2_CUserMsg_GameTitle_descriptor =
+          internal_static_CUserMsg_GameTitle_descriptor =
             getDescriptor().getMessageTypes().get(13);
-          internal_static_com_valve_dota2_CUserMsg_GameTitle_fieldAccessorTable = new
+          internal_static_CUserMsg_GameTitle_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_GameTitle_descriptor,
+              internal_static_CUserMsg_GameTitle_descriptor,
               new java.lang.String[] { });
-          internal_static_com_valve_dota2_CUserMsg_ResetHUD_descriptor =
+          internal_static_CUserMsg_ResetHUD_descriptor =
             getDescriptor().getMessageTypes().get(14);
-          internal_static_com_valve_dota2_CUserMsg_ResetHUD_fieldAccessorTable = new
+          internal_static_CUserMsg_ResetHUD_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_ResetHUD_descriptor,
+              internal_static_CUserMsg_ResetHUD_descriptor,
               new java.lang.String[] { });
-          internal_static_com_valve_dota2_CUserMsg_SendAudio_descriptor =
+          internal_static_CUserMsg_SendAudio_descriptor =
             getDescriptor().getMessageTypes().get(15);
-          internal_static_com_valve_dota2_CUserMsg_SendAudio_fieldAccessorTable = new
+          internal_static_CUserMsg_SendAudio_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_SendAudio_descriptor,
+              internal_static_CUserMsg_SendAudio_descriptor,
               new java.lang.String[] { "Stop", "Name", });
-          internal_static_com_valve_dota2_CUserMsg_VoiceMask_descriptor =
+          internal_static_CUserMsg_VoiceMask_descriptor =
             getDescriptor().getMessageTypes().get(16);
-          internal_static_com_valve_dota2_CUserMsg_VoiceMask_fieldAccessorTable = new
+          internal_static_CUserMsg_VoiceMask_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_VoiceMask_descriptor,
+              internal_static_CUserMsg_VoiceMask_descriptor,
               new java.lang.String[] { "AudiblePlayersMask", "PlayerModEnabled", });
-          internal_static_com_valve_dota2_CUserMsg_RequestState_descriptor =
+          internal_static_CUserMsg_RequestState_descriptor =
             getDescriptor().getMessageTypes().get(17);
-          internal_static_com_valve_dota2_CUserMsg_RequestState_fieldAccessorTable = new
+          internal_static_CUserMsg_RequestState_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_RequestState_descriptor,
+              internal_static_CUserMsg_RequestState_descriptor,
               new java.lang.String[] { });
-          internal_static_com_valve_dota2_CUserMsg_HintText_descriptor =
+          internal_static_CUserMsg_HintText_descriptor =
             getDescriptor().getMessageTypes().get(18);
-          internal_static_com_valve_dota2_CUserMsg_HintText_fieldAccessorTable = new
+          internal_static_CUserMsg_HintText_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_HintText_descriptor,
+              internal_static_CUserMsg_HintText_descriptor,
               new java.lang.String[] { "Message", });
-          internal_static_com_valve_dota2_CUserMsg_KeyHintText_descriptor =
+          internal_static_CUserMsg_KeyHintText_descriptor =
             getDescriptor().getMessageTypes().get(19);
-          internal_static_com_valve_dota2_CUserMsg_KeyHintText_fieldAccessorTable = new
+          internal_static_CUserMsg_KeyHintText_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_KeyHintText_descriptor,
+              internal_static_CUserMsg_KeyHintText_descriptor,
               new java.lang.String[] { "Messages", });
-          internal_static_com_valve_dota2_CUserMsg_StatsCrawlMsg_descriptor =
+          internal_static_CUserMsg_StatsCrawlMsg_descriptor =
             getDescriptor().getMessageTypes().get(20);
-          internal_static_com_valve_dota2_CUserMsg_StatsCrawlMsg_fieldAccessorTable = new
+          internal_static_CUserMsg_StatsCrawlMsg_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_StatsCrawlMsg_descriptor,
+              internal_static_CUserMsg_StatsCrawlMsg_descriptor,
               new java.lang.String[] { });
-          internal_static_com_valve_dota2_CUserMsg_StatsSkipState_descriptor =
+          internal_static_CUserMsg_StatsSkipState_descriptor =
             getDescriptor().getMessageTypes().get(21);
-          internal_static_com_valve_dota2_CUserMsg_StatsSkipState_fieldAccessorTable = new
+          internal_static_CUserMsg_StatsSkipState_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_StatsSkipState_descriptor,
+              internal_static_CUserMsg_StatsSkipState_descriptor,
               new java.lang.String[] { "NumSkips", "NumPlayers", });
-          internal_static_com_valve_dota2_CUserMsg_VoiceSubtitle_descriptor =
+          internal_static_CUserMsg_VoiceSubtitle_descriptor =
             getDescriptor().getMessageTypes().get(22);
-          internal_static_com_valve_dota2_CUserMsg_VoiceSubtitle_fieldAccessorTable = new
+          internal_static_CUserMsg_VoiceSubtitle_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_VoiceSubtitle_descriptor,
+              internal_static_CUserMsg_VoiceSubtitle_descriptor,
               new java.lang.String[] { "EntIndex", "Menu", "Item", });
-          internal_static_com_valve_dota2_CUserMsg_VGUIMenu_descriptor =
+          internal_static_CUserMsg_VGUIMenu_descriptor =
             getDescriptor().getMessageTypes().get(23);
-          internal_static_com_valve_dota2_CUserMsg_VGUIMenu_fieldAccessorTable = new
+          internal_static_CUserMsg_VGUIMenu_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_VGUIMenu_descriptor,
+              internal_static_CUserMsg_VGUIMenu_descriptor,
               new java.lang.String[] { "Name", "Show", "Keys", });
-          internal_static_com_valve_dota2_CUserMsg_VGUIMenu_Keys_descriptor =
-            internal_static_com_valve_dota2_CUserMsg_VGUIMenu_descriptor.getNestedTypes().get(0);
-          internal_static_com_valve_dota2_CUserMsg_VGUIMenu_Keys_fieldAccessorTable = new
+          internal_static_CUserMsg_VGUIMenu_Keys_descriptor =
+            internal_static_CUserMsg_VGUIMenu_descriptor.getNestedTypes().get(0);
+          internal_static_CUserMsg_VGUIMenu_Keys_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_VGUIMenu_Keys_descriptor,
+              internal_static_CUserMsg_VGUIMenu_Keys_descriptor,
               new java.lang.String[] { "Name", "Value", });
-          internal_static_com_valve_dota2_CUserMsg_Geiger_descriptor =
+          internal_static_CUserMsg_Geiger_descriptor =
             getDescriptor().getMessageTypes().get(24);
-          internal_static_com_valve_dota2_CUserMsg_Geiger_fieldAccessorTable = new
+          internal_static_CUserMsg_Geiger_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_Geiger_descriptor,
+              internal_static_CUserMsg_Geiger_descriptor,
               new java.lang.String[] { "Range", });
-          internal_static_com_valve_dota2_CUserMsg_Rumble_descriptor =
+          internal_static_CUserMsg_Rumble_descriptor =
             getDescriptor().getMessageTypes().get(25);
-          internal_static_com_valve_dota2_CUserMsg_Rumble_fieldAccessorTable = new
+          internal_static_CUserMsg_Rumble_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_Rumble_descriptor,
+              internal_static_CUserMsg_Rumble_descriptor,
               new java.lang.String[] { "Index", "Data", "Flags", });
-          internal_static_com_valve_dota2_CUserMsg_Train_descriptor =
+          internal_static_CUserMsg_Train_descriptor =
             getDescriptor().getMessageTypes().get(26);
-          internal_static_com_valve_dota2_CUserMsg_Train_fieldAccessorTable = new
+          internal_static_CUserMsg_Train_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_Train_descriptor,
+              internal_static_CUserMsg_Train_descriptor,
               new java.lang.String[] { "Train", });
-          internal_static_com_valve_dota2_CUserMsg_SayTextChannel_descriptor =
+          internal_static_CUserMsg_SayTextChannel_descriptor =
             getDescriptor().getMessageTypes().get(27);
-          internal_static_com_valve_dota2_CUserMsg_SayTextChannel_fieldAccessorTable = new
+          internal_static_CUserMsg_SayTextChannel_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_SayTextChannel_descriptor,
+              internal_static_CUserMsg_SayTextChannel_descriptor,
               new java.lang.String[] { "Player", "Channel", "Text", });
-          internal_static_com_valve_dota2_CUserMsg_MessageText_descriptor =
+          internal_static_CUserMsg_MessageText_descriptor =
             getDescriptor().getMessageTypes().get(28);
-          internal_static_com_valve_dota2_CUserMsg_MessageText_fieldAccessorTable = new
+          internal_static_CUserMsg_MessageText_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_com_valve_dota2_CUserMsg_MessageText_descriptor,
+              internal_static_CUserMsg_MessageText_descriptor,
               new java.lang.String[] { "Color", "Text", });
+          internal_static_CUserMsg_CameraTransition_descriptor =
+            getDescriptor().getMessageTypes().get(29);
+          internal_static_CUserMsg_CameraTransition_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_CUserMsg_CameraTransition_descriptor,
+              new java.lang.String[] { "CameraType", "Duration", "ParamsDataDriven", });
+          internal_static_CUserMsg_CameraTransition_Transition_DataDriven_descriptor =
+            internal_static_CUserMsg_CameraTransition_descriptor.getNestedTypes().get(0);
+          internal_static_CUserMsg_CameraTransition_Transition_DataDriven_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_CUserMsg_CameraTransition_Transition_DataDriven_descriptor,
+              new java.lang.String[] { "Filename", "AttachEntIndex", });
           return null;
         }
       };
@@ -18151,7 +19393,7 @@ public final class Usermessages {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.DescriptorProtos.getDescriptor(),
-          com.valve.dota2.Netmessages.getDescriptor(),
+          com.valve.dota2.Networkbasetypes.getDescriptor(),
         }, assigner);
   }
 
