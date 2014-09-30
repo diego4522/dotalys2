@@ -47,4 +47,7 @@ public interface Statics {
     String UNKNOWN_ITEM = "<unknown>";
     String SAVE_TO = "Save to: ";
     String BROWSE = "Browse";
+    int SUPPORTED_PROTOCOL_VERSION = 40; //Version used by Dota 6.8.1
+    String PROTOCOL_WARNING = "The Dota2 version of the file is newer than what this version of Dotalys2 was tested with. Results may vary";
+    String WARNING = "Warning";
 }

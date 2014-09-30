@@ -119,7 +119,7 @@ public class SVCMessageHandler {
                     throw new IllegalStateException( "We already seen a server info" );
                 }
                 final CSVCMsg_ServerInfo si = CSVCMsg_ServerInfo.parseFrom( bytes );
-                DotaPlay.setState( new ParseState( si.getMaxClasses() ) );
+                DotaPlay.setState( new ParseState( si.getProtocol(), si.getMaxClasses() ) );
                 DotaPlay.getState().setTickInterval( si.getTickInterval() );
                 break;
             case svc_CreateStringTable:

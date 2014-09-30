@@ -53,7 +53,10 @@ public class ParseState {
 
     private CSVCMsg_GameEventList gameEventList;
 
-    public ParseState( int maxClasses ) {
+    private final int protocolVersion;
+
+    public ParseState( int version, int maxClasses ) {
+        protocolVersion = version;
         entities = new HashMap<Integer, Entity>();
         sendTables = new HashMap<String, SendTable>();
         flatSendTables = new HashMap<String, FlatSendTable>();
@@ -96,7 +99,7 @@ public class ParseState {
 
             final Iterator<Integer> iter = priorities.iterator();
             int p = iter.next();
-            while (iter.hasNext() && (p != priority)) {
+            while (iter.hasNext() && p != priority) {
                 p = iter.next();
             }
 
@@ -116,7 +119,7 @@ public class ParseState {
             while (cursor < state.props.size()) {
                 final SendProp prop = state.props.get( cursor );
 
-                if (((prop.getPriority()) == priority) || ((priority == 64) && ((SP_Flags.SP_ChangesOften.getId() & (prop.getFlags())) > 0))) {
+                if (prop.getPriority() == priority || priority == 64 && (SP_Flags.SP_ChangesOften.getId() & prop.getFlags()) > 0) {
                     final SendProp temp = state.props.get( hole );
                     state.props.set( hole, state.props.get( cursor ) );
                     state.props.set( cursor, temp );
@@ -248,6 +251,10 @@ public class ParseState {
 
     public String getHeroForPlayer( String player ) {
         return playedHeroes.get( player );
+    }
+
+    public int getProtocolVersion() {
+        return protocolVersion;
     }
 
     public Collection<SendTable> getSendTables() {
