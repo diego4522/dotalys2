@@ -221,9 +221,9 @@ public class BatchDialog extends JDialog {
 
     private JPanel createSavePathPanel() {
         final JPanel savePathPanel = new JPanel();
-        final JLabel label = new JLabel( "Save to" );
+        final JLabel label = new JLabel( Statics.SAVE_TO );
         final JTextField savePathField = getSavePathField();
-        final JButton button = new JButton( "Browse..." );
+        final JButton button = new JButton( Statics.BROWSE );
 
         button.addActionListener( new ActionListener() {
             @Override
@@ -295,10 +295,12 @@ public class BatchDialog extends JDialog {
                                 case MapComponent.CAT_ABILITIES:
                                     header = "#tickms, x, y, ability";
                                     data = ChartCreator.createAbilityLog( p );
-
+                                case MapComponent.CAT_ITEMS:
+                                    header = "#tickms, x, y, item";
+                                    data = ChartCreator.createItemLog( p );
                                     break;
                                 default:
-                                    throw new RuntimeException( "Unknown property " + entry.getName() );
+                                    throw new RuntimeException( "Unknown property " + entry.getValue() );
 
                             }
                             exportData( header, data, fileOut );
@@ -346,6 +348,7 @@ public class BatchDialog extends JDialog {
             ((DefaultListModel<CheckBoxListEntry>) propertyList.getModel()).addElement( new CheckBoxListEntry( MapComponent.CAT_MOVEMENT, false ) );
             ((DefaultListModel<CheckBoxListEntry>) propertyList.getModel()).addElement( new CheckBoxListEntry( MapComponent.CAT_ZONES, false ) );
             ((DefaultListModel<CheckBoxListEntry>) propertyList.getModel()).addElement( new CheckBoxListEntry( MapComponent.CAT_ABILITIES, false ) );
+            ((DefaultListModel<CheckBoxListEntry>) propertyList.getModel()).addElement( new CheckBoxListEntry( MapComponent.CAT_ITEMS, false ) );
             propertyList.addPropertyChangeListener( new PropertyChangeListener() {
                 @Override
                 public void propertyChange( PropertyChangeEvent arg0 ) {

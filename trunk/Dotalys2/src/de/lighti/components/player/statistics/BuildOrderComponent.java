@@ -35,14 +35,14 @@ public class BuildOrderComponent extends JPanel {
                         x += image.getWidth() + 5;
                     }
                     else {
-                        g.drawString( i.getName(), x, y );
-                        x += i.getName().length() * 20;
+                        g.drawString( i.getKey(), x, y );
+                        x += i.getKey().length() * 20;
                     }
                 }
                 catch (final IOException e) {
                     LOGGER.warning( "Error loading image: " + e.getLocalizedMessage() );
-                    g.drawString( i.getName(), x, y );
-                    x += i.getName().length() * 20;
+                    g.drawString( i.getKey(), x, y );
+                    x += i.getKey().length() * 20;
                 }
 
                 if (x >= getWidth() - 100) {

@@ -9,6 +9,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.logging.Logger;
 
 import org.jfree.chart.ChartFactory;
@@ -29,6 +30,7 @@ import de.lighti.components.match.GameStatisticsComponent;
 import de.lighti.model.AppState;
 import de.lighti.model.Statics;
 import de.lighti.model.game.Ability;
+import de.lighti.model.game.Dota2Item;
 import de.lighti.model.game.Hero;
 import de.lighti.model.game.Player;
 import de.lighti.model.game.Unit;
@@ -186,6 +188,52 @@ public final class ChartCreator {
         for (final int[] e : coords) {
             ret.add( e[0], e[1] );
         }
+        return ret;
+    }
+
+    public static String[][] createItemLog( Player p ) {
+        final List<Object[]> log = new ArrayList();
+        final Hero h = p.getHero();
+        for (final Dota2Item a : h.getAllItems()) {
+            for (final long l : a.getUsage()) {
+                final Object[] o = new Object[4];
+                o[0] = l;
+                o[1] = h.getX( l );
+                o[2] = h.getY( l );
+                o[3] = a.getKey();
+                log.add( o );
+            }
+        }
+        Collections.sort( log, new Comparator<Object[]>() {
+
+            @Override
+            public int compare( Object[] o1, Object[] o2 ) {
+                final long l1 = (long) o1[0];
+                final long l2 = (long) o2[0];
+                return Long.compare( l1, l2 );
+            }
+        } );
+        final String[][] ret = new String[log.size()][4];
+        for (int i = 0; i < log.size(); i++) {
+            final Object[] o = log.get( i );
+            ret[i][0] = o[0].toString();
+            ret[i][1] = o[1].toString();
+            ret[i][2] = o[2].toString();
+            ret[i][3] = o[3].toString();
+        }
+        return ret;
+    }
+
+    public static XYSeries createItemMap( Hero hero, String itemKey ) {
+        final Set<Dota2Item> items = hero.getItemsByName( itemKey );
+        final XYSeries ret = new XYSeries( hero.getName() + itemKey + MapComponent.CAT_ABILITIES, false, true );
+
+        for (final Dota2Item i : items) {
+            for (final Long l : i.getUsage()) {
+                ret.add( hero.getX( l ), hero.getY( l ) );
+            }
+        }
+
         return ret;
     }
 

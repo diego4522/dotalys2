@@ -164,19 +164,19 @@ public class Unit {
     }
 
     private void updateZone( long ms ) {
-        int x = getX( ms );
-        int y = getY( ms );
-        final Zone z;
-        if (x < 64 || y < 68) {
-            z = Zone.UNKNOWN;
-        }
-        else {
-            //Translate the coordinate to match it up with the label data
-            x -= 64;
-            y -= 68;
-
-            z = ZONE_DICTIONARY[x][y];
-        }
-        zones.put( ms, z );
+//        int x = getX( ms );
+//        int y = getY( ms );
+//        final Zone z;
+//        if (x < 64 || y < 68) {
+//            z = Zone.UNKNOWN;
+//        }
+//        else {
+//            //Translate the coordinate to match it up with the label data
+//            x -= 64;
+//            y -= 68;
+//
+//            z = ZONE_DICTIONARY[x][y];
+//        }
+//        zones.put( ms, z );
     }
 }

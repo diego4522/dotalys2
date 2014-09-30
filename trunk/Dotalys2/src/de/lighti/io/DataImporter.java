@@ -23,14 +23,14 @@ import de.lighti.parsing.AbilityTracker;
 import de.lighti.parsing.CreepHandler;
 import de.lighti.parsing.GeneralGameStateTracker;
 import de.lighti.parsing.HeroTracker;
-import de.lighti.parsing.ItemListener;
+import de.lighti.parsing.ItemTracker;
 import de.lighti.parsing.PlayersListener;
 
 public final class DataImporter {
     public static void parseReplayFile( AppState appState, Dotalys2App app, File file, ProgressListener... listeners ) {
         DotaPlay.getListeners().clear();
         DotaPlay.addListener( new PlayersListener( appState ) );
-        DotaPlay.addListener( new ItemListener( appState ) );
+        DotaPlay.addListener( new ItemTracker( appState ) );
         DotaPlay.addListener( new AbilityTracker( appState ) );
         DotaPlay.addListener( new HeroTracker( appState ) );
         DotaPlay.addListener( new CreepHandler( appState ) );
