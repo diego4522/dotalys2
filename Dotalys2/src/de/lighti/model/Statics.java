@@ -43,4 +43,8 @@ public interface Statics {
     String ABILITIES = "Abilities";
     String BATCH_EXPORT = "Batch export";
     String OK = "Ok";
+    String ITEMS = "Items";
+    String UNKNOWN_ITEM = "<unknown>";
+    String SAVE_TO = "Save to: ";
+    String BROWSE = "Browse";
 }

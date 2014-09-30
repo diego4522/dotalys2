@@ -64,7 +64,7 @@ public class AppState {
     private final Map<Integer, Hero> heroes;
     private final TreeMap<Long, Map<Integer, Dota2Item>> items;
 
-    private final Map<Integer, Ability> abilities;
+    private final TreeMap<Long, Map<Integer, Ability>> abilities;
 
     private final static Map<String, String> heroNames;
 
@@ -81,19 +81,26 @@ public class AppState {
         playerVariables = new HashSet<String>();
         heroes = new HashMap<Integer, Hero>();
         items = new TreeMap<Long, Map<Integer, Dota2Item>>();
-        abilities = new HashMap<Integer, Ability>();
+        items.put( 0l, new HashMap<Integer, Dota2Item>() );
+        abilities = new TreeMap<Long, Map<Integer, Ability>>();
+        abilities.put( 0l, new HashMap<Integer, Ability>() );
         players = new HashSet<Player>();
     }
 
-    public void addAbility( int id, Ability ability ) {
-        abilities.put( id, ability );
+    public void addAbility( long tick, int id, String ability ) {
+        Map<Integer, Ability> i = abilities.get( tick );
+        if (i == null) {
+            i = new HashMap<Integer, Ability>( abilities.floorEntry( tick ).getValue() );
+            abilities.put( tick, i );
+        }
+        i.put( id, new Ability( ability ) );
 
     }
 
     public void addItem( long tick, int id, String value ) {
         Map<Integer, Dota2Item> i = items.get( tick );
         if (i == null) {
-            i = new HashMap<Integer, Dota2Item>();
+            i = new HashMap<Integer, Dota2Item>( items.floorEntry( tick ).getValue() );
             items.put( tick, i );
         }
         i.put( id, new Dota2Item( value ) );
@@ -115,12 +122,24 @@ public class AppState {
         playerVariables.clear();
         heroes.clear();
         items.clear();
+        items.put( 0l, new HashMap<Integer, Dota2Item>() );
         abilities.clear();
+        abilities.put( 0l, new HashMap<Integer, Ability>() );
         players.clear();
     }
 
-    public Ability getAbility( int id ) {
-        return abilities.get( id );
+    public Ability getAbility( long tick, int value ) {
+        if (abilities.isEmpty()) {
+            return Ability.UNKNOWN_ABILITY;
+        }
+
+        final Entry<Long, Map<Integer, Ability>> e = abilities.floorEntry( tick );
+        if (e.getValue().containsKey( value )) {
+            return e.getValue().get( value );
+        }
+        else {
+            return Ability.UNKNOWN_ABILITY;
+        }
     }
 
     /**
@@ -147,16 +166,15 @@ public class AppState {
      * @return the Dota2Item
      */
     public Dota2Item getItem( long tick, int value ) {
-        Entry<Long, Map<Integer, Dota2Item>> e = items.floorEntry( tick );
-        while (true) {
-            final Map<Integer, Dota2Item> i = e.getValue();
-            if (i.containsKey( value )) {
-                return i.get( value );
-            }
-            e = items.floorEntry( e.getKey() - 1 );
-            if (e == null) {
-                return Dota2Item.UNKNOWN_ITEM;
-            }
+        if (items.isEmpty()) {
+            return Dota2Item.UNKNOWN_ITEM;
+        }
+        final Entry<Long, Map<Integer, Dota2Item>> e = items.floorEntry( tick );
+        if (e.getValue().containsKey( value )) {
+            return e.getValue().get( value );
+        }
+        else {
+            return Dota2Item.UNKNOWN_ITEM;
         }
     }
 
@@ -203,6 +221,25 @@ public class AppState {
 
     public Set<String> getUnhandledPlayerVariableNames() {
         return playerVariables;
+    }
+
+    public void removeAbility( long tick, int id ) {
+        Map<Integer, Ability> i = abilities.get( tick );
+        if (i == null) {
+            i = new HashMap<Integer, Ability>( abilities.floorEntry( tick ).getValue() );
+            abilities.put( tick, i );
+        }
+        i.remove( id );
+    }
+
+    public void removeItem( long tick, int id ) {
+        Map<Integer, Dota2Item> i = items.get( tick );
+        if (i == null) {
+            i = new HashMap<Integer, Dota2Item>( items.floorEntry( tick ).getValue() );
+            items.put( tick, i );
+        }
+        i.remove( id );
+
     }
 
     public void setHero( int id, Hero hero ) {

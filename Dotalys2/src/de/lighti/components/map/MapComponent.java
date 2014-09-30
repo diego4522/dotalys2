@@ -1,5 +1,7 @@
 package de.lighti.components.map;
 
+import java.util.HashSet;
+import java.util.Set;
 import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
@@ -22,6 +24,7 @@ import de.lighti.io.ChartCreator;
 import de.lighti.model.AppState;
 import de.lighti.model.Statics;
 import de.lighti.model.game.Ability;
+import de.lighti.model.game.Dota2Item;
 import de.lighti.model.game.Hero;
 import de.lighti.model.game.Player;
 
@@ -39,6 +42,7 @@ public class MapComponent extends JSplitPane {
     public final static String CAT_DEATHS = Statics.DEATHS;
     public final static String CAT_ZONES = Statics.ZONES;
     public final static String CAT_ABILITIES = Statics.ABILITIES;
+    public final static String CAT_ITEMS = Statics.ITEMS;
 
     private MapCanvasComponent mapCanvas;
 
@@ -64,16 +68,17 @@ public class MapComponent extends JSplitPane {
     }
 
     public void buildTreeNodes( Iterable<Player> players ) {
-
+        //Movement
         final DefaultMutableTreeNode movement = new DefaultMutableTreeNode( CAT_MOVEMENT );
         for (final Player p : players) {
             movement.add( new DefaultMutableTreeNode( p.getName() ) );
         }
+        //Deaths
         final DefaultMutableTreeNode deaths = new DefaultMutableTreeNode( CAT_DEATHS );
         for (final Player p : players) {
             deaths.add( new DefaultMutableTreeNode( p.getName() ) );
         }
-
+        //Abilities
         final DefaultMutableTreeNode abilities = new DefaultMutableTreeNode( CAT_ABILITIES );
         for (final Player p : players) {
             final DefaultMutableTreeNode playerNode = new DefaultMutableTreeNode( p.getName() );
@@ -86,6 +91,28 @@ public class MapComponent extends JSplitPane {
             abilities.add( playerNode );
         }
 
+        //Items
+        final DefaultMutableTreeNode items = new DefaultMutableTreeNode( CAT_ITEMS );
+        for (final Player p : players) {
+            final DefaultMutableTreeNode playerNode = new DefaultMutableTreeNode( p.getName() );
+            final Hero h = p.getHero();
+            //The hero internally stores an object for every item entity it seen. We have
+            //to flatten this down to only unique item names. We'll ask the Hero later for only
+            //specific items of a certain type when we build the data set in the ChartCreator
+            final Set<String> itemNames = new HashSet<String>();
+            for (final Dota2Item i : h.getAllItems()) {
+                //Just take items that can be and were actively used
+                if (!i.getUsage().isEmpty()) {
+                    itemNames.add( i.getKey() );
+                }
+            }
+            for (final String s : itemNames) {
+                playerNode.add( new DefaultMutableTreeNode( s ) );
+            }
+            items.add( playerNode );
+        }
+
+        //Root
         final DefaultTreeModel model = (DefaultTreeModel) attributeTree.getModel();
         DefaultMutableTreeNode root = (DefaultMutableTreeNode) model.getRoot();
         if (root != null) {
@@ -98,7 +125,7 @@ public class MapComponent extends JSplitPane {
         root.add( movement );
         root.add( deaths );
         root.add( abilities );
-
+        root.add( items );
         model.reload( root );
     }
 
@@ -130,6 +157,7 @@ public class MapComponent extends JSplitPane {
                                     case CAT_MOVEMENT:
                                     case CAT_DEATHS:
                                     case CAT_ABILITIES:
+                                    case CAT_ITEMS:
                                         catName = value;
                                         break;
                                 }
@@ -144,7 +172,7 @@ public class MapComponent extends JSplitPane {
                                         s.setKey( player.getName() + catName );
                                         getMapCanvas().addSeries( s, player.getId() );
                                     }
-                                        break;
+                                    break;
                                     case CAT_DEATHS: {
                                         final Player player = appState.getPlayerByName( (String) selection );
 
@@ -152,11 +180,18 @@ public class MapComponent extends JSplitPane {
                                         s.setKey( player.getName() + catName );
                                         getMapCanvas().addSeries( s, player.getId() );
                                     }
-                                        break;
+                                    break;
                                     case CAT_ABILITIES: {
                                         final String playerName = (String) ((DefaultMutableTreeNode) selectedNode.getParent()).getUserObject();
                                         final Player player = appState.getPlayerByName( playerName );
                                         final XYSeries s = ChartCreator.createAbilityMap( player.getHero(), ((Ability) selection).getKey() );
+                                        getMapCanvas().addSeries( s, player.getId() );
+                                    }
+                                        break;
+                                    case CAT_ITEMS: {
+                                        final String playerName = (String) ((DefaultMutableTreeNode) selectedNode.getParent()).getUserObject();
+                                        final Player player = appState.getPlayerByName( playerName );
+                                        final XYSeries s = ChartCreator.createItemMap( player.getHero(), (String) selection );
                                         getMapCanvas().addSeries( s, player.getId() );
                                     }
                                     break;
@@ -168,14 +203,19 @@ public class MapComponent extends JSplitPane {
                                 getOptionContainer().getStepSlider().setMaximum( getMapCanvas().getItemCount() );
                             }
                             else {
-                                //TODO remove this hack
-                                if (selection instanceof Ability) {
-                                    getMapCanvas().removeSeries( ((Ability) selection).getKey() + catName );
+                                switch (catName) {
+                                    case CAT_ABILITIES:
+                                        getMapCanvas().removeSeries( ((Ability) selection).getKey() + catName );
+                                        break;
+                                    case CAT_ITEMS:
+                                        final String playerName = (String) ((DefaultMutableTreeNode) selectedNode.getParent()).getUserObject();
+                                        final Player player = appState.getPlayerByName( playerName );
+                                        getMapCanvas().removeSeries( player.getHero().getName() + selection + MapComponent.CAT_ABILITIES );
+                                        break;
+                                    default:
+                                        getMapCanvas().removeSeries( selection + catName );
+                                        break;
                                 }
-                                else {
-                                    getMapCanvas().removeSeries( selection + catName );
-                                }
-
                             }
                         }
                     }

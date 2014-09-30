@@ -31,7 +31,7 @@ public class Hero extends Unit {
         }
         int count = 0;
         for (final Dota2Item m : list) {
-            if (m != null && m.getName().equals( n.getName() )) {
+            if (m != null && m.getKey().equals( n.getKey() )) {
                 count++;
             }
         }
@@ -39,8 +39,8 @@ public class Hero extends Unit {
     }
 
     private final TreeMap<Long, Dota2Item[]> items;
-    private final Set<Ability> abilities;
 
+    private final Set<Ability> abilities;
     private final Queue<ItemEvent> itemLog;
 
     private final TreeMap<Long, int[]> deaths;
@@ -91,12 +91,48 @@ public class Hero extends Unit {
         return null;
     }
 
+    /**
+     * Get all items held by this hero. Beware that this will give
+     * you a Dota2Item for every internal Entity that was attached to this hero, the set
+     * might return a number of objects for the same actual game item. If you're interested
+     * in the unique items a hero bought, you should use getItemLog() instead.
+     * @return a set of items
+     */
+    public Set<Dota2Item> getAllItems() {
+        final Set<Dota2Item> ret = new HashSet<Dota2Item>();
+        for (final Dota2Item[] a : items.values()) {
+            for (final Dota2Item i : a) {
+                if (i != null) {
+                    ret.add( i );
+                }
+            }
+        }
+        return ret;
+    }
+
     public TreeMap<Long, int[]> getDeaths() {
         return deaths;
     }
 
     public Queue<ItemEvent> getItemLog() {
         return itemLog;
+    }
+
+    /**
+     * Same behaviour as getAllItems, allows to filter returned items by name.
+     * @param itemKey the item name
+     * @return all items with a certain a hero has
+     */
+    public Set<Dota2Item> getItemsByName( String itemKey ) {
+        final Set<Dota2Item> ret = new HashSet<Dota2Item>();
+        for (final Dota2Item[] a : items.values()) {
+            for (final Dota2Item i : a) {
+                if (i != null && i.getKey().equals( itemKey )) {
+                    ret.add( i );
+                }
+            }
+        }
+        return ret;
     }
 
     public void setItem( long tickMs, int slot, Dota2Item newItem ) {
@@ -118,6 +154,11 @@ public class Hero extends Unit {
                 generateLogEntries( current.getKey(), previous.getValue(), current.getValue() );
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Hero [getName()=" + getName() + "]";
     }
 
 }

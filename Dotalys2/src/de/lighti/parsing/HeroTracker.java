@@ -2,8 +2,10 @@ package de.lighti.parsing;
 
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.logging.Logger;
 
@@ -13,6 +15,7 @@ import de.lighti.model.AppState;
 import de.lighti.model.Entity;
 import de.lighti.model.Property;
 import de.lighti.model.game.Ability;
+import de.lighti.model.game.Dota2Item;
 import de.lighti.model.game.Hero;
 import de.lighti.model.state.ParseState;
 
@@ -20,11 +23,13 @@ public class HeroTracker extends DefaultGameEventListener {
     private final AppState state;
 
     private final Map<Hero, TreeMap<Long, Integer[]>> itemCache;
+    private final Map<Hero, TreeMap<Long, Set<Integer>>> abilityCache;
 
     public HeroTracker( AppState state ) {
         super();
         this.state = state;
         itemCache = new HashMap<Hero, TreeMap<Long, Integer[]>>();
+        abilityCache = new HashMap<Hero, TreeMap<Long, Set<Integer>>>();
     }
 
     @Override
@@ -45,7 +50,7 @@ public class HeroTracker extends DefaultGameEventListener {
                         value &= 0x7ff;
 
 //                        h.addAbility( DotaPlay.getTickMs(), slot, value );
-                        final Ability a = state.getAbility( value );
+                        final Ability a = state.getAbility( tickMs, value );
                         if (a == null) {
                             Logger.getLogger( getClass().getName() ).warning( "Hero " + h.getName() + " has an odd ability" ); //Most likely a temporary entity
                         }
@@ -75,26 +80,27 @@ public class HeroTracker extends DefaultGameEventListener {
                 if (value != 0x1FFFFF) {
                     value &= 0x7ff;
 //                    h.setItem( DotaPlay.getTickMs(), slot, value );
-                    setItemInCache( h, DotaPlay.getTickMs(), slot, value );
+                    setItemInCache( h, tickMs, slot, value );
                 }
                 else {
 //                    h.setItem( DotaPlay.getTickMs(), slot, null );
-                    setItemInCache( h, DotaPlay.getTickMs(), slot, null );
+                    setItemInCache( h, tickMs, slot, null );
                 }
             }
             else if (name.contains( "m_hAbilities" )) {
                 int value = (int) e.getProperty( name ).getValue();
                 if (value != 0x1FFFFF) {
 
-                    final int slot = Integer.parseInt( name.substring( name.lastIndexOf( "." ) + 1 ) );
+//                    final int slot = Integer.parseInt( name.substring( name.lastIndexOf( "." ) + 1 ) );
                     value &= 0x7ff;
-                    final Ability a = state.getAbility( value );
-                    if (a == null) {
-                        Logger.getLogger( getClass().getName() ).warning( "Hero " + h.getName() + " has an odd ability" ); //Most likely a temporary entity
-                    }
-                    else {
-                        h.getAbilities().add( a );
-                    }
+//                    final Ability a = state.getAbility( tickMs, value );
+//                    if (a == Ability.UNKNOWN_ABILITY) {
+//                        Logger.getLogger( getClass().getName() ).warning( "Hero " + h.getName() + " has an odd ability" ); //Most likely a temporary entity
+//                    }
+//                    else {
+//                        h.getAbilities().add( a );
+//                    }
+                    setAbilityInCache( h, tickMs, value );
                 }
             }
             else if (name.equals( "DT_DOTA_BaseNPC.m_iHealth" )) {
@@ -112,13 +118,15 @@ public class HeroTracker extends DefaultGameEventListener {
     public void parseComplete( long tickMs, ParseState state ) {
         super.parseComplete( tickMs, state );
 
+        //Items
         for (final Hero h : itemCache.keySet()) {
             final TreeMap<Long, Integer[]> heroItems = itemCache.get( h );
             for (final Long l : heroItems.keySet()) {
                 final Integer[] frameItems = heroItems.get( l );
                 for (int slot = 0; slot < frameItems.length; slot++) {
                     if (frameItems[slot] != null) {
-                        h.setItem( l, slot, this.state.getItem( l, frameItems[slot] ) );
+                        final Dota2Item i = this.state.getItem( l, frameItems[slot] );
+                        h.setItem( l, slot, i );
                     }
                     else {
                         h.setItem( l, slot, null );
@@ -127,7 +135,47 @@ public class HeroTracker extends DefaultGameEventListener {
             }
         }
 
+        //Abilities
+        for (final Hero h : abilityCache.keySet()) {
+            final TreeMap<Long, Set<Integer>> heroAbilities = abilityCache.get( h );
+            for (final Entry<Long, Set<Integer>> e : heroAbilities.entrySet()) {
+                for (final Integer value : e.getValue()) {
+                    final Ability a = this.state.getAbility( e.getKey(), value );
+                    if (a == Ability.UNKNOWN_ABILITY) {
+                        Logger.getLogger( getClass().getName() ).warning( "Hero " + h.getName() + " has an odd ability " + value ); //Most likely a temporary entity
+                    }
+                    else {
+                        h.getAbilities().add( a );
+                    }
+                }
+            }
+        }
+        abilityCache.clear();
         itemCache.clear();
+    }
+
+    private void setAbilityInCache( Hero h, long tickMs, int value ) {
+        TreeMap<Long, Set<Integer>> abilities = abilityCache.get( h );
+        if (abilities == null) {
+            abilities = new TreeMap<Long, Set<Integer>>();
+            abilities.put( 0l, new HashSet() );
+            abilityCache.put( h, abilities );
+        }
+        if (abilities.containsKey( tickMs )) {
+            //Just store the update
+            abilities.get( tickMs ).add( value );
+        }
+        else {
+            //We advanced. Push the current bag configuration, calculate the diff to the previous one and make
+            //a new array for the new tick
+            final Entry<Long, Set<Integer>> current = abilities.floorEntry( tickMs );
+
+            final Set<Integer> newBag = new HashSet( current.getValue() );
+            newBag.add( value );
+            abilities.put( tickMs, newBag );
+
+        }
+
     }
 
     private void setItemInCache( Hero h, long tickMs, int slot, Integer value ) {

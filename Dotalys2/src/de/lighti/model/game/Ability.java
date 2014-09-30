@@ -7,6 +7,7 @@ import java.util.TreeSet;
 import de.lighti.model.AppState;
 
 public class Ability {
+    public static final Ability UNKNOWN_ABILITY = new Ability( "<Unknown>" );
     private String key;
     private String localisedName;
 
