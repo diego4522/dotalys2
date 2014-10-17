@@ -1,5 +1,7 @@
 package de.lighti.parsing;
 
+import java.util.logging.Logger;
+
 import de.lighti.DefaultGameEventListener;
 import de.lighti.model.AppState;
 import de.lighti.model.Entity;
@@ -8,6 +10,7 @@ import de.lighti.model.game.Dota2Item;
 
 public class ItemTracker extends DefaultGameEventListener {
     private final AppState appState;
+    private final static Logger LOGGER = Logger.getLogger( ItemTracker.class.getName() );
 
     public ItemTracker( AppState state ) {
         super();
@@ -39,11 +42,16 @@ public class ItemTracker extends DefaultGameEventListener {
                 item.setKey( (String) e.getProperty( "DT_BaseEntity.m_iName" ).getValue() );
             }
             else if (name.equals( "DT_DOTABaseAbility.m_fCooldown" )) {
-                final float coolcownEnd = (float) e.getProperty( "DT_DOTABaseAbility.m_fCooldown" ).getValue();
+                float cooldownEnd = (float) e.getProperty( "DT_DOTABaseAbility.m_fCooldown" ).getValue();
                 final float cooldown = (float) e.getProperty( "DT_DOTABaseAbility.m_flCooldownLength" ).getValue();
                 if (cooldown > 0) {
+                    //TODO find out why cooldownEnd may be 0 here
+                    if (cooldownEnd - cooldown < 0) {
+                        LOGGER.warning( "Item usage timestamp invalid for item " + item + ". Assuming tick " + tickMs );
+                        cooldownEnd = tickMs + cooldown;
+                    }
                     //Cooldown stamps are in seconds. Don't forget to multiply by 1000
-                    item.addUsage( (long) ((coolcownEnd - cooldown) * 1000l) );
+                    item.addUsage( (long) ((cooldownEnd - cooldown) * 1000l) );
                 }
             }
         }
