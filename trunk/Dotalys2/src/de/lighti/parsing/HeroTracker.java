@@ -10,7 +10,6 @@ import java.util.TreeMap;
 import java.util.logging.Logger;
 
 import de.lighti.DefaultGameEventListener;
-import de.lighti.DotaPlay;
 import de.lighti.model.AppState;
 import de.lighti.model.Entity;
 import de.lighti.model.Property;
@@ -101,14 +100,6 @@ public class HeroTracker extends DefaultGameEventListener {
 //                        h.getAbilities().add( a );
 //                    }
                     setAbilityInCache( h, tickMs, value );
-                }
-            }
-            else if (name.equals( "DT_DOTA_BaseNPC.m_iHealth" )) {
-                final Integer value = (Integer) e.getProperty( name ).getValue();
-                if (value == 0) {
-                    final int x = (Integer) e.getProperty( "DT_DOTA_BaseNPC.m_cellX" ).getValue();
-                    final int y = (Integer) e.getProperty( "DT_DOTA_BaseNPC.m_cellY" ).getValue();
-                    h.addDeath( DotaPlay.getTickMs(), x, y );
                 }
             }
         }
