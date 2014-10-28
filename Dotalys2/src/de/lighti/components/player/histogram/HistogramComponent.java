@@ -29,7 +29,7 @@ import de.lighti.model.Statics;
 
 public class HistogramComponent extends JSplitPane {
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = 9074089320819436807L;
     private static final String DEBUG_DIVIDER = "--- DEBUG ---";
@@ -56,11 +56,11 @@ public class HistogramComponent extends JSplitPane {
             attributeBox = new JComboBox<String>( new DefaultComboBoxModel<String>() ) {
 
                 /**
-                 * 
+                 *
                  */
                 private static final long serialVersionUID = 7315048556938443236L;
 
-                /** 
+                /**
                  * @inherited <p>
                  */
                 @Override
@@ -75,6 +75,7 @@ public class HistogramComponent extends JSplitPane {
             //First add the known values
             attributeBox.addItem( Statics.EXPERIENCE );
             attributeBox.addItem( Statics.GOLD );
+            attributeBox.addItem( Statics.DEATHS );
             attributeBox.addItem( DEBUG_DIVIDER );
 
             attributeBox.setEnabled( false );

@@ -288,6 +288,12 @@ public final class ChartCreator {
                             series1.add( new FixedMillisecond( seconds ), p.getEarnedGold( seconds ) );
                         }
                         break;
+
+                    case Statics.DEATHS:
+                        for (long seconds = 0l; seconds < appState.getGameLength(); seconds += appState.getMsPerTick() * 1000) {
+                            series1.add( new FixedMillisecond( seconds ), p.getDeaths( seconds ).size() );
+                        }
+                        break;
                     default:
 
                         for (final Entry<Long, Map<String, Object>> e : appState.gameEventsPerMs.entrySet()) {

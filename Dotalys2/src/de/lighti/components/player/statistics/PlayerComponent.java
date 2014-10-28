@@ -129,7 +129,7 @@ public class PlayerComponent extends JSplitPane {
     private JComponent createPlayerStatisticsTab() {
 
         final JTable table = new JTable();
-        final TableModel model = new DefaultTableModel( 7, 2 ) {
+        final TableModel model = new DefaultTableModel( 8, 2 ) {
 
             /**
              *
@@ -151,6 +151,7 @@ public class PlayerComponent extends JSplitPane {
         model.setValueAt( Statics.GOLD_PER_MINUTE, 4, 0 );
         model.setValueAt( Statics.TOTAL_XP, 5, 0 );
         model.setValueAt( Statics.XP_PER_MINUTE, 6, 0 );
+        model.setValueAt( Statics.DEATHS, 7, 0 );
 
         getPlayerBox().addActionListener( new ActionListener() {
 
@@ -170,6 +171,7 @@ public class PlayerComponent extends JSplitPane {
                     final double gpm = gold / minutes;
                     final int toalXp = p.getTotalXP();
                     final double xpm = toalXp / minutes;
+                    final int deaths = p.getDeaths().size();
 
                     model.setValueAt( p.getName(), 0, 1 );
                     model.setValueAt( team, 1, 1 );
@@ -179,6 +181,7 @@ public class PlayerComponent extends JSplitPane {
                     model.setValueAt( TWO_DIGITS.format( gpm ), 4, 1 );
                     model.setValueAt( TWO_DIGITS.format( toalXp ), 5, 1 );
                     model.setValueAt( TWO_DIGITS.format( xpm ), 6, 1 );
+                    model.setValueAt( TWO_DIGITS.format( deaths ), 7, 1 );
                 }
             }
         } );

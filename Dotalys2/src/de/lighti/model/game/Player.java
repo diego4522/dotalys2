@@ -1,6 +1,8 @@
 package de.lighti.model.game;
 
+import java.util.SortedSet;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class Player {
     private String name;
@@ -12,6 +14,7 @@ public class Player {
 
     private final TreeMap<Long, Integer> xp;
     private final TreeMap<Long, Integer> gold;
+    private final SortedSet<Long> deaths;
 
     public Player( int id ) {
 
@@ -20,6 +23,25 @@ public class Player {
         xp.put( 0l, 0 );
         gold = new TreeMap<Long, Integer>();
         gold.put( 0l, 0 );
+
+        deaths = new TreeSet<Long>();
+    }
+
+    public void addDeath( Long time ) {
+        deaths.add( time );
+    }
+
+    public SortedSet<Long> getDeaths() {
+        return getDeaths( null );
+    }
+
+    public SortedSet<Long> getDeaths( Long upUnntilTime ) {
+        if (upUnntilTime == null) {
+            return deaths;
+        }
+        else {
+            return deaths.headSet( upUnntilTime );
+        }
     }
 
     public int getEarnedGold( long time ) {
