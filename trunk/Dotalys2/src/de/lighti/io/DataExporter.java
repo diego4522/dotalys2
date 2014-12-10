@@ -13,7 +13,7 @@ public class DataExporter {
         for (final String[] line : data) {
             for (int i = 0; i < line.length; i++) {
                 fo.write( line[i] );
-                if (i != line.length) {
+                if (i < line.length - 1) {
                     fo.write( ", " );
                 }
             }
