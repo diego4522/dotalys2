@@ -11,15 +11,47 @@ import javax.swing.JOptionPane;
 
 import de.lighti.DefaultGameEventListener;
 import de.lighti.Dotalys2App;
+import de.lighti.model.AppState.GameState;
+import de.lighti.model.Entity;
+import de.lighti.model.Property;
 import de.lighti.model.Statics;
 import de.lighti.model.game.Player;
 import de.lighti.model.state.ParseState;
 
 public class GeneralGameStateTracker extends DefaultGameEventListener {
     private final Dotalys2App app;
+    private GameState lastSeenGameState;
 
     public GeneralGameStateTracker( Dotalys2App app ) {
         this.app = app;
+        lastSeenGameState = GameState.DOTA_GAMERULES_STATE_INIT; //See comment in entityUpdated
+    }
+
+    @Override
+    public <T> void entityUpdated( long tickMs, Entity e, String name, T oldValue ) {
+        super.entityUpdated( tickMs, e, name, oldValue );
+
+        /*
+         * The intended order of GameState the game is supposed to go through is:
+         * DOTA_GAMERULES_STATE_INIT
+         * DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD
+         * DOTA_GAMERULES_STATE_HERO_SELECTION
+         * DOTA_GAMERULES_STATE_PRE_GAME
+         * DOTA_GAMERULES_STATE_GAME_IN_PROGRESS
+         * DOTA_GAMERULES_STATE_POST_GAME
+         * (You can see that if you turn up the verbosity in the game's console while playing))
+         * For some reason unknown to me, the GameRulesProxy entity is cycling between DOTA_GAMERULES_STATE_INIT/DOTA_GAMERULES_STATE_GAME_IN_PROGRESS
+         * while the game runs. To avoid log clutter, I only accept non-DOTA_GAMERULES_STATE_INIT states as new.
+         *
+         */
+        if (tickMs > 0l && e.getEntityClass().getName().equals( "CDOTAGamerulesProxy" )) {
+            final Property<Integer> p = e.getProperty( "DT_DOTAGamerules.m_nGameState" );
+            final GameState s = GameState.fromInternal( p.getValue() );
+            if (s != lastSeenGameState && s != GameState.DOTA_GAMERULES_STATE_INIT) {
+                app.getAppState().addGameStateChange( s, tickMs );
+                lastSeenGameState = s;
+            }
+        }
     }
 
     @Override
@@ -54,6 +86,9 @@ public class GeneralGameStateTracker extends DefaultGameEventListener {
 
         //Now fire up the application
         app.getMainView().setEnabled( true );
+
+        //Clean up
+        lastSeenGameState = null;
 
     }
 
