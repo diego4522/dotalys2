@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.logging.Logger;
 
 import de.lighti.model.game.Ability;
 import de.lighti.model.game.Dota2Item;
@@ -13,6 +14,49 @@ import de.lighti.model.game.Hero;
 import de.lighti.model.game.Player;
 
 public class AppState {
+    public enum GameState {
+        DOTA_GAMERULES_STATE_DISCONNECT,
+        /**
+         * This state is reached after the 1 minute game time mark, when the horn sounds
+         */
+        DOTA_GAMERULES_STATE_GAME_IN_PROGRESS,
+
+        /**
+         * After loading is complete, the game switches into whatever hero selection mode this game has
+         */
+        DOTA_GAMERULES_STATE_HERO_SELECTION, DOTA_GAMERULES_STATE_INIT, DOTA_GAMERULES_STATE_LAST, DOTA_GAMERULES_STATE_POST_GAME, DOTA_GAMERULES_STATE_PRE_GAME, DOTA_GAMERULES_STATE_STRATEGY_TIME, DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD;
+
+        /**
+         * These values are taken from the game's DOTA_GameState struct
+         * @param id
+         * @return
+         */
+        public static GameState fromInternal( int id ) {
+            switch (id) {
+                case 7:
+                    return DOTA_GAMERULES_STATE_DISCONNECT;
+                case 5:
+                    return DOTA_GAMERULES_STATE_GAME_IN_PROGRESS;
+                case 2:
+                    return DOTA_GAMERULES_STATE_HERO_SELECTION;
+                case 0:
+                    return DOTA_GAMERULES_STATE_INIT;
+                case 9:
+                    return DOTA_GAMERULES_STATE_LAST;
+                case 6:
+                    return DOTA_GAMERULES_STATE_POST_GAME;
+                case 4:
+                    return DOTA_GAMERULES_STATE_PRE_GAME;
+                case 3:
+                    return DOTA_GAMERULES_STATE_STRATEGY_TIME;
+                case 1:
+                    return DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD;
+                default:
+                    throw new IllegalArgumentException();
+            }
+        }
+    }
+
     public static String getAbilityName( String key ) {
         if (key != null) {
 
@@ -56,6 +100,8 @@ public class AppState {
         }
     }
 
+    private final static Logger LOGGER = Logger.getLogger( AppState.class.getName() );
+
     public TreeMap<Long, Map<String, Object>> gameEventsPerMs = new TreeMap<Long, Map<String, Object>>();
     //    private final SortedMap<String, Player> players = new TreeMap<String, Player>();
     private final Set<Player> players;
@@ -63,8 +109,8 @@ public class AppState {
     private final Set<String> playerVariables;
     private final Map<Integer, Hero> heroes;
     private final TreeMap<Long, Map<Integer, Dota2Item>> items;
-
     private final TreeMap<Long, Map<Integer, Ability>> abilities;
+    private final TreeMap<GameState, Long> gameStateChanges;
 
     private final static Map<String, String> heroNames;
 
@@ -85,6 +131,8 @@ public class AppState {
         abilities = new TreeMap<Long, Map<Integer, Ability>>();
         abilities.put( 0l, new HashMap<Integer, Ability>() );
         players = new HashSet<Player>();
+        gameStateChanges = new TreeMap<GameState, Long>();
+        clear();
     }
 
     public void addAbility( long tick, int id, String ability ) {
@@ -95,6 +143,15 @@ public class AppState {
         }
         i.put( id, new Ability( ability ) );
 
+    }
+
+    public void addGameStateChange( GameState s, Long l ) {
+        if (gameStateChanges.containsKey( s ) && gameStateChanges.get( s ) < l) {
+            LOGGER.warning( "We already seen state " + s + " with a different time mark " + l
+                            + ". not sure if the game can cycle through seen states. Discarding new value." );
+            return;
+        }
+        gameStateChanges.put( s, l );
     }
 
     public void addItem( long tick, int id, String value ) {
@@ -126,6 +183,8 @@ public class AppState {
         abilities.clear();
         abilities.put( 0l, new HashMap<Integer, Ability>() );
         players.clear();
+        gameStateChanges.clear();
+        gameStateChanges.put( GameState.DOTA_GAMERULES_STATE_INIT, 0l );
     }
 
     public Ability getAbility( long tick, int value ) {
@@ -153,8 +212,26 @@ public class AppState {
         return gameEventsPerMs.lastKey();
     }
 
+    /**
+     * Returns the ms (in replay time) when a certain game state was entered.
+     *
+     * @param s the game state
+     * @return the time since server start, null if that game state was never reached.
+     */
+    public Long getGameStateTime( GameState s ) {
+        return gameStateChanges.get( s );
+    }
+
     public Hero getHero( int value ) {
         return heroes.get( value );
+    }
+
+    /**
+     * The horn time in replay time (ms)
+     * @return aka game start time (one minute after hero spawn)
+     */
+    public long getHornTime() {
+        return getGameStateTime( GameState.DOTA_GAMERULES_STATE_GAME_IN_PROGRESS );
     }
 
     /**
